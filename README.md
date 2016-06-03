@@ -1,3 +1,4 @@
 # p5_spanish
 
-processing and p5 documentation in spanish
+p5js.org translation to spanish
+by aaron montoya-moraga
