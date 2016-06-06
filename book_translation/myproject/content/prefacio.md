@@ -4,31 +4,30 @@ p5.j está inspirado y guiado por otro proyecto, que empezó hace 15 años. En e
 Con Processing, Ben y Casey estaban buscando una mejor manera de probar sus ideas en código, en vez de solo conversarlas o pasar demasiado tiempo programándolas en C++. Su otro objetivo era construir un lenguaje para enseñar cómo programar a estudiantes de diseño y de arte y también brindarles una manera más fácil de trabajar con gráficas a estudiantes más avanzados. Esta combinación es una desviación positiva de la manera en que comúnmente se enseña programación. Los nuevos usuarios empiezan concentrándose en gráficas e interacción en vez de estructuras de datos y resultados en forma de texto en la consola.
 A través de los años, Processing se ha transformado en una gran comunidad. Es usado en salas de clases en todo el mundo, en planes de estudios de artes, humanidades y ciencias de la computación, además de profesionales.
 Hace dos años, Ben y Casey se me acercaron con una pregunta: ¿cómo se vería Processing si funcionara en la web? p5.js empieza con el objetivo original de Processing, hacer que programar sea accesible para artistas, diseñadores, educadores y principiantes, y luego lo reinterpreta para la web actual usando Javascript y HTML.
+El desarrollo de p5.js ha sido como acercar mundos distintos. Para facilitar la transición a la Web de los usuarios de la existente comunidad de Processing, nos adherimos a la sintaxis y a las convenciones de Processing tanto como fuera posible. Sin embargo, p5.js está construido con Javascript, mientras que Processing está construido con un lenguaje llamado Java. Estos dos lenguajes tienen distintos patrones y funciones, así que a en ocasiones nos tuvimos que desviar de la sintaxis de Processing. También fue importante que p5.js fuera integrado sin problemas a las existentes características, herramientas y marcos de la web, para atraer usuarios familiarizados con la web pero novatos en programación creativa. Sintetizar todos estos factores fue un gran desafío, pero el objetivo de unir estos marcos proporcionó un camino claro a seguir en el desarrollo de p5.js.
+Una primera versión beta fue lanzada en agosto del 2014. Desde ese entonces, ha sido usado e integrado a programas de estudios en todo el mundo. Existe un editor oficial de p5.js que está actualmente en desarrollo, y ya se ha avanzado en muchas nuevas características y librerías.
 
-## Internal links
+p5.js es un esfuerzo comunitario - cientos de personas han contribuido funciones esenciales, soluciones a errores, ejemplos, diseño, reflexiones y discusión. Pretendemos continuar la visión y el espíritu de la comunidad de Processing mientras la abrimos aún más en la Web.
 
-You can link to other files simply by making an internal [link](#second-chapter-id). The build process will automatically search for this ID in all files, and append the filename if needed for the particular format.
+# Cómo este libro está organizado
 
-## Images
+Los capítulos de este libro están organizados de la siguiente manera:
 
-You can insert images simply by adding an image tag with the name of the image. This will look for an image located in `images/bruce.jpg`, but you can easily change this location if you want.
+# Para quién es este libro
 
-![Picture of Bruce Springsteen](bruce.jpg)
+Este libro fue escrito para personas que quieren crear imágenes y programas interactivos simples a través de una casual y concisa introducción a la programación de computadores. Es para personas que quieren una ayuda para entender los miles de ejemplos de código en p5.js y los manuales de referencia disponibles en la web de manera gratuita. Introducción a p5.js no es un libro de referencia sobre programación. Como el título sugiere, te hará una introducción. Es para adolescentes, entusiastas, abuelos, y cualquier persona entremedio.
+Este libro es apropiado también para personas con experiencia en programación que quieren aprender los conceptos básicos sobre gráficas de computador interactivas. Introducció a p5.js contiene técnicas que pueden ser aplicadas a crear juegos, animaciones e interfaces.
 
-## Code examples
+#Convenciones usadas en este libro
 
-Code examples can be written using the markdown syntax, and they
-will automatically be converted to HTMLBook programlistings. Here's an
-example of using the `console.log` function.
+Las siguientes convenciones tipográficas son usadas en este libro:
 
-```js
-console.log("hello");
-```
+#Usando los ejemplos de código
 
-## Footnotes
+El material complementario (ejemplos de código, ejercicios, etc.) está disponble para descarga.
 
-You can also write footnotes using the Markdown syntax^[They are great], or the HTMLBook syntax<span data-type="footnote">They are great too</span>.
+#Agradecimientos
 
-Then you use the following `footnotes` liquid tag to insert the footnote references on the page. This is often done at the bottom of the page.
+Le agradecemos a Brian Jepson y Anna Kaziunas France por su gran energía, apoyo y visión.ç
 
-{{ footnotes }}
+No nos imaginamos este libro sin el ejemplo de Introducción a Arduino de Massimo Banzi. Este excelente libro de Massimo es el prototipo.
