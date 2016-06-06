@@ -37,8 +37,18 @@ translation of main pages of p5.js website
 
 ## mon june 06th 2016
 
+run on my machine the i18n website of last year hosted at mayaman's github
+
 mailed with design department of universidad de chile
 
-mailed with universidad diego portales, universidad metropolitana de ciencias de la educacion
+contacted the following:
 
-run on my machine the i18n website of last year hosted at mayaman's github
+design department of universidad de chile
+
+teacher at universidad diego portales
+
+friend studied at universidad metropolitana de ciencias de la educacion
+
+ex worker from centro cultural gabriela mistral
+
+workshop management at santiago makerspace
