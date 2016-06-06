@@ -9,25 +9,25 @@ Una primera versión beta fue lanzada en agosto del 2014. Desde ese entonces, ha
 
 p5.js es un esfuerzo comunitario - cientos de personas han contribuido funciones esenciales, soluciones a errores, ejemplos, diseño, reflexiones y discusión. Pretendemos continuar la visión y el espíritu de la comunidad de Processing mientras la abrimos aún más en la Web.
 
-# Cómo este libro está organizado
+## Cómo este libro está organizado
 
 Los capítulos de este libro están organizados de la siguiente manera:
 
-# Para quién es este libro
+## Para quién es este libro
 
 Este libro fue escrito para personas que quieren crear imágenes y programas interactivos simples a través de una casual y concisa introducción a la programación de computadores. Es para personas que quieren una ayuda para entender los miles de ejemplos de código en p5.js y los manuales de referencia disponibles en la web de manera gratuita. Introducción a p5.js no es un libro de referencia sobre programación. Como el título sugiere, te hará una introducción. Es para adolescentes, entusiastas, abuelos, y cualquier persona entremedio.
 Este libro es apropiado también para personas con experiencia en programación que quieren aprender los conceptos básicos sobre gráficas de computador interactivas. Introducció a p5.js contiene técnicas que pueden ser aplicadas a crear juegos, animaciones e interfaces.
 
-#Convenciones usadas en este libro
+## Convenciones usadas en este libro
 
 Las siguientes convenciones tipográficas son usadas en este libro:
 
-#Usando los ejemplos de código
+## Usando los ejemplos de código
 
 El material complementario (ejemplos de código, ejercicios, etc.) está disponble para descarga.
 
-#Agradecimientos
+## Agradecimientos
 
-Le agradecemos a Brian Jepson y Anna Kaziunas France por su gran energía, apoyo y visión.ç
+Le agradecemos a Brian Jepson y Anna Kaziunas France por su gran energía, apoyo y visión.
 
 No nos imaginamos este libro sin el ejemplo de Introducción a Arduino de Massimo Banzi. Este excelente libro de Massimo es el prototipo.

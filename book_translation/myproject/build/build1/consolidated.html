@@ -14,7 +14,7 @@
   <ol>
 <li>
   <a href="#prefacio-qeXbILJ">Prefacio</a>
-</li>
+  <ol>
 <li>
   <a href="#como-este-libro-esta-organizado-ve7OI8e">Cómo este libro está organizado</a>
 </li>
@@ -22,7 +22,64 @@
   <a href="#para-quien-es-este-libro-AMaLIOJ">Para quién es este libro</a>
 </li>
 <li>
+  <a href="#convenciones-usadas-en-este-libro-be9RI2G">Convenciones usadas en este libro</a>
+</li>
+<li>
+  <a href="#usando-los-ejemplos-de-codigo-WeDYIzG">Usando los ejemplos de código</a>
+</li>
+<li>
+  <a href="#agradecimientos-2Mv3IBe">Agradecimientos</a>
+</li>
+  </ol>
+</li>
+<li>
   <a href="#capitulo-1-hola-GWM5t9W">Capítulo 1. Hola</a>
+  <ol>
+<li>
+  <a href="#bosquejo-y-prototipado-PV9EtKV">Bosquejo y prototipado</a>
+</li>
+<li>
+  <a href="#flexibilidad-8AE2t3J">Flexibilidad</a>
+</li>
+<li>
+  <a href="#gigantes-nVwztpW">Gigantes</a>
+</li>
+<li>
+  <a href="#arbol-famiiliar-ZJ02tEV">Árbol famiiliar</a>
+</li>
+<li>
+  <a href="#unete-yWXgt4J">Únete</a>
+</li>
+  </ol>
+</li>
+<li>
+  <a href="#capitulo-2-empezando-a-programar-M7A1SK7">Capítulo 2. Empezando a programar</a>
+  <ol>
+<li>
+  <a href="#ambiente-5xKYSzE">Ambiente</a>
+</li>
+<li>
+  <a href="#descarga-y-configuracion-de-archivos-KxrySkW">Descarga y configuración de archivos</a>
+</li>
+<li>
+  <a href="#tu-primer-programa-yxmMS0x">Tu primer programa</a>
+</li>
+<li>
+  <a href="#ejemplo-2-1-dibuja-una-elipse-0xL0Sex">Ejemplo 2-1: dibuja una elipse</a>
+</li>
+<li>
+  <a href="#ejemplo-2-2-hacer-circulos-bWJySkE">Ejemplo 2-2: hacer círculos</a>
+</li>
+<li>
+  <a href="#la-consola-2WM9SVW">La consola</a>
+</li>
+<li>
+  <a href="#creando-un-nuevo-proyecto-R7jgSQE">Creando un nuevo proyecto</a>
+</li>
+<li>
+  <a href="#ejemplos-y-referencia-Xx8XSdx">Ejemplos y referencia</a>
+</li>
+  </ol>
 </li>
   </ol>
 </nav>
@@ -36,33 +93,81 @@ Hace dos a&#xF1;os, Ben y Casey se me acercaron con una pregunta: &#xBF;c&#xF3;m
 El desarrollo de p5.js ha sido como acercar mundos distintos. Para facilitar la transici&#xF3;n a la Web de los usuarios de la existente comunidad de Processing, nos adherimos a la sintaxis y a las convenciones de Processing tanto como fuera posible. Sin embargo, p5.js est&#xE1; construido con Javascript, mientras que Processing est&#xE1; construido con un lenguaje llamado Java. Estos dos lenguajes tienen distintos patrones y funciones, as&#xED; que a en ocasiones nos tuvimos que desviar de la sintaxis de Processing. Tambi&#xE9;n fue importante que p5.js fuera integrado sin problemas a las existentes caracter&#xED;sticas, herramientas y marcos de la web, para atraer usuarios familiarizados con la web pero novatos en programaci&#xF3;n creativa. Sintetizar todos estos factores fue un gran desaf&#xED;o, pero el objetivo de unir estos marcos proporcion&#xF3; un camino claro a seguir en el desarrollo de p5.js.
 Una primera versi&#xF3;n beta fue lanzada en agosto del 2014. Desde ese entonces, ha sido usado e integrado a programas de estudios en todo el mundo. Existe un editor oficial de p5.js que est&#xE1; actualmente en desarrollo, y ya se ha avanzado en muchas nuevas caracter&#xED;sticas y librer&#xED;as.</p>
 <p>p5.js es un esfuerzo comunitario - cientos de personas han contribuido funciones esenciales, soluciones a errores, ejemplos, dise&#xF1;o, reflexiones y discusi&#xF3;n. Pretendemos continuar la visi&#xF3;n y el esp&#xED;ritu de la comunidad de Processing mientras la abrimos a&#xFA;n m&#xE1;s en la Web.</p>
-</section><section data-type="chapter" id="como-este-libro-esta-organizado-ve7OI8e"><h1>C&#xF3;mo este libro est&#xE1; organizado</h1>
+<section data-type="sect1" id="como-este-libro-esta-organizado-ve7OI8e"><h1>C&#xF3;mo este libro est&#xE1; organizado</h1>
 <p>Los cap&#xED;tulos de este libro est&#xE1;n organizados de la siguiente manera:</p>
-</section><section data-type="chapter" id="para-quien-es-este-libro-AMaLIOJ"><h1>Para qui&#xE9;n es este libro</h1>
+</section><section data-type="sect1" id="para-quien-es-este-libro-AMaLIOJ"><h1>Para qui&#xE9;n es este libro</h1>
 <p>Este libro fue escrito para personas que quieren crear im&#xE1;genes y programas interactivos simples a trav&#xE9;s de una casual y concisa introducci&#xF3;n a la programaci&#xF3;n de computadores. Es para personas que quieren una ayuda para entender los miles de ejemplos de c&#xF3;digo en p5.js y los manuales de referencia disponibles en la web de manera gratuita. Introducci&#xF3;n a p5.js no es un libro de referencia sobre programaci&#xF3;n. Como el t&#xED;tulo sugiere, te har&#xE1; una introducci&#xF3;n. Es para adolescentes, entusiastas, abuelos, y cualquier persona entremedio.
 Este libro es apropiado tambi&#xE9;n para personas con experiencia en programaci&#xF3;n que quieren aprender los conceptos b&#xE1;sicos sobre gr&#xE1;ficas de computador interactivas. Introducci&#xF3; a p5.js contiene t&#xE9;cnicas que pueden ser aplicadas a crear juegos, animaciones e interfaces.</p>
-<p>#Convenciones usadas en este libro</p>
+</section><section data-type="sect1" id="convenciones-usadas-en-este-libro-be9RI2G"><h1>Convenciones usadas en este libro</h1>
 <p>Las siguientes convenciones tipogr&#xE1;ficas son usadas en este libro:</p>
-<p>#Usando los ejemplos de c&#xF3;digo</p>
+</section><section data-type="sect1" id="usando-los-ejemplos-de-codigo-WeDYIzG"><h1>Usando los ejemplos de c&#xF3;digo</h1>
 <p>El material complementario (ejemplos de c&#xF3;digo, ejercicios, etc.) est&#xE1; disponble para descarga.</p>
-<p>#Agradecimientos</p>
-<p>Le agradecemos a Brian Jepson y Anna Kaziunas France por su gran energ&#xED;a, apoyo y visi&#xF3;n.&#xE7;</p>
+</section><section data-type="sect1" id="agradecimientos-2Mv3IBe"><h1>Agradecimientos</h1>
+<p>Le agradecemos a Brian Jepson y Anna Kaziunas France por su gran energ&#xED;a, apoyo y visi&#xF3;n.</p>
 <p>No nos imaginamos este libro sin el ejemplo de Introducci&#xF3;n a Arduino de Massimo Banzi. Este excelente libro de Massimo es el prototipo.</p>
-</section>
+</section></section>
 <section data-type="chapter" id="capitulo-1-hola-GWM5t9W"><h1>Cap&#xED;tulo 1. Hola</h1>
 <p>p5.js sirve para escribir software que produce im&#xE1;genes, animaciones e interacciones. La intenci&#xF3;n es escribir una l&#xED;nea de c&#xF3;diga y que un c&#xED;rculo aparezca en la pantalla. A&#xF1;ade unas pocas l&#xED;neas de c&#xF3;digo, y ahora el c&#xED;rculo sigue al rat&#xF3;n. Otra l&#xED;nea de c&#xF3;digo, y el c&#xED;rculo cambia de color cuando presionas el rat&#xF3;n. Le llamamos a esto bosquejar con c&#xF3;digo. T&#xFA; escribes una l&#xED;nea, luego a&#xF1;ades otra, luego otra, y as&#xED;. El resultado es el programa creado una pieza a la vez.
 Los cursos de programaci&#xF3;n t&#xED;picamente se enfocan primero en estructura y teor&#xED;a. Cualquier aspecto visual - una interfaz, una animaci&#xF3;n - es considerado un postre que solo puede ser disfrutado despu&#xE9;s de que terminas de comer tus vegetales, equivalente a varias semanas de estudiar algoritmos y m&#xE9;todos. A trav&#xE9;s de los a&#xF1;os, hemos visto a muchos amigos tratar de tomar estos cursos, para luego abandonarlos despu&#xE9;s de la primera sesi&#xF3;n o despu&#xE9;s de una muy larga y frustrante noche previa a la entrega de la primera tarea. Toda curiosidad inicial que ten&#xED;an sobre hacer que el computador trabaje para ellos es perdida porque no pueden ver un camino claro entre lo que tienen que aprender al principio y lo que quieren crear.</p>
 <p>p5.js ofrece una manera de programar a trav&#xE9;s de la creaci&#xF3;n de gr&#xE1;ficas interactivas. Hay muchas maneras posibles de ense&#xF1;ar c&#xF3;digo, pero los estudiantes usualmente encuentran apoyo y motivaci&#xF3;n en retroalimentaci&#xF3;n visual inmediata. p5.js provee esta retroalimentaci&#xF3;n, y su &#xE9;nfasis en im&#xE1;genes, prototipado y comunidad es discutido en las siguientes p&#xE1;ginas.</p>
-<p>#Bosquejo y prototipado</p>
+<section data-type="sect1" id="bosquejo-y-prototipado-PV9EtKV"><h1>Bosquejo y prototipado</h1>
 <p>Bosquejar es una manera de pensar, es juguet&#xF3;n y r&#xE1;pido. El objetivo b&#xE1;sico es explorar muchas ideas en un corto periodo de tiempo. En nuestro propio trabajo, usualmente empezamos bosquejando en papel y luego trasladando nuestros resultados a c&#xF3;digo. Las ideas para animaci&#xF3;n e interacci&#xF3;n son usualmente bosquejadas como un gui&#xF3;n gr&#xE1;fico con anotaciones. Despu&#xE9;s de hacer algunos bosquejos en software, las mejores ideas son seleccionadas y combinadas en prototipos. Es un proceso c&#xED;clico de hacer, probar y mejorar que va y viene entre papel y pantalla.</p>
-<p>#Flexibilidad</p>
+</section><section data-type="sect1" id="flexibilidad-8AE2t3J"><h1>Flexibilidad</h1>
 <p>Tal como un cintur&#xF3;n de herramientas para software, p5.js consiste de muchas herramientas que funcionan juntas en diversas combinaciones. Como resultado, puede ser usado para exploraciones r&#xE1;pidas o para investigaci&#xF3;n en profundidad. Porque un programa hecho con p5.js puede ser tan corto como unas pocas l&#xED;neas de c&#xF3;digo o tan largo como miles, existe espacio para crecimiento y variaci&#xF3;n. Las librer&#xED;as de p5.js lo extienden a otros dominios incluyendo trabajar con sonido y la adici&#xF3;n de botones, barras deslizadoras, cajas de entrada y captura de c&#xE1;mara con HTML.</p>
-<p>#Gigantes
-Las personas han estado haciendo im&#xE1;genes con computadores desde los a&#xF1;os 1960s, y hay mucho que podemos aprender de esta historia. Por ejemplo, antes de que los computadores pudieran proyectar a pantallas CRT o LCd, se usaban grandes m&#xE1;quinas trazadoras para dibujar las im&#xE1;genes. En la vida, todos nos paramos sobre hombros de gigantes, y los titanes para p5.js incluyen pensadores del dise&#xF1;o, gr&#xE1;fica computacional, arte, arquitectura, estad&#xED;stica y disciplinas intermedias. Dale un vistazo a Sketchpad (1963) por Ivan Sutherland, Dynabook (1968) por Alan Kay y otros artistas destacados en Artist and Computer (Harmony Books, 1976) por Ruth Leavitt. El ACM SIGGRAPH y Ars Electronica brindan atisbos fascinantes en la historia de la gr&#xE1;fica y el software.</p>
-<p>#&#xC1;rbol famiiliar</p>
+</section><section data-type="sect1" id="gigantes-nVwztpW"><h1>Gigantes</h1>
+<p>Las personas han estado haciendo im&#xE1;genes con computadores desde los a&#xF1;os 1960s, y hay mucho que podemos aprender de esta historia. Por ejemplo, antes de que los computadores pudieran proyectar a pantallas CRT o LCd, se usaban grandes m&#xE1;quinas trazadoras para dibujar las im&#xE1;genes. En la vida, todos nos paramos sobre hombros de gigantes, y los titanes para p5.js incluyen pensadores del dise&#xF1;o, gr&#xE1;fica computacional, arte, arquitectura, estad&#xED;stica y disciplinas intermedias. Dale un vistazo a Sketchpad (1963) por Ivan Sutherland, Dynabook (1968) por Alan Kay y otros artistas destacados en Artist and Computer (Harmony Books, 1976) por Ruth Leavitt. El ACM SIGGRAPH y Ars Electronica brindan atisbos fascinantes en la historia de la gr&#xE1;fica y el software.</p>
+</section><section data-type="sect1" id="arbol-famiiliar-ZJ02tEV"><h1>&#xC1;rbol famiiliar</h1>
 <p>Como los lenguajes humanos, los lenguajes de programaci&#xF3;n pertenecen a familias de lenguajes relacionados. p5.js es un dialecto de un lenguaje de programaci&#xF3;n llamado Javascript. La sintaxis del lenguaje es casi id&#xE9;ntica, pero p5.js a&#xF1;ade caracter&#xED;sticas personalizadas relacionadas a gr&#xE1;ficas e interacci&#xF3;n y provee un acceso simple a caracter&#xED;sticas de HTML5 nativas que ya est&#xE1;n soportadas por los navegadores web. Por estas caracter&#xED;sticas compartidas, aprender p5.js es un paso &#xFA;til para aprender a programar en otros lenguajes y usar otras herramientas computacionales.</p>
-<p>#&#xDA;nete</p>
+</section><section data-type="sect1" id="unete-yWXgt4J"><h1>&#xDA;nete</h1>
 <p>Miles de personas usan p5.js cada d&#xED;a. Como ellos, t&#xFA; puedes descargar p5.js gratuitamente. Incluso tienes la opci&#xF3;n de modificar el c&#xF3;digo de p5.js para que se adapte a tus necesidades. p5.js es un proyecto FLOSS (esto es, free/libre/open source software) y en el esp&#xED;ritu de esta comunidad, te alentamos a participar y compartir tus proyectos y tu conocimiento en l&#xED;nea en http://p5js.org.</p>
-</section>
+</section></section>
+<section data-type="chapter" id="capitulo-2-empezando-a-programar-M7A1SK7"><h1>Cap&#xED;tulo 2. Empezando a programar</h1>
+<p>Para sacar el m&#xE1;ximo provecho de este libro, no basta con solo leerlo. Necesitas experimentar y practica. No puedes aprender a programar solamente leyendo - debes hacerlo. Para empezar, descarga p5.js y haz tu primer bosquejo.</p>
+<section data-type="sect1" id="ambiente-5xKYSzE"><h1>Ambiente</h1>
+<p>Primero, necesitar&#xE1;s un editor de c&#xF3;digo. Un editor de c&#xF3;digo es similar a un editor de texto (como Bloc de notas), excepto que tiene una funcionalidad especial para editar c&#xF3;digo en vez de texto plano. Puedes usar cualquier editor que quieras, te recomendamos Atom y Brackets, ambos disponibles para descarga.
+Tambi&#xE9;n existe un editor oficial de p5.js en desarrollo. Si lo quieres usar, lo puedes descargar visitando http://p5js.org/download y seleccionando el bot&#xF3;n que dice &quot;Editor&quot;. Si est&#xE1;s usando el editor de p5.js, puedes saltar a la secci&#xF3;n &quot;Tu primer programa&quot;.</p>
+</section><section data-type="sect1" id="descarga-y-configuracion-de-archivos-KxrySkW"><h1>Descarga y configuraci&#xF3;n de archivos</h1>
+<p>Empieza por visitar http://p5js.org/download y selecciona &quot;p5.js complete&quot;. Tras la descarga, haz doble click en el archivo .zip y arrastra el directorio a alguna ubicaci&#xF3;n en tu disco duro. Puede ser Archivos de programa o Documentos o simplemente tu Escritorio, pero lo importante es que el directorio p5 sea extra&#xED;do de este archivo .zip.
+El directorio p5 contiene un proyecto de ejemplo con el que puedes empezar a trabajar. Abre tu editor de c&#xF3;digo. Luego abre el directorio llamado &quot;empty-example&quot; en tu editor de c&#xF3;digo. En la mayor&#xED;a de los editores de c&#xF3;digo, puedes hacer esto seleccionando en el men&#xFA; Archivo la opci&#xF3;n Abrir, y luego seleccionando &quot;empty-example&quot;. &#xA1;Ahora est&#xE1;s listo para empezar tu primer programa!</p>
+</section><section data-type="sect1" id="tu-primer-programa-yxmMS0x"><h1>Tu primer programa</h1>
+<p>Cuando abras el directorio &quot;empty-example&quot;, lo m&#xE1;s probable es que veas una barra lateral con el nombre del directorio en la parte superior y una lista con los archivos contenidos en este directorio. Si haces click en alguno de estos archivos, ver&#xE1;s los contenidos del archivo aparecer en el &#xE1;rea principal.</p>
+<p>Un bosquejo en p5.js est&#xE1; compuesto de unos cu&#xE1;ntos lenguajes distintos usados en conjunto. HTML (HyperText Markup language) brinda la columna vertebral, enlazando todos los otros elementos en la p&#xE1;gina. Javascript (y la librer&#xED;a p5.js) te permiten crear gr&#xE1;ficas interactivas que puedes mostrar en tu p&#xE1;gina HTML. A veces CSS (Cascading Style Sheets) es usado para definir elementos de estilo en la p&#xE1;gina HTML, pero no cubriremos esta materia en este libro.</p>
+<p>Si revisas el archivo index.html, te dar&#xE1;s cuenta que contiene un poco de c&#xF3;digo HTML. Este archivo brinda la estructura a tu projecto, uniendo la librer&#xED;a p5.js y otro archivo llamado sketch.js, donde t&#xFA; escribiras tu propio programa. El c&#xF3;digo que crea estos enlaces tiene esta apariencia:</p>
+<p>No necesitas hacer nada en el c&#xF3;digo HTML en este momento - ya est&#xE1; configurado para ti. Luego, haz click en sketch.js y revisa el c&#xF3;digo:</p>
+<p>El c&#xF3;digo plantilla contiene dos bloques, o funciones, setup() y draw(). Puedes poner tu c&#xF3;digo en cualquiera de los dos lugares, y cada uno tiene un prop&#xF3;sito espec&#xED;fico.</p>
+<p>Cualquier c&#xF3;digo que est&#xE9; involucrado en la definici&#xF3;n del estado incial de tu programa corresponde al bloque setup(). Por ahora, lo dejaremos vac&#xED;o, pero m&#xE1;s adelante en el libro, a&#xF1;adir&#xE1;s c&#xF3;digo aqu&#xED; para especificar el tama&#xF1;o de tu lienzo para tus gr&#xE1;ficas, el peso de tu trazado o la velocidad de tu programa.</p>
+<p>Cualquier c&#xF3;digo involucrado en realmente dibujar contenido a la pantalla (definir el color de fondo, dibujar figuras, texto o im&#xE1;genes) ser&#xE1; colocado en el bloque draw(). Es aqu&#xED; donde empezar&#xE1;s a escribir tus primeras l&#xED;neas de c&#xF3;digo.</p>
+</section><section data-type="sect1" id="ejemplo-2-1-dibuja-una-elipse-0xL0Sex"><h1>Ejemplo 2-1: dibuja una elipse</h1>
+<p>Entre las llaves del bloque draw(), borra el texto //put drawing code here y reempl&#xE1;zalo con el siguiente:</p>
+<p>background(204;
+ellipse(50, 50, 80, 80);</p>
+<p>Tu programa entero deber&#xE1; verse as&#xED;:</p>
+<p>Esta nueva l&#xED;nea de c&#xF3;digo significa &quot;dibuja una elipse, con su centro 50 pixeles a la derecha desde el extremo izquierdo y 50 pixeles hacia abajo desde el extremo superior, con una altura y un ancho de 80 pixeles&quot;. Graba el c&#xF3;digo presionando Command-S, o desde el men&#xFA; con File-Save.</p>
+<p>Para ver el c&#xF3;digo corriendo, puedes abrir index.html en cualquier navegador web (como Chrome, Firefox o Safari). Navega al directorio &quot;empty-example&quot; en tu explorador de archivos y haz doble click en index.html para abrirlo. Otra alternativa es desde el navegador web, escoger Archivo-Abrir y seleccionar el archivo index.html.</p>
+<p>Si has escrito todo correctamente, deber&#xED;as ver un c&#xED;rculo en tu navegador. Si no lo ves, aseg&#xFA;rate de haber copiado correctamente el c&#xF3;digo de ejemplo. Los n&#xFA;meros tienen que estar entre par&#xE9;ntesis y tener comas entre ellos. La l&#xED;nea debe terminar con un punto coma.</p>
+<p>Una de las cosas m&#xE1;s dif&#xED;ciles sobre empezar a programar es que tienes que ser muy espec&#xED;fico con la sintaxis. El software p5.js no es siempre suficientemente inteligente como para entender lo que quieres decir, y puede ser muy exigente con la puntuaci&#xF3;n. Te acostumbrar&#xE1;s a esto con un poco de pr&#xE1;ctica.</p>
+<p>A continuaci&#xF3;n, avanzaremos para hacer esto un poco m&#xE1;s emocionante.</p>
+</section><section data-type="sect1" id="ejemplo-2-2-hacer-circulos-bWJySkE"><h1>Ejemplo 2-2: hacer c&#xED;rculos</h1>
+<p>Borra el texto del ejemplo anterior, y prueba este. Graba tu c&#xF3;digo, y refresca (Command-R) index.html en tu navegador para verlo actualizado.</p>
+<p>Este programa crea un lienzo para gr&#xE1;ficas que tiene un ancho 480 pixeles y una altura de 120 pixeles, y luego empieza a dibujar c&#xED;rculos blancos en la posici&#xF3;n de tu rat&#xF3;n. Cuando presionas un bot&#xF3;n del rat&#xF3;n, el color del c&#xED;rculo cambia a negro. Explicaremos despu&#xE9;s y en detalle m&#xE1;s de los elementos de este programa. Por ahora, corre el c&#xF3;digo, mueve el rat&#xF3;n y haz click para experimentarlo.</p>
+</section><section data-type="sect1" id="la-consola-2WM9SVW"><h1>La consola</h1>
+<p>El navegador web tiene incluida una consola que puede ser muy &#xFA;til para depurar programas. Cada navegador tiene una manera diferente de abrir la consola. Aqu&#xED; est&#xE1;n las instrucciones sobre c&#xF3;mo hacerlo con los navegadores m&#xE1;s t&#xED;picos:</p>
+<p>Para abrir la consola en Chrome, desde el men&#xFA; superior escoge View-Developer-Javascript Console</p>
+<p>Con Firefox, desde el men&#xFA; superior escoge Tools-Web-Developer-Web Console.</p>
+<p>Usando Safari, necesitar&#xE1;s habilitar la funcionalidad antes de que puedas usarla. Desde el men&#xFA; superior, selecciona Preferencias y luego haz click en la pesta&#xF1;a Avanzado y activa la casilla &quot;Show develop menu in menu bar&quot;. Tras hacer esto, ser&#xE1;s capaz de seleccionar Develop-Show Error Console.</p>
+<p>En Internet Explorer, abre F12 Developer Tools, luego selecciona Console Tool.</p>
+<p>Deber&#xED;as ahora ver un recuadro en la parte inferior o lateral de tu pantalla. Si hay un error de digitaci&#xF3;n, aparecer&#xE1; texto rojo explicando qu&#xE9; error es. Este texto puede a veces ser cr&#xED;ptico, pero si revisas al lado derecho de la l&#xED;nea, estar&#xE1; el nombre del archivo y el n&#xFA;mero de la l&#xED;nea de c&#xF3;digo donde fue detectado el error. Ese es un lugar adecuado donde empezar a buscar errores en tu programa.</p>
+</section><section data-type="sect1" id="creando-un-nuevo-proyecto-R7jgSQE"><h1>Creando un nuevo proyecto</h1>
+<p>Haz creado un bosquejo desde un ejemplo vac&#xED;o, &#xBF;pero c&#xF3;mo creas un nuevo proyecto? La manera m&#xE1;s f&#xE1;cil de hacerlo es ubicando el directorio &quot;empty-example&quot; en tu explorador de archivos y luego copiar y pegarlo para crear un segundo &quot;empty-example&quot;. Puedes renombrar la carpeta a lo que quieras - por ejemplo, Proyecto 2.</p>
+<p>Ahora puedes abrir este directorio en tu editor de c&#xF3;digo y empezar a hacer un nuevo bosquejo. Cuando quieras verlo en el navegador, abre el archivo index.html dentro de tu nuevo directorio Proyecto 2.</p>
+<p>Siemrpe es una buena idea grabar tus bosquejos frecuentemente. Mientras est&#xE1;s probando cosas nuevas, graba tu bosquejo con diferentes nombres (Archivo-Guardar como), para que as&#xED; siempre seas capaz de volver a versiones anteriores. Esto es especialmente &#xFA;til si - o cuando - algo se rompe.</p>
+<p>Nota</p>
+<p>Un error com&#xFA;n es estar editando un proyecto pero estar viendo otro en el navegador web, haciendo que no puedas ver los cambios que has hecho. Si te das cuenta que tu programa se ve igual a pesar de haber hecho cambios a tu c&#xF3;digo, revisa que est&#xE1;s viendo el archivo index.html correcto.</p>
+</section><section data-type="sect1" id="ejemplos-y-referencia-Xx8XSdx"><h1>Ejemplos y referencia</h1>
+<p>Aprender c&#xF3;mo programar con p5.js involucra explorar mucho c&#xF3;digo: correr, alterar, romper y mejorarlo hasta que lo hayas reformulado en algo nuevo. Con esto en mente, el sitio web de p5.js tiene docenas de ejemplos que demuestran diferentes caracter&#xED;sticas de la librer&#xED;a. Visita la pag&#xED;na de Ejemplos para verlos. Puedes jugar con ellos editanto el c&#xF3;digo en la p&#xE1;gina y luego haciendo click en &quot;Run&quot;. Los ejemplos est&#xE1;n agrupados en distintas categor&#xED;as seg&#xFA;n su funci&#xF3;n, como Forma, color, e imagen. Encuentra un tema que te interese en la lista y prueba un ejemplo.</p>
+<p>Si ves una parte del programa con la que no est&#xE1;s familiarizado o sobre la que quieres aprender su funcionalidad, visita la referencia de p5.js.</p>
+<p>La referencia de p5.js explica cada elemento de c&#xF3;digo con una descripci&#xF3;n y ejemplos. Los programas en la Referencia son mucho m&#xE1;s cortos (usualmente cuatro o cinco l&#xED;neas) y m&#xE1;s f&#xE1;ciles de seguir que los ejemplos de la p&#xE1;gina Learn. Ten en cuenta que estos ejemplos usualmente omiten setup() y draw() por simplicidad, pero estas l&#xED;neas de c&#xF3;digo que ves deber&#xE1;n ser puestas dentro de uno de estos bloques para poder se ejecutadas. Recomendamos mantener la p&#xE1;gina de Referencia abierta mientras est&#xE1;s leyendo este libro y mientras est&#xE1;s programando. Puede ser navegada por tema o usando la barra de b&#xFA;squeda en la parte superior de la p&#xE1;gina.</p>
+<p>La Referencia fue escrita con el principiante en mente, esperamos que sea clara y entendible. Estamos muy agradecidos de las personas que han visto errores y los han se&#xF1;alado. Si crees que puedes mejorar una entrada en al referencia o que has encontrado alg&#xFA;n error, por favor haznos saber esto haciendo click en el link en la parte inferior de la p&#xE1;gina de referencia.</p>
+</section></section>
   </body>
 </html>
