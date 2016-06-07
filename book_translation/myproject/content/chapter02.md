@@ -29,7 +29,7 @@ src="sketch.js"></script>
 
 No necesitas hacer nada en el código HTML en este momento - ya está configurado para ti. Luego, haz click en sketch.js y revisa el código:
 
-```
+```javascript
 function setup() {
   // put setup code here
 }
