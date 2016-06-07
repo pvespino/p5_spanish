@@ -20,7 +20,24 @@ Un bosquejo en p5.js está compuesto de unos cuántos lenguajes distintos usados
 
 Si revisas el archivo index.html, te darás cuenta que contiene un poco de código HTML. Este archivo brinda la estructura a tu projecto, uniendo la librería p5.js y otro archivo llamado sketch.js, donde tú escribiras tu propio programa. El código que crea estos enlaces tiene esta apariencia:
 
+```
+<script language="javascript" type="text/javascript"
+src="../p5.js"></script>
+<script language="javascript" type="text/javascript"
+src="sketch.js"></script>
+```
+
 No necesitas hacer nada en el código HTML en este momento - ya está configurado para ti. Luego, haz click en sketch.js y revisa el código:
+
+```
+function setup() {
+  // put setup code here
+}
+
+function draw() {
+  // put drawing code here
+}
+```
 
 El código plantilla contiene dos bloques, o funciones, setup() y draw(). Puedes poner tu código en cualquiera de los dos lugares, y cada uno tiene un propósito específico.
 

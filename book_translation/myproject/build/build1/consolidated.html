@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    
+    <script src="assets/scripts.js"></script>
+
     <link rel="stylesheet" href="assets/pdf.css">
 
   </head>
@@ -238,7 +239,20 @@ El directorio p5 contiene un proyecto de ejemplo con el que puedes empezar a tra
 <p>Cuando abras el directorio &quot;empty-example&quot;, lo m&#xE1;s probable es que veas una barra lateral con el nombre del directorio en la parte superior y una lista con los archivos contenidos en este directorio. Si haces click en alguno de estos archivos, ver&#xE1;s los contenidos del archivo aparecer en el &#xE1;rea principal.</p>
 <p>Un bosquejo en p5.js est&#xE1; compuesto de unos cu&#xE1;ntos lenguajes distintos usados en conjunto. HTML (HyperText Markup language) brinda la columna vertebral, enlazando todos los otros elementos en la p&#xE1;gina. Javascript (y la librer&#xED;a p5.js) te permiten crear gr&#xE1;ficas interactivas que puedes mostrar en tu p&#xE1;gina HTML. A veces CSS (Cascading Style Sheets) es usado para definir elementos de estilo en la p&#xE1;gina HTML, pero no cubriremos esta materia en este libro.</p>
 <p>Si revisas el archivo index.html, te dar&#xE1;s cuenta que contiene un poco de c&#xF3;digo HTML. Este archivo brinda la estructura a tu projecto, uniendo la librer&#xED;a p5.js y otro archivo llamado sketch.js, donde t&#xFA; escribiras tu propio programa. El c&#xF3;digo que crea estos enlaces tiene esta apariencia:</p>
+<pre data-type="programlisting"><code>&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;
+src=&quot;../p5.js&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;
+src=&quot;sketch.js&quot;&gt;&lt;/script&gt;
+</code></pre>
 <p>No necesitas hacer nada en el c&#xF3;digo HTML en este momento - ya est&#xE1; configurado para ti. Luego, haz click en sketch.js y revisa el c&#xF3;digo:</p>
+<pre data-type="programlisting"><code>function setup() {
+  // put setup code here
+}
+
+function draw() {
+  // put drawing code here
+}
+</code></pre>
 <p>El c&#xF3;digo plantilla contiene dos bloques, o funciones, setup() y draw(). Puedes poner tu c&#xF3;digo en cualquiera de los dos lugares, y cada uno tiene un prop&#xF3;sito espec&#xED;fico.</p>
 <p>Cualquier c&#xF3;digo que est&#xE9; involucrado en la definici&#xF3;n del estado incial de tu programa corresponde al bloque setup(). Por ahora, lo dejaremos vac&#xED;o, pero m&#xE1;s adelante en el libro, a&#xF1;adir&#xE1;s c&#xF3;digo aqu&#xED; para especificar el tama&#xF1;o de tu lienzo para tus gr&#xE1;ficas, el peso de tu trazado o la velocidad de tu programa.</p>
 <p>Cualquier c&#xF3;digo involucrado en realmente dibujar contenido a la pantalla (definir el color de fondo, dibujar figuras, texto o im&#xE1;genes) ser&#xE1; colocado en el bloque draw(). Es aqu&#xED; donde empezar&#xE1;s a escribir tus primeras l&#xED;neas de c&#xF3;digo.</p>
