@@ -1,90 +1,155 @@
 # Capítulo 3. Dibuja
 
-Para sacar el máximo provecho de este libro, no basta con solo leerlo. Necesitas experimentar y practica. No puedes aprender a programar solamente leyendo - debes hacerlo. Para empezar, descarga p5.js y haz tu primer bosquejo.
+Al principio, dibujar en una pantalla de computador es como trabajar en papel cuadriculado. Parte como un procedimiento técnico cuidadoso, pero a medida que se introducen nuevos conceptos, dibujar formas simples con software se transforma en trabajar con animación e interacción. Antes de que hagamos este salto, tenemos que empezar por el principio.
 
-## Ambiente
+Una pantalla de computador es una matriz de elementos de luz llamados pixeles. Cada pixel tiene una posición dentro de la matriz definida por coordenadas. Cuando creas un bosquejo en p5.js, lo puedes visualizar con un navegador web. Dentro de la ventana del navegador, p5.js create un lienzo para dibujar, un área en la que se dibujan las gráficas. El lienzo puede ser del mismo tamaño que la ventana, o puede tener dimensiones distintas. El lienzo está usualmente posicionado en la esquina superior izquierda de tu ventana, pero lo puedes posicionar en otros lugares.
 
-Primero, necesitarás un editor de código. Un editor de código es similar a un editor de texto (como Bloc de notas), excepto que tiene una funcionalidad especial para editar código en vez de texto plano. Puedes usar cualquier editor que quieras, te recomendamos Atom y Brackets, ambos disponibles para descarga.
-También existe un editor oficial de p5.js en desarrollo. Si lo quieres usar, lo puedes descargar visitando http://p5js.org/download y seleccionando el botón que dice "Editor". Si estás usando el editor de p5.js, puedes saltar a la sección "Tu primer programa".
+Cuando dibujas en el lienzo, la coordenada x es la distancia desde el borde izquierdo del lienzo y la coordenada y es la distancia desde el borde superior. Escribimos las coordenadas de un pixel así (x,y). Así que, si el lienzo es de 200 x 200 pixeles, la esquina superior izquierda es (0,0), el centro está en (100, 100) y la esquina inferior derecha es (199, 199). Estos números pueden parecer confusos, ¿por qué contamos de 0 a 199 en vez de 1 a 200? La respuesta es que en programación, usualmente contamos partiendo en 0 por qué es más fácil así hacer cálculos que veremos más adelante.
 
-## Descarga y configuración de archivos
+## El lienzo
 
-Empieza por visitar http://p5js.org/download y selecciona "p5.js complete". Tras la descarga, haz doble click en el archivo .zip y arrastra el directorio a alguna ubicación en tu disco duro. Puede ser Archivos de programa o Documentos o simplemente tu Escritorio, pero lo importante es que el directorio p5 sea extraído de este archivo .zip.
-El directorio p5 contiene un proyecto de ejemplo con el que puedes empezar a trabajar. Abre tu editor de código. Luego abre el directorio llamado "empty-example" en tu editor de código. En la mayoría de los editores de código, puedes hacer esto seleccionando en el menú Archivo la opción Abrir, y luego seleccionando "empty-example". ¡Ahora estás listo para empezar tu primer programa!
+El lienzo es creato y las imágenes son dibujadas dentro de él a través de elementos de código llamados funciones. Las funciones son el bloque fundamental de un programa en p5.js. El comportamiento de una función está definido por sus parámetros. Por ejemplo, casi todos los programas en p5.js tienen una función createCanvas() que crea un lienzo para dibujar con un ancho y una altura específicos. Si tu programa no tiene una función createCanvas(), el lienzo creado por defecto tiene dimensiones de 100x100 pixeles.
 
-## Tu primer programa
+## Ejemplo 3-1: crea un lienzo
 
-Cuando abras el directorio "empty-example", lo más probable es que veas una barra lateral con el nombre del directorio en la parte superior y una lista con los archivos contenidos en este directorio. Si haces click en alguno de estos archivos, verás los contenidos del archivo aparecer en el área principal.
+La función createCanvas() tiene dos parámetros, el primero define el ancho del lienzo para dibujar, el segundo define la altura. Para dibujar un lienzo que es de 800 pixeles de ancho y 600 pixeles de altura, escribe:
 
-Un bosquejo en p5.js está compuesto de unos cuántos lenguajes distintos usados en conjunto. HTML (HyperText Markup language) brinda la columna vertebral, enlazando todos los otros elementos en la página. Javascript (y la librería p5.js) te permiten crear gráficas interactivas que puedes mostrar en tu página HTML. A veces CSS (Cascading Style Sheets) es usado para definir elementos de estilo en la página HTML, pero no cubriremos esta materia en este libro.
+Corre esta línea de código para ver el resultado. Escribe diferentes valores para explorar las posibilidades. Trata con números muy pequeños y con números más grandes que las dimensiones de tu pantalla.
 
-Si revisas el archivo index.html, te darás cuenta que contiene un poco de código HTML. Este archivo brinda la estructura a tu projecto, uniendo la librería p5.js y otro archivo llamado sketch.js, donde tú escribiras tu propio programa. El código que crea estos enlaces tiene esta apariencia:
+## Ejemplo 3-1: dibuja un punto
 
-No necesitas hacer nada en el código HTML en este momento - ya está configurado para ti. Luego, haz click en sketch.js y revisa el código:
+Para definir el color de un solo pixel dentro del lienzo, usamos la función point(). Tiene dos parámetros que definen la posición: la coordenada x, seguida de la coordenada y. Para crear un pequeño lienzo y un punto en el centro de él, coordenada (240, 60), escribe:
 
-El código plantilla contiene dos bloques, o funciones, setup() y draw(). Puedes poner tu código en cualquiera de los dos lugares, y cada uno tiene un propósito específico.
+EScribe un programa que pone un punto en cada esquina del lienzo para dibujar y uno en el centro. Luego trata de poner puntos consecutivos de manera vertical, horizontal y en líneas diagonales.
 
-Cualquier código que esté involucrado en la definición del estado incial de tu programa corresponde al bloque setup(). Por ahora, lo dejaremos vacío, pero más adelante en el libro, añadirás código aquí para especificar el tamaño de tu lienzo para tus gráficas, el peso de tu trazado o la velocidad de tu programa.
+## Formas básicas
 
-Cualquier código involucrado en realmente dibujar contenido a la pantalla (definir el color de fondo, dibujar figuras, texto o imágenes) será colocado en el bloque draw(). Es aquí donde empezarás a escribir tus primeras líneas de código.
+p5.js incluye un grupo de funciones para dibujar formas básicas (ver la figura 3-1). Formas simples, como líneas, pueden ser combinadas para crear formas más complicadas como una hoja o una cara.
 
-## Ejemplo 2-1: dibuja una elipse
+Para dibujar solo una línea, necesitamos cuatro parámetros: dos para el punto de inicio y dos para el final.
 
-Entre las llaves del bloque draw(), borra el texto //put drawing code here y reemplázalo con el siguiente:
+## Ejemplo 3-3: dibuja una línea
 
-background(204;
-ellipse(50, 50, 80, 80);
+Para dibujar una línea entre la coordenada (20, 50) y (420, 110), prueba:
 
-Tu programa entero deberá verse así:
+## Ejemplo 3-4: dibuja formas básicas
 
-Esta nueva línea de código significa "dibuja una elipse, con su centro 50 pixeles a la derecha desde el extremo izquierdo y 50 pixeles hacia abajo desde el extremo superior, con una altura y un ancho de 80 pixeles". Graba el código presionando Command-S, o desde el menú con File-Save.
+Siguiendo este patrón, un triángulo necesita seis parámetros y un cuadrilátero necesita ocho (un para cada punto):
 
-Para ver el código corriendo, puedes abrir index.html en cualquier navegador web (como Chrome, Firefox o Safari). Navega al directorio "empty-example" en tu explorador de archivos y haz doble click en index.html para abrirlo. Otra alternativa es desde el navegador web, escoger Archivo-Abrir y seleccionar el archivo index.html.
+## Ejemplo 3-5: dibuja un rectángulo
 
-Si has escrito todo correctamente, deberías ver un círculo en tu navegador. Si no lo ves, asegúrate de haber copiado correctamente el código de ejemplo. Los números tienen que estar entre paréntesis y tener comas entre ellos. La línea debe terminar con un punto coma.
+Tanto rectángulos como elipses son definidos por cuatro parámetros: el primero y el segundo son las coordenadas x e y del punto ancla, el tercero es el ancho y el cuarto por la altura. Para dibujar un rectángulo (180, 60) con ancho de 220 pixeles y una altura de 40, usa la función rect() así:
 
-Una de las cosas más difíciles sobre empezar a programar es que tienes que ser muy específico con la sintaxis. El software p5.js no es siempre suficientemente inteligente como para entender lo que quieres decir, y puede ser muy exigente con la puntuación. Te acostumbrarás a esto con un poco de práctica.
+## Ejemplo 3-6: dibuja una elipse
 
-A continuación, avanzaremos para hacer esto un poco más emocionante.
+Las coordenadas x e y para un rectángulo son la esquina superior izquierda, pero para una elipse son el centro de la figura. En este ejemplo, date cuenta que la coordenada y para la primera elipse está fuera del lienzo. Los objetos pueden ser dibujados parcialmente (o enteramente) fuera del lienzo sin arrojar errores:
 
-## Ejemplo 2-2: hacer círculos
+p5.js no tiene funciones distintas para hacer cuadrados y círculos. Para hacer estas figuras, usa el mismo valor para los parámetros de ancho y altura en las funciones ellipse() y rect().
 
-Borra el texto del ejemplo anterior, y prueba este. Graba tu código, y refresca (Command-R) index.html en tu navegador para verlo actualizado.
+## Ejemplo 3-7: dibuja una parte de una elipse
 
-Este programa crea un lienzo para gráficas que tiene un ancho 480 pixeles y una altura de 120 pixeles, y luego empieza a dibujar círculos blancos en la posición de tu ratón. Cuando presionas un botón del ratón, el color del círculo cambia a negro. Explicaremos después y en detalle más de los elementos de este programa. Por ahora, corre el código, mueve el ratón y haz click para experimentarlo.
+La función arc() dibuja una parte de una elipse:
 
-## La consola
+El primer y segundo parámetro definen la ubicación, mientras que el tercero y el cuarto definen el ancho y la altura. El quinto parámetro define el ángulo de inicio y el sexto el ángulo de parada. Los ángulos están definidos en radianes, en vez de grados. Los radianes son medidas de ángulo basadas en el valor de pi (3.14159). La figura 3-2 muestra cómo ambos están relacionados. Como se ve en este ejemplo, cuatro valores de radianes son usados tan frecuentemente que fueron agregados con nombres especiales como parte de p5.js. Los valores PI, QUARTER_PI, HALF_PI y TWO_PI pueden ser usados para reemplazar los valores en radianes de 180, 45, 90 y 360 grados.
 
-El navegador web tiene incluida una consola que puede ser muy útil para depurar programas. Cada navegador tiene una manera diferente de abrir la consola. Aquí están las instrucciones sobre cómo hacerlo con los navegadores más típicos:
+## Ejemplo 3-8: dibuja con grados
 
-Para abrir la consola en Chrome, desde el menú superior escoge View-Developer-Javascript Console
+Si prefieres usar mediciones en grados, puedes convertir a radianes con la función radians(). Esta función toma un ángulo en grados y lo transforma en su correspondiente valor en radianes. El siguiente ejemplo es el mismo que el ejemplo 3-7, pero usa la función radians() para definir en grados los valores de inicio y final.
 
-Con Firefox, desde el menú superior escoge Tools-Web-Developer-Web Console.
+## Ejemplo 3-9: usa angleMode
 
-Usando Safari, necesitarás habilitar la funcionalidad antes de que puedas usarla. Desde el menú superior, selecciona Preferencias y luego haz click en la pestaña Avanzado y activa la casilla "Show develop menu in menu bar". Tras hacer esto, serás capaz de seleccionar Develop-Show Error Console.
+Alternativamente, puedes convertir tu bosquejo para que use grados en vez de radianes usando la función angleMode(). Esta función cambia todas las funciones que aceptan o retornan ángulos para que usen ángulos o radianes, basado en el parámetro de al función, en vez de que tú tengas que convertirlo. El siguiente ejemplo es el mismo que el 3-8, pero usa la función angleMode(DEGREES) para definir los valores en grados de inicio y final:
 
-En Internet Explorer, abre F12 Developer Tools, luego selecciona Console Tool.
+## Orden de dibujo
 
-Deberías ahora ver un recuadro en la parte inferior o lateral de tu pantalla. Si hay un error de digitación, aparecerá texto rojo explicando qué error es. Este texto puede a veces ser críptico, pero si revisas al lado derecho de la línea, estará el nombre del archivo y el número de la línea de código donde fue detectado el error. Ese es un lugar adecuado donde empezar a buscar errores en tu programa.
-
-## Creando un nuevo proyecto
-
-Haz creado un bosquejo desde un ejemplo vacío, ¿pero cómo creas un nuevo proyecto? La manera más fácil de hacerlo es ubicando el directorio "empty-example" en tu explorador de archivos y luego copiar y pegarlo para crear un segundo "empty-example". Puedes renombrar la carpeta a lo que quieras - por ejemplo, Proyecto 2.
-
-Ahora puedes abrir este directorio en tu editor de código y empezar a hacer un nuevo bosquejo. Cuando quieras verlo en el navegador, abre el archivo index.html dentro de tu nuevo directorio Proyecto 2.
-
-Siemrpe es una buena idea grabar tus bosquejos frecuentemente. Mientras estás probando cosas nuevas, graba tu bosquejo con diferentes nombres (Archivo-Guardar como), para que así siempre seas capaz de volver a versiones anteriores. Esto es especialmente útil si - o cuando - algo se rompe.
+Cuando un programa corre, el computador empieza por el principio y lee cada línea de código hasta que llega a la última línea y luego para.
 
 Nota
 
-Un error común es estar editando un proyecto pero estar viendo otro en el navegador web, haciendo que no puedas ver los cambios que has hecho. Si te das cuenta que tu programa se ve igual a pesar de haber hecho cambios a tu código, revisa que estás viendo el archivo index.html correcto.
+Hay unas pocas excepciones a esto, como cuando cargas archivos externos, pero revisaremos esto más adelante. Por ahora, puedes asumir que cada línea correa en orden cuando dibujas.
 
-## Ejemplos y referencia
+Si quieres que una figura sea dibujada encima de todas las otras figuras, necesita estar después de las otras en el código.
 
-Aprender cómo programar con p5.js involucra explorar mucho código: correr, alterar, romper y mejorarlo hasta que lo hayas reformulado en algo nuevo. Con esto en mente, el sitio web de p5.js tiene docenas de ejemplos que demuestran diferentes características de la librería. Visita la pagína de Ejemplos para verlos. Puedes jugar con ellos editanto el código en la página y luego haciendo click en "Run". Los ejemplos están agrupados en distintas categorías según su función, como Forma, color, e imagen. Encuentra un tema que te interese en la lista y prueba un ejemplo.
+## Ejemplo 3-10: controla el orden tu código
 
-Si ves una parte del programa con la que no estás familiarizado o sobre la que quieres aprender su funcionalidad, visita la referencia de p5.js.
+## Ejemplo 3-11: ponlo en reversa
 
-La referencia de p5.js explica cada elemento de código con una descripción y ejemplos. Los programas en la Referencia son mucho más cortos (usualmente cuatro o cinco líneas) y más fáciles de seguir que los ejemplos de la página Learn. Ten en cuenta que estos ejemplos usualmente omiten setup() y draw() por simplicidad, pero estas líneas de código que ves deberán ser puestas dentro de uno de estos bloques para poder se ejecutadas. Recomendamos mantener la página de Referencia abierta mientras estás leyendo este libro y mientras estás programando. Puede ser navegada por tema o usando la barra de búsqueda en la parte superior de la página.
+Modifica el bosquejo invirtiendo el orden de rect() y ellipse() para ver el círculo encima del rectángulo:
 
-La Referencia fue escrita con el principiante en mente, esperamos que sea clara y entendible. Estamos muy agradecidos de las personas que han visto errores y los han señalado. Si crees que puedes mejorar una entrada en al referencia o que has encontrado algún error, por favor haznos saber esto haciendo click en el link en la parte inferior de la página de referencia.
+Puedes pensar esto como pintar con brocha o hacer un collage. El último elemento que añades es el que está visible encima.
+
+## Propiedades de las figuras
+
+Puedes querer tener más control de las figuras que dibujas, más allá de su posición y su tamaño. Para lograr esto, existe un conjunto de funcioens que definen las propiedades de las figuras.
+
+## Ejemplo 3-12: define el grosor del trazado
+
+El valor por defecto del grosor del trazado es de un pixel, pero esto puede ser cambiado con la función strokeWeight(). Un solo parámetro en la función strokeWeight() define el ancho de las líneas dibujadas.
+
+## Ejemplo 3-13: define los atributos del trazado
+
+La función strokeJoin() cambia la forma en que las líneas se unen (y cómo se ven las esquinas), y la función strokeCap() cambia cómo las líneas son dibujadas en su inicio y su final:
+
+La posición de las figuras como rect() y ellipse() son controladas por las funciones rectMode() y ellipseMode(). Revisa la referencia de p5.js para ver ejemplos de cómo posicionar rectángulos según su centro (en vez de su esquina superior izquierda), o de cómo dibujar elipses desde su esquina superior izquierda como los rectángulos.
+
+Cuando cualquiera de estos atributos es definido, todas las figuras dibujadas posteriormente son afectadas. Como se ve en el ejemplo 3-12, pon atención en cómo el segundo y tercer círculo tienen el mismo grosor de trazado, incluso cuando el grosor es definido solo una vez antes de que ambos sean dibujados.
+
+Fíjate que la línea de código strokeWeight(12 aparece en el bloque de setup() en vez de en draw(). Esto es porque no cambia durante la duración de nuestro programa, así que podemos definirlo sólo una vez durante setup(). Esto es mayoritariamente por organización; poner la línea en draw() tendría el mismo efecto visualizar
+
+## Color
+
+Todas las figuras hasta el momento han sido rellenas de color blanco con borde negro. Para cambiar esto, usa las funciones fill() y stroke(). Los valores de los parámetros varían entre 0 y 255, donde 255 es blanco, 128 es gris medio y 0 es negro. En la figura 3-3 se muestra cómo los valores entre 0 y 255 corresponden a diferentes niveles de gris. La función background() que hemos visto en ejemplos anteriores funciona de la misma manera, excepto que en vez de definir el color de relleno o de trazado para dibujar, define el color del fondo del lienzo.
+
+## Ejemplo 3-14: pinta con grises
+
+Este ejemplo muestra tres diferentes valores de gris en un fondo negro:
+
+## Ejemplo 3-15: controla el relleno y el color del trazado
+
+Puedes usar la función noStroke() para deshabilitar el trazado para que no se dibuje el borde, y puedes deshabilitar el relleno de una figura con noFill():
+
+Ten cuidado de no deshabilitar el relleno y el trazado al mismo tiempo, como lo hicimos en el ejemplo anterior, porque nada será dibujada en la pantalla.
+
+## Ejemplo 3-16: dibuja con color
+
+Para ir más allá de la escala de grises, usa tres parámetros para espeficar los componentes de color rojo, verde y azul. Como está libro está impreso en blanco y negro, sólo verás valores grises aquí. Corre el código para revelar los colores:
+
+Los colores en el ejemplo son referidos como color RGB, porque es cómo los computadores definen el color en la pantalla. Los tres números definen los valores de rojo, verde y azul, y varían entre 0 y 255 de la misma forma que los valores de gris. Estos tres números son los parámetros para tus funciones de background(), fill() y stroke().
+
+## Ejemplo 3-17: define la transparencia
+
+Al añadir un cuarto parámetro a fill() o a stroke(), puedes controlar la transparencia. Este cuarto parámetro es conocido como el valor alpha, y también varía entre 0 y 255 para definir el monto de transparencia. El valor 0 define el color como totalmente transparente (no será mostrado en la pantalla), el valor 255 es enteramente ópaco, y los valores entre estos extremos hacen que los colores se mezclen en la pantalla.
+
+## Formas personalizadas
+
+No estás limitado a usar estas formas geométricas básicas - puedes dibujar nuevas formas conectando una serie de puntos.
+
+## Ejemplo 3-18: dibuja una flecha
+
+La función beginShape() señala el comienzo de una nueva figura. La función vertex() es usada para definir cada par de coordenadas (x,y) de la figura. Finalmente, endShape() señala que la figura está completa:
+
+## Ejemplo 3-19: cierra la brecha
+
+Cuando corres el ejemplo 3-18, verás que el primer y el último punto no están conectados. Para hacer esto, añade la palabra CLOSE como parámetro a la función endShape, así:
+
+## Ejemplo 3-20: crea algunas criaturas
+
+El poder de definir figuras con vertex() es la habilidad de hacer figuras con bordes complejos. p5.js puede dibujar miles y miles de líneas al mismo tiempo para llenar la pantalla con figuras fantásticas que emanan de tu imaginación. Un ejemplo modesto pero más complejo es presentado a continuación:
+
+## Comentarios
+
+Los ejemplos en este capítulo usan doble barra (//) al final de una línea para añadir comentarios al código. Los comentarios son una parte de los programas que son ignorados cuando el programa corre. Son útiles para hacer notas para ti mismo que expliquen lo que está pasando en el código. Si otras personas están leyendo tu código, los comentarios son especialmente importantes para ayudarles a entender tu proceso.
+
+Los comentarios son también especialmente útiles para un número de diferentes opciones, como tratar de escoger el color correcto. Así que, por ejemplo, podríamos estar tratando de encontrar el rojo preciso que queremos para una elipse:
+
+Ahora supón que quieres probar un rojo distinto, pero no quieres perder el antiguo. Puedo copiar y pegar la línea, hacer un cambio y luego comentar la línea de código antigua:
+
+Poner // al principio de una línea temporalmente la anula. O puedo remover // y escribirlo al inicio de otra línea si quiero probarlo de nuevo.
+
+Mientras trabajas con bosquejos de p5.js, te encontrarás a ti mismo creando docenas de iteraciones de ideas; usar comentarios para hacer notas o para deshabilitar líneas de códigos puede ayudarte a mantener registro de tus múltiples opciones.
+
+## Robot 1: dibuja
+
+Ella es P5, la robot de p5.js. Hay 10 diferentes programas para dibujarla y animarla en este libro - cada uno explora una idea de programación diferente. El diseño de P5 está inspirado en Sputnik I (1957), Shakey del Stanford Research Institute (1966 - 1972), el dron luchador en la película Dune (1984) de David Lynch y HAL 9000 de 2001: Una odisea en el espacio (1968), entre otros robots favoritos.
+
+El primer programa de robot usa las funciones de dibujo introducidas anteriormente en este capítulo. Los parámetros de las funciones fill() y stroke() definen los valores de la escala de grises. Las funciones line(), ellipse() y rect() definen las formas que crean el cuello, las antenas, el cuerpo y la cabeza de la robot. Para familiarizarze mejor con las funciones, corre el programa y cambia los valores para rediseñar el robot:

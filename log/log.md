@@ -49,6 +49,16 @@ teacher at universidad diego portales
 
 friend studied at universidad metropolitana de ciencias de la educacion
 
-ex worker from centro cultural gabriela mistral
+former worker from centro cultural gabriela mistral
 
 workshop management at santiago makerspace
+
+goethe institut santiago
+
+## tue june 07th 2016
+
+## wed june 08th 2016
+
+## thu june 09th 2016
+
+## fri june 10th 2016
