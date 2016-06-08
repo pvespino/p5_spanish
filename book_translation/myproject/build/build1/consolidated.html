@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/pdf.css">
 
   </head>
@@ -285,6 +284,27 @@
 </li>
 <li>
   <a href="#ubicacion-eEalTrG">Ubicación</a>
+</li>
+<li>
+  <a href="#ejemplo-5-13-encuentra-el-cursos-6yqVTYj">Ejemplo 5-13: encuentra el cursos</a>
+</li>
+<li>
+  <a href="#ejemplo-5-14-los-bordes-de-un-circulo-pEWnTDG">Ejemplo 5-14: los bordes de un círculo</a>
+</li>
+<li>
+  <a href="#ejemplo-5-15-los-bordes-de-un-rectangulo-BjxJTWE">Ejemplo 5-15: Los bordes de un rectángulo</a>
+</li>
+<li>
+  <a href="#tipo-mE1MTeE">Tipo</a>
+</li>
+<li>
+  <a href="#ejemplo-5-16-presiona-una-tecla-vGwXTVE">Ejemplo 5-16: presiona una tecla</a>
+</li>
+<li>
+  <a href="#ejemplo-5-17-dibuja-algunas-letras-LEOmTZj">Ejemplo 5-17: dibuja algunas letras</a>
+</li>
+<li>
+  <a href="#ejemplo-5-18-revisar-diferentes-teclas-nEzBTPE">Ejemplo 5-18: revisar diferentes teclas</a>
 </li>
   </ol>
 </li>
@@ -1378,6 +1398,134 @@ function draw() {
 </code></pre>
 <p>Un programa puede tener muchas m&#xE1;s estructuras if y else (ver Figura 5-2) que las encontradas en estos ejemplos cortos. Pueden ser concatenadas en una larga serie con distintas pruebas, y los bloques if pueden estar anidados dentro de otros bloques if para hacer decisiones m&#xE1;s complejas.</p>
 </section><section data-type="sect1" id="ubicacion-eEalTrG"><h1>Ubicaci&#xF3;n</h1>
+<p>Una estructura if puede ser usada con los valores de mouseX y mouseY para determinar la ubicaci&#xF3;n del cursos dentro de la ventana.</p>
+</section><section data-type="sect1" id="ejemplo-5-13-encuentra-el-cursos-6yqVTYj"><h1>Ejemplo 5-13: encuentra el cursos</h1>
+<p>En este ejemplo, buscamos el cursor para ver si est&#xE1; a la izquierda o hacia la derecha de la l&#xED;nea y luego movemos la l&#xED;nea hacia el cursor:</p>
+<pre data-type="programlisting"><code>var x;
+var offset = 10;
+
+function setup() {
+  createCanvas(240, 120);
+  x = width/2;
+}
+
+function draw() {
+  background(204);
+  if (mouseX &gt; x) {
+    x += 0.5;
+    offset = -10;
+  }
+  if (mouseX &lt; x) {
+    x -= 0.5;
+    offset = 10;
+  }
+  //dibuja una flecha izquierda o derecha seg&#xFA;n el valor del &quot;offset&quot;
+  line(x, 0, x, height);
+  line(mouseX, mouseY, mouseX + offset    , mouseY - 10);
+  line(mouseX, mouseY, mouseX + offset    , mouseY + 10);
+  line(mouseX, mouseY, mouseX + offset * 3, mouseY);
+}
+</code></pre>
+<p>Para escribir programas que tengan interfaces gr&#xE1;ficas de usuario (botones, casillas, barras deslizadoras, etc.) necesitamos escribir c&#xF3;digo que sepa cuando el curso est&#xE1; dentro de un &#xE1;rea de la pantalla. Los siguientes dos ejemplos introducen c&#xF3;mo verificar si el cursor est&#xE1; dentro de un c&#xED;rculo y de un rect&#xE1;ngulo. El c&#xF3;digo est&#xE1; escrito en una forma modular variables, para que pueda ser usado para comprobar con cualquier c&#xED;rculo o rect&#xE1;ngulo mediante la modificaci&#xF3;n de los valores.</p>
+</section><section data-type="sect1" id="ejemplo-5-14-los-bordes-de-un-circulo-pEWnTDG"><h1>Ejemplo 5-14: los bordes de un c&#xED;rculo</h1>
+<p>Para la prueba con el c&#xED;rculo, usamos la funci&#xF3;n dist() para obtener la distancia desde el centro del c&#xED;rculo al cursor, luego probamos si este valor es menor que el radio del c&#xED;rculo (ver Figura 5-3). Si lo es, sabemos que estamos dentro del c&#xED;rculo. En este ejemplo, cuando el cursos est&#xE1; denrro del &#xE1;rea del c&#xED;rcuo, su tama&#xF1;o aumenta:</p>
+<pre data-type="programlisting"><code>var x = 120;
+var y = 60;
+var radius = 12;
+
+function setup() {
+  createCanvas(240, 120);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(204);
+  var d = dist(mouseX, mouseY, x, y);
+  if (d &lt; radius) {
+    radius++;
+    fill(0);
+  } else {
+    fill(255);
+  }
+  ellipse(x, y, radius, radius);
+}
+</code></pre>
+</section><section data-type="sect1" id="ejemplo-5-15-los-bordes-de-un-rectangulo-BjxJTWE"><h1>Ejemplo 5-15: Los bordes de un rect&#xE1;ngulo</h1>
+<p>Usaremos otro enfoque para probar si el curso est&#xE1; dentro de un rect&#xE1;ngulo. Hacemos cuatro pruebas separadas para comprobar si el cursor est&#xE1; en el lado correcto de cada uno de los lados del rect&#xE1;ngulo, luego comparamos cada resultado de las pruebas y si todas son true, entonces sabemos que el cursor est&#xE1; dentro. Esto es ilustrado en la Figura 5-4. Cada paso es simple, pero lucen complicados al combinarse entre s&#xED;:</p>
+<pre data-type="programlisting"><code>var x = 80;
+var y = 30;
+var w = 80;
+var h = 60;
+
+function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(204);
+  if ((mouseX &gt; x) &amp;&amp; (mouseX &lt; x+w) &amp;&amp;
+      (mouseY &gt; y) &amp;&amp; (mouseY &lt; y+h)) {
+        fill(0);
+      } else {
+        fill(255);
+      }
+      rect(x, y, w, h);
+}
+</code></pre>
+<p>La prueba en la declaraci&#xF3;n if es un poco m&#xE1;s complicada que lo que hemos visto hasta el momento. Cuatro pruebas individuales (como mouseX &gt; x) son combinadas con el operador l&#xF3;gico AND, el s&#xED;mbolo &amp;&amp;, para asegurarse que cada expresi&#xF3;n relacional en la secuencia sea true. Si alguna de ellas es false, el test entero es false y el color de relleno no ser&#xE1; negro.</p>
+</section><section data-type="sect1" id="tipo-mE1MTeE"><h1>Tipo</h1>
+<p>p5.js mantiene registro de cualquier tecla que sea presionada en el teclado, adem&#xE1;s de la &#xFA;ltima tecla presionada. Tal como la variable mouseIsPressed, la variable keyIsPressed is true cuando cualquier tecla es presionada, y false cuando no hay teclas presionadas.</p>
+</section><section data-type="sect1" id="ejemplo-5-16-presiona-una-tecla-vGwXTVE"><h1>Ejemplo 5-16: presiona una tecla</h1>
+<p>En este ejemplo, la segunda l&#xED;nea es dibujada solo cuando hay una tecla presionada:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(204);
+  line(20, 20, 220, 100);
+  if (keyIsPressed) {
+    line(220, 20, 20, 100);
+  }
+}
+</code></pre>
+<p>La variable key guarda la tecla presionada m&#xE1;s recientemente. A diferencia de la variable boolean keyIsPressed, que se revierte a false cada vez que la tecla es soltada, la variable key mantiene su valor hasta que la siguiente tecla es presionada. El siguiente ejemplo usa el valor de key para dibujar el caracter en la pantalla. Cada vez qeu una nueva tecla es presionada, el valor se actualiza y un nuevo caracter es dibujado. Algunas teclas, como Shift y Alt, no tienen un caracter visible, as&#xED; que si las presionas, nada ser&#xE1; dibujado.</p>
+</section><section data-type="sect1" id="ejemplo-5-17-dibuja-algunas-letras-LEOmTZj"><h1>Ejemplo 5-17: dibuja algunas letras</h1>
+<p>Este ejemplo introduce la funci&#xF3;n textSize() para definir el tama&#xF1;o de las letras, la funci&#xF3;n textAlign() para centrar el texto en su coordenada x y la funci&#xF3;n text() para dibujar la letra. Estas funciones ser&#xE1;n discutidas en mayor detalle en &quot;Fonts&quot;.</p>
+<pre data-type="programlisting"><code>function setup{
+  createCanvas(120,120);
+  textSize(64);
+  textAlign(CENTER);
+  fill(255);
+}
+
+function draw() {
+  background(0);
+  text(key, 60, 80);
+}
+</code></pre>
+<p>Usando una estructura if, podemos probar si una tecla espec&#xED;fica es presionad y escoger dibujar algo distinto en la pantalla a modo de respuesta.</p>
+</section><section data-type="sect1" id="ejemplo-5-18-revisar-diferentes-teclas-nEzBTPE"><h1>Ejemplo 5-18: revisar diferentes teclas</h1>
+<p>En este ejemplo, revisamos si las teclas N o H son presionadas. Usamos el comparador de comparaci&#xF3;n, el s&#xED;mbolo ==, para revisar si el valor de la variable key es igual a los caracteres que estamos buscando:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(120, 120);
+}
+
+function draw() {
+  background(204);
+  if (keyIsPressed) {
+    if ((key == &apos;h&apos;) || (key == &apos;H&apos;)) {
+      line(30, 60, 90, 60);
+    }
+    if ((key == &apos;n&apos;) || (key == &apos;N&apos;)) {
+      line(30, 20, 90, 100);
+    }
+  }
+  line(30, 20, 30, 100);
+  line(90, 20, 90, 100);
+}
+</code></pre>
+<p>Cuando revisamos si est&#xE1; siendo presionada la tecla H o la N, necesitamos revisar tanto para las letras en may&#xFA;scula como en min&#xFA;scula, en caso de que alguien presione la tecla Shift o tenga la funci&#xF3;n Caps Lock activada. Combinamos ambas pruebas con el operador l&#xF3;gico OR, el s&#xED;mbolo ||. Si traducimos la segunda declaraci&#xF3;n if en este ejemplo a lenguaje plano, dice &quot;&quot;</p>
 </section></section>
   </body>
 </html>

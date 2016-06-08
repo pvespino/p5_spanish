@@ -308,3 +308,161 @@ function draw() {
 Un programa puede tener muchas más estructuras if y else (ver Figura 5-2) que las encontradas en estos ejemplos cortos. Pueden ser concatenadas en una larga serie con distintas pruebas, y los bloques if pueden estar anidados dentro de otros bloques if para hacer decisiones más complejas.
 
 ## Ubicación
+
+Una estructura if puede ser usada con los valores de mouseX y mouseY para determinar la ubicación del cursos dentro de la ventana.
+
+## Ejemplo 5-13: encuentra el cursos
+
+En este ejemplo, buscamos el cursor para ver si está a la izquierda o hacia la derecha de la línea y luego movemos la línea hacia el cursor:
+
+```
+var x;
+var offset = 10;
+
+function setup() {
+  createCanvas(240, 120);
+  x = width/2;
+}
+
+function draw() {
+  background(204);
+  if (mouseX > x) {
+    x += 0.5;
+    offset = -10;
+  }
+  if (mouseX < x) {
+    x -= 0.5;
+    offset = 10;
+  }
+  //dibuja una flecha izquierda o derecha según el valor del "offset"
+  line(x, 0, x, height);
+  line(mouseX, mouseY, mouseX + offset    , mouseY - 10);
+  line(mouseX, mouseY, mouseX + offset    , mouseY + 10);
+  line(mouseX, mouseY, mouseX + offset * 3, mouseY);
+}
+```
+
+Para escribir programas que tengan interfaces gráficas de usuario (botones, casillas, barras deslizadoras, etc.) necesitamos escribir código que sepa cuando el curso está dentro de un área de la pantalla. Los siguientes dos ejemplos introducen cómo verificar si el cursor está dentro de un círculo y de un rectángulo. El código está escrito en una forma modular variables, para que pueda ser usado para comprobar con cualquier círculo o rectángulo mediante la modificación de los valores.
+
+## Ejemplo 5-14: los bordes de un círculo
+
+Para la prueba con el círculo, usamos la función dist() para obtener la distancia desde el centro del círculo al cursor, luego probamos si este valor es menor que el radio del círculo (ver Figura 5-3). Si lo es, sabemos que estamos dentro del círculo. En este ejemplo, cuando el cursos está denrro del área del círcuo, su tamaño aumenta:
+
+```
+var x = 120;
+var y = 60;
+var radius = 12;
+
+function setup() {
+  createCanvas(240, 120);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(204);
+  var d = dist(mouseX, mouseY, x, y);
+  if (d < radius) {
+    radius++;
+    fill(0);
+  } else {
+    fill(255);
+  }
+  ellipse(x, y, radius, radius);
+}
+```
+
+## Ejemplo 5-15: Los bordes de un rectángulo
+
+Usaremos otro enfoque para probar si el curso está dentro de un rectángulo. Hacemos cuatro pruebas separadas para comprobar si el cursor está en el lado correcto de cada uno de los lados del rectángulo, luego comparamos cada resultado de las pruebas y si todas son true, entonces sabemos que el cursor está dentro. Esto es ilustrado en la Figura 5-4. Cada paso es simple, pero lucen complicados al combinarse entre sí:
+
+```
+var x = 80;
+var y = 30;
+var w = 80;
+var h = 60;
+
+function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(204);
+  if ((mouseX > x) && (mouseX < x+w) &&
+      (mouseY > y) && (mouseY < y+h)) {
+        fill(0);
+      } else {
+        fill(255);
+      }
+      rect(x, y, w, h);
+}
+```
+
+La prueba en la declaración if es un poco más complicada que lo que hemos visto hasta el momento. Cuatro pruebas individuales (como mouseX > x) son combinadas con el operador lógico AND, el símbolo &&, para asegurarse que cada expresión relacional en la secuencia sea true. Si alguna de ellas es false, el test entero es false y el color de relleno no será negro.
+
+## Tipo
+
+p5.js mantiene registro de cualquier tecla que sea presionada en el teclado, además de la última tecla presionada. Tal como la variable mouseIsPressed, la variable keyIsPressed is true cuando cualquier tecla es presionada, y false cuando no hay teclas presionadas.
+
+## Ejemplo 5-16: presiona una tecla
+
+En este ejemplo, la segunda línea es dibujada solo cuando hay una tecla presionada:
+
+```
+function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(204);
+  line(20, 20, 220, 100);
+  if (keyIsPressed) {
+    line(220, 20, 20, 100);
+  }
+}
+```
+
+La variable key guarda la tecla presionada más recientemente. A diferencia de la variable boolean keyIsPressed, que se revierte a false cada vez que la tecla es soltada, la variable key mantiene su valor hasta que la siguiente tecla es presionada. El siguiente ejemplo usa el valor de key para dibujar el caracter en la pantalla. Cada vez qeu una nueva tecla es presionada, el valor se actualiza y un nuevo caracter es dibujado. Algunas teclas, como Shift y Alt, no tienen un caracter visible, así que si las presionas, nada será dibujado.
+
+## Ejemplo 5-17: dibuja algunas letras
+
+Este ejemplo introduce la función textSize() para definir el tamaño de las letras, la función textAlign() para centrar el texto en su coordenada x y la función text() para dibujar la letra. Estas funciones serán discutidas en mayor detalle en "Fonts".
+
+```
+function setup{
+  createCanvas(120,120);
+  textSize(64);
+  textAlign(CENTER);
+  fill(255);
+}
+
+function draw() {
+  background(0);
+  text(key, 60, 80);
+}
+```
+Usando una estructura if, podemos probar si una tecla específica es presionad y escoger dibujar algo distinto en la pantalla a modo de respuesta.
+
+## Ejemplo 5-18: revisar diferentes teclas
+
+En este ejemplo, revisamos si las teclas N o H son presionadas. Usamos el comparador de comparación, el símbolo ==, para revisar si el valor de la variable key es igual a los caracteres que estamos buscando:
+
+```
+function setup() {
+  createCanvas(120, 120);
+}
+
+function draw() {
+  background(204);
+  if (keyIsPressed) {
+    if ((key == 'h') || (key == 'H')) {
+      line(30, 60, 90, 60);
+    }
+    if ((key == 'n') || (key == 'N')) {
+      line(30, 20, 90, 100);
+    }
+  }
+  line(30, 20, 30, 100);
+  line(90, 20, 90, 100);
+}
+```
+Cuando revisamos si está siendo presionada la tecla H o la N, necesitamos revisar tanto para las letras en mayúscula como en minúscula, en caso de que alguien presione la tecla Shift o tenga la función Caps Lock activada. Combinamos ambas pruebas con el operador lógico OR, el símbolo ||. Si traducimos la segunda declaración if en este ejemplo a lenguaje plano, dice ""
