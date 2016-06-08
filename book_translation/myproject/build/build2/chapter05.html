@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/html.css">
 
   </head>
@@ -115,15 +114,46 @@ function draw() {
 <pre data-type="programlisting"><code>function setup() {
   createCanvas(480, 120);
   strokeWeight(4);
-  fill(0, 102);
-  noStroke();
+  stroke(0, 102);
 }
 
 function draw() {
-  background(204);
-  ellipse(mouseX, mouseY, 9, 9);
+  line(mouseX, mouseY, pmouseX, pmouseY);
 }
 </code></pre>
+</section><section data-type="sect1" id="ejemplo-5-7-define-el-grosor-sobre-la-marcha-1jKBTdy"><h1>Ejemplo 5-7: define el grosor sobre la marcha</h1>
+<p>Las variables pmouseX y pmouseY tambi&#xE9;n pueden ser usadas para calcualr la velocidad del rat&#xF3;n. Esto se hace midiendo la distancia entre la posici&#xF3;n actual y la m&#xE1;s reciente del rat&#xF3;n. Si el rat&#xF3;n se est&#xE1; moviendo lentamente, la distancia es peque&#xF1;a, pero si se empieza a mover m&#xE1;s r&#xE1;pido, la distancia se incrementa. Una funci&#xF3;n llamada dist() simplifica este c&#xE1;lculo, como se muestra en el siguiente ejemplo. Aqu&#xED;, la velocidad del rat&#xF3;n es usada para definir el grosor de la l&#xED;nea dibujada</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(480, 120);
+  stroke(0, 102);
+}
+
+function draw() {
+  var weight = dist(mouseX, mouseY, pMouseX, pMouseY);
+  strokeWeight(weight);
+  line(mouseX, mouseY, pmouseX, pmouseY);
+}
+</code></pre>
+</section><section data-type="sect1" id="ejemplo-5-8-el-suavizado-lo-hace-ejbVTaj"><h1>Ejemplo 5-8: el suavizado lo hace</h1>
+<p>En el ejemplo 5-7, los valores del rat&#xF3;n son convertidos directamente a posiciones en la pantalla. Pero a veces queremos que estos valores sigan al rat&#xF3;n m&#xE1;s libremente - que se queden atr&#xE1;s para creen un movimiento m&#xE1;s fluido. Esta t&#xE9;cnica es llamada suavizado. Con el suavizado, hay dos valores: el valor actual y el valor objetivo (ver Figura 5-1). A cada paso en el programa, el valor actual se mueve un poco m&#xE1;s cerca del valor objetivo:</p>
+<pre data-type="programlisting"><code>var x = 0;
+var easing = 0.01;
+
+function setup() {
+  createCanvas(220, 120);
+}
+
+function draw() {
+  var targetX = mouseX;
+  x += (targetX - x) * easing;
+  ellipse(x, 40, 12, 12);
+  print(targetX + &quot; : &quot; + x);
+}
+
+</code></pre>
+<p>El valor de la variable x est&#xE1; siempre acerc&#xE1;ndose a targetX. La velocidad con la que lo alcanzo es definida por la variable de easing, un n&#xFA;mero entre 0 y 1. Un valor peque&#xF1;o de easing causa m&#xE1;s retraso que un valor m&#xE1;s grande. Con un valor de easing de 1, no hay retraso. Cuando corres el ejemplo 5-8, los valores actuales son mostrados en la consola a trav&#xE9;s de la funci&#xF3;n print(). Cuando muevas el mouse, observa c&#xF3;mo los n&#xFA;meros est&#xE1;n alejados, pero cuando dejas de moverlo, el valor de x se acerca al valor de targetX.</p>
+<p>Todo el trabajo en este ejemplo ocurre en la l&#xED;nea que empieza con x+=. Aqu&#xED;, se calcula la diferencia entre el valor objetivo y el actual, y luego es multiplicada por la variable easing y a&#xF1;adida a x para llevarla m&#xE1;s cerca que el objetivo.</p>
+</section><section data-type="sect1" id="ejemplo-5-9-suaviza-las-lineas-1jAgTmE"><h1>Ejemplo 5-9: suaviza las l&#xED;neas</h1>
 </section></section>
 <a id="prev-link" href="chapter04.html">Previous: Capítulo 4. Variables</a>
 

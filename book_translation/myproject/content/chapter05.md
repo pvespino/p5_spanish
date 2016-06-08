@@ -138,12 +138,53 @@ Las variables pmouseX y pmouseY guardan la posición del ratón en el cuadro ant
 function setup() {
   createCanvas(480, 120);
   strokeWeight(4);
-  fill(0, 102);
-  noStroke();
+  stroke(0, 102);
 }
 
 function draw() {
-  background(204);
-  ellipse(mouseX, mouseY, 9, 9);
+  line(mouseX, mouseY, pmouseX, pmouseY);
 }
 ```
+
+## Ejemplo 5-7: define el grosor sobre la marcha
+
+Las variables pmouseX y pmouseY también pueden ser usadas para calcualr la velocidad del ratón. Esto se hace midiendo la distancia entre la posición actual y la más reciente del ratón. Si el ratón se está moviendo lentamente, la distancia es pequeña, pero si se empieza a mover más rápido, la distancia se incrementa. Una función llamada dist() simplifica este cálculo, como se muestra en el siguiente ejemplo. Aquí, la velocidad del ratón es usada para definir el grosor de la línea dibujada
+
+```
+function setup() {
+  createCanvas(480, 120);
+  stroke(0, 102);
+}
+
+function draw() {
+  var weight = dist(mouseX, mouseY, pMouseX, pMouseY);
+  strokeWeight(weight);
+  line(mouseX, mouseY, pmouseX, pmouseY);
+}
+```
+## Ejemplo 5-8: el suavizado lo hace
+
+En el ejemplo 5-7, los valores del ratón son convertidos directamente a posiciones en la pantalla. Pero a veces queremos que estos valores sigan al ratón más libremente - que se queden atrás para creen un movimiento más fluido. Esta técnica es llamada suavizado. Con el suavizado, hay dos valores: el valor actual y el valor objetivo (ver Figura 5-1). A cada paso en el programa, el valor actual se mueve un poco más cerca del valor objetivo:
+
+```
+var x = 0;
+var easing = 0.01;
+
+function setup() {
+  createCanvas(220, 120);
+}
+
+function draw() {
+  var targetX = mouseX;
+  x += (targetX - x) * easing;
+  ellipse(x, 40, 12, 12);
+  print(targetX + " : " + x);
+}
+
+```
+
+El valor de la variable x está siempre acercándose a targetX. La velocidad con la que lo alcanzo es definida por la variable de easing, un número entre 0 y 1. Un valor pequeño de easing causa más retraso que un valor más grande. Con un valor de easing de 1, no hay retraso. Cuando corres el ejemplo 5-8, los valores actuales son mostrados en la consola a través de la función print(). Cuando muevas el mouse, observa cómo los números están alejados, pero cuando dejas de moverlo, el valor de x se acerca al valor de targetX.
+
+Todo el trabajo en este ejemplo ocurre en la línea que empieza con x+=. Aquí, se calcula la diferencia entre el valor objetivo y el actual, y luego es multiplicada por la variable easing y añadida a x para llevarla más cerca que el objetivo.
+
+## Ejemplo 5-9: suaviza las líneas
