@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/pdf.css">
 
   </head>
@@ -229,6 +228,35 @@
 </li>
 <li>
   <a href="#robot-2-variables-M7zVfx7">Robot 2: variables</a>
+</li>
+  </ol>
+</li>
+<li>
+  <a href="#capitulo-5-respuesta-8EvXTaj">Capítulo 5. Respuesta</a>
+  <ol>
+<li>
+  <a href="#una-vez-y-para-siempre-MGp2T8y">Una vez y para siempre</a>
+</li>
+<li>
+  <a href="#ejemplo-5-1-la-funcion-draw-WEPYToy">Ejemplo 5-1: la función draw()</a>
+</li>
+<li>
+  <a href="#ejemplo-5-2-la-funcion-setup-aEgqTrj">Ejemplo 5-2: la función setup()</a>
+</li>
+<li>
+  <a href="#ejemplo-5-3-setup-te-presento-a-draw-JGMBTZE">Ejemplo 5-3: setup(), te presento a draw()</a>
+</li>
+<li>
+  <a href="#seguir-NEQNT2y">Seguir</a>
+</li>
+<li>
+  <a href="#ejemplo-5-4-seguir-al-raton-Wjn0TME">Ejemplo 5-4: seguir al ratón</a>
+</li>
+<li>
+  <a href="#ejemplo-5-5-el-punto-te-persigue-PE3nT1G">Ejemplo 5-5: el punto te persigue</a>
+</li>
+<li>
+  <a href="#ejemplo-5-6-dibuja-de-forma-continua-Bj8eTNG">Ejemplo 5-6: dibuja de forma continua</a>
 </li>
   </ol>
 </li>
@@ -1041,7 +1069,7 @@ var ny = y - bodyHeight - neckHeight - radius;  // Y del cuello
 
 function setup(){
   createCanvas(170, 480);
-  strokeWeigt(2);
+  strokeWeight(2);
   ellipseMode(RADIUS);
 }
 
@@ -1081,6 +1109,121 @@ function draw() {
   ellipse(x + 41, ny + 6, 3, 3);
 }
 
+</code></pre>
+</section></section>
+<section data-type="chapter" id="capitulo-5-respuesta-8EvXTaj"><h1>Cap&#xED;tulo 5. Respuesta</h1>
+<p>El c&#xF3;digo que responde a acciones de entrada del rat&#xF3;n, teclado u otros dispositivos  depende en que el programa corra continuamente. Ya nos enfrentamos a las funciones setup() y draw() en el Cap&#xED;tulo 1. Ahora aprenderemos m&#xE1;s sobre qu&#xE9; hacen y c&#xF3;mo usarlas para reaccionar a entradas al programa.</p>
+<section data-type="sect1" id="una-vez-y-para-siempre-MGp2T8y"><h1>Una vez y para siempre</h1>
+<p>El c&#xF3;digo dentro del bloque draw() corre desde el principio al final, luego se repite hasta que cierras el programa cuando cierras la ventana. Cada iteraci&#xF3;n a trav&#xE9;s del bloque draw() es llamado un cuadro o frame. (La tasa de cuadros por defecto es de 60 cuadros por segundo, pero esto puede ser modificado).</p>
+</section><section data-type="sect1" id="ejemplo-5-1-la-funcion-draw-WEPYToy"><h1>Ejemplo 5-1: la funci&#xF3;n draw()</h1>
+<p>Para observar como la funci&#xF3;n draw() funciona, corre este ejemplo:</p>
+<pre data-type="programlisting"><code>function draw() {
+  //Muestra en la consola el contador de cuadros
+  print(&quot;Estoy dibujando&quot;);
+  print(frameCount);
+}
+</code></pre>
+<p>Ver&#xE1;s lo siguiente:</p>
+<pre data-type="programlisting"><code>Estoy dibujando
+1
+Estoy dibujando
+2
+Estoy dibujando
+3
+...
+</code></pre>
+<p>En el ejemplo anterior, las funciones print() escriben el texto &quot;Estoy dibujando&quot; seguido del contador actual de cuadros, tarea efectuada por la variable especial frameCount. El texto aparece en la consola de tu navegador.</p>
+</section><section data-type="sect1" id="ejemplo-5-2-la-funcion-setup-aEgqTrj"><h1>Ejemplo 5-2: la funci&#xF3;n setup()</h1>
+<p>Para complementar la repetitiva funci&#xF3;n draw(), p5.js posee la funci&#xF3;n setup() que solo corre una vez cuando el programa empieza:</p>
+<pre data-type="programlisting"><code>function setup() {
+  print(&quot;Estoy empezando&quot;);
+}
+
+function draw() {
+  print(&quot;Estoy corriendo&quot;);
+}
+</code></pre>
+<p>Cuando corres el c&#xF3;digo, en la consola se escribe lo siguiente:</p>
+<pre data-type="programlisting"><code>Estoy empezando
+Estoy corriendo
+Estoy corriendo
+Estoy corriendo
+...
+</code></pre>
+<p>El texto &quot;Estoy corriend&quot; sigue escribi&#xE9;ndose en la consola hasta que el programa es parado.</p>
+<p>En algunos navegadores, en vez de escribir una y otra vez &quot;Estoy corriendo&quot;, lo imprimir&#xE1; solo una vez, y despu&#xE9;s para cada subsecuente vez, incrementar&#xE1; un n&#xFA;mero junto a la l&#xED;nea, representando el n&#xFA;mero total de veces que la l&#xED;nea ha sido impresa de corrido.</p>
+<p>En un programa t&#xED;pico, el c&#xF3;digo dentro de setup() es usado para definir las condiciones iniciales. La primera l&#xED;nea es usualmente la funci&#xF3;n createCanvas(), a menudo seguida de c&#xF3;digo para definir los colores de relleno y trazado iniciales. (Si no incluyes la funci&#xF3;n createCanvas(), el lienzo para dibujar tendr&#xE1; una dimensi&#xF3;n de 100x100 pixeles por defecto).</p>
+<p>Ahora sabes c&#xF3;mo usar setup() y draw() en mayor detalle, pero esto no es todo.</p>
+<p>Hay una ubicaci&#xF3;n adicional d&#xF3;nde has estado poniendo c&#xF3;digo - tambi&#xE9;n puedes poner variables globales fuera de setup() y draw(). Esto se hace m&#xE1;s claro cuando listamos el orden en que el c&#xF3;digo es ejecutado.</p>
+<ol>
+<li>
+<p>Las variables declaradas fuera de setup() y draw() son creadas.</p>
+</li>
+<li>
+<p>El c&#xF3;digo dentro de setup() es ejecutado una vez.</p>
+</li>
+<li>
+<p>El c&#xF3;digo dentro de draw() corre continuamente.</p>
+</li>
+</ol>
+</section><section data-type="sect1" id="ejemplo-5-3-setup-te-presento-a-draw-JGMBTZE"><h1>Ejemplo 5-3: setup(), te presento a draw()</h1>
+<p>El siguiente ejemplo pone en pr&#xE1;ctica todos estos conceptos:</p>
+<pre data-type="programlisting"><code>var x = 280;
+var y = -100;
+var diameter = 380;
+
+function setup() {
+  createCanvas(480, 120);
+  fill(102);
+}
+
+function draw() {
+  background(204);
+  ellipse(x, y, diameter, diameter);
+}
+</code></pre>
+</section><section data-type="sect1" id="seguir-NEQNT2y"><h1>Seguir</h1>
+<p>Como el c&#xF3;digo est&#xE1; corriendo continuamente, podemos seguir la posici&#xF3;n del rat&#xF3;n y usar estos n&#xFA;meros para mover elementos en la pantalla.</p>
+</section><section data-type="sect1" id="ejemplo-5-4-seguir-al-raton-Wjn0TME"><h1>Ejemplo 5-4: seguir al rat&#xF3;n</h1>
+<p>La variable mouseX graba la coordenada x, y la variable mouseY graba la coordenada y:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(480, 120);
+  fill(0, 102);
+  noStroke();
+}
+
+function draw() {
+  ellipse(mouseX, mouseY, 9, 9);
+}
+</code></pre>
+<p>En este ejemplo, cada vez que el c&#xF3;digo en el bloque draw() es ejecutado, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo. La imagen fue hecha moviendo el rat&#xF3;n para controlar la posici&#xF3;n del c&#xED;rculo. Como la funci&#xF3;n de relleno est&#xE1; definida para ser parcialmente transparente, las &#xE1;reas negras m&#xE1;s densas muestran d&#xF3;nde el rat&#xF3;n estuvo m&#xE1;s tiempo o se movi&#xF3; m&#xE1;s lento. Los c&#xED;rculos que est&#xE1;n m&#xE1;s separados muestran d&#xF3;nde el rat&#xF3;n estuvo movi&#xE9;ndose m&#xE1;s r&#xE1;pido.</p>
+</section><section data-type="sect1" id="ejemplo-5-5-el-punto-te-persigue-PE3nT1G"><h1>Ejemplo 5-5: el punto te persigue</h1>
+<p>En este ejemplo, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo cada vez que el c&#xF3;digo dentro de draw() es ejecutado. Para refrescar la pantalla y sollo mostrar el c&#xED;rculo m&#xE1;s reciente, escribe la funci&#xF3;n background() al principio del bloque draw() antes que la figura sea dibujada:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(480, 120);
+  fill(0, 102);
+  noStroke();
+}
+
+function draw() {
+  background(204);
+  ellipse(mouseX, mouseY, 9, 9);
+}
+</code></pre>
+<p>La funci&#xF3;n background() pinta el lienzo completo , as&#xED; que aseg&#xFA;rate de ponerlo antes que las otras funciones dentro de draw(). Si no haces esto, las figuras dibujadas antes ser&#xE1;n borradas.</p>
+</section><section data-type="sect1" id="ejemplo-5-6-dibuja-de-forma-continua-Bj8eTNG"><h1>Ejemplo 5-6: dibuja de forma continua</h1>
+<p>Las variables pmouseX y pmouseY guardan la posici&#xF3;n del rat&#xF3;n en el cuadro anterior. Como mouseX y mouseY, estas variables especiales son actualizadas cada vez que draw() es ejecutado. Cuando las combinas, pueden ser usadas para dibujar l&#xED;neas continuas al conectar las posiciones actual y m&#xE1;s reciente:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(480, 120);
+  strokeWeight(4);
+  fill(0, 102);
+  noStroke();
+}
+
+function draw() {
+  background(204);
+  ellipse(mouseX, mouseY, 9, 9);
+}
 </code></pre>
 </section></section>
   </body>

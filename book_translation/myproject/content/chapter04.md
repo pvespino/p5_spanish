@@ -374,7 +374,7 @@ var ny = y - bodyHeight - neckHeight - radius;  // Y del cuello
 
 function setup(){
   createCanvas(170, 480);
-  strokeWeigt(2);
+  strokeWeight(2);
   ellipseMode(RADIUS);
 }
 
