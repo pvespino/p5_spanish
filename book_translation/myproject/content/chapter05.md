@@ -188,3 +188,123 @@ El valor de la variable x está siempre acercándose a targetX. La velocidad con
 Todo el trabajo en este ejemplo ocurre en la línea que empieza con x+=. Aquí, se calcula la diferencia entre el valor objetivo y el actual, y luego es multiplicada por la variable easing y añadida a x para llevarla más cerca que el objetivo.
 
 ## Ejemplo 5-9: suaviza las líneas
+
+En este ejemplo, la técnica de suavizado es aplicada al Ejemplo 5-7. En comparación, las líneas son más fluidas:
+
+```
+var x = 0;
+var y = 0;
+var px = 0;
+var py = 0;
+function setup() {
+  createCanvas(480, 120);
+  stroke(0, 102);
+}
+
+function draw() {
+  var targetX = mouseX;
+  x += (targetX - x) * easing;
+  var targetY = mouseY;
+  y += (targetY - y) * easing;
+  var weight = dist(x,y,px,py);
+  strokeWeight(weight);
+  line(x,y,px,py);
+  py = y;
+  px = x;
+}
+```
+## Click
+
+Además de la ubicación del ratón, p5.js también mantiene registro de si el botón del ratón ha sido presionado o no. La variable mouseIsPressed tiene un valor diferente cuando el botón del ratón está presionado. La variable mouseIsPressed es una variable boolean, lo que significa que solo tiene dos posibles valores: verdadero (true) o falso (falso). El valor de mouseIsPressed es verdadero cuando un botón es presionado.
+
+## Ejemplo 5-10: haz click con el ratón
+
+La variable mouseIsPressed es usada en conjunto con la declaración if para determinar si una línea de código será ejecutada o no. Prueba este ejemplo antes de sigamos explicado:
+
+```
+function setup() {
+  createCanvas(240, 120);
+  strokeWeight(30);
+}
+
+function draw() {
+  background(204);
+  stroke(102);
+  line(40, 0, 70, height);
+  if (mouseIsPressed == true) {
+    stroke(0);
+  }
+  line(0,70,width,50);
+}
+```
+En este programa, el código dentro del blocke if sólo corre cuando el botón del ratón es presionado. Cuando el botón no está presionado, el código es ignorado. Como el for loop discutido en "Repetition", el bloque if tiene una prueba (test) que es evaluada a verdadero (true) o falso (false).
+
+```
+if (test) {
+  statements
+}
+```
+
+Cuando el test es true, el código dentro del bloque es ejecutado y cuando es falso, no es ejecutado. El computador determina si el test es true o false al evaluar la expresión dentro del paréntesis. (Si quieres refrescar tu memoria, el ejemplo 4-6 discute en mayor detalle expresiones relacionales). El símbolo == compara los valores a la izquierda y la derecha para probar si son equivalentes o no. El símbolo == es diferente del operador de asignación, el símbolo unitario =. el símbolo == pregunta, "¿son estas cosas iguales?", mientras que el símbolo = define el valor de una variable
+
+## Nota
+
+Es un error común, incluso para programadores avanzados, escribir = en el código en vez de ==. p5.js no siempre te advertirá cuándo lo hagas, así que sé cuidadoso.
+
+Alternativamente, la prueba en draw() puede ser escrita así:
+
+```
+if (mouseIsPressed) {
+```
+
+Las variables Boolean, incluyendo a mouseIsPressed, no necesitan la comparación explícita con el operador ==, porque su valor es solo o true o false.
+
+## Ejemplo 5-11: detección de no clickeado
+
+Un bloque if te da la oportunidad de correr una porción de código o de ignorarla. Puedes extender la funcionalidad del bloque if con el bloque else, permitiendo que tu programa escoja entre dos opciones. El código dentro del bloque else corre cuando el valor de la prueba del bloque if es false. Por ejemplo, el color de trazado de un programa puede ser negro cuando el botón del ratón no es presionado y puede cambiar a negro cuando sí es presionado:
+
+```
+function setup() {
+  createCanvas(240, 120);
+  strokeWeight(30);
+}
+function draw() {
+  background(204);
+  stroke(102);
+  line(40, 0, 70, height);
+  if (mouseIsPressed) {
+    stroke(0);
+  } else {
+    stroke(255);
+  }
+  line(0, 70, width, 50);
+}
+```
+## Ejemplo 5-12: Múltiples botones del ratón
+
+p5.js también registra cuál botón del ratón es presionado si es que tienes más de uno en tu ratón. La variable mouseButton puede tener uno de estos tres valores: LEFT, CENTER o RIGHT. Para probar cuál de los botones es presionado, el operador == es necesario, como se muestra a continuación:
+
+```
+function setup() {
+  createCanvas(120, 120);
+  strokeWeight(30);
+}
+
+function draw() {
+  background(204);
+  stroke(102);
+  line(40, 0, 70, height);
+  if (mouseIsPressed) {
+    if (mouseButton == LEFT) {
+      stroke(255);
+    } else {
+      stroke(0);
+    }
+    line(0,70,width,50);
+  }
+}
+```
+
+Un programa puede tener muchas más estructuras if y else (ver Figura 5-2) que las encontradas en estos ejemplos cortos. Pueden ser concatenadas en una larga serie con distintas pruebas, y los bloques if pueden estar anidados dentro de otros bloques if para hacer decisiones más complejas.
+
+## Ubicación
