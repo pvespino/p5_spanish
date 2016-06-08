@@ -20,7 +20,7 @@ Un bosquejo en p5.js está compuesto de unos cuántos lenguajes distintos usados
 
 Si revisas el archivo index.html, te darás cuenta que contiene un poco de código HTML. Este archivo brinda la estructura a tu projecto, uniendo la librería p5.js y otro archivo llamado sketch.js, donde tú escribiras tu propio programa. El código que crea estos enlaces tiene esta apariencia:
 
-```
+```html
 <script language="javascript" type="text/javascript"
 src="../p5.js"></script>
 <script language="javascript" type="text/javascript"
