@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    
+    <script src="assets/scripts.js"></script>
+
     <link rel="stylesheet" href="assets/pdf.css">
 
   </head>
@@ -305,6 +306,30 @@
 </li>
 <li>
   <a href="#ejemplo-5-18-revisar-diferentes-teclas-nEzBTPE">Ejemplo 5-18: revisar diferentes teclas</a>
+</li>
+<li>
+  <a href="#ejemplo-5-19-mover-con-las-flechas-gE9RTOy">Ejemplo 5-19: mover con las flechas</a>
+</li>
+<li>
+  <a href="#toque-wjJnT4j">Toque</a>
+</li>
+<li>
+  <a href="#ejemplo-5-20-toca-la-pantalla-kj5zTAG">Ejemplo 5-20: toca la pantalla</a>
+</li>
+<li>
+  <a href="#ejemplo-5-21-rastrea-el-dedo-ky7RTgE">Ejemplo 5-21: rastrea el dedo</a>
+</li>
+<li>
+  <a href="#mapeo-gGl4TPG">Mapeo</a>
+</li>
+<li>
+  <a href="#ejemplo-5-22-mapeo-de-valores-a-un-rango-djBpTrE">Ejemplo 5-22: mapeo de valores a un rango</a>
+</li>
+<li>
+  <a href="#ejemplo-5-23-mapeo-con-la-funcion-map-Wy00TXy">Ejemplo 5-23: Mapeo con la función map()</a>
+</li>
+<li>
+  <a href="#robot-3-respuesta-KEr7TZy">Robot 3: respuesta</a>
 </li>
   </ol>
 </li>
@@ -1525,7 +1550,148 @@ function draw() {
   line(90, 20, 90, 100);
 }
 </code></pre>
-<p>Cuando revisamos si est&#xE1; siendo presionada la tecla H o la N, necesitamos revisar tanto para las letras en may&#xFA;scula como en min&#xFA;scula, en caso de que alguien presione la tecla Shift o tenga la funci&#xF3;n Caps Lock activada. Combinamos ambas pruebas con el operador l&#xF3;gico OR, el s&#xED;mbolo ||. Si traducimos la segunda declaraci&#xF3;n if en este ejemplo a lenguaje plano, dice &quot;&quot;</p>
+<p>Cuando revisamos si est&#xE1; siendo presionada la tecla H o la N, necesitamos revisar tanto para las letras en may&#xFA;scula como en min&#xFA;scula, en caso de que alguien presione la tecla Shift o tenga la funci&#xF3;n Caps Lock activada. Combinamos ambas pruebas con el operador l&#xF3;gico OR, el s&#xED;mbolo ||. Si traducimos la segunda declaraci&#xF3;n if en este ejemplo a lenguaje plano, dice &quot;Si la tecla &apos;h&apos; es presionada OR la tecla &apos;H&apos; es presionada&quot;. A diferencia del operador l&#xF3;gico AND (el s&#xED;mbolo &amp;&amp;), solo una de estas expresiones necesita ser true para que la prueba entera sea evaluada a true.</p>
+<p>Algunas teclas son m&#xE1;s dif&#xED;ciles de detectar, porque no est&#xE1;n asociadas a una letra en particular. Teclas como Shift, Alt, y las flechas est&#xE1;n codificadas. Tenemos que revisar el c&#xF3;digo con la variable keyCode para revisar qu&#xE9; tecla es. Los valores m&#xE1;s frecuentes de keyCode son ALT, CONTROL y SHIFT, adem&#xE1;s de las teclas con flechas UP_ARROW, DOWN_ARROW, LEFT_ARROW Y RIGHT_ARROW.</p>
+</section><section data-type="sect1" id="ejemplo-5-19-mover-con-las-flechas-gE9RTOy"><h1>Ejemplo 5-19: mover con las flechas</h1>
+<p>El siguiente ejemplo muestra c&#xF3;mo usar las flechas izquierda y derecha para mover un rect&#xE1;ngulo.</p>
+<pre data-type="programlisting"><code>var x = 215;
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  if (keyIsPressed) {
+    if (keyCode == LEFT_ARROW) {
+      x--;
+    } else if (keyCode == RIGHT_ARROW) {
+      x++;
+    }
+  }
+  rect(x, 45, 50, 50);
+}
+</code></pre>
+</section><section data-type="sect1" id="toque-wjJnT4j"><h1>Toque</h1>
+<p>Para dispositivos que lo soportan, p5.js mantiene registr de si la pantalla es tocada y su ubicaci&#xF3;n. Como la variable mouseIsPressed, la variable touchIsdown es true cuando la pantalla es tocada, y false cuando no.</p>
+</section><section data-type="sect1" id="ejemplo-5-20-toca-la-pantalla-kj5zTAG"><h1>Ejemplo 5-20: toca la pantalla</h1>
+<p>En este ejemplo, la segunda l&#xED;nea es dibujada solo si la pantalla es tocada</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(204);
+  line(220, 20, 220, 100);
+  if (touchIsdown) {
+    line(220, 20, 20, 100);
+  }
+}
+</code></pre>
+<p>Como las variables mouseX y mouseY, las variables touchX y touchY almacenan las coordenadas x e y del punto donde la pantalla est&#xE1; siendo tocada.</p>
+</section><section data-type="sect1" id="ejemplo-5-21-rastrea-el-dedo-ky7RTgE"><h1>Ejemplo 5-21: rastrea el dedo</h1>
+<p>En este ejemplo, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo cada vez que el c&#xF3;digo en draw() es ejecutado. Para refrescar la pantalla y solo mostrar el c&#xED;rculo m&#xE1;s nuevo, escribe la funci&#xF3;n background() al inicio de draw() antes de dibujar la figura:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(480, 120);
+  fill(0, 102);
+  noStroke();
+}
+
+function draw() {
+  ellipse(touchX, touchY, 15, 15);
+}
+</code></pre>
+</section><section data-type="sect1" id="mapeo-gGl4TPG"><h1>Mapeo</h1>
+<p>Los n&#xFA;meros que son creados por el rat&#xF3;n y por el teclado muchas veces necesitan ser modificados para ser &#xFA;tiles dentro del programa. Por ejemplo, si un bosquejo tiene un ancho de 1920 pixeles y los valores de mouseX son usados para definir el color del fondo, el rango de 0 a 1920 de mouseX necesitar&#xE1; ser escalado para moverse en un rango de 0 a 255 para controlar mejor el color. Esta transformaci&#xF3;n puede ser hecha con una ecuaci&#xF3;n o con una funci&#xF3;n llamada map().</p>
+</section><section data-type="sect1" id="ejemplo-5-22-mapeo-de-valores-a-un-rango-djBpTrE"><h1>Ejemplo 5-22: mapeo de valores a un rango</h1>
+<p>En este ejemplo, la ubicaci&#xF3;n de dos l&#xED;neas es controlada por la variable mouseX. La l&#xED;nea gris est&#xE1; sincronizada con la posici&#xF3;n del cursor, pero la l&#xED;nea negra se mantiene m&#xE1;s cerca del centro de la pantalla y se aleja de la l&#xED;nea blanca en los bordes izquierdos y derechos.</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(240, 120);
+  strokeWeight(12);
+}
+
+function draw() {
+  background(204);
+  stroke(102);
+  line(mouseX, 0, mouseX, height);  // L&#xED;nea gris
+  stroke(0);
+  var mx = mouseX/2 + 60;
+  line(mx, 0, mx, height);          // L&#xED;nea negra
+}
+</code></pre>
+<p>La funci&#xF3;n map() es una manera m&#xE1;s general de hacer este tipo de cambio. Convierte una variable desde un rango de valores a otro. El primer par&#xE1;metro es la variable a ser convertida, el segundo y tercer valor son los valores m&#xED;nimo y m&#xE1;ximo de esa variable, y el cuarto y quinto son los valores m&#xED;nimo y m&#xE1;ximo deseados. La funci&#xF3;n map() esconde la matem&#xE1;tica detr&#xE1;s de esta conversi&#xF3;n.</p>
+</section><section data-type="sect1" id="ejemplo-5-23-mapeo-con-la-funcion-map-Wy00TXy"><h1>Ejemplo 5-23: Mapeo con la funci&#xF3;n map()</h1>
+<p>Este ejemplpo reescribe el Ejemplo 5-22 usando map():</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(240, 120);
+  strokeWeight(12);
+}
+
+function draw() {
+  background(204);
+  stroke(255);
+  line(120, 60, mouseX, mouseY);  // L&#xED;nea blanca
+  stroke(0);
+  var mx = map(mouseX, 0, width, 60, 180);
+  line(120, 60, mx, mouseY);      // L&#xED;nea negra
+}
+</code></pre>
+<p>La funci&#xF3;n map() hace que el c&#xF3;digo sea f&#xE1;cil de leer, porque los valores m&#xE1;ximo y m&#xED;nimo est&#xE1;n claramente escritos como par&#xE1;metros. En este ejemplo, los valores de mouseX entre 0 y width son convertidos a n&#xFA;meros entre 60 (cuando mouseX es 0) y 180 (cuando mouseX es width). Encontrar&#xE1;s esta &#xFA;til funci&#xF3;n map() en muchos ejemplos a lo largo de este libro.</p>
+</section><section data-type="sect1" id="robot-3-respuesta-KEr7TZy"><h1>Robot 3: respuesta</h1>
+<p>Este programa usa las variables introducidas en Robot 2 (ver &quot;Robot 2: variables&quot;) y hace posible cambiarlas mientras el programa corre de manera que las figuras respondan al rat&#xF3;n. El c&#xF3;digo dentro del bloque draw() es ejecutado muchas veces por segundo. En cada cuadro, las variables definidas en el programa cambian en respuesta a las variables mouseX y mouseIsPressed.</p>
+<p>La variable mouseX controla la posici&#xF3;n del robot con la t&#xE9;cnica de suavizado para que los movimientos sean menos instant&#xE1;neos y se vean m&#xE1;s naturales. Cuando un bot&#xF3;n del rat&#xF3;n es presionado, los valores de neckHeight y bodyHeight cambian para hacer al robot m&#xE1;s corto:</p>
+<pre data-type="programlisting"><code>var x = 60;           // Coordenada x
+var y = 440;          // Coordenada y
+var radius = 45;      // Radio de la cabeza
+var bodyHeight = 160; // Altura del cuerpo
+var neckHeight = 70;  // Altura del cuello
+
+var easing = 0.04;
+
+function setup() {
+  createCanvas(360, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  var targetX = mouseX;
+  x += (targetX - x) * easing;
+  if (mouseIsPressed) {
+    neckHeight = 16;
+    bodyHeight = 90;
+  } else {
+    neckHeight = 70;
+    bodyHeight = 160;
+  }
+
+  var neckY = y - bodyHeight - neckHeight - radius;
+
+  background(204);
+
+  // Cuello
+  stroke(102);
+  line(x + 12, y - bodyHeight, x + 12, neckY);
+
+  // Antenas
+  line(x + 12, neckY, x - 18, neckY - 43);
+  line(x + 12, neckY, x + 42, neckY - 99);
+  line(x + 12, neckY, x + 78, neckY + 15);
+
+  // Cuello
+  noStroke();
+  fill(102);
+  ellipse(x, y - 33, 33, 33);
+  fill(0);
+  rect(x - 45, y - bodyHeight, 90, bodyHeight - 33);
+
+  // Cabeza
+  fill(0);
+  ellipse(x + 12, neckY, radius, radius);
+  fill(255);
+  ellipse(x + 24, neckY - 6, 14, 14);
+  fill(0);
+  ellipse(x + 24, neckY - 6, 3, 3);
+}
+</code></pre>
 </section></section>
   </body>
 </html>

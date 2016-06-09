@@ -465,4 +465,176 @@ function draw() {
   line(90, 20, 90, 100);
 }
 ```
-Cuando revisamos si está siendo presionada la tecla H o la N, necesitamos revisar tanto para las letras en mayúscula como en minúscula, en caso de que alguien presione la tecla Shift o tenga la función Caps Lock activada. Combinamos ambas pruebas con el operador lógico OR, el símbolo ||. Si traducimos la segunda declaración if en este ejemplo a lenguaje plano, dice ""
+Cuando revisamos si está siendo presionada la tecla H o la N, necesitamos revisar tanto para las letras en mayúscula como en minúscula, en caso de que alguien presione la tecla Shift o tenga la función Caps Lock activada. Combinamos ambas pruebas con el operador lógico OR, el símbolo ||. Si traducimos la segunda declaración if en este ejemplo a lenguaje plano, dice "Si la tecla 'h' es presionada OR la tecla 'H' es presionada". A diferencia del operador lógico AND (el símbolo &&), solo una de estas expresiones necesita ser true para que la prueba entera sea evaluada a true.
+
+Algunas teclas son más difíciles de detectar, porque no están asociadas a una letra en particular. Teclas como Shift, Alt, y las flechas están codificadas. Tenemos que revisar el código con la variable keyCode para revisar qué tecla es. Los valores más frecuentes de keyCode son ALT, CONTROL y SHIFT, además de las teclas con flechas UP_ARROW, DOWN_ARROW, LEFT_ARROW Y RIGHT_ARROW.
+
+## Ejemplo 5-19: mover con las flechas
+
+El siguiente ejemplo muestra cómo usar las flechas izquierda y derecha para mover un rectángulo.
+
+```
+var x = 215;
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  if (keyIsPressed) {
+    if (keyCode == LEFT_ARROW) {
+      x--;
+    } else if (keyCode == RIGHT_ARROW) {
+      x++;
+    }
+  }
+  rect(x, 45, 50, 50);
+}
+```
+## Toque
+
+Para dispositivos que lo soportan, p5.js mantiene registr de si la pantalla es tocada y su ubicación. Como la variable mouseIsPressed, la variable touchIsdown es true cuando la pantalla es tocada, y false cuando no.
+
+## Ejemplo 5-20: toca la pantalla
+
+En este ejemplo, la segunda línea es dibujada solo si la pantalla es tocada
+
+```
+function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(204);
+  line(220, 20, 220, 100);
+  if (touchIsdown) {
+    line(220, 20, 20, 100);
+  }
+}
+```
+Como las variables mouseX y mouseY, las variables touchX y touchY almacenan las coordenadas x e y del punto donde la pantalla está siendo tocada.
+
+## Ejemplo 5-21: rastrea el dedo
+
+En este ejemplo, un nuevo círculo es añadido al lienzo cada vez que el código en draw() es ejecutado. Para refrescar la pantalla y solo mostrar el círculo más nuevo, escribe la función background() al inicio de draw() antes de dibujar la figura:
+
+```
+function setup() {
+  createCanvas(480, 120);
+  fill(0, 102);
+  noStroke();
+}
+
+function draw() {
+  ellipse(touchX, touchY, 15, 15);
+}
+```
+
+## Mapeo
+
+Los números que son creados por el ratón y por el teclado muchas veces necesitan ser modificados para ser útiles dentro del programa. Por ejemplo, si un bosquejo tiene un ancho de 1920 pixeles y los valores de mouseX son usados para definir el color del fondo, el rango de 0 a 1920 de mouseX necesitará ser escalado para moverse en un rango de 0 a 255 para controlar mejor el color. Esta transformación puede ser hecha con una ecuación o con una función llamada map().
+
+## Ejemplo 5-22: mapeo de valores a un rango
+
+En este ejemplo, la ubicación de dos líneas es controlada por la variable mouseX. La línea gris está sincronizada con la posición del cursor, pero la línea negra se mantiene más cerca del centro de la pantalla y se aleja de la línea blanca en los bordes izquierdos y derechos.
+
+```
+function setup() {
+  createCanvas(240, 120);
+  strokeWeight(12);
+}
+
+function draw() {
+  background(204);
+  stroke(102);
+  line(mouseX, 0, mouseX, height);  // Línea gris
+  stroke(0);
+  var mx = mouseX/2 + 60;
+  line(mx, 0, mx, height);          // Línea negra
+}
+```
+
+La función map() es una manera más general de hacer este tipo de cambio. Convierte una variable desde un rango de valores a otro. El primer parámetro es la variable a ser convertida, el segundo y tercer valor son los valores mínimo y máximo de esa variable, y el cuarto y quinto son los valores mínimo y máximo deseados. La función map() esconde la matemática detrás de esta conversión.
+
+## Ejemplo 5-23: Mapeo con la función map()
+
+Este ejemplpo reescribe el Ejemplo 5-22 usando map():
+
+```
+function setup() {
+  createCanvas(240, 120);
+  strokeWeight(12);
+}
+
+function draw() {
+  background(204);
+  stroke(255);
+  line(120, 60, mouseX, mouseY);  // Línea blanca
+  stroke(0);
+  var mx = map(mouseX, 0, width, 60, 180);
+  line(120, 60, mx, mouseY);      // Línea negra
+}
+```
+
+La función map() hace que el código sea fácil de leer, porque los valores máximo y mínimo están claramente escritos como parámetros. En este ejemplo, los valores de mouseX entre 0 y width son convertidos a números entre 60 (cuando mouseX es 0) y 180 (cuando mouseX es width). Encontrarás esta útil función map() en muchos ejemplos a lo largo de este libro.
+
+## Robot 3: respuesta
+
+Este programa usa las variables introducidas en Robot 2 (ver "Robot 2: variables") y hace posible cambiarlas mientras el programa corre de manera que las figuras respondan al ratón. El código dentro del bloque draw() es ejecutado muchas veces por segundo. En cada cuadro, las variables definidas en el programa cambian en respuesta a las variables mouseX y mouseIsPressed.
+
+La variable mouseX controla la posición del robot con la técnica de suavizado para que los movimientos sean menos instantáneos y se vean más naturales. Cuando un botón del ratón es presionado, los valores de neckHeight y bodyHeight cambian para hacer al robot más corto:
+
+```
+var x = 60;           // Coordenada x
+var y = 440;          // Coordenada y
+var radius = 45;      // Radio de la cabeza
+var bodyHeight = 160; // Altura del cuerpo
+var neckHeight = 70;  // Altura del cuello
+
+var easing = 0.04;
+
+function setup() {
+  createCanvas(360, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  var targetX = mouseX;
+  x += (targetX - x) * easing;
+  if (mouseIsPressed) {
+    neckHeight = 16;
+    bodyHeight = 90;
+  } else {
+    neckHeight = 70;
+    bodyHeight = 160;
+  }
+
+  var neckY = y - bodyHeight - neckHeight - radius;
+
+  background(204);
+
+  // Cuello
+  stroke(102);
+  line(x + 12, y - bodyHeight, x + 12, neckY);
+
+  // Antenas
+  line(x + 12, neckY, x - 18, neckY - 43);
+  line(x + 12, neckY, x + 42, neckY - 99);
+  line(x + 12, neckY, x + 78, neckY + 15);
+
+  // Cuello
+  noStroke();
+  fill(102);
+  ellipse(x, y - 33, 33, 33);
+  fill(0);
+  rect(x - 45, y - bodyHeight, 90, bodyHeight - 33);
+
+  // Cabeza
+  fill(0);
+  ellipse(x + 12, neckY, radius, radius);
+  fill(255);
+  ellipse(x + 24, neckY - 6, 14, 14);
+  fill(0);
+  ellipse(x + 24, neckY - 6, 3, 3);
+}
+```
