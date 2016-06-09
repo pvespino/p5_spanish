@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Introducción a p5.js</title>
+    
+    <link rel="stylesheet" href="assets/html.css">
+
+  </head>
+  <body data-type="book">
+    <div class="container">
+      <section data-type="chapter" id="capitulo-6-trasladar-rotar-escalar-9jlEfKr"><h1>Cap&#xED;tulo 6. Trasladar, rotar, escalar</h1>
+<p>Una t&#xE9;cnica alternativa para posicionar y mover objetos en la pantalla es cambiar el sistema de coordenadas de la pantalla. Por ejemplo, puedes mover una figura 50 pixeles a la derecha, o puedes mover la ubicaci&#xF3;n de la coordenada (0,0) 50 pixeles a la derecha - el resultado visual en la pantalla es el mismo.</p>
+<p>Al modificar el sistema de coordenadas por defecto, podemos crear diferentes transformaciones incluyendo traslaci&#xF3;n, rotaci&#xF3;n y escalamiento.</p>
+<section data-type="sect1" id="traslacion-MrXvfyL"><h1>Traslaci&#xF3;n</h1>
+<p>Trabajar con transformaciones puede ser dif&#xED;cil, pero la funci&#xF3;n translate() es la m&#xE1;s sencilla, as&#xED; que empezaremos con esta. Como muestra la Figura 6-1, esta funci&#xF3;n puede cambiar el sistema de coordenadas hacia la izquierda, derecha, arriba y abajo.</p>
+</section><section data-type="sect1" id="ejemplo-6-1-trasladando-la-ubicacion-KjbgfJr"><h1>Ejemplo 6-1: trasladando la ubicaci&#xF3;n</h1>
+<p>En este ejemplo, observa que el rect&#xE1;ngulo est&#xE1; dibujado en la coordenada (0,0), pero est&#xE1; en otra posici&#xF3;n en el lienzo, porque es afectado por la funci&#xF3;n translate():</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+}
+</code></pre>
+<p>La funci&#xF3;n translate() define la coordenada (0,0) de la pantalla a la ubicaci&#xF3;n del rat&#xF3;n (mouseX y mouseY). Cada vez que el bloque draw() se repite, el rect&#xE1;ngulo es dibujado en el nuevo origen, derivado de la posici&#xF3;n actual del rat&#xF3;n.</p>
+</section><section data-type="sect1" id="ejemplo-6-2-multiples-traslados-ojanfDr"><h1>Ejemplo 6-2: m&#xFA;ltiples traslados</h1>
+<p>Despu&#xE9;s de que la transformaci&#xF3;n es realizada, es aplicada a todas las veces que la funci&#xF3;n draw() es ejecutada. Observa lo que pasa cuando una segunda funci&#xF3;n translate() es a&#xF1;adida para controlar un segundo rect&#xE1;ngulo:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+  translate(35, 10);
+  rect(0, 0, 15, 15);
+}
+</code></pre>
+<p>Los valores para la funci&#xF3;n translate() son acumulados. El peque&#xF1;o rect&#xE1;ngulo es trasladado seg&#xFA;n mouseX + 35 0,0y mouseY + 10. Las coordenadas x e y para ambos rect&#xE1;ngulos son (0,0), pero las funciones translate() los mueven a otras posiciones en el lienzo.
+Sin embargo, incluso cuando las transformaciones se acumulan dentro del bloque draw(), se reinician cada vez que la funci&#xF3;n draw() empieza de nuevo.</p>
+</section><section data-type="sect1" id="rotacion-2L3AfGr"><h1>Rotaci&#xF3;n</h1>
+<p>La funci&#xF3;n rotate() rota el sistema de coordenadas. Tiene un par&#xE1;metro, que es el &#xE1;ngulo (en radianes) a rotar. Siempre rota relativo a (0,0), lo que se conoce como rotar en torno al origen. La Figura 3-2 muestra los valores de &#xE1;ngulo en radianes. La figura 6-2 muestra la diferencia entre rotar con n&#xFA;meros positivos y negativos.</p>
+</section><section data-type="sect1" id="ejemplo-6-3-rotacion-de-la-esquina-WjGOfXj"><h1>Ejemplo 6-3: rotaci&#xF3;n de la esquina</h1>
+<p>Para rotar una figura, primero define el &#xE1;ngulo de rotaci&#xF3;n con rotate(), luego dibuja la figura. En este bosquejo, el par&#xE1;metro para rotar (mouseX / 100.0) tendr&#xE1; un valor entre 0 y 1.2 para definir el &#xE1;ngulo de rotaci&#xF3;n porque mouseX tendr&#xE1; un valor entre 0 y 120, el ancho del lienzo seg&#xFA;n lo definido en createCanvas():</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  rotate(mouseX / 100.0);
+  rect(40, 30, 160, 20);
+}
+</code></pre>
+</section><section data-type="sect1" id="ejemplo-6-4-rotacion-del-centro-DL1QfxL"><h1>Ejemplo 6-4: rotaci&#xF3;n del centro</h1>
+<p>Para rotar una figura en torno a su propio centro, deben ser dibujada con la coordenada (0,0) en su centro. En este ejemplo, como la figura tiene un ancho de 160 y una altura de 20 seg&#xFA;n lo definido en la funci&#xF3;n rect(), es dibujada en la coordenada (-80, -10) para poner la coordenada (0,0) al centro de la figura:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  rotate(mouseX / 100.0);
+  rect(-80, -10, 160, 20);
+}
+</code></pre>
+<p>El par anterior de ejemplos muestra c&#xF3;mo rotar alrededor de un sistema de coordenadas (0,0), &#xBF;pero qu&#xE9; otras posibilidades hay? Puedes usar las funciones translate() y rotate() para mayor control. Cuando son combinadas, el orden en que aparecen afecta el resultado. Si el sistema de coordenadas es trasladado y despu&#xE9;s rotado, es diferente que primero rotar y despu&#xE9;s mover el sistema de coordenadas.</p>
+</section><section data-type="sect1" id="ejemplo-6-5-traslacion-despues-rotacion-arB2f1r"><h1>Ejemplo 6-5: traslaci&#xF3;n, despu&#xE9;s rotaci&#xF3;n</h1>
+<p>Para girar una figura en torno a su centro a un lugar en la pantalla lejos del orgien, primero usa la funci&#xF3;n traslate() para mover la figura a la ubicaci&#xF3;n donde quieres la figura, luego usa rotate(), y luego dibuja la figura con su centro en la coordenada (0,0):</p>
+<pre data-type="programlisting"><code>var angle = 0.0;
+
+function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  translate(mouseX, mouseY);
+  rotate(angle);
+  rect(-15, -15, 30, 30);
+  angle += 0.1;
+}
+</code></pre>
+</section><section data-type="sect1" id="ejemplo-6-6-rotacion-despues-traslacion-RjPKfqL"><h1>Ejemplo 6-6: rotaci&#xF3;n, despu&#xE9;s traslaci&#xF3;n</h1>
+<p>El siguiente ejemplo es id&#xE9;ntico al Ejemplo 6-5, excepto que translate() y rotate() ocurren en el orden inverso. La figura ahora rota alrededor de la esquina superior izquierda, con la distancia desde la esquina definida por translate():</p>
+<pre data-type="programlisting"><code>var angle = 0.0;
+
+function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  rotate(angle);
+  translate(mouseX, mouseY);
+  rect(-15, -15, 30, 30);
+  angle += 0.1;
+}
+</code></pre>
+</section><section data-type="sect1" id="nota-YLnEf5V"><h1>Nota</h1>
+<p>Puedes usar tambi&#xE9;n las funciones rectMode(), ellipseMode() y imageMode() hacen m&#xE1;s simple dibujar figuras desde su centro. Puedes leer sobre estas funciones en la Referencia de p5.js.</p>
+</section><section data-type="sect1" id="ejemplo-6-7-un-brazo-articulado-1r7YfdL"><h1>Ejemplo 6-7: un brazo articulado</h1>
+<p>En este ejemplo, hemos puesto juntas una serie de funciones translate() y rotate() para crear un brazo articulado. Cada funci&#xF3;n translate() mueve la posici&#xF3;n de las l&#xED;neas, y cada funci&#xF3;n rotate() a&#xF1;ade a la rotaci&#xF3;n previa para doblar m&#xE1;s:</p>
+<pre data-type="programlisting"><code>var angle = 0.0;
+var angleDirection = 1;
+var speed = 0.005;
+
+function setup() {
+  createCanvas(120, 120);
+}
+
+function draw() {
+  background(204);
+  translate(20, 25);  // Mover a la posici&#xF3;n inicial
+  rotate(angle);
+  strokeWeight(12);
+  line(0, 0, 40, 0);
+  translate(40, 0);   // Mover la siguiente articulaci&#xF3;n
+  rotate(angle * 2.0);
+  strokeWeight(6);
+  line(0, 0, 30, 0);
+  translate(30, 0);
+  rotate(angle * 2.5);
+  strokeWeight(3);
+  line(0, 0, 20, 0);
+
+  angle += speed * angleDirection;
+  if ((angle &gt; QUARTER_PI) || (angle &lt; 0)) {
+    angleDirection *= -1;
+  }
+}
+</code></pre>
+<p>El</p>
+</section></section>
+<a id="prev-link" href="chapter05.html">Previous: Capítulo 5. Respuesta</a>
+
+    </div>
+  </body>
+</html>
