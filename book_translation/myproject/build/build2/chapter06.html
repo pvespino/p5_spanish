@@ -135,7 +135,118 @@ function draw() {
   }
 }
 </code></pre>
-<p>El</p>
+<p>La variable angle crece desde 0 hasta QUARTER_PI (un cuarto del valor de pi), luego decae hasta que es menor que cero, luego el ciclo se repite. El valor de la variable angleDirection est&#xE1; siempre entre 1 y -1 para hacer que el valor de angle correspondiente crezca o decrezca.</p>
+</section><section data-type="sect1" id="escalar-4rNBfxr"><h1>Escalar</h1>
+<p>La funci&#xF3;n scale() estira las coordenadas del lienzo. Como las coordenadas se expanden o se contraen cuando cambia la escala, todo lo que est&#xE1; dibujado en el lienzo aumenta o disminuye sus dimensiones. El monto de escalamiento est&#xE1; escrito en porcentajes decimales. Entonces, el par&#xE1;metro 1.5 en la funci&#xF3;n scale() resulta en un 150% y 3 es 300% (Figura 6-3).</p>
+</section><section data-type="sect1" id="ejemplo-6-8-escalamiento-NLwxf7j"><h1>Ejemplo 6-8: escalamiento</h1>
+<p>Como rotate(), la funci&#xF3;n scale() transforma desde el origen. Entonces, tal como rotate(), para escalar una figura desde su centro, debemos trasladar su ubicaci&#xF3;n, escalar y luego dibujar con el centro en la coordenada (0,0):</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  translate(mouseX, mouseY);
+  scale(mouseYX / 60.0);
+  rect(-15, -15, 30, 30);
+}
+</code></pre>
+</section><section data-type="sect1" id="ejemplo-6-9-manteniendo-los-trazos-constantes-6LJaf7V"><h1>Ejemplo 6-9: manteniendo los trazos constantes</h1>
+<p>De las l&#xED;neas gruesas del Ejemplo 6-8, puedes ver c&#xF3;mo la funci&#xF3;n scale() afecta el grosor del trazado. Para mantener un grosor de trazado consistente a medida que la figura se escala, divide el trazado deeseado por el valor escalar:</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  translate(mouseX, mouseY);
+  var scalar = mouseX / 60.0;
+  scale(scalar);
+  strokeWeight(1.0 / scalar);
+  rect(-15, -15, 30, 30);
+}
+</code></pre>
+</section><section data-type="sect1" id="push-y-pop-4LqOfXr"><h1>Push y pop</h1>
+<p>Para aislar los efectos de la transformaci&#xF3;n para que no afecten otras funciones, usa las funciones push() y pop(). When ejecutas push(), graba una copia del sistema de coordenadas actual y luego restaura ese sistema cuando ejecutas pop(). Esto es &#xFA;til cuando las transformaciones son necesarias para una figura, pero no son deseadas para otras.</p>
+</section><section data-type="sect1" id="ejemplo-6-10-aislando-transformaciones-RjM7faV"><h1>Ejemplo 6-10: aislando transformaciones</h1>
+<p>En este ejemplo, el rect&#xE1;ngulo peque&#xF1;o siempre dibuja en la misma pop():</p>
+<pre data-type="programlisting"><code>function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  push();
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+  pop();
+  translate(35, 10);
+  rect(0, 0, 15, 15);
+}
+</code></pre>
+</section><section data-type="sect1" id="nota-PryQfxr"><h1>Nota</h1>
+<p>Las funciones push() y pop() siempre se usan en pares. Por cada push(), tiene que haber un correspondiente pop().</p>
+</section><section data-type="sect1" id="robot-4-trasladar-rotar-escalar-5r4efDV"><h1>Robot 4: trasladar, rotar, escalar</h1>
+<p>Las funciones translate(), rotate() y scale() son utilizadas para modificar el bosquejo del robot. En relaci&#xF3;n al ejemplo Robot 3: respuesta, translate() es usado para hacer el c&#xF3;digo m&#xE1;s f&#xE1;cil de leer. Aqu&#xED;, observa c&#xF3;mo ya no es necesario el valor de x a cada funci&#xF3;n de dibujo porque la funci&#xF3;n translate() mueve todo. Similarmente, la funci&#xF3;n scale() es usada para definir las dimensiones para todo el robot. Cuando el rat&#xF3;n no est&#xE1; presionado, el tama&#xF1;o es de un 60% y cuando s&#xED; est&#xE1; presionado, es de un 100% en relaci&#xF3;n a las coordenadas originales. La funci&#xF3;n rotate() es usada dentro del loop para dibujar una l&#xED;nea, rotarla un poco, luego dibujar una segunda l&#xED;nea, luego rotarla un poco m&#xE1;s, y as&#xED; hasta que el loop ha dibujado 30 l&#xED;neas en forma de c&#xED;rculo para estilizar el pelo de la cabeza del robot:</p>
+<pre data-type="programlisting"><code>var x = 60;           // Coordenada x
+var y = 440;          // Coordenada y
+var radius = 45;      // Radio de la cabeza
+var bodyHeight = 180; // Altura del cuerpo
+var neckHeight = 40;  // Altura del cuello
+
+var easing = 0.04;
+
+function setup() {
+  createCanvas(360, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  var neckY = -1 * (bodyHeight + neckHeight + radius);
+
+  background(204);
+
+  translate(mouseX, y); // Mueve todo a (mouseX, y)
+
+  if (mouseIsPressed) {
+    scale(1.0);
+  } else {
+    scale(0.6);       // 60% de tama&#xF1;o si el rat&#xF3;n est&#xE1; presionado
+  }
+
+  // Cuerpo
+
+  noStroke();
+  fill(102);
+  ellipse(0, -33, 33, 33);
+  fill(0);
+  rect(-45, -bodyHeight, 90, bodyHeight - 33);
+
+  // Cuello
+  stroke(102);
+  line(12, -bodyHeight, 12, neckY);
+
+  // Pelo
+  push();
+  translate(12, neckY);
+  var angle = -PI/30.0;
+  for (var i = 0l i &lt;= 30; i++) {
+    line(80, 0, 0, 0);
+    rotate(angle);
+  }
+  pop();
+
+  // Cabeza
+  noStroke();
+  fill(0);
+  ellipse(12, neckY, radius, radius);
+  fill(255);
+  ellipse(24, neckY - 6, 14, 14);
+  fill(0);
+  ellipse(24, neckY - 6, 3, 3);
+}
+</code></pre>
 </section></section>
 <a id="prev-link" href="chapter05.html">Previous: Capítulo 5. Respuesta</a>
 
