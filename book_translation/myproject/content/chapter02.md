@@ -45,7 +45,7 @@ Cualquier código que esté involucrado en la definición del estado incial de t
 
 Cualquier código involucrado en realmente dibujar contenido a la pantalla (definir el color de fondo, dibujar figuras, texto o imágenes) será colocado en el bloque draw(). Es aquí donde empezarás a escribir tus primeras líneas de código.
 
-## Ejemplo 2-1: dibuja una elipse
+### Ejemplo 2-1: dibuja una elipse
 
 Entre las llaves del bloque draw(), borra el texto //put drawing code here y reemplázalo con el siguiente:
 
@@ -64,7 +64,7 @@ Una de las cosas más difíciles sobre empezar a programar es que tienes que ser
 
 A continuación, avanzaremos para hacer esto un poco más emocionante.
 
-## Ejemplo 2-2: hacer círculos
+### Ejemplo 2-2: hacer círculos
 
 Borra el texto del ejemplo anterior, y prueba este. Graba tu código, y refresca (Command-R) index.html en tu navegador para verlo actualizado.
 
