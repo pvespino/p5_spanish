@@ -12,7 +12,8 @@
     "content/chapter06.md",
     "content/chapter07.md",
     "content/chapter08.md",
-    "content/chapter09.md"
+    "content/chapter09.md",
+    "content/chapter10.md"
   ],
   "builds" : [
     {

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Introducción a p5.js</title>
+    
+    <link rel="stylesheet" href="assets/html.css">
+
+  </head>
+  <body data-type="book">
+    <div class="container">
+      <section data-type="chapter" id="capitulo-10-objetos-7Vb0uAJ"><h1>Cap&#xED;tulo 10. Objetos</h1>
+<p>La programaci&#xF3;n orientada a objetos (OOP) es una manera diferente de pensar sobre tus programas. Los objetos son tambi&#xE9;n una manera de agrupar variables con funciones relacionadas. Como ya sabes c&#xF3;mo trabajar con variables y funciones, los objetos simplemente combinan lo que ya has aprendido en un paquete m&#xE1;s f&#xE1;cil de entender.</p>
+<p>Los objetos son importantes, porque permiten dividir las ideas en bloques m&#xE1;s peque&#xF1;os. Esto se parece al mundo real donde, por ejemplo, los &#xF3;rganos est&#xE1;n hechos de tejido, el tejido est&#xE1; hecho de c&#xE9;lulas y as&#xED;. Similarmente, a medida que tu c&#xF3;digo se va volviendo m&#xE1;s complejo, tienes que pensar en t&#xE9;rminos de estructuras m&#xE1;s peque&#xF1;as que forman estructuras m&#xE1;s complicadas. Es m&#xE1;s f&#xE1;cil escribir y mantener pedazos de c&#xF3;digo m&#xE1;s peque&#xF1;os y f&#xE1;ciles de entender, que trabajan en conjunto con otros, que es escribir un gran trozo de c&#xF3;digo que hace todo al mismo tiempo.</p>
+<section data-type="sect1" id="propiedades-y-metodos-BJKKugJ"><h1>Propiedades y m&#xE9;todos</h1>
+<p>Un objeto es un conjunto de variables y funciones relacionadas. En el contexto de los objetos, una variable se llama propiedad (o variable de instancia) y una funci&#xF3;n es llamada m&#xE9;todo. Las propiedades y los m&#xE9;todos funcionan tal como las variables y las funciones vistas en los cap&#xED;tulos anteriores, pero usaremos estos nuevos t&#xE9;rminos para enfatizar que son parte de un objeto. Para decirlo de otra manera, un objeto combina datos relacionados (propiedades) con acciones y comportamientos relacionados (m&#xE9;todos). La idea es agrupar datos y m&#xE9;todos relacionados.</p>
+<p>Por ejemplo, para hacer un modelo de una radio, piensa en los par&#xE1;metros que pueden ser ajustados y las acciones que pueden afectar estos par&#xE1;metros:</p>
+<p>Propiedades</p>
+<p>volume, frequency, band(FM, AM), power (on, off)</p>
+<p>M&#xE9;todos</p>
+<p>setVolume, setFrequency, setBand</p>
+<p>Modelar un dispostivo mec&#xE1;nico simple es f&#xE1;cil comparado a modelar un organismo como una hormiga o una persona. No es posible reducir un organismo complejo a unas pocas propiedades y m&#xE9;todos, pero es posible modelarlo suficientemente bien como para crear una simulaci&#xF3;n interesante. El video juego The Sims es un claro ejemplo. Este juego consiste en administrar las actividades diarias de personas simuladas. Los personajes tienen la suficiente personalidad como para hacer un juego adictivo, pero no m&#xE1;s que eso. De hecho, ellos solo tienen cinco atributos de personalidad: ordenado, extrovertido, activo, juguet&#xF3;n y simp&#xE1;tico. Con el conocimiento de que es posible hacer un modelo altamente simplificado de organismos complejos, podr&#xED;amos empezar a programar una hormiga con unas pocas propiedades y m&#xE9;todos:</p>
+<p>Propiedades:</p>
+<p>tipo(trabajador, soldado), peso, ancho</p>
+<p>M&#xE9;todos:</p>
+<p>caminar, picar, liberarFeromonas, comer</p>
+<p>Si hicieras una lista de las propiedades y m&#xE9;todos de una hormiga, podr&#xED;as escoger enfocarte en modelar diferentes aspectos de la hormiga. No existe una manera correcta de hacer un modelo, mientras lo hagas apropiado para el pr&#xF3;posito de las metas de tu programa.</p>
+</section><section data-type="sect1" id="define-un-constructor-2pEkubW"><h1>Define un Constructor</h1>
+<p>Para crear un objeto, empieza por definir una funci&#xF3;n constructor. Una funci&#xF3;n constructor es la especificaci&#xF3;n de un objeto. Usando una analog&#xED;a arquitect&#xF3;nica, una funci&#xF3;n constructor es como el plano de una casa, y un objeto es como la casa en s&#xED; misma. Cada casa construida con el mismo plano puede tener variaciones, y el plano es la &#xFA;nica especificaci&#xF3;n, no una estructura fija. Por ejemplo, una casa puede ser azul y otra roja, una casa puede tener una chimenea y la otra no. Tal como los objetos, el constructor define los tipos de datos y comportamientos, pero cada objeto (casa) hecho de la misma funci&#xF3;n constructor (plano) tiene variables (color, chimenea) que tienen distintos valores. Para usar un t&#xE9;rmino m&#xE1;s t&#xE9;cnico, cada objeto es una instancia y cada instancia tiene su propio conjunto de propiedades y m&#xE9;todos.</p>
+<p>Antes de que escribas una funci&#xF3;n constructor, recomendamos un poco de planificaci&#xF3;n. Piensa en qu&#xE9; propiedades y m&#xE9;todos deber&#xED;an tener tus objetos. Haz una lluvia de ideas para imaginar todas las opciones posibles y luego prioriza y haz tu mejor conjetura sobre qu&#xE9; funcionar&#xE1;. Har&#xE1;s cambios durante el proceso de programaci&#xF3;n, pero es importante tener un buen comienzo.</p>
+<p>Para nuestra primera funci&#xF3;n constructor, convertiremos el Ejemplo 8-9 de antes en el libro. Empezamos por hacer una lista de propiedades del ejemplo:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>var x;
+var y;
+var diameter;
+var speed;
+</code></pre>
+<p>El siguiente paso es resolver qu&#xE9; m&#xE9;todos pueden ser &#xFA;tiles para el objeto. Revisando la funci&#xF3;n draw() del ejemplo que estamos adaptando, vemos dos componentes primarios. La posici&#xF3;n de la figura es actualizada y dibujada en la pantalla. Creemos dos m&#xE9;todos para nuestro objeto, uno para cada funci&#xF3;n:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>function move();
+function display();
+</code></pre>
+<p>Ninguno de nuestros m&#xE9;todos retornan un valor. Una vez que hemos determinado las propiedades y m&#xE9;todos que el objeto deber&#xED;a tener, escribiremos nuestra funci&#xF3;n constructor para asignarlos a cada instancia del objeta que crearemos (Figura 10-1).</p>
+<p>El c&#xF3;digo dentro la funci&#xF3;n constructor es corrido una vez cuando el objeto es creado. Para crear la funci&#xF3;n constructor, seguiremos tres pasos:</p>
+<ol>
+<li>
+<p>Crear un bloque de funci&#xF3;n.</p>
+</li>
+<li>
+<p>A&#xF1;adir las propiedades y asignarles valores.</p>
+</li>
+<li>
+<p>A&#xF1;adir los m&#xE9;todos.</p>
+</li>
+</ol>
+<p>Primero, creamos un bloque de funci&#xF3;n para nuestro constructor:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>function JitterBug() {
+
+}
+</code></pre>
+<p>Observa que el nombre JitterBug empieza con may&#xFA;scula. Nombrar la funci&#xF3;n constructor con letra may&#xFA;scula no es requerida, pero es una convenci&#xF3;n (que recomendamos fuertemente) usada para denotar que es un constructor. (La palabra clave function, sin embargo, debe ser min&#xFA;scula porque es una regla del lenguaje de programaci&#xF3;n).</p>
+<p>Segundo, a&#xF1;adimos las propiedades. Javascript tiene una palabra reservada especial, this, que puedes usar dentro la funci&#xF3;n constructor para referirse al objeto actual. Cuando declaras una propiedad de un objeto, dejamos fuera el s&#xED;mbolo var, y en vez de eso anteponemos el nombre de la variable con this. para indicar que estamos asignando una propiedad, una variable del objeto. Podemos declarar y asignar la propiedad speed de la siguiente manera:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>function JitterBug() {
+  this.speed = 0.5;
+}
+</code></pre>
+<p>Mientras estamos haciendo esto, tenemos que decidir qu&#xE9; propiedades tendr&#xE1;n sus valores pasados a trav&#xE9;s del constructor. Como regla general, los valores de las propiedades que quieran ser diferentes para cada instancia son pasados a trav&#xE9;s del constructor, y los otros valores de propiedades pueden ser definidos dentro del constructor, como lo es speed en este caso. Para el objeto JitterBug, hemos decidido que los valores de x, y y di&#xE1;metro ser&#xE1;n pasados. Cada uno de los valores pasados es asignado a una variable temporal que existe solo mientras el c&#xF3;digo es ejecutado. Para clarificar esto, hemos a&#xF1;adido el nombre temp a cada una de estas variables, pero pueden ser nombradas con cualquier nombre que prefieras. Ser&#xE1;n usadas solo para asignar los valores de las propiedades que son parte del objeto. As&#xED; que a&#xF1;adimos tempX, tempY y tempDiameter como par&#xE1;metros para la funci&#xF3;n, y las propiedades son declaradas y asignadas as&#xED;:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>function JitterBug(tempX, tempY, tempDiameter) {
+  this.x = tempX;
+  this.y = tempY;
+  this.diameter = tempDiameter;
+  this.speed = 0.5;   // El mismo valor para cada instancia
+}
+</code></pre>
+<p>El &#xFA;ltimo paso es a&#xF1;adir los m&#xE9;todos. Esto es justo como escribir funciones, pero aqu&#xED; est&#xE1;n contenidas dentro de la funci&#xF3;n constructor, y la primera l&#xED;nea es escrita un poco diferente. Normalmente, una funci&#xF3;n para actualizar variables puede ser escrita as&#xED;:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>function move() {
+  x += random(-speed, speed);
+  y += random(-speed, speed);
+}
+</code></pre>
+<p>Como queremos hacer esta funci&#xF3;n un m&#xE9;todo del objeto, nuevamente necesitamos usar la palabra reservada this. La funci&#xF3;n anterior puede ser convertida en un m&#xE9;todo as&#xED;:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>this. move = function() {
+  this.x += random(-this.speed, this.speed);
+  this.y += random(-this.speed, this.speed);
+};
+</code></pre>
+<p>La primera l&#xED;nea se ve un poco extra&#xF1;a, pero la manera de interpretarla es &quot;crear una variable de instancia (propiedad) llamada move, y luego le asigna como su valor esta funci&#xF3;n&quot;. Luego, cada vez que nos referimos a las propiedades del objeto, podemos nuevamente usar this., tal como lo hacemos cuando est&#xE1;n inicialmente declaradas. Juntando todo en el constructor el resultado es este:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>function JitterBug(tempX, tempY, tempDiameter) {
+  this.x = tempX;
+  this.y = tempY;
+  this.diameter = tempDiameter;
+  this.speed = 2.5;
+
+  this.move = function() {
+    this.x += random(-this.speed, this.speed);
+    this.y += random(-this.speed, this.speed);
+  };
+
+  this.display = function() {
+    ellipse(this.x, this.y, this.diameter, this.diameter);
+  };
+}
+</code></pre>
+<p>Tambi&#xE9;n observa el espaciado en el c&#xF3;digo. Cada l&#xED;nea dentro del constructor est&#xE1; indentada unos pocos espacios para mostrar lo que est&#xE1; dentro del bloque. Dentro de estos m&#xE9;todos, el c&#xF3;digo est&#xE1; espaciado nuevamente para mostrar claramente la jerarqu&#xED;a.</p>
+</section><section data-type="sect1" id="crea-objetos-0VwNu4W"><h1>Crea objetos</h1>
+<p>Ahora que has definido una funci&#xF3;n constructor, para usarla en un programa debes crear un instancia de objeto con ese constructor. Hay dos pasos para crear un objeto:</p>
+<ol>
+<li>
+<p>Declara la variable objeto.</p>
+</li>
+<li>
+<p>Crea (inicializa) el objeto con la palabra clave new.</p>
+</li>
+</ol>
+</section><section data-type="sect1" id="ejemplo-10-1-haz-un-objeto-9J0Ouzp"><h1>Ejemplo 10-1: haz un objeto</h1>
+<p>Para hacer tu primer objeto, empezaremos mostrando c&#xF3;mo esto funciona dentro un bosquejo de p5.js y luego continuaremos explicando cada parte en profundidad:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>var bug;
+
+function setup() {
+  createCanvas(480, 120);
+  background(204);
+  // Crea un objeto y pasa los par&#xE1;metros
+  bug = new JitterBug(width/2, height/2, 20);
+}
+
+function draw() {
+  bug.move();
+  bug.display();
+}
+
+// Copia aqu&#xED; el c&#xF3;digo del constructor de Jitterbug
+</code></pre>
+<p>Declaramos variables de objeto en la misma manera que todas las otras variables - el objeto es declarado escribiendo la palabra reservada var seguida del nombre de la variable:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>var bug;
+</code></pre>
+<p>El segundo paso es inicializar el objeto con la palabra reservada new. Hace espacio en la memoria para el objeto con todas sus propiedades y m&#xE9;todos. El nombre del constructor es escrito a la derecha de la palabra reservada new, seguido de los par&#xE1;metros dentro del constructor, si es que tiene alguno:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>bug = new JitterBug(width/2, height/2, 20);
+</code></pre>
+<p>Los tres n&#xFA;meros dentro de los par&#xE9;ntesis son los par&#xE1;metros pasados dentro de la funci&#xF3;n constructor JitterBug. El n&#xFA;mero y orden de estos par&#xE1;metros deben corresponder con los del constructor.</p>
+</section><section data-type="sect1" id="ejemplo-10-2-haz-multiples-objetos-qWX2uvp"><h1>Ejemplo 10-2: haz m&#xFA;ltiples objetos</h1>
+<p>En el Ejemplo 10-1, vimos algo nuevo: el punto que es usado para acceder a los m&#xE9;todos del objeto dentro de draw(). El operador punto es usado para unir el nombre del objeto con sus propiedades y m&#xE9;todos. Es an&#xE1;logo a la manera en que usamos this. dentro de la funci&#xF3;n constructor, pero cuando nos referimos a esto fuera del constructor, this es reemplazado por el nombre de la variable.</p>
+<p>Esto se torna m&#xE1;s claro en este ejemplo, donde dos objetos son hechos con el mismo constructor. La funci&#xF3;n jit.move() se refiere al m&#xE9;todo move() que pertenece al objeto nombrado jit, y bug.move() se refiere al m&#xE9;todo move() y pertenece al objeto llamado bug:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>var jit;
+var bug;
+
+function setup() {
+  createCanvas(480, 120);
+  background(204);
+  jit = new JitterBug(width * 0.33, height/2, 50);
+  bug = new JitterBug(width * 0.55, height/2, 10);
+}
+
+function draw() {
+  jit.move();
+  jit.display();
+  bug.move();
+  bug.display();
+}
+
+// Copia aqu&#xED; el c&#xF3;digo del constructor de JitterBug
+</code></pre>
+<p>Ahora que la funci&#xF3;n constructor existe como su propio m&#xF3;dulo de c&#xF3;digo, cualquier cambio modificar&#xE1; los objetos hechos con &#xE9;lla. Por ejemplo, podr&#xED;as a&#xF1;adir una propiedad al constructor JitterBug que controla el color, u otra que determina su tama&#xF1;o. Estos valores pueden ser pasados usados el constructor o usando m&#xE9;todos adicionales, como setColor() o setSize(). Y como es una unidad auto-contenida, tambi&#xE9;n puedes usar el constructor JitterBug en otro bosquejo.</p>
+<p>Ahora es un buen momento para aprender sobre usar m&#xFA;ltiples archivos en Javascript. Esparcir tu c&#xF3;digo en m&#xE1;s de un archivo hace que el c&#xF3;digo m&#xE1;s largo sea m&#xE1;s f&#xE1;cil de editar y m&#xE1;s manejable en general. Un nuevo archivo es usualmente creado para cada constructor, lo que refuerza la modularidad de trabajar con objetos y hacer el c&#xF3;digo m&#xE1;s f&#xE1;cil de encontrar.</p>
+<p>Crea un nuevo archivo en el mismo directorio que tu actual archivo sketch.js. Puedes nombrarlo como quieras, pero es una buena idea nombrarlo JitterBug.sjs por conceptos de organizaci&#xF3;n. Mueve la funci&#xF3;n constructor JitterBug a este nuevo archivo. Enlaza el archivo JitterBug.js en tu archivo HTML a&#xF1;adiendo una l&#xED;ena dentro de HEAD bajo la l&#xED;nea donde enlazas el archivo sketch.js:</p>
+<pre data-type="programlisting" data-code-language="html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;sketch.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;JitterBug.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</section><section data-type="sect1" id="robot-8-objetos-OV8mu6p"><h1>Robot 8: objetos</h1>
+<p>Un objeto en software puede combinar m&#xE9;todos (funciones) y propiedades (variables) en una unidad. La funci&#xF3;n constructor Robot en este ejemplo define todos los objetos robot que ser&#xE1;n creados desde &#xE9;l. Cada objeto Robot tiene su propio conjunto de propiedades para almacenar una posic&#xF3;n y la ilustraci&#xF3;n que dibujar&#xE1; en la pantalla. Cada uno tiene m&#xE9;todos para actualizar la posici&#xF3;n y mostrar la ilustraci&#xF3;n.</p>
+<p>Los par&#xE1;metros para bot1 y bot2 en setup() definen las coordenadas x e y y el archivo .svg que ser&#xE1; usado para dibujar el robot. Los par&#xE1;metros tempX y tempY son pasados al constructor y asignados a las propiedades xpos y ypos. El par&#xE1;metro imgPath es usado para cargar la ilustraci&#xF3;n relacionada. Los objetos (bot1 y bot2) dibujan en su propia ubicaci&#xF3;n con una ilustraci&#xF3;n difrente porque cada uno tienen valores distintos pasados a los objetos a trav&#xE9;s de sus constructores:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>var img1;
+var img2;
+
+var bot1;
+var bot2;
+
+function preload() {
+  img1 = loadImage(&quot;robot1.svg&quot;);
+  img2 = loadImage(&quot;robot2.svg&quot;);
+}
+
+function setup() {
+  createCanvas(720, 480);
+  bot1 = new Robot(img1,  90, 80);
+  bot2 = new Robot(img2, 440, 30);
+}
+
+function draw() {
+  background(204);
+
+  // Actualiza y muestra el primer robot
+  bot1.update();
+  bot2.display();
+
+  // Actualiza y muestra el segundo robot
+  bot2.update();
+  bot2.display();
+}
+
+function Robot(img, tempX, tempY) {
+  // Define los valores iniciales para las propiedades
+  this.xpos = tempX;
+  this.ypos = tempY;
+  this.angle = random(0, TWO_PI);
+  this.botImage = img;
+  this.yoffset = 0.0;
+
+  // Actualiza las propiedades
+  this.update = function() {
+    this.angle += 0.05;
+    this.yoffset = sin(this.angle) * 20;
+  }
+
+  // Dibuja el robot en la pantallla
+  this.display = function() {
+    image(this.botImage, this.xpos, this.ypos + this.yoffset);
+  }
+}
+</code></pre>
+</section></section>
+<a id="prev-link" href="chapter09.html">Previous: Capítulo 9. Funciones</a>
+
+    </div>
+  </body>
+</html>
