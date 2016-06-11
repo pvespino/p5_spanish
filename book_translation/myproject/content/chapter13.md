@@ -168,3 +168,63 @@ function draw() {
   filter(INVERT);
 }
 ```
+
+El objeto de capture está definido en la parte superior del código y luego es creado dentro de setup(). createCapture() de hecho adjunta un nuevo elemento a la página, pero como queremos dibujarlo en el lienzo, el método hide() es usado para esconder el objeto de captura. Revisa lo que pasa cuando descomentas esta línea de código.
+
+Deberías ver dos copias del video, una invertida y una normal.
+
+Los datos del objeto de captura son dibujados en el lienzo en la función draw() e invertidos usando el método filter().
+
+## Ejemplo 13-5: crea una barra deslizadora
+
+La función createSlider() crea una barra deslizadora que puede ser usada para manipular aspectos del bosquejo. Acepta tres argumentos - el valor mínimo, el valor máximo y el valor inicial:
+
+```javascript
+var slider;
+
+function setup() {
+  createCanvas(480, 120);
+  slider = createSlider(0, 255, 100);
+  slider.position(20, 20);
+}
+
+function draw() {
+  var gray = slider.value();
+  background(gray);
+}
+```
+
+El objeto barra deslizadora es definido en la parte superior del código y luego creado dentro de setup(). Por defecto, el elemento será adjuntado a la página, justo después del elemento más recientemente creado en la página. El método position() permite darle una posición relativa a la esquina superior izquierda. El método value() retorna el valor actual de la barra deslizadora, el cual está siendo usado para definir el color del fondo del lienzo en draw().
+
+## Ejemplo 13-6: crea un recuadro de entrada
+
+La función createInput() añade un recuardo que puede ser usado para darle entrada de texto a tu programa. createButton() añade un botón que puede gatillar cualquier función que escojas. En este caso, el botón es usado para entregar el texto dentro del recuadro de entrada al programa:
+
+```javascript
+var input;
+var button;
+
+function setup() {
+  createCanvas(480, 120);
+  input = createInput();
+  input.position(20, 30);
+  button = createButton("submit");
+  button.position(160, 30);
+  button.mousePressed(drawName);
+
+  background(100);
+  noStroke();
+  text("Enter your name. ", 20, 20);
+}
+
+function drawName() {
+  background(100);
+  textSize(30);
+  var name = input.value();
+  for (var i = 0; i < 30; i++) {
+    text(name, random(width), random(height));
+  }
+}
+```
+
+Los objetos entrada y botón son definidos en la parte superior del código y creados dentro de setup(). createButton() aceptoa un argumento, la etiqueta a ser mostrada en el botón. El método mousePressed() es usado para asignar una función a ejecutar cuando el botón es presionado. Dentro de drawName(), los contenidos del recuadro de entrada son leídos usando el método value(), y usados para llenar el fondo con el texto.

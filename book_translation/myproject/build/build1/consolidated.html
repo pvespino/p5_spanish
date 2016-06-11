@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/pdf.css">
 
   </head>
@@ -720,6 +719,12 @@
 </li>
 <li>
   <a href="#ejemplo-3-14-accede-a-la-webcam-kKbEf4g">Ejemplo 3-14: accede a la webcam</a>
+</li>
+<li>
+  <a href="#ejemplo-13-5-crea-una-barra-deslizadora-lJNQfwK">Ejemplo 13-5: crea una barra deslizadora</a>
+</li>
+<li>
+  <a href="#ejemplo-13-6-crea-un-recuadro-de-entrada-ZK8zfOY">Ejemplo 13-6: crea un recuadro de entrada</a>
 </li>
   </ol>
 </li>
@@ -4292,6 +4297,53 @@ function draw() {
   filter(INVERT);
 }
 </code></pre>
+<p>El objeto de capture est&#xE1; definido en la parte superior del c&#xF3;digo y luego es creado dentro de setup(). createCapture() de hecho adjunta un nuevo elemento a la p&#xE1;gina, pero como queremos dibujarlo en el lienzo, el m&#xE9;todo hide() es usado para esconder el objeto de captura. Revisa lo que pasa cuando descomentas esta l&#xED;nea de c&#xF3;digo.</p>
+<p>Deber&#xED;as ver dos copias del video, una invertida y una normal.</p>
+<p>Los datos del objeto de captura son dibujados en el lienzo en la funci&#xF3;n draw() e invertidos usando el m&#xE9;todo filter().</p>
+</section><section data-type="sect1" id="ejemplo-13-5-crea-una-barra-deslizadora-lJNQfwK"><h1>Ejemplo 13-5: crea una barra deslizadora</h1>
+<p>La funci&#xF3;n createSlider() crea una barra deslizadora que puede ser usada para manipular aspectos del bosquejo. Acepta tres argumentos - el valor m&#xED;nimo, el valor m&#xE1;ximo y el valor inicial:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>var slider;
+
+function setup() {
+  createCanvas(480, 120);
+  slider = createSlider(0, 255, 100);
+  slider.position(20, 20);
+}
+
+function draw() {
+  var gray = slider.value();
+  background(gray);
+}
+</code></pre>
+<p>El objeto barra deslizadora es definido en la parte superior del c&#xF3;digo y luego creado dentro de setup(). Por defecto, el elemento ser&#xE1; adjuntado a la p&#xE1;gina, justo despu&#xE9;s del elemento m&#xE1;s recientemente creado en la p&#xE1;gina. El m&#xE9;todo position() permite darle una posici&#xF3;n relativa a la esquina superior izquierda. El m&#xE9;todo value() retorna el valor actual de la barra deslizadora, el cual est&#xE1; siendo usado para definir el color del fondo del lienzo en draw().</p>
+</section><section data-type="sect1" id="ejemplo-13-6-crea-un-recuadro-de-entrada-ZK8zfOY"><h1>Ejemplo 13-6: crea un recuadro de entrada</h1>
+<p>La funci&#xF3;n createInput() a&#xF1;ade un recuardo que puede ser usado para darle entrada de texto a tu programa. createButton() a&#xF1;ade un bot&#xF3;n que puede gatillar cualquier funci&#xF3;n que escojas. En este caso, el bot&#xF3;n es usado para entregar el texto dentro del recuadro de entrada al programa:</p>
+<pre data-type="programlisting" data-code-language="javascript"><code>var input;
+var button;
+
+function setup() {
+  createCanvas(480, 120);
+  input = createInput();
+  input.position(20, 30);
+  button = createButton(&quot;submit&quot;);
+  button.position(160, 30);
+  button.mousePressed(drawName);
+
+  background(100);
+  noStroke();
+  text(&quot;Enter your name. &quot;, 20, 20);
+}
+
+function drawName() {
+  background(100);
+  textSize(30);
+  var name = input.value();
+  for (var i = 0; i &lt; 30; i++) {
+    text(name, random(width), random(height));
+  }
+}
+</code></pre>
+<p>Los objetos entrada y bot&#xF3;n son definidos en la parte superior del c&#xF3;digo y creados dentro de setup(). createButton() aceptoa un argumento, la etiqueta a ser mostrada en el bot&#xF3;n. El m&#xE9;todo mousePressed() es usado para asignar una funci&#xF3;n a ejecutar cuando el bot&#xF3;n es presionado. Dentro de drawName(), los contenidos del recuadro de entrada son le&#xED;dos usando el m&#xE9;todo value(), y usados para llenar el fondo con el texto.</p>
 </section></section>
   </body>
 </html>
