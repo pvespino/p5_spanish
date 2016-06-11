@@ -57,8 +57,16 @@ goethe institut santiago
 
 ## tue june 07th 2016
 
+translation of the p5.js make book
+
 ## wed june 08th 2016
+
+translation of the p5.js make book
 
 ## thu june 09th 2016
 
+translation of the p5.js make book
+
 ## fri june 10th 2016
+
+finished first rough draft of the translation of the p5.js make book
