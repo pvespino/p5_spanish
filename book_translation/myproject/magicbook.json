@@ -2,21 +2,21 @@
   "title" : "Introducción a p5.js",
   "destination" : "build/:build",
   "files" : [
-    "content/toc.html",
-    "content/preface.md",
-    "content/chapter01.md",
-    "content/chapter02.md",
-    "content/chapter03.md",
-    "content/chapter04.md",
-    "content/chapter05.md",
-    "content/chapter06.md",
-    "content/chapter07.md",
-    "content/chapter08.md",
-    "content/chapter09.md",
-    "content/chapter10.md",
-    "content/chapter11.md",
-    "content/chapter12.md",
-    "content/chapter13.md"
+    "content_html/toc.html",
+    "content_html/preface.html",
+    "content_html/chapter01.html",
+    "content_html/chapter02.html",
+    "content_html/chapter03.html",
+    "content_md/chapter04.md",
+    "content_md/chapter05.md",
+    "content_md/chapter06.md",
+    "content_md/chapter07.md",
+    "content_md/chapter08.md",
+    "content_md/chapter09.md",
+    "content_md/chapter10.md",
+    "content_md/chapter11.md",
+    "content_md/chapter12.md",
+    "content_md/chapter13.md"
   ],
   "builds" : [
     {
@@ -24,7 +24,9 @@
       "layout" : "layouts/pdf.html",
       "stylesheets" : {
         "files" : ["stylesheets/pdf.scss"]
-      }
+      }, "images" : {
+          "files" : "images/**/*.*"
+       }
     },
     {
       "format" : "html",
