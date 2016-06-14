@@ -1,36 +1,59 @@
 <html>
 
 <head>
-
-    <title>p5.js workshop yay </title>
-
+<title>p5.js en español</title>
 </head>
 
 <body>
 
-  <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+<script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
 
-    <script type="text/p5" data-autoplay data-preview-width="400">
-        function setup() {
-          createCanvas(100, 100);
-        }
-        function draw() {
-           background(255, 0, 200);
-           fill(random(255), random(255), random(255));
-           ellipse(width/2, height/2, random(100), random(100));
-          }
-    </script>
+<p> p5.js sirve para escribir software que produce im&aacute;genes, animaciones e interacciones.</p>
 
-    <script type="text/p5" data-autoplay data-preview-width="400">
-        function setup() {
-          createCanvas(200, 200);
-        }
-        function draw() {
-          background(255, 0, 200);
-          textSize(20);
-          text("yo what up", 100, 100);
-          }
-    </script>
+<p>Como los lenguajes humanos, los lenguajes de programaci&oacute;n pertenecen a familias de lenguajes relacionados. p5.js es un dialecto de un lenguaje de programaci&oacute;n llamado Javascript. La sintaxis del lenguaje es casi id&eacute;ntica, pero p5.js a&ntilde;ade caracter&iacute;sticas personalizadas relacionadas a gr&aacute;ficas e interacci&oacute;n y provee un acceso simple a caracter&iacute;sticas de HTML5 nativas que ya est&aacute;n soportadas por los navegadores web. Por estas caracter&iacute;sticas compartidas, aprender p5.js es un paso &uacute;til para aprender a programar en otros lenguajes y usar otras herramientas computacionales. </p>
+
+<p>Miles de personas usan p5.js cada d&iacute;a. Como ellos, t&uacute; puedes descargar p5.js gratuitamente. Incluso tienes la opci&oacute;n de modificar el c&oacute;digo de p5.js para que se adapte a tus necesidades. p5.js es un proyecto FLOSS (esto es, free/libre/open source software) y en el esp&iacute;ritu de esta comunidad, te alentamos a participar y compartir tus proyectos y tu conocimiento en l&iacute;nea en http://p5js.org.</p>
+
+<p>Primero, necesitar&acute;s un editor de c&oacute;digo. Un editor de c&oacute;digo es similar a un editor de texto (como Bloc de notas), excepto que tiene una funcionalidad especial para editar c&oacute;digo en vez de texto plano. Puedes usar cualquier editor que quieras, te recomendamos Atom y Brackets, ambos disponibles para descarga. Tambi&eacute;n existe un editor oficial de p5.js en desarrollo. Si lo quieres usar, lo puedes descargar visitando http://p5js.org/download y seleccionando el bot&oacute;n que dice "Editor".</p>
+
+<h2>Tu primer programa</h2>
+
+<p>El c&oacute;digo plantilla contiene dos bloques, o funciones, setup() y draw(). Puedes poner tu c&oacute;digo en cualquiera de los dos lugares, y cada uno tiene un prop&oacute;sito espec&iacute;fico.</p>
+
+<script type="text/p5" data-autoplay data-preview-width="400">
+function setup() {
+  }
+function draw() {
+  }
+</script>
+
+<h2>Dibuja una elipse</h2>
+
+<p>Entre las llaves del bloque draw(), escribe lo siguiente:<p>
+
+<script type="text/p5" data-autoplay data-preview-width="400">
+function setup() {
+  createCanvas(840, 600);
+}
+
+function draw() {
+background(204);
+ellipse(50, 50, 80, 80);
+}
+</script>
+
+<p>Sitio desarrollado por Aar&oacute;n Montoya-Moraga entre los meses de junio y agosto de 2016 gracias al apoyo de la Processing Foundation.</p>
+
+<script type="text/p5" data-autoplay data-preview-width="400">
+function setup() {
+  createCanvas(840, 600);
+}
+
+function draw() {
+  background(204);
+  ellipse(50, 50, 80, 80);
+}
+</script>
 
 </body>
 
