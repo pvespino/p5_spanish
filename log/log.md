@@ -70,3 +70,23 @@ translation of the p5.js make book
 ## fri june 10th 2016
 
 finished first rough draft of the translation of the p5.js make book
+
+## mon june 13th 2016
+
+started website for storing interactive p5.js workshop in spanish
+
+added p5.js widget to workshop
+
+started html version of the book translation to spanish
+
+## tue june 14th 2016
+
+continued website for storing interactive p5.js workshop in spanish
+
+learnt about processing.js and examples from the nature of code book html edition
+
+## wed june 15th 2016
+
+## thu june 16th 2016
+
+## fri june 17th 2016
