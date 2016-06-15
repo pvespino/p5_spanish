@@ -1,20 +1,25 @@
 
 body {
-    background-color: lightgrey;
+    background-color: white;
 }
 
 p {
-    color:green;
+    color:black;
 }
+
+a {
+  text-decoration: none;
+}
+
 
 /* unvisited link */
 a:link {
-    color: blue;
+    color: black;
 }
 
 /* visited link */
 a:visited {
-    color: blue;
+    color: black;
 }
 
 /* mouse over link */
