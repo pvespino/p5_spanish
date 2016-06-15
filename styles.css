@@ -9,12 +9,12 @@ p {
 
 /* unvisited link */
 a:link {
-    color: white;
+    color: blue;
 }
 
 /* visited link */
 a:visited {
-    color: white;
+    color: blue;
 }
 
 /* mouse over link */
