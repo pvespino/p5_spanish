@@ -11,23 +11,7 @@ a {
   text-decoration: none;
 }
 
-
-/* unvisited link */
-a:link {
-    color: black;
-}
-
-/* visited link */
-a:visited {
-    color: black;
-}
-
-/* mouse over link */
-a:hover {
-    color: red;
-}
-
-/* selected link */
-a:active {
-    color: red;
-}
+a:link    { color: #c00 }  /* unvisited links */
+a:visited { color: #0c0 }  /* visited links   */
+a:hover   { color: #00c }  /* user hovers     */
+a:active  { color: #ccc }  /* active links    */
