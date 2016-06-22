@@ -87,6 +87,28 @@ learnt about processing.js and examples from the nature of code book html editio
 
 ## wed june 15th 2016
 
+experiments on html for html edition of the p5.js book in spanish
+
 ## thu june 16th 2016
 
+mails to editorials to check for publishing of the book
+
 ## fri june 17th 2016
+
+meet-up of the processing foundation at the school for poetic computation
+
+research on the different plugins of magicbook
+
+## mon june 20th 2016
+
+research on the different plugins of magicbook
+
+## tue june 21th 2016
+
+p5.js book from markdown to html for magicbook formatting
+
+## wed june 22th 2016
+
+## thu june 23th 2016
+
+## fri june 24th 2016
