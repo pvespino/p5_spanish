@@ -10,13 +10,23 @@
   </head>
   <body data-type="book">
     <div class="container">
-      <section data-type="chapter" id="capitulo-4-variables-MKxmf07"><h1>Cap&#xED;tulo 4. Variables</h1>
+      <section data-type="chapter" id="capitulo_04_variables">
+
+<h1>Cap&#xED;tulo 4. Variables</h1>
+
+
 <p>Una variable guarda un valor en memoria para que pueda ser usado posteriormente en un programa. Una variable puede ser usada muchas veces dentro del mismo programa, y el valor puede ser f&#xE1;cilmente modificado mientras el programa est&#xE1; corriendo.</p>
-<section data-type="sect1" id="primeras-variables-Y7Xlfd7"><h1>Primeras variables</h1>
+
+<h2>Primeras variables</h2>
+
 <p>La raz&#xF3;n principal por la que usamos variables es para evitar repetirnos en el c&#xF3;digo. Si est&#xE1;s escribiendo el mismo n&#xFA;mero una y otra vez, considera usar una variable para que tu c&#xF3;digo sea m&#xE1;s general y m&#xE1;s f&#xE1;cil de actualizar.</p>
-</section><section data-type="sect1" id="ejemplo-4-1-reusa-los-mismos-valores-3Jlgfd7"><h1>Ejemplo 4-1: reusa los mismos valores</h1>
+
+<h2>Ejemplo 4-1: reusa los mismos valores</h2>
+
 <p>Por ejemplo, cuando haces variables la coordenada y y el di&#xE1;metro para los tres c&#xED;rculos en este ejemplo, los mismos valores son usados para cada elipse:</p>
-<pre data-type="programlisting"><code>var y = 60;
+
+```
+var y = 60;
 var d = 80;
 
 function setup() {
@@ -32,10 +42,14 @@ function draw() {
   //derecha
   ellipse(275, y, d, d);
 }
-</code></pre>
-</section><section data-type="sect1" id="ejemplo-4-2-cambiar-los-valores-57bgfrJ"><h1>Ejemplo 4-2: cambiar los valores</h1>
+```
+
+<h2>Ejemplo 4-2: cambiar los valores</h2>
+
 <p>Simplemente cambiar las variables y y d entonces altera las tres elipses:</p>
-<pre data-type="programlisting"><code>var y = 100;
+
+```
+var y = 100;
 var d = 130;
 
 function setup() {
@@ -51,27 +65,45 @@ function draw() {
   //derecha
   ellipse(275, y, d, d);
 }
-</code></pre>
-<p>Sin las variables, necesitar&#xED;as cambiar la coordenada y usada en el c&#xF3;digo tres veces y la del di&#xE1;metro seis veces. Cuando comparas los ejemplos 4-1 y 4-2, revisa c&#xF3;mo todas las l&#xED;neas son iguales, excepto las dos primeras l&#xED;neas con variables que son diferentes. Las variables te permiten separar las l&#xED;neas de c&#xF3;digo que cambian de las que no cambian, lo que hace que los programas sean f&#xE1;ciles de modificar. Por ejemplo, si pones las variables que controlan colores y tama&#xF1;os en un lugar, entonces puedes explorar diferentes opciones visuales enfoc&#xE1;ndote en s&#xF3;lo unas pocas l&#xED;neas de c&#xF3;digo.</p>
-</section><section data-type="sect1" id="haciendo-variables-VNwqfY7"><h1>Haciendo variables</h1>
+```
+
+Sin las variables, necesitar&#xED;as cambiar la coordenada y usada en el c&#xF3;digo tres veces y la del di&#xE1;metro seis veces. Cuando comparas los ejemplos 4-1 y 4-2, revisa c&#xF3;mo todas las l&#xED;neas son iguales, excepto las dos primeras l&#xED;neas con variables que son diferentes. Las variables te permiten separar las l&#xED;neas de c&#xF3;digo que cambian de las que no cambian, lo que hace que los programas sean f&#xE1;ciles de modificar. Por ejemplo, si pones las variables que controlan colores y tama&#xF1;os en un lugar, entonces puedes explorar diferentes opciones visuales enfoc&#xE1;ndote en s&#xF3;lo unas pocas l&#xED;neas de c&#xF3;digo.
+
+<h2>Haciendo variables</h2>
+
 <p>Cuando haces tus propias variables, puedes determinar el nombre y el valor. T&#xFA; decides c&#xF3;mo se llama la variable. Escoge un nombre que sea informativo sobre lo que est&#xE1; almacenado en la variable, pero que sea consistente y no muy largo. Por ejemplo, el nombre de variable &quot;radio&quot; es mucho m&#xE1;s claro que &quot;r&quot; cuando lo lees posteriormente en tu c&#xF3;digo.</p>
+
 <p>Las variables primero deben ser declaradas, lo que reserva espacio en la memoria del computador para guardar la informaci&#xF3;n. Cuando declaras una variable, usas la palabra var, para indicar que est&#xE1;s creando una nueva variable, seguida del nombre. Despu&#xE9;s de que el nombre es fijado, un valor puede ser asignado a la variable:</p>
-<pre data-type="programlisting"><code>var x;  // Declara la variable x
+
+```
+var x;  // Declara la variable x
 x = 12; // Asigna un valor a x
-</code></pre>
-<p>Este c&#xF3;digo hace lo mismo, pero es m&#xE1;s corto:</p>
-<pre data-type="programlisting"><code>var x = 12;  // Declara la variable x y le asigna un valor
-</code></pre>
+```
+
+Este c&#xF3;digo hace lo mismo, pero es m&#xE1;s corto:
+
+```
+var x = 12;  // Declara la variable x y le asigna un valor
+```
+
 <p>Los caracteres var son incluidos en la l&#xED;nea de c&#xF3;digo que declara la variable, pero no son escritos de nuevo. Cada vez que var es escrito antes que el nombre de una variable, el computador piensa que est&#xE1;s tratando de declarara una nueva variable. No puedes tener dos variables con el mismo nombre en la misma secci&#xF3;n del programa (Ap&#xE9;ndice C), o el programa podr&#xED;a comportarse extra&#xF1;amente:</p>
-<pre data-type="programlisting"><code>var x;      // Declara la variable x
+
+```
+var x;      // Declara la variable x
 var x = 12; // ERROR! No pueden haber dos variables x
-</code></pre>
-<p>Puedes situar tus variables afuera de setup() y draw(). Si creas una variable dentro de setup(), no puedes usarla dentro de draw(), as&#xED; que necesitas situar estas variables en otro lugar. Estas variables reciben el nombre de variables globales, porque pueden ser usadas en cualquier lugar (&quot;globalmente&quot;) del programa.</p>
-</section><section data-type="sect1" id="variables-de-p5js-RJEPfp7"><h1>Variables de p5.js</h1>
+```
+Puedes situar tus variables afuera de setup() y draw(). Si creas una variable dentro de setup(), no puedes usarla dentro de draw(), as&#xED; que necesitas situar estas variables en otro lugar. Estas variables reciben el nombre de variables globales, porque pueden ser usadas en cualquier lugar (&quot;globalmente&quot;) del programa.
+
+<h2>Variables de p5.js</h2>
+
 <p>p5.js tiene una serie de variables especiales para almacenar informaci&#xF3;n sobre el programa mientras corre. Por ejemplo, el ancho y la altura del lienzo est&#xE1;n almacenados en las variables width y height. Estos valores son definidos por la funci&#xF3;n createCanvas(). Pueden ser usados para dibujar elementos relativos al tama&#xF1;o del lienzo, incluso si la l&#xED;nea de c&#xF3;digo de createCanvas() es alterada.</p>
-</section><section data-type="sect1" id="ejemplo-4-3-ajusta-el-lienzo-observa-lo-que-sucede-6NYbfDK"><h1>Ejemplo 4-3: ajusta el lienzo, observa lo que sucede</h1>
+
+<h2>Ejemplo 4-3: ajusta el lienzo, observa lo que sucede</h2>
+
 <p>En este ejemplo, cambia los par&#xE1;metros de createCanvas() para observar c&#xF3;mo funciona:</p>
-<pre data-type="programlisting"><code>function setup() {
+
+```
+function setup() {
   createCanvas(480, 120);
 }
 
@@ -81,12 +113,18 @@ function draw() {
   line(width, 0, 0, height); // L&#xED;nea desde (480,0) a (0, 120)
   ellipse(width/2, height/2, 60, 60);
 }
-</code></pre>
+```
+
 <p>Existen tambi&#xE9;n variables epsciales que mantienen registro del estado del rat&#xF3;n y de los valores del teclado, entre otras. Ser&#xE1;n discutidas en el Cap&#xED;tulo 5.</p>
-</section><section data-type="sect1" id="un-poco-de-matematicas-xKMafYK"><h1>Un poco de matem&#xE1;ticas</h1>
+
+<h2>Un poco de matem&#xE1;ticas</h2>
+
 <p>La gente a menudo asume que las matem&#xE1;ticas y la programaci&#xF3;n son lo mismo. Aunque un poco de conocimiento de matem&#xE1;ticas puede ser &#xFA;til para ciertos tipos de programaci&#xF3;n, la aritm&#xE9;tica b&#xE1;sica cubre las partes m&#xE1;s importantes.</p>
-</section><section data-type="sect1" id="ejemplo-4-4-aritmetica-basica-gJVyfQ7"><h1>Ejemplo 4-4: aritm&#xE9;tica b&#xE1;sica</h1>
-<pre data-type="programlisting"><code>
+
+<h2>Ejemplo 4-4: aritm&#xE9;tica b&#xE1;sica</h2>
+
+```
+
 var x = 25;
 var h = 20;
 var y = 25;
@@ -104,31 +142,53 @@ function draw() {
   x = x - 250;
   rect(x, y + h*2, 300, h); // Inferior
 }
-</code></pre>
+```
 <p>En el c&#xF3;digo, s&#xED;mbolos como +, - y * son llamados operadores. Cuando se encuentran entre dos valores, crean una expresi&#xF3;n. Por ejemplo, 5 + 9 y 1024 - 512 son expresiones. Los operadores para operaciones matem&#xE1;ticas b&#xE1;sicas son:</p>
+
 <p>Javascript tiene un conjunto de reglas para definir el orden de precedencia que los operadores tienen entre s&#xED;, lo que significa, cu&#xE1;les c&#xE1;lculos son efectuados en primer, segundo y tercer lugar, etc. Estas reglas definen el orden en el que el c&#xF3;digo se ejecuta. Un poco de conocimiento sobre esto es un gran paso hacia el entendimiendo de c&#xF3;mo funciona una corta l&#xED;nea de c&#xF3;digo como esta:</p>
-<pre data-type="programlisting"><code>var x = 4 + 4 * 5;  // Se le asigna el valor 24 a x
-</code></pre>
-<p>La expresi&#xF3;n 4<em>5 es evaluada primero porque la multiplicaci&#xF3;n tiene la prioridad m&#xE1;s alta. Luego, se le suma 4 al producto 4</em>5, resultando 24. Finalmente, como el operador de asignaci&#xF3;n (el signo igual) tiene la menor predecencia, el valor 24 es asignado a la variable x. Esto se puede aclarar con el uso de par&#xE9;ntesis, pero el resultado es el mismo:</p>
-<pre data-type="programlisting"><code>var x = 4 + (4 * 5);  // Se le asigna el valor 24 a x
-</code></pre>
+
+```
+var x = 4 + 4 * 5;  // Se le asigna el valor 24 a x
+```
+
+<p>La expresi&#xF3;n 4*5 es evaluada primero porque la multiplicaci&#xF3;n tiene la prioridad m&#xE1;s alta. Luego, se le suma 4 al producto 4*5, resultando 24. Finalmente, como el operador de asignaci&#xF3;n (el signo igual) tiene la menor predecencia, el valor 24 es asignado a la variable x. Esto se puede aclarar con el uso de par&#xE9;ntesis, pero el resultado es el mismo:</p>
+
+```
+var x = 4 + (4 * 5);  // Se le asigna el valor 24 a x
+```
+
 <p>Si quieres forzar que la suma ocurra primero, usa par&#xE9;ntesis. Como los par&#xE9;ntesis tienen mayor precedencia que la multiplicaci&#xF3;n, al cambiar los par&#xE9;ntesis de lugar se cambia el c&#xE1;lculo efectuado:</p>
-<pre data-type="programlisting"><code>var x = 4 + (4 * 5);  // Se le asigna el valor 24 a x
-</code></pre>
+
+```
+var x = 4 + (4 * 5);  // Se le asigna el valor 24 a x
+```
+
 <p>Un acr&#xF3;nimo para este orden se ense&#xF1;a en clases de matem&#xE1;ticas: PEMDAS, que significa par&#xE9;ntesis, exponentes, multiplicaci&#xF3;n, divisi&#xF3;n, adici&#xF3;n, substracci&#xF3;n, donde los par&#xE9;ntesis tienen la mayor prioridad y la substracci&#xF3;n la menor. El orden completo de operaciones se encuentra anotado en el Ap&#xE9;ndice B.</p>
+
 <p>Algunos c&#xE1;lculos son usados tan frecuentemente en programaci&#xF3;n que se han desarrollado atajos, es &#xFA;til ahorrar tiempo en el teclado. Por ejemplo, cuando puedes sumar o restar a una variable con un operador:</p>
-<pre data-type="programlisting"><code>x += 10;  // Es equivalente a x = x + 10;
+
+```
+x += 10;  // Es equivalente a x = x + 10;
 x -= 15;  // Es equivalente a x = x - 15;
-</code></pre>
+```
+
 <p>Tambi&#xE9;n es muy com&#xFA;n sumar o restar 1 a una variable, as&#xED; que esto tambi&#xE9;n tiene un atajo. Los operadores ++ y -- hacen esto:</p>
-<pre data-type="programlisting"><code>x ++;  // Es equivalente a x = x + 1;
+
+```
+x ++;  // Es equivalente a x = x + 1;
 x --;  // Es equivalente a x = x - 1;
-</code></pre>
-</section><section data-type="sect1" id="repeticion-PNjlfl7"><h1>Repetici&#xF3;n</h1>
+```
+
+<h2>Repetici&#xF3;n</h2>
+
 <p>Mientras escribes programas, te dar&#xE1;s cuenta que ocurren patrones al repetir l&#xED;neas de c&#xF3;digo con peque&#xF1;as modificaciones. Una estructura de c&#xF3;digo llamada &quot;for loop&quot; hace posible que una l&#xED;nea de c&#xF3;digo corre m&#xE1;s de una vez para condensar el tipo de repetici&#xF3;n a unas pocas l&#xED;neas de c&#xF3;digo. Esto hace que tus programas sean modulares y m&#xE1;s simples de modificar.</p>
-</section><section data-type="sect1" id="ejemplo-4-5-haz-lo-mismo-una-y-otra-vez-MNQ8fLJ"><h1>Ejemplo 4-5: haz lo mismo una y otra vez</h1>
+
+<h2>Ejemplo 4-5: haz lo mismo una y otra vez</h2>
+
 <p>Este ejemplo tiene el tipo de patr&#xF3;n que puede ser simplificado con un &quot;for loop&quot;:</p>
-<pre data-type="programlisting"><code>function setup() {
+
+```
+function setup() {
   createCanvas(480, 120);
   strokeWeight(8);
 }
@@ -143,10 +203,14 @@ function draw() {
   line(320, 40, 380, 80);
   line(380, 40, 440, 80);
 }
-</code></pre>
-</section><section data-type="sect1" id="ejemplo-4-6-usa-un-for-loop-RK52fA7"><h1>Ejemplo 4-6: usa un for loop</h1>
+```
+
+<h2>Ejemplo 4-6: usa un for loop</h2>
+
 <p>Lo mismo puede ser logrado con un for loop, y con mucho menos c&#xF3;digo:</p>
-<pre data-type="programlisting"><code>function setup() {
+
+```
+function setup() {
   createCanvas(480, 120);
   strokeWeight(8);
 }
@@ -157,19 +221,29 @@ function draw() {
     line( i, 40,  i + 60, 80);
   }
 }
-</code></pre>
+```
+
 <p>El for loop es diferente en muchas maneras del c&#xF3;digo que hemos escrito hasta ahora. F&#xED;jate en las llaves, los caracteres { y }. El c&#xF3;digo repetido entre las llaves es llamado bloque. Este es el c&#xF3;digo que ser&#xE1; repetido en cada iteraci&#xF3;n del for loop.</p>
+
 <p>Adentro del par&#xE9;ntesis hay tres declaraciones, separadas por punto y coma, que funcionan en conjunto para controlar cu&#xE1;ntas veces el c&#xF3;digo dentro del bloque es ejecutado. De izquierda a derecha, estas declaraciones son nombradas as&#xED;: inicializaci&#xF3;n (init), prueba (test), actualizaci&#xF3;n (update):</p>
-<pre data-type="programlisting"><code>for (init; test; update) {
+
+```
+for (init; test; update) {
   declaraciones
 }
-</code></pre>
+```
 <p>Init t&#xED;picamente declara una variable nueva a ser usada en el for loop y le asigna un valor. El nombre de variable i es frecuentemente usado, pero esto no tiene nada de especial. El test eval&#xFA;a el valor de esta variable, y update change el valor de la variable. La figura 4-1 muestra el orden en el que el c&#xF3;digo es ejectuado y c&#xF3;mo controlan el c&#xF3;digo dentro del bloque.</p>
+
 <p>La prueba o test requiere m&#xE1;s explicaci&#xF3;n. Siempre es una expresi&#xF3;n de relaci&#xF3;n que compara dos valores con un operador relacional. En este ejemplo, la expresi&#xF3;n es &quot;i &lt; 400&quot; y el operador es el s&#xED;mbolo &lt; (menor que). Los operadores relacionales m&#xE1;s comunes son:</p>
+
 <p>La expresi&#xF3;n relacional siempre evalua a verdadero (true) o falso (false). Por ejemplo, la expresi&#xF3;n 5 &gt; 3 es true. Podemos preguntar, &quot;&#xBF;es cinco mayor que tres?&quot;. Como la respuesta es &quot;s&#xED;&quot;, decimos que la expresi&#xF3;n es true. Para la expresi&#xF3;n 5 &lt; 3, podemos preguntar, &quot;&#xBF;es cinco menor que tres?&quot;. Como la respuesta es no, decimos que la expresi&#xF3;n es false. Cuando la evaluaci&#xF3;n es true, el c&#xF3;digo dentro del bloque se ejecuta y cuando es false, el c&#xF3;digo dentro del bloque no se ejecuta y el for loop se acaba.</p>
-</section><section data-type="sect1" id="ejemplo-4-7-entrena-tus-musculos-para-hacer-for-loops-VKpEf37"><h1>Ejemplo 4-7: entrena tus m&#xFA;sculos para hacer for loops</h1>
+
+<h2>Ejemplo 4-7: entrena tus m&#xFA;sculos para hacer for loops</h2>
+
 <p>El poder definitivo que entregan los for loop es la habilidad para hacer cambios r&#xE1;pidos a tu c&#xF3;digo. Como el c&#xF3;digo dentro del bloque es ejecutado t&#xED;picamente m&#xFA;ltiples veces, un cambio al bloque es magnificado cuando el c&#xF3;digo es ejecutado. Al modificar el ejemplo 4-6 un poco, podemos crear una variedad de distintos patrones:</p>
-<pre data-type="programlisting"><code>function setup() {
+
+```
+function setup() {
   createCanvas(480, 120);
   strokeWeight(2);
 }
@@ -180,9 +254,12 @@ function draw() {
     line( i, 40,  i + 60, 80);
   }
 }
-</code></pre>
-</section><section data-type="sect1" id="ejemplo-4-8-desplegando-las-lineas-q7PWf2K"><h1>Ejemplo 4-8: desplegando las l&#xED;neas</h1>
-<pre data-type="programlisting"><code>function setup() {
+```
+
+<h2>Ejemplo 4-8: desplegando las l&#xED;neas</h2>
+
+```
+function setup() {
   createCanvas(480, 120);
   strokeWeight(2);
 }
@@ -193,9 +270,12 @@ function draw() {
     line( i, 0,  i + i/2, 80);
   }
 }
-</code></pre>
-</section><section data-type="sect1" id="ejemplo-4-9-modificando-las-lineas-mNm1fWN"><h1>Ejemplo 4-9: modificando las l&#xED;neas</h1>
-<pre data-type="programlisting"><code>function setup() {
+```
+
+<h2>Ejemplo 4-9: modificando las l&#xED;neas</h2>
+
+```
+function setup() {
   createCanvas(480, 120);
   strokeWeight(2);
 }
@@ -207,27 +287,26 @@ function draw() {
     line( i + i/2,  80, i * 1.2, 80);
   }
 }
-</code></pre>
-</section><section data-type="sect1" id="ejemplo-4-10-anidando-un-for-loop-dentro-de-otro-2KaOfBJ"><h1>Ejemplo 4-10: anidando un for loop dentro de otro</h1>
+```
+
+<h2>Ejemplo 4-10: anidando un for loop dentro de otro</h2>
+
 <p>Cuando un for loop es anidado dentro de otro, el n&#xFA;mero de repeticiones se multiplica. Primero veamos un ejemplo corto y luego lo veremos por partes en el ejemplo 4-11.</p>
-<pre data-type="programlisting"><code>function setup() {
+
+```
+function setup() {
   createCanvas(480, 120);
   noStroke();
 }
 
 function draw() {
   background(0);
-  for (var y = 0; y &lt;= height; y += 40) {
-    for (var x = 0; y &lt;= width; y += 40) {
-      fill(255, 140);
-      ellipse(x, y, 40, 40);
-    }
-  }
-}
-</code></pre>
-</section><section data-type="sect1" id="ejemplo-4-11-filas-y-columnas-dJrMf97"><h1>Ejemplo 4-11: filas y columnas</h1>
+  for (var y = 0; y <= height;="" y="" +="40)" {="" for="" (var="" x="0;" <="width;" fill(255,="" 140);="" ellipse(x,="" y,="" 40,="" 40);="" }="" ```="" <h2="">Ejemplo 4-11: filas y columnas
+
 <p>En este ejemplo, los for loops est&#xE1;n adyacentes, en vez de estar uno dentro de otro. El resultado muestra que un for loop est&#xE1; dibujando una columna de 4 c&#xED;rculos y el otro est&#xE1; dibujando una fila de 13 c&#xED;rculos.</p>
-<pre data-type="programlisting"><code>function setup() {
+
+```
+function setup() {
   createCanvas(480, 120);
   noStroke();
 }
@@ -238,17 +317,16 @@ function draw() {
     fill(255, 140);
     ellipse(0, y, 40, 40);
   }
-  for (var x = 0; x &lt;= width + 45; x += 40) {
-    fill(255, 140);
-    ellipse(x, 0, 40, 40);
-  }
-}
-</code></pre>
-<p>Cuando uno de estos for loop es puesto dentro del otro, como en el ejemplo 4-10, las 4 repeticiones del primer loop son compuestas con las 13 del segundo, para as&#xED; ejecutar el c&#xF3;digo dentro del bloque compuesta 52 veces (4 x 13 = 52).</p>
+  for (var x = 0; x <= width="" +="" 45;="" x="" {="" fill(255,="" 140);="" ellipse(x,="" 0,="" 40,="" 40);="" }="" ```="" <p="">Cuando uno de estos for loop es puesto dentro del otro, como en el ejemplo 4-10, las 4 repeticiones del primer loop son compuestas con las 13 del segundo, para as&#xED; ejecutar el c&#xF3;digo dentro del bloque compuesta 52 veces (4 x 13 = 52).<p></p>
+
 <p>El ejemplo 4-10 es una buena base para explorar muchos tipos de patrones visuales repetitivos. Los siguientes ejemplos muestran un par de maneras en que esto puede ser extendido, pero esto es solo una peque&#xF1;a muestra de lo que es posible.</p>
-</section><section data-type="sect1" id="ejemplo-4-12-alfileres-y-lineas-3NZwfyK"><h1>Ejemplo 4-12: alfileres y l&#xED;neas</h1>
+
+<h2>Ejemplo 4-12: alfileres y l&#xED;neas</h2>
+
 <p>En este ejemplo, el c&#xF3;digo dibuja una l&#xED;nea desde cada punto de la matriz hasta el centro de la pantalla:</p>
-<pre data-type="programlisting"><code>function setup() {
+
+```
+function setup() {
   createCanvas(480, 120);
   fill(255);
   stroke(102);
@@ -257,33 +335,26 @@ function draw() {
 function draw() {
   background(0);
   for (var y = 20; y &lt; height - 20; y += 10) {
-    for (var x = 20; x &lt;= width - 20; x += 10) {
-      ellipse(x, y, 4, 4);
-      // Dibuja una l&#xED;nea al centro de la imagen
-      line(x, y, 240, 60);
-    }
-  }
-}
-</code></pre>
-</section><section data-type="sect1" id="ejemplo-4-13-puntos-semitono-zJ0BfeK"><h1>Ejemplo 4-13: Puntos semitono</h1>
+    for (var x = 20; x <= width="" -="" 20;="" x="" +="10)" {="" ellipse(x,="" y,="" 4,="" 4);="" dibuja="" una="" línea="" al="" centro="" de="" la="" imagen="" line(x,="" 240,="" 60);="" }="" ```="" <h2="">Ejemplo 4-13: Puntos semitono
+
 <p>En este ejemplo, las elipses se reducen en tama&#xF1;o con cada nueva fila y son movidas hacia la derecha, por medio de a&#xF1;adir la coordenada y a la coordenada x:</p>
-<pre data-type="programlisting"><code>function setup() {
+
+```
+function setup() {
   createCanvas(480, 120);
 }
 
 function draw() {
   background(0);
   for (var y = 32; y &lt; height; y += 8) {
-    for (var x = 12; x &lt;= width; x += 15) {
-      ellipse(x + y, y, 16 - y/10.0, 16 - y/10.0);
-    }
-  }
-}
-</code></pre>
-</section><section data-type="sect1" id="robot-2-variables-M7zVfx7"><h1>Robot 2: variables</h1>
+    for (var x = 12; x <= 16="" width;="" x="" +="15)" {="" ellipse(x="" y,="" -="" y="" 10.0,="" 10.0);="" }="" ```="" <h2="">Robot 2: variables
+
 <p>Las variables introducidas en este programa hacen que el c&#xF3;digo se vea m&#xE1;s dif&#xED;cil que el de la Robot 1 (ver &quot;Robot 1: dibuja&quot;), pero ahora es mucho m&#xE1;s simple hacer modificaciones, porque los n&#xFA;meros que dependen uno de otro est&#xE1;n en una misma ubicaci&#xF3;n. Por ejemplo, el dibujo del cuello est&#xE1; basado en la variable neckHeight. El grupo de variables al principio del c&#xF3;digo controla los aspectos del robot que queremos cambiar: ubicaci&#xF3;n, altura del cuerpo y altura del cuello. Puedes observar algunas de las posibles variaciones posibles en la figura; de izquierda a derecha, ac&#xE1; est&#xE1;n los valores correspondientes:</p>
+
 <p>Cuando alteras tu propio c&#xF3;digo para usar variables en vez de n&#xFA;meros, planea los cambios cuidadosamente y despu&#xE9;s haz las modificaciones en pasos cortos. Por ejemplo, cuando este programa fue escrito, cada variable fue creada de a una a la vez para minimizar la complejidad de la transici&#xF3;n. Solo despu&#xE9;s de que una variable era creada y el c&#xF3;digo era ejecutado para asegurarse de que funcionara correctamente, se a&#xF1;ad&#xED;a una siguiente variable:</p>
-<pre data-type="programlisting"><code>var x = 60;                                      // Coordenada X
+
+```
+var x = 60;                                      // Coordenada X
 var y = 420;                                    // Coordenada Y
 var bodyHeight = 110;                           // Altura del cuerpo
 var neckHeight = 140;                           // Altura del cuello
@@ -332,11 +403,11 @@ function draw() {
   ellipse(x + 41, ny + 6, 3, 3);
 }
 
-</code></pre>
-</section></section>
+```
+</=></=></=></=></section>
 <a id="prev-link" href="chapter03.html">Previous: Capítulo 3. Dibuja</a>
 
-<a id="next-link" href="chapter05.html">Next: Capítulo 5. Respuesta</a>
+<a id="next-link" href="chapter05.html">Next: </a>
     </div>
   </body>
 </html>
