@@ -1,14 +1,16 @@
-# Capítulo 10. Objetos
+<section data-type="chapter" id="capitulo_10_objetos">
 
-La programación orientada a objetos (OOP) es una manera diferente de pensar sobre tus programas. Los objetos son también una manera de agrupar variables con funciones relacionadas. Como ya sabes cómo trabajar con variables y funciones, los objetos simplemente combinan lo que ya has aprendido en un paquete más fácil de entender.
+<h1>Capítulo 10. Objetos</h1>
 
-Los objetos son importantes, porque permiten dividir las ideas en bloques más pequeños. Esto se parece al mundo real donde, por ejemplo, los órganos están hechos de tejido, el tejido está hecho de células y así. Similarmente, a medida que tu código se va volviendo más complejo, tienes que pensar en términos de estructuras más pequeñas que forman estructuras más complicadas. Es más fácil escribir y mantener pedazos de código más pequeños y fáciles de entender, que trabajan en conjunto con otros, que es escribir un gran trozo de código que hace todo al mismo tiempo.
+<p>La programación orientada a objetos (OOP) es una manera diferente de pensar sobre tus programas. Los objetos son también una manera de agrupar variables con funciones relacionadas. Como ya sabes cómo trabajar con variables y funciones, los objetos simplemente combinan lo que ya has aprendido en un paquete más fácil de entender.</p>
+
+<p>Los objetos son importantes, porque permiten dividir las ideas en bloques más pequeños. Esto se parece al mundo real donde, por ejemplo, los órganos están hechos de tejido, el tejido está hecho de células y así. Similarmente, a medida que tu código se va volviendo más complejo, tienes que pensar en términos de estructuras más pequeñas que forman estructuras más complicadas. Es más fácil escribir y mantener pedazos de código más pequeños y fáciles de entender, que trabajan en conjunto con otros, que es escribir un gran trozo de código que hace todo al mismo tiempo.</p>
 
 ## Propiedades y métodos
 
-Un objeto es un conjunto de variables y funciones relacionadas. En el contexto de los objetos, una variable se llama propiedad (o variable de instancia) y una función es llamada método. Las propiedades y los métodos funcionan tal como las variables y las funciones vistas en los capítulos anteriores, pero usaremos estos nuevos términos para enfatizar que son parte de un objeto. Para decirlo de otra manera, un objeto combina datos relacionados (propiedades) con acciones y comportamientos relacionados (métodos). La idea es agrupar datos y métodos relacionados.
+<p>Un objeto es un conjunto de variables y funciones relacionadas. En el contexto de los objetos, una variable se llama propiedad (o variable de instancia) y una función es llamada método. Las propiedades y los métodos funcionan tal como las variables y las funciones vistas en los capítulos anteriores, pero usaremos estos nuevos términos para enfatizar que son parte de un objeto. Para decirlo de otra manera, un objeto combina datos relacionados (propiedades) con acciones y comportamientos relacionados (métodos). La idea es agrupar datos y métodos relacionados.</p>
 
-Por ejemplo, para hacer un modelo de una radio, piensa en los parámetros que pueden ser ajustados y las acciones que pueden afectar estos parámetros:
+<p>Por ejemplo, para hacer un modelo de una radio, piensa en los parámetros que pueden ser ajustados y las acciones que pueden afectar estos parámetros:</p>
 
 Propiedades
 
@@ -18,7 +20,7 @@ Métodos
 
 setVolume, setFrequency, setBand
 
-Modelar un dispostivo mecánico simple es fácil comparado a modelar un organismo como una hormiga o una persona. No es posible reducir un organismo complejo a unas pocas propiedades y métodos, pero es posible modelarlo suficientemente bien como para crear una simulación interesante. El video juego The Sims es un claro ejemplo. Este juego consiste en administrar las actividades diarias de personas simuladas. Los personajes tienen la suficiente personalidad como para hacer un juego adictivo, pero no más que eso. De hecho, ellos solo tienen cinco atributos de personalidad: ordenado, extrovertido, activo, juguetón y simpático. Con el conocimiento de que es posible hacer un modelo altamente simplificado de organismos complejos, podríamos empezar a programar una hormiga con unas pocas propiedades y métodos:
+<p>Modelar un dispostivo mecánico simple es fácil comparado a modelar un organismo como una hormiga o una persona. No es posible reducir un organismo complejo a unas pocas propiedades y métodos, pero es posible modelarlo suficientemente bien como para crear una simulación interesante. El video juego The Sims es un claro ejemplo. Este juego consiste en administrar las actividades diarias de personas simuladas. Los personajes tienen la suficiente personalidad como para hacer un juego adictivo, pero no más que eso. De hecho, ellos solo tienen cinco atributos de personalidad: ordenado, extrovertido, activo, juguetón y simpático. Con el conocimiento de que es posible hacer un modelo altamente simplificado de organismos complejos, podríamos empezar a programar una hormiga con unas pocas propiedades y métodos:</p>
 
 Propiedades:
 
@@ -28,15 +30,15 @@ Métodos:
 
 caminar, picar, liberarFeromonas, comer
 
-Si hicieras una lista de las propiedades y métodos de una hormiga, podrías escoger enfocarte en modelar diferentes aspectos de la hormiga. No existe una manera correcta de hacer un modelo, mientras lo hagas apropiado para el próposito de las metas de tu programa.
+<p>Si hicieras una lista de las propiedades y métodos de una hormiga, podrías escoger enfocarte en modelar diferentes aspectos de la hormiga. No existe una manera correcta de hacer un modelo, mientras lo hagas apropiado para el próposito de las metas de tu programa.</p>
 
 ## Define un Constructor
 
-Para crear un objeto, empieza por definir una función constructor. Una función constructor es la especificación de un objeto. Usando una analogía arquitectónica, una función constructor es como el plano de una casa, y un objeto es como la casa en sí misma. Cada casa construida con el mismo plano puede tener variaciones, y el plano es la única especificación, no una estructura fija. Por ejemplo, una casa puede ser azul y otra roja, una casa puede tener una chimenea y la otra no. Tal como los objetos, el constructor define los tipos de datos y comportamientos, pero cada objeto (casa) hecho de la misma función constructor (plano) tiene variables (color, chimenea) que tienen distintos valores. Para usar un término más técnico, cada objeto es una instancia y cada instancia tiene su propio conjunto de propiedades y métodos.
+<p>Para crear un objeto, empieza por definir una función constructor. Una función constructor es la especificación de un objeto. Usando una analogía arquitectónica, una función constructor es como el plano de una casa, y un objeto es como la casa en sí misma. Cada casa construida con el mismo plano puede tener variaciones, y el plano es la única especificación, no una estructura fija. Por ejemplo, una casa puede ser azul y otra roja, una casa puede tener una chimenea y la otra no. Tal como los objetos, el constructor define los tipos de datos y comportamientos, pero cada objeto (casa) hecho de la misma función constructor (plano) tiene variables (color, chimenea) que tienen distintos valores. Para usar un término más técnico, cada objeto es una instancia y cada instancia tiene su propio conjunto de propiedades y métodos.<p>
 
-Antes de que escribas una función constructor, recomendamos un poco de planificación. Piensa en qué propiedades y métodos deberían tener tus objetos. Haz una lluvia de ideas para imaginar todas las opciones posibles y luego prioriza y haz tu mejor conjetura sobre qué funcionará. Harás cambios durante el proceso de programación, pero es importante tener un buen comienzo.
+<p>Antes de que escribas una función constructor, recomendamos un poco de planificación. Piensa en qué propiedades y métodos deberían tener tus objetos. Haz una lluvia de ideas para imaginar todas las opciones posibles y luego prioriza y haz tu mejor conjetura sobre qué funcionará. Harás cambios durante el proceso de programación, pero es importante tener un buen comienzo.</p>
 
-Para nuestra primera función constructor, convertiremos el Ejemplo 8-9 de antes en el libro. Empezamos por hacer una lista de propiedades del ejemplo:
+<p>Para nuestra primera función constructor, convertiremos el Ejemplo 8-9 de antes en el libro. Empezamos por hacer una lista de propiedades del ejemplo:</p>
 
 ```javascript
 var x;
@@ -45,16 +47,16 @@ var diameter;
 var speed;
 ```
 
-El siguiente paso es resolver qué métodos pueden ser útiles para el objeto. Revisando la función draw() del ejemplo que estamos adaptando, vemos dos componentes primarios. La posición de la figura es actualizada y dibujada en la pantalla. Creemos dos métodos para nuestro objeto, uno para cada función:
+<p>El siguiente paso es resolver qué métodos pueden ser útiles para el objeto. Revisando la función draw() del ejemplo que estamos adaptando, vemos dos componentes primarios. La posición de la figura es actualizada y dibujada en la pantalla. Creemos dos métodos para nuestro objeto, uno para cada función:</p>
 
 ```javascript
 function move();
 function display();
 ```
 
-Ninguno de nuestros métodos retornan un valor. Una vez que hemos determinado las propiedades y métodos que el objeto debería tener, escribiremos nuestra función constructor para asignarlos a cada instancia del objeta que crearemos (Figura 10-1).
+<p>Ninguno de nuestros métodos retornan un valor. Una vez que hemos determinado las propiedades y métodos que el objeto debería tener, escribiremos nuestra función constructor para asignarlos a cada instancia del objeta que crearemos (Figura 10-1).</p>
 
-El código dentro la función constructor es corrido una vez cuando el objeto es creado. Para crear la función constructor, seguiremos tres pasos:
+<p>El código dentro la función constructor es corrido una vez cuando el objeto es creado. Para crear la función constructor, seguiremos tres pasos:</p>
 
 1. Crear un bloque de función.
 
@@ -70,9 +72,9 @@ function JitterBug() {
 }
 ```
 
-Observa que el nombre JitterBug empieza con mayúscula. Nombrar la función constructor con letra mayúscula no es requerida, pero es una convención (que recomendamos fuertemente) usada para denotar que es un constructor. (La palabra clave function, sin embargo, debe ser minúscula porque es una regla del lenguaje de programación).
+<p>Observa que el nombre JitterBug empieza con mayúscula. Nombrar la función constructor con letra mayúscula no es requerida, pero es una convención (que recomendamos fuertemente) usada para denotar que es un constructor. (La palabra clave function, sin embargo, debe ser minúscula porque es una regla del lenguaje de programación).</p>
 
-Segundo, añadimos las propiedades. Javascript tiene una palabra reservada especial, this, que puedes usar dentro la función constructor para referirse al objeto actual. Cuando declaras una propiedad de un objeto, dejamos fuera el símbolo var, y en vez de eso anteponemos el nombre de la variable con this. para indicar que estamos asignando una propiedad, una variable del objeto. Podemos declarar y asignar la propiedad speed de la siguiente manera:
+<p>Segundo, añadimos las propiedades. Javascript tiene una palabra reservada especial, this, que puedes usar dentro la función constructor para referirse al objeto actual. Cuando declaras una propiedad de un objeto, dejamos fuera el símbolo var, y en vez de eso anteponemos el nombre de la variable con this. para indicar que estamos asignando una propiedad, una variable del objeto. Podemos declarar y asignar la propiedad speed de la siguiente manera:</p>
 
 ```javascript
 function JitterBug() {
@@ -80,7 +82,7 @@ function JitterBug() {
 }
 ```
 
-Mientras estamos haciendo esto, tenemos que decidir qué propiedades tendrán sus valores pasados a través del constructor. Como regla general, los valores de las propiedades que quieran ser diferentes para cada instancia son pasados a través del constructor, y los otros valores de propiedades pueden ser definidos dentro del constructor, como lo es speed en este caso. Para el objeto JitterBug, hemos decidido que los valores de x, y y diámetro serán pasados. Cada uno de los valores pasados es asignado a una variable temporal que existe solo mientras el código es ejecutado. Para clarificar esto, hemos añadido el nombre temp a cada una de estas variables, pero pueden ser nombradas con cualquier nombre que prefieras. Serán usadas solo para asignar los valores de las propiedades que son parte del objeto. Así que añadimos tempX, tempY y tempDiameter como parámetros para la función, y las propiedades son declaradas y asignadas así:
+<p>Mientras estamos haciendo esto, tenemos que decidir qué propiedades tendrán sus valores pasados a través del constructor. Como regla general, los valores de las propiedades que quieran ser diferentes para cada instancia son pasados a través del constructor, y los otros valores de propiedades pueden ser definidos dentro del constructor, como lo es speed en este caso. Para el objeto JitterBug, hemos decidido que los valores de x, y y diámetro serán pasados. Cada uno de los valores pasados es asignado a una variable temporal que existe solo mientras el código es ejecutado. Para clarificar esto, hemos añadido el nombre temp a cada una de estas variables, pero pueden ser nombradas con cualquier nombre que prefieras. Serán usadas solo para asignar los valores de las propiedades que son parte del objeto. Así que añadimos tempX, tempY y tempDiameter como parámetros para la función, y las propiedades son declaradas y asignadas así:</p>
 
 ```javascript
 function JitterBug(tempX, tempY, tempDiameter) {
@@ -91,7 +93,7 @@ function JitterBug(tempX, tempY, tempDiameter) {
 }
 ```
 
-El último paso es añadir los métodos. Esto es justo como escribir funciones, pero aquí están contenidas dentro de la función constructor, y la primera línea es escrita un poco diferente. Normalmente, una función para actualizar variables puede ser escrita así:
+<p>El último paso es añadir los métodos. Esto es justo como escribir funciones, pero aquí están contenidas dentro de la función constructor, y la primera línea es escrita un poco diferente. Normalmente, una función para actualizar variables puede ser escrita así:</p>
 
 ```javascript
 function move() {
@@ -100,7 +102,7 @@ function move() {
 }
 ```
 
-Como queremos hacer esta función un método del objeto, nuevamente necesitamos usar la palabra reservada this. La función anterior puede ser convertida en un método así:
+<p>Como queremos hacer esta función un método del objeto, nuevamente necesitamos usar la palabra reservada this. La función anterior puede ser convertida en un método así:</p>
 
 ```javascript
 this. move = function() {
@@ -109,7 +111,7 @@ this. move = function() {
 };
 ```
 
-La primera línea se ve un poco extraña, pero la manera de interpretarla es "crear una variable de instancia (propiedad) llamada move, y luego le asigna como su valor esta función". Luego, cada vez que nos referimos a las propiedades del objeto, podemos nuevamente usar this., tal como lo hacemos cuando están inicialmente declaradas. Juntando todo en el constructor el resultado es este:
+<p>La primera línea se ve un poco extraña, pero la manera de interpretarla es "crear una variable de instancia (propiedad) llamada move, y luego le asigna como su valor esta función". Luego, cada vez que nos referimos a las propiedades del objeto, podemos nuevamente usar this., tal como lo hacemos cuando están inicialmente declaradas. Juntando todo en el constructor el resultado es este:</p>
 
 ```javascript
 function JitterBug(tempX, tempY, tempDiameter) {
@@ -129,11 +131,11 @@ function JitterBug(tempX, tempY, tempDiameter) {
 }
 ```
 
-También observa el espaciado en el código. Cada línea dentro del constructor está indentada unos pocos espacios para mostrar lo que está dentro del bloque. Dentro de estos métodos, el código está espaciado nuevamente para mostrar claramente la jerarquía.
+<p>También observa el espaciado en el código. Cada línea dentro del constructor está indentada unos pocos espacios para mostrar lo que está dentro del bloque. Dentro de estos métodos, el código está espaciado nuevamente para mostrar claramente la jerarquía.</p>
 
 ## Crea objetos
 
-Ahora que has definido una función constructor, para usarla en un programa debes crear un instancia de objeto con ese constructor. Hay dos pasos para crear un objeto:
+<p>Ahora que has definido una función constructor, para usarla en un programa debes crear un instancia de objeto con ese constructor. Hay dos pasos para crear un objeto:</p>
 
 1. Declara la variable objeto.
 
@@ -141,7 +143,7 @@ Ahora que has definido una función constructor, para usarla en un programa debe
 
 ## Ejemplo 10-1: haz un objeto
 
-Para hacer tu primer objeto, empezaremos mostrando cómo esto funciona dentro un bosquejo de p5.js y luego continuaremos explicando cada parte en profundidad:
+<p>Para hacer tu primer objeto, empezaremos mostrando cómo esto funciona dentro un bosquejo de p5.js y luego continuaremos explicando cada parte en profundidad:</p>
 
 ```javascript
 var bug;
@@ -161,25 +163,25 @@ function draw() {
 // Copia aquí el código del constructor de Jitterbug
 ```
 
-Declaramos variables de objeto en la misma manera que todas las otras variables - el objeto es declarado escribiendo la palabra reservada var seguida del nombre de la variable:
+<p>Declaramos variables de objeto en la misma manera que todas las otras variables - el objeto es declarado escribiendo la palabra reservada var seguida del nombre de la variable:</p>
 
  ```javascript
  var bug;
  ```
 
- El segundo paso es inicializar el objeto con la palabra reservada new. Hace espacio en la memoria para el objeto con todas sus propiedades y métodos. El nombre del constructor es escrito a la derecha de la palabra reservada new, seguido de los parámetros dentro del constructor, si es que tiene alguno:
+ <p>El segundo paso es inicializar el objeto con la palabra reservada new. Hace espacio en la memoria para el objeto con todas sus propiedades y métodos. El nombre del constructor es escrito a la derecha de la palabra reservada new, seguido de los parámetros dentro del constructor, si es que tiene alguno:</p>
 
  ```javascript
  bug = new JitterBug(width/2, height/2, 20);
  ```
 
- Los tres números dentro de los paréntesis son los parámetros pasados dentro de la función constructor JitterBug. El número y orden de estos parámetros deben corresponder con los del constructor.
+ <p>Los tres números dentro de los paréntesis son los parámetros pasados dentro de la función constructor JitterBug. El número y orden de estos parámetros deben corresponder con los del constructor.</p>
 
 ## Ejemplo 10-2: haz múltiples objetos
 
-En el Ejemplo 10-1, vimos algo nuevo: el punto que es usado para acceder a los métodos del objeto dentro de draw(). El operador punto es usado para unir el nombre del objeto con sus propiedades y métodos. Es análogo a la manera en que usamos this. dentro de la función constructor, pero cuando nos referimos a esto fuera del constructor, this es reemplazado por el nombre de la variable.
+<p>En el Ejemplo 10-1, vimos algo nuevo: el punto que es usado para acceder a los métodos del objeto dentro de draw(). El operador punto es usado para unir el nombre del objeto con sus propiedades y métodos. Es análogo a la manera en que usamos this. dentro de la función constructor, pero cuando nos referimos a esto fuera del constructor, this es reemplazado por el nombre de la variable.</p>
 
-Esto se torna más claro en este ejemplo, donde dos objetos son hechos con el mismo constructor. La función jit.move() se refiere al método move() que pertenece al objeto nombrado jit, y bug.move() se refiere al método move() y pertenece al objeto llamado bug:
+<p>Esto se torna más claro en este ejemplo, donde dos objetos son hechos con el mismo constructor. La función jit.move() se refiere al método move() que pertenece al objeto nombrado jit, y bug.move() se refiere al método move() y pertenece al objeto llamado bug:</p>
 
 ```javascript
 var jit;
@@ -202,11 +204,11 @@ function draw() {
 // Copia aquí el código del constructor de JitterBug
 ```
 
-Ahora que la función constructor existe como su propio módulo de código, cualquier cambio modificará los objetos hechos con élla. Por ejemplo, podrías añadir una propiedad al constructor JitterBug que controla el color, u otra que determina su tamaño. Estos valores pueden ser pasados usados el constructor o usando métodos adicionales, como setColor() o setSize(). Y como es una unidad auto-contenida, también puedes usar el constructor JitterBug en otro bosquejo.
+<p>Ahora que la función constructor existe como su propio módulo de código, cualquier cambio modificará los objetos hechos con élla. Por ejemplo, podrías añadir una propiedad al constructor JitterBug que controla el color, u otra que determina su tamaño. Estos valores pueden ser pasados usados el constructor o usando métodos adicionales, como setColor() o setSize(). Y como es una unidad auto-contenida, también puedes usar el constructor JitterBug en otro bosquejo.</p>
 
-Ahora es un buen momento para aprender sobre usar múltiples archivos en Javascript. Esparcir tu código en más de un archivo hace que el código más largo sea más fácil de editar y más manejable en general. Un nuevo archivo es usualmente creado para cada constructor, lo que refuerza la modularidad de trabajar con objetos y hacer el código más fácil de encontrar.
+<p>Ahora es un buen momento para aprender sobre usar múltiples archivos en Javascript. Esparcir tu código en más de un archivo hace que el código más largo sea más fácil de editar y más manejable en general. Un nuevo archivo es usualmente creado para cada constructor, lo que refuerza la modularidad de trabajar con objetos y hacer el código más fácil de encontrar.</p>
 
-Crea un nuevo archivo en el mismo directorio que tu actual archivo sketch.js. Puedes nombrarlo como quieras, pero es una buena idea nombrarlo JitterBug.sjs por conceptos de organización. Mueve la función constructor JitterBug a este nuevo archivo. Enlaza el archivo JitterBug.js en tu archivo HTML añadiendo una líena dentro de HEAD bajo la línea donde enlazas el archivo sketch.js:
+<p>Crea un nuevo archivo en el mismo directorio que tu actual archivo sketch.js. Puedes nombrarlo como quieras, pero es una buena idea nombrarlo JitterBug.sjs por conceptos de organización. Mueve la función constructor JitterBug a este nuevo archivo. Enlaza el archivo JitterBug.js en tu archivo HTML añadiendo una líena dentro de HEAD bajo la línea donde enlazas el archivo sketch.js:</p>
 
 ```html
 <script type="text/javascript" src="sketch.js"></script>
@@ -215,9 +217,9 @@ Crea un nuevo archivo en el mismo directorio que tu actual archivo sketch.js. Pu
 
 ## Robot 8: objetos
 
-Un objeto en software puede combinar métodos (funciones) y propiedades (variables) en una unidad. La función constructor Robot en este ejemplo define todos los objetos robot que serán creados desde él. Cada objeto Robot tiene su propio conjunto de propiedades para almacenar una posicón y la ilustración que dibujará en la pantalla. Cada uno tiene métodos para actualizar la posición y mostrar la ilustración.
+<p>Un objeto en software puede combinar métodos (funciones) y propiedades (variables) en una unidad. La función constructor Robot en este ejemplo define todos los objetos robot que serán creados desde él. Cada objeto Robot tiene su propio conjunto de propiedades para almacenar una posicón y la ilustración que dibujará en la pantalla. Cada uno tiene métodos para actualizar la posición y mostrar la ilustración.</p>
 
-Los parámetros para bot1 y bot2 en setup() definen las coordenadas x e y y el archivo .svg que será usado para dibujar el robot. Los parámetros tempX y tempY son pasados al constructor y asignados a las propiedades xpos y ypos. El parámetro imgPath es usado para cargar la ilustración relacionada. Los objetos (bot1 y bot2) dibujan en su propia ubicación con una ilustración difrente porque cada uno tienen valores distintos pasados a los objetos a través de sus constructores:
+<p>Los parámetros para bot1 y bot2 en setup() definen las coordenadas x e y y el archivo .svg que será usado para dibujar el robot. Los parámetros tempX y tempY son pasados al constructor y asignados a las propiedades xpos y ypos. El parámetro imgPath es usado para cargar la ilustración relacionada. Los objetos (bot1 y bot2) dibujan en su propia ubicación con una ilustración difrente porque cada uno tienen valores distintos pasados a los objetos a través de sus constructores:</p>
 
 ```javascript
 var img1;
