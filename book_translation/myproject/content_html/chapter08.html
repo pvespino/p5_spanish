@@ -1,14 +1,16 @@
-# Capítulo 8. Movimiento
+<section data-type="chapter" id="capitulo_08_movimiento">
 
-Tal como un folioscopio, la animación en la pantalla es creada para dibujar una imagen, luego otra, y así. La ilusión de movimiento fluido es creada por persistencia de visión. Cuando un conjunto de imágenes similares es presentado a una tasa suficiente, nuestros cerebros traducen estas imágenes en movimiento.
+<h1>Capítulo 8. Movimiento</h1>
+
+<p>Tal como un folioscopio, la animación en la pantalla es creada para dibujar una imagen, luego otra, y así. La ilusión de movimiento fluido es creada por persistencia de visión. Cuando un conjunto de imágenes similares es presentado a una tasa suficiente, nuestros cerebros traducen estas imágenes en movimiento.</p>
 
 ## Cuadros
 
-Para crear movimiento fluido, p5.js trata de correr el código dentro de draw() a una tasa de 60 cuadros por segundo. Un cuadro es una ejecución de la función draw() y la tasa de cuadros equivale a cuántos cuadros son dibujados cada segundo. Entonces, un programa que dibuja 60 cuadros cpor segundo corre todo el código dentro de la función draw() 60 veces por segundo.
+<p>Para crear movimiento fluido, p5.js trata de correr el código dentro de draw() a una tasa de 60 cuadros por segundo. Un cuadro es una ejecución de la función draw() y la tasa de cuadros equivale a cuántos cuadros son dibujados cada segundo. Entonces, un programa que dibuja 60 cuadros cpor segundo corre todo el código dentro de la función draw() 60 veces por segundo.</p>
 
 ## Ejemplo 8-1: ve la tasa de cuadros
 
-Para confirmar la tasa de cuadros, podemos usar la consola del navegador que aprendimos a usar en el Capítulo 1. La función frameRate() te arroja la velocidad actual de tu programa. Abre la consola, corre este programa y revisa los valores impresos:
+<p>Para confirmar la tasa de cuadros, podemos usar la consola del navegador que aprendimos a usar en el Capítulo 1. La función frameRate() te arroja la velocidad actual de tu programa. Abre la consola, corre este programa y revisa los valores impresos:</p>
 
 ```javascript
 
@@ -20,7 +22,7 @@ function draw() {
 
 ## Ejemplo 8-2: define la tasa de cuadros
 
-La función frameRate() puede también cambiar la velocidad a la que el programa corre. Cuando es ejecutada sin parámetro (como en el Ejemplo 8-1), arroja la actual tasa de cuadros. Sin embargo, cuando la función frameRate() es llamada con un parámetro, define la tasa de cuadros a ese valor. Para ver el resultado, ejecuta las distintas versiones de frameRate() de este ejemplo, descomentándolas:
+<p>La función frameRate() puede también cambiar la velocidad a la que el programa corre. Cuando es ejecutada sin parámetro (como en el Ejemplo 8-1), arroja la actual tasa de cuadros. Sin embargo, cuando la función frameRate() es llamada con un parámetro, define la tasa de cuadros a ese valor. Para ver el resultado, ejecuta las distintas versiones de frameRate() de este ejemplo, descomentándolas:</p>
 
 ```javascript
 function setup() {
@@ -37,15 +39,15 @@ function draw() {
 
 ## Nota:
 
-p5.js trata de correr el código a una tasa de 60 cuadros por segundo, pero si tarda más de de 1/60 segundos en correr el método draw(), entonces la tasa decrecerá. La función frameRate() especifica solo la tasa máxima, y la tasa real para cualquier programa depende en el computador corriendo el código.
+<p>p5.js trata de correr el código a una tasa de 60 cuadros por segundo, pero si tarda más de de 1/60 segundos en correr el método draw(), entonces la tasa decrecerá. La función frameRate() especifica solo la tasa máxima, y la tasa real para cualquier programa depende en el computador corriendo el código.</p>
 
 ## Velocidad y dirección
 
-Para crear exemplos de movimiento fluido, creamos variables que guardan números y los modifican un poco cada cuadro.
+<p>Para crear exemplos de movimiento fluido, creamos variables que guardan números y los modifican un poco cada cuadro.</p>
 
 ## Ejemplo 8-3: mueve una figura.
 
-El siguiente ejemplo mueve una figura de izquierda a derecha, actualizando la variable x:
+<p>El siguiente ejemplo mueve una figura de izquierda a derecha, actualizando la variable x:</p>
 
 ```javascript
 var radius = 40;
@@ -64,11 +66,11 @@ function draw() {
 }
 ```
 
-Cuando corres este código, observarás que la figura se mueve más allá del borde derecho de la pantalla cuando el valor de la variable x es mayor que el ancho de la ventana. El valor de x sigue aumentando, pero la figura ya no es visible.
+<p>Cuando corres este código, observarás que la figura se mueve más allá del borde derecho de la pantalla cuando el valor de la variable x es mayor que el ancho de la ventana. El valor de x sigue aumentando, pero la figura ya no es visible.</p>
 
 ## Ejemplo 8-4: dar la vuelta
 
-Existen muchas alternativas a este comportamiento, que puedes escoger de acuerdo a tu preferencia. Primero, extenderemos el código para mostrar cómo mover la figura de vuelta al borde izquierdo de la pantalla después de que desaparece del borde derecho. En este caso, imagina la pantalla como un cilindro aplanado, con la figura moviéndose por fuera para volver al borde izquierdo:
+<p>Existen muchas alternativas a este comportamiento, que puedes escoger de acuerdo a tu preferencia. Primero, extenderemos el código para mostrar cómo mover la figura de vuelta al borde izquierdo de la pantalla después de que desaparece del borde derecho. En este caso, imagina la pantalla como un cilindro aplanado, con la figura moviéndose por fuera para volver al borde izquierdo:</p>
 
 ```javascript
 var radius = 40;
@@ -90,11 +92,11 @@ function draw() {
 }
 ```
 
-En cada viaje alrededor de draw(), el código prueba si el valor de x ha aumentado más allá del ancho de la pantalla (sumado al radio de la figura). Si lo ha hecho, hacemos que el valor de x sea negativo nuevamente, para que cuando siga aumentando, entre a la pantalla por la izquierda. Mira la Figura 8-1 para ver un diagrama de cómo funciona.
+<p>En cada viaje alrededor de draw(), el código prueba si el valor de x ha aumentado más allá del ancho de la pantalla (sumado al radio de la figura). Si lo ha hecho, hacemos que el valor de x sea negativo nuevamente, para que cuando siga aumentando, entre a la pantalla por la izquierda. Mira la Figura 8-1 para ver un diagrama de cómo funciona.</p>
 
 ## Ejemplo 8-5: rebota contra la pared
 
-En este ejemplo, extenderemos el Ejemplo 8-3 para que la figura cambie de dirección cuando llegue a un borde, en vez de volver a aparecer por la izquierda. Para hacer que esto pase, añadimos una nueva variable para almacenar la dirección de la figura. Un valor de dirección de 1 mueve la figura hacia la derecha, mientras que un valor de -1 la mueve hacia la izquierda:
+<p>En este ejemplo, extenderemos el Ejemplo 8-3 para que la figura cambie de dirección cuando llegue a un borde, en vez de volver a aparecer por la izquierda. Para hacer que esto pase, añadimos una nueva variable para almacenar la dirección de la figura. Un valor de dirección de 1 mueve la figura hacia la derecha, mientras que un valor de -1 la mueve hacia la izquierda:</p>
 
 ```javascript
 var radius = 40;
@@ -121,15 +123,15 @@ function draw() {
 }
 ```
 
-Cuando la figura llega a un borde, este código invierte la dirección de la figura, cambiando el signo de la variable dirección. Por ejemplo, si la variable dirección es positiva cuando la figura llega a un borde, el código la invierte a negativa.
+<p>Cuando la figura llega a un borde, este código invierte la dirección de la figura, cambiando el signo de la variable dirección. Por ejemplo, si la variable dirección es positiva cuando la figura llega a un borde, el código la invierte a negativa.</p>
 
 ## Posiciones intermedias (tweening)
 
-A veces quieres animar una figura para ir de un punto de la pantalla a otro. Con unas pocas líneas de código, puedes configurar la posición inicial y final, y luego calcular las posiciones entremedio (tween) en cada cuadro.
+<p>A veces quieres animar una figura para ir de un punto de la pantalla a otro. Con unas pocas líneas de código, puedes configurar la posición inicial y final, y luego calcular las posiciones entremedio (tween) en cada cuadro.</p>
 
 ## Ejemplo 8-6: calcula las posiciones intermedias
 
-Para hacer que el ejemplo de este código sea modular, hemos creado un grupo de variables en la parte superior. Corre el código unas cuantas veces y cambia los valores para ver cómo este código puede mover a la figura desde cualquier ubicación a cualquier otra en cualquier rango de velocidades. Cambia la variable step para alterar la velocidad:
+<p>Para hacer que el ejemplo de este código sea modular, hemos creado un grupo de variables en la parte superior. Corre el código unas cuantas veces y cambia los valores para ver cómo este código puede mover a la figura desde cualquier ubicación a cualquier otra en cualquier rango de velocidades. Cambia la variable step para alterar la velocidad:</p>
 
 ```javascript
 var startX = 20;  // Coordenada x inicial
@@ -158,11 +160,11 @@ function draw() {
 
 ## Aleatorio
 
-A diferencia del movimiento linear y suave típico en las gráficas por computadora, el movimiento en el mundo físico es usualmente idiosincrático. Por ejemplo, si pensamos en una hoja flotando hacia la tierra, o una hormiga caminando por un terreno rugoso. Podemos simular las cualidades impredecibles del mundo generando números aleatorios. La función random() calcula estos valores, podemos definir un rango para afinar la cantidad de desorden en un programa.
+</p>A diferencia del movimiento linear y suave típico en las gráficas por computadora, el movimiento en el mundo físico es usualmente idiosincrático. Por ejemplo, si pensamos en una hoja flotando hacia la tierra, o una hormiga caminando por un terreno rugoso. Podemos simular las cualidades impredecibles del mundo generando números aleatorios. La función random() calcula estos valores, podemos definir un rango para afinar la cantidad de desorden en un programa.</p>
 
 ## Ejemplo 8-7: genera valores aleatorios
 
-El siguiente ejemplo corto imprime valores aleatorios en la consola, con el rango limitado por la posición del ratón:
+<p>El siguiente ejemplo corto imprime valores aleatorios en la consola, con el rango limitado por la posición del ratón:</p>
 
 ```javascript
 function draw() {
@@ -173,7 +175,7 @@ function draw() {
 
 ## Ejemplo 8-8: dibuja aleatoriamente
 
-Construyendo sobre el Ejemplo 8-7, este ejemplo usa valores de la función random() para cambiar la posición de líneas en el lienzo. Cuando el ratón está a la izquierda del lienzo, el cambio es pequeño; si se mueve a la derecha, los valores de random() aumentan y el movimiento se torna más exagerado. Como la función random() está dentro de un for loop, un nuevo valor aleatorio es calculado para cada punto de cada línea:
+<p>Construyendo sobre el Ejemplo 8-7, este ejemplo usa valores de la función random() para cambiar la posición de líneas en el lienzo. Cuando el ratón está a la izquierda del lienzo, el cambio es pequeño; si se mueve a la derecha, los valores de random() aumentan y el movimiento se torna más exagerado. Como la función random() está dentro de un for loop, un nuevo valor aleatorio es calculado para cada punto de cada línea:</p>
 
 ```javascript
 function setup() {
@@ -193,7 +195,7 @@ function draw() {
 
 ## Ejemplo 8-9: mueve figuras aleatoriamente
 
-Cuando se usa para  mover figuras alrededor de la pantalla, los valores aleatorios pueden generar imágenes que son más naturales en apariencia. En el siguiente ejemplo, la posición del círculo es modificada por valores aleatorios en cada ejecución de draw(). Como la función background() no es usad, las posiciones anteriores permanecen dibujadas:
+<p>Cuando se usa para  mover figuras alrededor de la pantalla, los valores aleatorios pueden generar imágenes que son más naturales en apariencia. En el siguiente ejemplo, la posición del círculo es modificada por valores aleatorios en cada ejecución de draw(). Como la función background() no es usad, las posiciones anteriores permanecen dibujadas:</p>
 
 ```javascript
 var speed = 2.5;
@@ -215,9 +217,9 @@ function draw() {
 }
 ```
 
-Si observas este ejemplo el tiempo suficiente, el círculo podría dejar la pantalla y volver. Esto depende del azar, pero podríamos añadir unas estructuras if o usar la función constrain() para hacer que el círculo no deje la pantalla.
+<p>Si observas este ejemplo el tiempo suficiente, el círculo podría dejar la pantalla y volver. Esto depende del azar, pero podríamos añadir unas estructuras if o usar la función constrain() para hacer que el círculo no deje la pantalla.</p>
 
-La función constrain() limita el valor a un rango específico, el que puede ser usado para mantener x e y dentro de los límites del lienzo. Al reemplazar la función draw con el siguiente código, te asegurarás que la elipse permanezca en la pantalla:
+<p>La función constrain() limita el valor a un rango específico, el que puede ser usado para mantener x e y dentro de los límites del lienzo. Al reemplazar la función draw con el siguiente código, te asegurarás que la elipse permanezca en la pantalla:</p>
 
 ```javascript
 function draw() {
@@ -230,15 +232,15 @@ function draw() {
 ```
 ## Nota
 
-La función randomSeed() puede ser usada para forzar a randon() para producir la misma secuencia de números cada vez que un programa es ejecutado. Esto es descrito con mayor detalle en la Referencia de p5.js.
+<p>La función randomSeed() puede ser usada para forzar a randon() para producir la misma secuencia de números cada vez que un programa es ejecutado. Esto es descrito con mayor detalle en la Referencia de p5.js.</p>
 
 ## Temporizadores
 
-Cada programa de p5.js cuenta el monto de tiempo que ha pasado desde que empezó. Cuenta en milisegundos (milésimas de segundo), así que después de 1 segundo el contador está en 1.000, después de 5 segundos está en 5.000 y después de un minuto en 60.000. Podemos usar este contador para gatillar animaciones en momentos específicos. La función millis() arroja el valor del contador.
+<p>Cada programa de p5.js cuenta el monto de tiempo que ha pasado desde que empezó. Cuenta en milisegundos (milésimas de segundo), así que después de 1 segundo el contador está en 1.000, después de 5 segundos está en 5.000 y después de un minuto en 60.000. Podemos usar este contador para gatillar animaciones en momentos específicos. La función millis() arroja el valor del contador.</p>
 
 ## Ejemplo 8-10: el tiempo pasa
 
-Puedes ver cómo el tiempo pasa cuando corres este programa:
+<p>Puedes ver cómo el tiempo pasa cuando corres este programa:</p>
 
  ```javascript
  function draw() {
@@ -249,7 +251,7 @@ Puedes ver cómo el tiempo pasa cuando corres este programa:
 
 ## Ejemplo 8-11: gatillando eventos temporizados
 
-Cuando se combina con un bloque if, los valores de millis() pueden ser usados para secuenciar tanto animaciones como eventos del programa. Por ejemplo, después de que han pasado dos segundos, el código dentro del bloque if puede gatillar un cambio. En este ejemplo, las variables llamadas time1 y time2 deerminan cuándo cambiar el valor de la variable x:
+<p>Cuando se combina con un bloque if, los valores de millis() pueden ser usados para secuenciar tanto animaciones como eventos del programa. Por ejemplo, después de que han pasado dos segundos, el código dentro del bloque if puede gatillar un cambio. En este ejemplo, las variables llamadas time1 y time2 deerminan cuándo cambiar el valor de la variable x:</p>
 
  ```javascript
 var time1 = 2000;
@@ -274,15 +276,15 @@ function draw() {
 
 ## Circular
 
-Si eres un as de la trigonometría, ya sabes cuán increíbles son las funciones seno y coseno. Si no lo eres, esperamos que los siguientes ejemplos pueden gatillar tu interés. no discutiremos la matemática en detalle aquí, pero aquí mostraremos unas pocas aplicaciones para generar movimiento fluido.
+<p>Si eres un as de la trigonometría, ya sabes cuán increíbles son las funciones seno y coseno. Si no lo eres, esperamos que los siguientes ejemplos pueden gatillar tu interés. no discutiremos la matemática en detalle aquí, pero aquí mostraremos unas pocas aplicaciones para generar movimiento fluido.</p>
 
-La figura 8-2 muestra una visualización de valores de la función seno y cómo se relacionan con ángulos. En la parte superior e inferior de la onda, observa cómo la tasa de cambio (el cambio en el eje vertical) desacelera, para y luego cambia de dirección. Es esta cualidad de la curva lo que genera un movimiento interesante.
+<p>La figura 8-2 muestra una visualización de valores de la función seno y cómo se relacionan con ángulos. En la parte superior e inferior de la onda, observa cómo la tasa de cambio (el cambio en el eje vertical) desacelera, para y luego cambia de dirección. Es esta cualidad de la curva lo que genera un movimiento interesante.</p>
 
-Las funciones sin() y cos() en p5.js arrojan valores entre -1 y 1 para la función seno y coseno del ángulo especificado. Tal como arc(), los ángulos deben ser escritos en radianes (ver Ejemplo 3-7 y Ejemplo 3-8 para un recordatorio de cómo funcionan los radianes). Para ser útil para dibujar, los valores float arrojados por sin() y cos() son usualmente multiplicados por un valor más grande.
+<p>Las funciones sin() y cos() en p5.js arrojan valores entre -1 y 1 para la función seno y coseno del ángulo especificado. Tal como arc(), los ángulos deben ser escritos en radianes (ver Ejemplo 3-7 y Ejemplo 3-8 para un recordatorio de cómo funcionan los radianes). Para ser útil para dibujar, los valores float arrojados por sin() y cos() son usualmente multiplicados por un valor más grande.</p>
 
 ## Ejemplo 8-12: valores de la onda sinusoidal
 
-Este ejemplo muestra cómo los valores de sin() oscilan entre -1 y 1 a medida que el ángulo aumenta. Con la función map(), la variable sinval es convertida desde este rango a valores de 0 a 255. Este nuevo valor es usado para definir el color del fondo del lienzo:
+<p>Este ejemplo muestra cómo los valores de sin() oscilan entre -1 y 1 a medida que el ángulo aumenta. Con la función map(), la variable sinval es convertida desde este rango a valores de 0 a 255. Este nuevo valor es usado para definir el color del fondo del lienzo:</p>
 
 ```javascript
 var angle = 0.0;
@@ -298,7 +300,7 @@ function draw() {
 
 ## Ejemplo 8-13: movimiento de una onda sinusoidal
 
-Este ejemplo muestra cómo estos valores son convertidos a movimiento:
+<p>Este ejemplo muestra cómo estos valores son convertidos a movimiento:</p>
 
 ```javascript
 var angle = 0.0;
@@ -324,7 +326,7 @@ function draw() {
 
 ## Ejemplo 8-14: movimiento circular
 
-Cuando las funcioens sin() y cos() son usadas en conjunto, pueden producir movimiento circular. Los valores de la función cos() proveen los valores de la coordenada x, y los valores de la función sin() proveen la coordenada y. Ambos son multiplicados por una variable llamada scalar para cambiar el radio del movimiento y son sumados con un valor offset para situar el centro de un movimiento circular:
+<p>Cuando las funcioens sin() y cos() son usadas en conjunto, pueden producir movimiento circular. Los valores de la función cos() proveen los valores de la coordenada x, y los valores de la función sin() proveen la coordenada y. Ambos son multiplicados por una variable llamada scalar para cambiar el radio del movimiento y son sumados con un valor offset para situar el centro de un movimiento circular:</p>
 
 ```javascript
 var angle = 0.0;
@@ -347,7 +349,7 @@ function draw() {
 
 ## Ejemplo 8-15: espirales
 
-Un peque;o cambio hecho para aumentar el valor scalar en cada cuadro produce una espiral en vez de un círculo:
+<p>Un pequeño cambio hecho para aumentar el valor scalar en cada cuadro produce una espiral en vez de un círculo:</p>
 
 ```javascript
 var angle = 0.0;
@@ -372,9 +374,9 @@ function draw() {
 
 Robot 6: movimiento
 
-En este ejemplo, las técnicas para movimiento aleatorio y circular son aplicadas al robot. La función background() fue removida para ver más claramente cómo la posición del robot y su cuerpo cambian.
+<p>En este ejemplo, las técnicas para movimiento aleatorio y circular son aplicadas al robot. La función background() fue removida para ver más claramente cómo la posición del robot y su cuerpo cambian.</p>
 
-En cada cuadro, un número aleatorio entre -4 y 4 es añadido a la coordenada x, y un número aleatorio entre -1 y 1 es añadido a la coordenada y. Esto causa que el robot se mueva más de izquierda a derecha que de arriba a abajo. Los números calculados por la función sin() cambian la altura del cuello para que oscile entre 50 y 100 pixeles de altura:
+<p>En cada cuadro, un número aleatorio entre -4 y 4 es añadido a la coordenada x, y un número aleatorio entre -1 y 1 es añadido a la coordenada y. Esto causa que el robot se mueva más de izquierda a derecha que de arriba a abajo. Los números calculados por la función sin() cambian la altura del cuello para que oscile entre 50 y 100 pixeles de altura:</p>
 
 ```javascript
 var x = 180;          // Coordenada x

@@ -1,18 +1,20 @@
-# Capítulo 9. Funciones
+<section data-type="chapter" id="capitulo_09_funciones">
 
-Las funciones son los bloques fundamentales de los programas hechos en p5.js. Han aparecido en cada ejemplo que hemos presentado. Por ejemplo, hemos frecuentemente usado la función createCanvas(), la función line(), y la función fill(). Este capítulo muestra cómo escribir nuevas funciones para extender las capacidades de p5.js más allá de sus características incorporadas.
+<h1>Capítulo 9. Funciones</h1>
 
-El poder de las funciones es su modularidad. Las funciones son unidades de software independientes que son usadas para construir programas complejos - como bloques de LEGO, donde cada tipo de ladrillo sirve para un propósito específico y para lograr un modelo complejo requiere usar las diferentes partes en conjunto. Como con las funciones, el verdadero poder de estos ladrillos es la habilidad de construir muchas formas distintas usando el mismo conjunto de elementos. El mismo grupo de LEGOs que forma una navae espacial puede ser reusado para construir un camión, un rascacielos y muchos otros objetos.
+<p>Las funciones son los bloques fundamentales de los programas hechos en p5.js. Han aparecido en cada ejemplo que hemos presentado. Por ejemplo, hemos frecuentemente usado la función createCanvas(), la función line(), y la función fill(). Este capítulo muestra cómo escribir nuevas funciones para extender las capacidades de p5.js más allá de sus características incorporadas.</p>
 
-Las funciones son útiles si quieres dibujar una forma más compleja como un árbol, una y otra vez. La función para dibujar un árbol puede estar compuesta con las funciones incorporadas de p5.js, como line(), para crear la forma. Después de que el código para dibujar el árbol es escrito, no necesitas pensar sobre los detalles de dibujar un árbol nuevamente - puedes simplemente escribir tree() (o algún otro nombre que le hayas puesto a la función) para dibujar la figura. Las funciones permiten que una secuencia compleja de declaraciones pueda ser abstraída, para que te puedas enfocar en una meta de alto nivel (como dibujar un árbol), y no los detalles de la implementación (las funciones line() que definen la forma del árbol). Una vez que una función es definida, el código dentro de la función no necesita ser repetido.
+<p>El poder de las funciones es su modularidad. Las funciones son unidades de software independientes que son usadas para construir programas complejos - como bloques de LEGO, donde cada tipo de ladrillo sirve para un propósito específico y para lograr un modelo complejo requiere usar las diferentes partes en conjunto. Como con las funciones, el verdadero poder de estos ladrillos es la habilidad de construir muchas formas distintas usando el mismo conjunto de elementos. El mismo grupo de LEGOs que forma una navae espacial puede ser reusado para construir un camión, un rascacielos y muchos otros objetos.</p>
+
+<p>Las funciones son útiles si quieres dibujar una forma más compleja como un árbol, una y otra vez. La función para dibujar un árbol puede estar compuesta con las funciones incorporadas de p5.js, como line(), para crear la forma. Después de que el código para dibujar el árbol es escrito, no necesitas pensar sobre los detalles de dibujar un árbol nuevamente - puedes simplemente escribir tree() (o algún otro nombre que le hayas puesto a la función) para dibujar la figura. Las funciones permiten que una secuencia compleja de declaraciones pueda ser abstraída, para que te puedas enfocar en una meta de alto nivel (como dibujar un árbol), y no los detalles de la implementación (las funciones line() que definen la forma del árbol). Una vez que una función es definida, el código dentro de la función no necesita ser repetido.</p>
 
 ## Funciones básicas
 
-Un computador corre los programas una línea de código a la vez. Cuando una función es ejecutada, el computador salta a donde la función está definida y corre el código ahí, luego vuelve a donde estaba anteriormente.
+<p>Un computador corre los programas una línea de código a la vez. Cuando una función es ejecutada, el computador salta a donde la función está definida y corre el código ahí, luego vuelve a donde estaba anteriormente.</p>
 
 ## Ejemplo 9-1: tira los dados
 
-Este comportamiento es ilustrado con la función rollDice() escrita para este ejemplo. Cuando el programa empieza, corre el código en setup() y luego para. El programa toma un desvío y corre el código dentro de rollDice() cada vez que aparece.
+<p>Este comportamiento es ilustrado con la función rollDice() escrita para este ejemplo. Cuando el programa empieza, corre el código en setup() y luego para. El programa toma un desvío y corre el código dentro de rollDice() cada vez que aparece.</p>
 
 ```javascript
 function setup() {
@@ -29,15 +31,15 @@ function rollDice(numSides) {
 }
 ```
 
-Las dos líneas de código en rollDice() seleccionan un número aleatorio entre 1 y el número de caras del dado, e imprime ese número a la consola. Como los números son aleatorios, verás diferentes números cada vez que el prorgama es ejecutado:
+<p>Las dos líneas de código en rollDice() seleccionan un número aleatorio entre 1 y el número de caras del dado, e imprime ese número a la consola. Como los números son aleatorios, verás diferentes números cada vez que el prorgama es ejecutado:</p>
 
-Cada vez que la función rollDice() es ejecutada dentro de setup(), el código dentro de la función corre de arriba a abajo, luego el programa continúa con la siguiente línea dentro de setup().
+<p>Cada vez que la función rollDice() es ejecutada dentro de setup(), el código dentro de la función corre de arriba a abajo, luego el programa continúa con la siguiente línea dentro de setup().</p>
 
-La función random() (descrita en "Aleatorio") arroja un número entre 0 y hasta (pero sin incluir) el número especificado. Entonces random(6) entrega un número entre 0 y 5.99999... Como random() arroja un número con punto decimal, también usamos la función int() para convertir el número a uno entero.  Entonces int(random(6)) arrojará 0, 1, 2, 3, 4 o 5. Como muchas otros casos en este libro, contar desde 0 hace más fácil usar los resultados de random() con otros cálculos.
+<p>La función random() (descrita en "Aleatorio") arroja un número entre 0 y hasta (pero sin incluir) el número especificado. Entonces random(6) entrega un número entre 0 y 5.99999... Como random() arroja un número con punto decimal, también usamos la función int() para convertir el número a uno entero.  Entonces int(random(6)) arrojará 0, 1, 2, 3, 4 o 5. Como muchas otros casos en este libro, contar desde 0 hace más fácil usar los resultados de random() con otros cálculos.</p>
 
 ## Ejemplo 9-2: otra manera de tirar los dados
 
-Si un programa equivalente hubiera sido hecho sin la función rollDice(), hubiera sido así:
+<p>Si un programa equivalente hubiera sido hecho sin la función rollDice(), hubiera sido así:</p>
 
 ```javascript
 function setup() {
@@ -52,15 +54,15 @@ function setup() {
 }
 ```
 
-La función rolldice() en el Ejemplo 9-1 hace que el código sea más fácil de leer y mantener. El programa es más claro, porque el nombre de la función claramente determina su propósito. En este ejemplo, podemos ver la función random() en setup(), pero su uso no es tan obvio. El número de lados en un dado es más claro con una función: cuando el código dice rollDice(6), es obvio que está simulando el lanzamiento de un dado de seis caras. Además, el Ejemplo 9-1 es fácil de mantener, porque la información no está repetida. La frase Lanzando... se repite tres veces en este caso. Si quieres cambiar el texto a algo distinto, tienes que actualizar el código en tres lugares, en vez de hacer una sola edición dentro de la función rollDice(). Además, como verás en el Ejemplo 9-5, una función puede hacer un programa mucho más corto (y por lo tanto más fácil de mantener y leer), lo que ayuda a reducir el potencial número de errores.
+<p>La función rolldice() en el Ejemplo 9-1 hace que el código sea más fácil de leer y mantener. El programa es más claro, porque el nombre de la función claramente determina su propósito. En este ejemplo, podemos ver la función random() en setup(), pero su uso no es tan obvio. El número de lados en un dado es más claro con una función: cuando el código dice rollDice(6), es obvio que está simulando el lanzamiento de un dado de seis caras. Además, el Ejemplo 9-1 es fácil de mantener, porque la información no está repetida. La frase Lanzando... se repite tres veces en este caso. Si quieres cambiar el texto a algo distinto, tienes que actualizar el código en tres lugares, en vez de hacer una sola edición dentro de la función rollDice(). Además, como verás en el Ejemplo 9-5, una función puede hacer un programa mucho más corto (y por lo tanto más fácil de mantener y leer), lo que ayuda a reducir el potencial número de errores.</p>
 
 ## Hacer una función
 
-En esta sección, dibujaremos una lechuza para explicar los pasos involucrados en hacer una función.
+<p>En esta sección, dibujaremos una lechuza para explicar los pasos involucrados en hacer una función.</p>
 
 ## Ejemplo 9-3: dibuja la lechuza
 
-Primero, dibujaremos la lechuza sin usar una función:
+<p>Primero, dibujaremos la lechuza sin usar una función:</p>
 
 ```javascript
 function setup() {
@@ -85,11 +87,11 @@ function draw() {
 }
 ```
 
-Observa que la función translate() es usada para mover el origen (0, 0) 110 pixeles a la derecha y 110 pixeles hacia abajo. Luego la leechuza es dibujada relativamente al (0,0), con sus coordenadas algunas veces positivas y otras negativas, centradas alrededor del nuevo punto (0,0). (Ver Figura 9-1).
+<p>Observa que la función translate() es usada para mover el origen (0, 0) 110 pixeles a la derecha y 110 pixeles hacia abajo. Luego la leechuza es dibujada relativamente al (0,0), con sus coordenadas algunas veces positivas y otras negativas, centradas alrededor del nuevo punto (0,0). (Ver Figura 9-1).</p>
 
 ## Ejemplo 9-4: Dos son compañía
 
-El código del Ejemplo 9-3 es razonable si solo hay una lechuza, pero cuando añadimos una segunda, el largo del código es casi el doble:
+<p>El código del Ejemplo 9-3 es razonable si solo hay una lechuza, pero cuando añadimos una segunda, el largo del código es casi el doble:</p>
 
 ```javascript
 function setup() {
@@ -131,11 +133,11 @@ function draw() {
 }
 ```
 
-El programa crece de 21 líneas de código a 34, el código para dibujar la primera lechuza fue copiado y pegado en el programa y una función translate fue insertada para moverla 70 pixeles a la derecha. Esto es una manera tediosa e ineficiente de dibujar la segunda lechuza, no sin mencionar el dolor de cabeza que será añadir una tercera lechuza con este método. Pero duplicar el código es innecesario, porque este es el tipo de situación donde una función puede llegar al rescate.
+<p>El programa crece de 21 líneas de código a 34, el código para dibujar la primera lechuza fue copiado y pegado en el programa y una función translate fue insertada para moverla 70 pixeles a la derecha. Esto es una manera tediosa e ineficiente de dibujar la segunda lechuza, no sin mencionar el dolor de cabeza que será añadir una tercera lechuza con este método. Pero duplicar el código es innecesario, porque este es el tipo de situación donde una función puede llegar al rescate.</p>
 
 ## Ejemplo 9-5: una función lechuza
 
-En este ejemplo, una función es introducida para dibujar dos lechuzas con el mismo código. Si hacemos que el código que dibuja una lechuza en la pantalla sea una nueva función, entonces el código solo necesita aparecer una vez en el programa:
+<p>En este ejemplo, una función es introducida para dibujar dos lechuzas con el mismo código. Si hacemos que el código que dibuja una lechuza en la pantalla sea una nueva función, entonces el código solo necesita aparecer una vez en el programa:</p>
 
 ```javascript
 function setup() {
@@ -167,15 +169,15 @@ function owl(x,y) {
 }
 ```
 
-Puedes ver por las ilustraciones de este ejemplo y del Ejemplo 9-4 que tienen el mismo resultado, pero que este es más corto, porque el código para usar la lechuza aparece solo una vez, dentro de la función llamada owl(). Este código es ejecutado dos veces, porque es llamado dos veces dentro de la función draw(). La lechuza es dibujada en dos ubicaciones distintas porque los parámetros pasados a la función determinan las coordenadas x e y.
+<p>Puedes ver por las ilustraciones de este ejemplo y del Ejemplo 9-4 que tienen el mismo resultado, pero que este es más corto, porque el código para usar la lechuza aparece solo una vez, dentro de la función llamada owl(). Este código es ejecutado dos veces, porque es llamado dos veces dentro de la función draw(). La lechuza es dibujada en dos ubicaciones distintas porque los parámetros pasados a la función determinan las coordenadas x e y.</p>
 
-Los parámetros son una parte importante de las funciones, porque proveen flexibilidad. Vimos otro ejemplo de esto en la función rollDice(), el parámetro único numSides hizo posible simular un dado de 6 caras, uno de 20 y cualquier otro número de caras.  Esto es como otras funciones de p5.js. Por ejemplo, los parámetros de la función line() hacen posible dibujar una línea de un pixel a otro en el lienzo. Sin los parámetros, la función solo sería capaz de dibujar una línea desde un punto fijo a otro fijo.
+<p>Los parámetros son una parte importante de las funciones, porque proveen flexibilidad. Vimos otro ejemplo de esto en la función rollDice(), el parámetro único numSides hizo posible simular un dado de 6 caras, uno de 20 y cualquier otro número de caras.  Esto es como otras funciones de p5.js. Por ejemplo, los parámetros de la función line() hacen posible dibujar una línea de un pixel a otro en el lienzo. Sin los parámetros, la función solo sería capaz de dibujar una línea desde un punto fijo a otro fijo.</p>
 
-Cada parámetro es una variable que es creada cada vez que la función corre. Cuando este ejemplo corre, la primera vez que la función owl es llamada, el valor del parámetro x es 110 y el parámetro y es 110 también. En el segundo uso de la función, el valor de x es 180 y y es nuevamente 110. Cada valor es pasado a la función y luego cada vez que el nombre de la variable aparece dentro de la función, es reemplazado con el valor.
+<p>Cada parámetro es una variable que es creada cada vez que la función corre. Cuando este ejemplo corre, la primera vez que la función owl es llamada, el valor del parámetro x es 110 y el parámetro y es 110 también. En el segundo uso de la función, el valor de x es 180 y y es nuevamente 110. Cada valor es pasado a la función y luego cada vez que el nombre de la variable aparece dentro de la función, es reemplazado con el valor.</p>
 
 ## Ejemplo 9-6: aumentando la población
 
-Ahora que tenemos una función básica para dibujar la lechuza en cualquier ubicación, podemos ahora dibujar muchas lechuzas eficientemente poniendo la función dentro de un for loop y cambiando el primer parámetro cada vez que corre el loop:
+<p>Ahora que tenemos una función básica para dibujar la lechuza en cualquier ubicación, podemos ahora dibujar muchas lechuzas eficientemente poniendo la función dentro de un for loop y cambiando el primer parámetro cada vez que corre el loop:</p>
 
 ```javascript
 function setup() {
@@ -192,11 +194,11 @@ function draw() {
 // Insertar la función owl() del Ejemplo 9-5
 ```
 
-Es posible seguir añadiendo más y más parámetros a la función para cambiar diferentes aspectos de cómo la lechuza es dibujada. Los valores son pasados a la función para cambiar el color de la lechuza, la rotación, la escala o el diámetro de los ojos.
+<p>Es posible seguir añadiendo más y más parámetros a la función para cambiar diferentes aspectos de cómo la lechuza es dibujada. Los valores son pasados a la función para cambiar el color de la lechuza, la rotación, la escala o el diámetro de los ojos.</p>
 
 ## Ejemplo 9-7: lechuzas de diferentes tamaños
 
-En este ejemplo, hemos añadido dos parámetros para cambiar el valor de gris y el tamaño de cada lechuza:
+<p>En este ejemplo, hemos añadido dos parámetros para cambiar el valor de gris y el tamaño de cada lechuza:</p>
 
 ```javascript
 function setup() {
@@ -235,25 +237,25 @@ function owl(x, y, g, s) {
 
 ## Valores de retorno
 
-Las funciones pueden hacer un cálculo y luego retornar un valor al programa principal. Hemos ya usado funciones de este tipo, incluyendo random() y sin(). Observa que cuando esta función aparece, el valor de retorno es usualmente asignado a una variable:
+<p>Las funciones pueden hacer un cálculo y luego retornar un valor al programa principal. Hemos ya usado funciones de este tipo, incluyendo random() y sin(). Observa que cuando esta función aparece, el valor de retorno es usualmente asignado a una variable:</p>
 
 ```javascript
 var r = random(1, 10);
 ```
 
-En este caso, la función random() retorna un valor entre 1 y 10, el que luego es asignado a la variable r.
+<p>En este caso, la función random() retorna un valor entre 1 y 10, el que luego es asignado a la variable r.</p>
 
-Las funciones que retornan un valor son frecuentemente usadas como un parámetro a otra función, como por ejemplo:
+<p>Las funciones que retornan un valor son frecuentemente usadas como un parámetro a otra función, como por ejemplo:</p>
 
 ```javascript
 point(random(width), random(height));
 ```
 
-En este caso, los valores de random() no son asignados a una variable - son pasados como parámetros a la función point() y usados para posicionar el punto dentro del lienzo.
+<p>En este caso, los valores de random() no son asignados a una variable - son pasados como parámetros a la función point() y usados para posicionar el punto dentro del lienzo.</p>
 
 ## Ejemplo 9-8: retorna un valor
 
-Para hacer que una función retorne un valor, especifica el dato a ser pasado de vuelta con la palabra clave return. En este ejemplo se incluye una función llamada calculateMars() que calcula el peso de una persona u objeto en nuestro planeta vecino:
+<p>Para hacer que una función retorne un valor, especifica el dato a ser pasado de vuelta con la palabra clave return. En este ejemplo se incluye una función llamada calculateMars() que calcula el peso de una persona u objeto en nuestro planeta vecino:</p>
 
 ```javascript
 function setup() {
@@ -268,13 +270,13 @@ function calculateMars(w) {
 }
 ```
 
-Revisa la última línea del código del bloque, que retorna la variable newWeight. En la segunda línea de setup(), el valor es asignado a la variable marsWeight. (Para ver tu propio peso en Marte, cambia el valor de la variable yourWeight a tu peso).
+<p>Revisa la última línea del código del bloque, que retorna la variable newWeight. En la segunda línea de setup(), el valor es asignado a la variable marsWeight. (Para ver tu propio peso en Marte, cambia el valor de la variable yourWeight a tu peso).</p>
 
 ## Robot 7: funciones
 
-En contraste con el Robot 2 (ver "Robot 2: variables"), este ejemplo usa una función para dibujar cuatro variaciones del robot dentro del mismo programa. Como la función drawRobot() aparece cuatro veces dentro de la función draw(), el código dentro del bloque drawRobot() es ejecutado cuatro veces, cada vez con un diferente conjunto de parámetros para cambiar la posición y la altura del cuerpo del robot.
+<p>En contraste con el Robot 2 (ver "Robot 2: variables"), este ejemplo usa una función para dibujar cuatro variaciones del robot dentro del mismo programa. Como la función drawRobot() aparece cuatro veces dentro de la función draw(), el código dentro del bloque drawRobot() es ejecutado cuatro veces, cada vez con un diferente conjunto de parámetros para cambiar la posición y la altura del cuerpo del robot.</p>
 
-Observa cómo las variables globales en Robot 2 ahora han sido aisladas dentro de la función drawrobot(). Como estas variables aplican solamente a dibujar el robot, ellas tienen que estar dentro de las llaves que definen el bloque de la función drawRobot(). Como el valor de la variable radius no cambia, no necesita ser un parámetro. En cambio, es definida al principio de drawRobot():
+<p>Observa cómo las variables globales en Robot 2 ahora han sido aisladas dentro de la función drawrobot(). Como estas variables aplican solamente a dibujar el robot, ellas tienen que estar dentro de las llaves que definen el bloque de la función drawRobot(). Como el valor de la variable radius no cambia, no necesita ser un parámetro. En cambio, es definida al principio de drawRobot():</p>
 
 ```javascript
 function setup() {
