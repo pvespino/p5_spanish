@@ -10,8 +10,8 @@ function P5toFig(el) {
   var pattern = /createCanvas\((\d+),\s*(\d+)\)/
   var hasCanvas = code.match(pattern)
   if(!hasCanvas) console.warn('Example appears to not have a createCanvas function.');
-  var sketchWidth = parseInt(hasCanvas[1]);
-  var sketchHeight = parseInt(hasCanvas[2]);
+  var sketchWidth = hasCanvas[1] + "px";
+  var sketchHeight = hasCanvas[2] + "px";
 
   // Create iframe as placeholder and insert next to script
   var iframe = document.createElement('iframe');
@@ -19,6 +19,7 @@ function P5toFig(el) {
   iframe.setAttribute('sandbox', 'allow-scripts');
   iframe.style.width = sketchWidth;
   iframe.style.height = sketchHeight;
+
   iframe.setAttribute('srcdoc', '<html><head><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.js"></script><style>html,body{ margin:0; padding:0}</style></head><body><script type="text/javascript">' + code + '</script></body></html>');
 
   el.parentNode.insertBefore(iframe, el.nextSibling);
