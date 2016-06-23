@@ -38,11 +38,13 @@ El lienzo es creato y las im&#xE1;genes son dibujadas dentro de &#xE9;l a trav&#
 La funci&#xF3;n createCanvas() tiene dos par&#xE1;metros, el primero define el ancho del lienzo para dibujar, el segundo define la altura. Para dibujar un lienzo que es de 800 pixeles de ancho y 600 pixeles de altura, escribe:
 </p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(800, 600);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>
 Corre esta l&#xED;nea de c&#xF3;digo para ver el resultado. Escribe diferentes valores para explorar las posibilidades. Trata con n&#xFA;meros muy peque&#xF1;os y con n&#xFA;meros m&#xE1;s grandes que las dimensiones de tu pantalla.
@@ -54,8 +56,9 @@ Corre esta l&#xED;nea de c&#xF3;digo para ver el resultado. Escribe diferentes v
 Para definir el color de un solo pixel dentro del lienzo, usamos la funci&#xF3;n point(). Tiene dos par&#xE1;metros que definen la posici&#xF3;n: la coordenada x, seguida de la coordenada y. Para crear un peque&#xF1;o lienzo y un punto en el centro de &#xE9;l, coordenada (240, 60), escribe:
 </p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -63,7 +66,8 @@ function draw() {
   background(204);
   point(240, 60);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>
 Escribe un programa que pone un punto en cada esquina del lienzo para dibujar y uno en el centro. Luego trata de poner puntos consecutivos de manera vertical, horizontal y en l&#xED;neas diagonales.
@@ -81,8 +85,9 @@ p5.js incluye un grupo de funciones para dibujar formas b&#xE1;sicas (ver la fig
 
 <p>Para dibujar una l&#xED;nea entre la coordenada (20, 50) y (420, 110), prueba:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -90,14 +95,16 @@ function draw() {
   background(204);
   line(20, 50, 420, 110);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Ejemplo 3-4: dibuja formas b&#xE1;sicas</h2>
 
 <p>Siguiendo este patr&#xF3;n, un tri&#xE1;ngulo necesita seis par&#xE1;metros y un cuadril&#xE1;tero necesita ocho (un par para cada punto):</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -107,14 +114,25 @@ function draw() {
   triangle(347, 54, 392, 9, 392, 66);
   triangle(158, 55, 290, 91, 290, 112);
 }
-</pre>
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  quad(158, 55, 199, 14, 392, 66, 351, 107);
+  triangle(347, 54, 392, 9, 392, 66);
+  triangle(158, 55, 290, 91, 290, 112);
+}
+</script>
 <h2>Ejemplo 3-5: dibuja un rect&#xE1;ngulo</h2>
 
 <p>Tanto rect&#xE1;ngulos como elipses son definidos por cuatro par&#xE1;metros: el primero y el segundo son las coordenadas x e y del punto ancla, el tercero es el ancho y el cuarto por la altura. Para dibujar un rect&#xE1;ngulo (180, 60) con ancho de 220 pixeles y una altura de 40, usa la funci&#xF3;n rect() as&#xED;:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -122,14 +140,16 @@ function draw() {
   background(204);
   rect(180, 60, 220, 40);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Ejemplo 3-6: dibuja una elipse</h2>
 
 Las coordenadas x e y para un rect&#xE1;ngulo son la esquina superior izquierda, pero para una elipse son el centro de la figura. En este ejemplo, date cuenta que la coordenada y para la primera elipse est&#xE1; fuera del lienzo. Los objetos pueden ser dibujados parcialmente (o enteramente) fuera del lienzo sin arrojar errores:
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -139,7 +159,8 @@ function draw() {
   ellipse(120, 100, 110, 110);
   ellipse(412, 60, 18, 18);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>p5.js no tiene funciones distintas para hacer cuadrados y c&#xED;rculos. Para hacer estas figuras, usa el mismo valor para los par&#xE1;metros de ancho y altura en las funciones ellipse() y rect().</p>
 
@@ -147,8 +168,9 @@ function draw() {
 
 <p>La funci&#xF3;n arc() dibuja una parte de una elipse:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -159,7 +181,8 @@ function draw() {
   arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
   arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>El primer y segundo par&#xE1;metro definen la ubicaci&#xF3;n, mientras que el tercero y el cuarto definen el ancho y la altura. El quinto par&#xE1;metro define el &#xE1;ngulo de inicio y el sexto el &#xE1;ngulo de parada. Los &#xE1;ngulos est&#xE1;n definidos en radianes, en vez de grados. Los radianes son medidas de &#xE1;ngulo basadas en el valor de pi (3.14159). La figura 3-2 muestra c&#xF3;mo ambos est&#xE1;n relacionados. Como se ve en este ejemplo, cuatro valores de radianes son usados tan frecuentemente que fueron agregados con nombres especiales como parte de p5.js. Los valores PI, QUARTER_PI, HALF_PI y TWO_PI pueden ser usados para reemplazar los valores en radianes de 180, 45, 90 y 360 grados.</p>
 
@@ -167,8 +190,9 @@ function draw() {
 
 <p>Si prefieres usar mediciones en grados, puedes convertir a radianes con la funci&#xF3;n radians(). Esta funci&#xF3;n toma un &#xE1;ngulo en grados y lo transforma en su correspondiente valor en radianes. El siguiente ejemplo es el mismo que el ejemplo 3-7, pero usa la funci&#xF3;n radians() para definir en grados los valores de inicio y final:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -179,14 +203,16 @@ function draw() {
   arc(290, 60, 80, 80, radians(180), radians(450));
   arc(390, 60, 80, 80, radians(45), radians(225));
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Ejemplo 3-9: usa angleMode</h2>
 
 <p>Alternativamente, puedes convertir tu bosquejo para que use grados en vez de radianes usando la funci&#xF3;n angleMode(). Esta funci&#xF3;n cambia todas las funciones que aceptan o retornan &#xE1;ngulos para que usen &#xE1;ngulos o radianes, basado en el par&#xE1;metro de al funci&#xF3;n, en vez de que t&#xFA; tengas que convertirlo. El siguiente ejemplo es el mismo que el 3-8, pero usa la funci&#xF3;n angleMode(DEGREES) para definir los valores en grados de inicio y final:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   angleMode(DEGREES);
 }
@@ -198,7 +224,8 @@ function draw() {
   arc(290, 60, 80, 80, 180, 450);
   arc(390, 60, 80, 80, 45, 225);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Orden de dibujo</h2>
 
@@ -212,37 +239,41 @@ function draw() {
 
 <h2>Ejemplo 3-10: controla el orden tu c&#xF3;digo</h2>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
 function draw() {
   background(204);
   ellipse(140, 0, 190, 190);
-  // The rectangle draws on top of the ellipse
-  // because it comes after in the code
-  rect(160, 30, 260, 20);
+</code></pre></div></div><div class="pair"><div class="comment"><p>The rectangle draws on top of the ellipse because it comes after in the code</p></div><div class="code">
+
+<pre><code>  rect(160, 30, 260, 20);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Ejemplo 3-11: ponlo en reversa</h2>
 
 <p>Modifica el bosquejo invirtiendo el orden de rect() y ellipse() para ver el c&#xED;rculo encima del rect&#xE1;ngulo:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
 function draw() {
   background(204);
   rect(160, 30, 260, 20);
-  // The ellipse draws on top of the rectangle
-  // because it comes after in the code
-  ellipse(140, 0, 190, 190);
+</code></pre></div></div><div class="pair"><div class="comment"><p>The ellipse draws on top of the rectangle because it comes after in the code</p></div><div class="code">
+
+<pre><code>  ellipse(140, 0, 190, 190);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>Puedes pensar esto como pintar con brocha o hacer un collage. El &#xFA;ltimo elemento que a&#xF1;ades es el que est&#xE1; visible encima.</p>
 
@@ -254,8 +285,9 @@ function draw() {
 
 <p>El valor por defecto del grosor del trazado es de un pixel, pero esto puede ser cambiado con la funci&#xF3;n strokeWeight(). Un solo par&#xE1;metro en la funci&#xF3;n strokeWeight() define el ancho de las l&#xED;neas dibujadas:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -268,14 +300,16 @@ function draw() {
   strokeWeight(20); //stroke weight to 20 pixels
   ellipse(389, 60, 90, 90);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Ejemplo 3-13: define los atributos del trazado</h2>
 
 <p>La funci&#xF3;n strokeJoin() cambia la forma en que las l&#xED;neas se unen (y c&#xF3;mo se ven las esquinas), y la funci&#xF3;n strokeCap() cambia c&#xF3;mo las l&#xED;neas son dibujadas en su inicio y su final:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -290,7 +324,8 @@ function draw() {
   strokeCap(ROUND); // Round the line endings
   line(350, 25, 420, 95);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>La posici&#xF3;n de las figuras como rect() y ellipse() son controladas por las funciones rectMode() y ellipseMode(). Revisa la referencia de p5.js para ver ejemplos de c&#xF3;mo posicionar rect&#xE1;ngulos seg&#xFA;n su centro (en vez de su esquina superior izquierda), o de c&#xF3;mo dibujar elipses desde su esquina superior izquierda como los rect&#xE1;ngulos.</p>
 
@@ -306,8 +341,9 @@ function draw() {
 
 <p>Este ejemplo muestra tres diferentes valores de gris en un fondo negro:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -320,14 +356,16 @@ function draw() {
   fill(102);                    // Dark gray
   ellipse(268, 118, 200, 200);  // Dark gray circle
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Ejemplo 3-15: controla el relleno y el color del trazado</h2>
 
 <p>Puedes usar la funci&#xF3;n noStroke() para deshabilitar el trazado para que no se dibuje el borde, y puedes deshabilitar el relleno de una figura con noFill():</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -340,7 +378,8 @@ function draw() {
   noStroke();                   // Turn off stroke
   ellipse(268, 118, 200, 200);  // Doesn&apos;t draw
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>Ten cuidado de no deshabilitar el relleno y el trazado al mismo tiempo, como lo hicimos en el ejemplo anterior, porque nada ser&#xE1; dibujada en la pantalla.</p>
 
@@ -348,8 +387,9 @@ function draw() {
 
 <p>Para ir m&#xE1;s all&#xE1; de la escala de grises, usa tres par&#xE1;metros para espeficar los componentes de color rojo, verde y azul. Como est&#xE1; libro est&#xE1; impreso en blanco y negro, s&#xF3;lo ver&#xE1;s valores grises aqu&#xED;. Corre el c&#xF3;digo para revelar los colores:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -362,7 +402,8 @@ function draw() {
   fill(0, 0, 255);              // Blue color
   ellipse(268, 118, 200, 200);  // Blue circle
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>Los colores en el ejemplo son referidos como color RGB, porque es c&#xF3;mo los computadores definen el color en la pantalla. Los tres n&#xFA;meros definen los valores de rojo, verde y azul, y var&#xED;an entre 0 y 255 de la misma forma que los valores de gris. Estos tres n&#xFA;meros son los par&#xE1;metros para tus funciones de background(), fill() y stroke().</p>
 
@@ -370,8 +411,9 @@ function draw() {
 
 <p>Al a&#xF1;adir un cuarto par&#xE1;metro a fill() o a stroke(), puedes controlar la transparencia. Este cuarto par&#xE1;metro es conocido como el valor alpha, y tambi&#xE9;n var&#xED;a entre 0 y 255 para definir el monto de transparencia. El valor 0 define el color como totalmente transparente (no ser&#xE1; mostrado en la pantalla), el valor 255 es enteramente &#xF3;paco, y los valores entre estos extremos hacen que los colores se mezclen en la pantalla:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -384,7 +426,8 @@ function draw() {
   fill(0, 0, 255, 160);         // Blue color
   ellipse(268, 118, 200, 200);  // Blue circle
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Formas personalizadas</h2>
 
@@ -394,8 +437,9 @@ function draw() {
 
 <p>La funci&#xF3;n beginShape() se&#xF1;ala el comienzo de una nueva figura. La funci&#xF3;n vertex() es usada para definir cada par de coordenadas (x,y) de la figura. Finalmente, endShape() se&#xF1;ala que la figura est&#xE1; completa:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -411,14 +455,16 @@ function draw() {
   vertex(226, 109);
   endShape();
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Ejemplo 3-19: cierra la brecha</h2>
 
 <p>Cuando corres el ejemplo 3-18, ver&#xE1;s que el primer y el &#xFA;ltimo punto no est&#xE1;n conectados. Para hacer esto, a&#xF1;ade la palabra CLOSE como par&#xE1;metro a la funci&#xF3;n endShape, as&#xED;:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -434,22 +480,25 @@ function draw() {
   vertex(226, 109);
   endShape(CLOSE);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Ejemplo 3-20: crea algunas criaturas</h2>
 
 <p>El poder de definir figuras con vertex() es la habilidad de hacer figuras con bordes complejos. p5.js puede dibujar miles y miles de l&#xED;neas al mismo tiempo para llenar la pantalla con figuras fant&#xE1;sticas que emanan de tu imaginaci&#xF3;n. Un ejemplo modesto pero m&#xE1;s complejo es presentado a continuaci&#xF3;n:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
 function draw() {
   background(204);
 
-  // Left creature
-  beginShape();
+</code></pre></div></div><div class="pair"><div class="comment"><p>Left creature</p></div><div class="code">
+
+<pre><code>  beginShape();
   vertex(50, 120);
   vertex(100, 90);
   vertex(110, 60);
@@ -462,9 +511,12 @@ function draw() {
   endShape();
   fill(0);
   ellipse(155, 60, 8, 8);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
 
-  // Right creature
-  fill(255);
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Right creature</p></div><div class="code">
+
+<pre><code>  fill(255);
   beginShape();
   vertex(370, 120);
   vertex(360, 90);
@@ -479,7 +531,8 @@ function draw() {
   fill(0);
   ellipse(345, 50, 10, 10);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <h2>Comentarios</h2>
 
@@ -487,8 +540,9 @@ function draw() {
 
 <p>Los comentarios son tambi&#xE9;n especialmente &#xFA;tiles para un n&#xFA;mero de diferentes opciones, como tratar de escoger el color correcto. As&#xED; que, por ejemplo, podr&#xED;amos estar tratando de encontrar el rojo preciso que queremos para una elipse:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(200, 200);
 }
 
@@ -497,37 +551,44 @@ function draw() {
   fill(165, 57, 57);
   ellipse(100, 100, 80, 80);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>Ahora sup&#xF3;n que quieres probar un rojo distinto, pero no quieres perder el antiguo. Puedo copiar y pegar la l&#xED;nea, hacer un cambio y luego comentar la l&#xED;nea de c&#xF3;digo antigua:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(200, 200);
 }
 
 function draw() {
   background(204);
-  //fill(165, 57, 57);
-  fill(144, 39, 39);
+</code></pre></div></div><div class="pair"><div class="comment"><p>fill(165, 57, 57);</p></div><div class="code">
+
+<pre><code>  fill(144, 39, 39);
   ellipse(100, 100, 80, 80);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>Poner // al principio de una l&#xED;nea temporalmente la anula. O puedo remover // y escribirlo al inicio de otra l&#xED;nea si quiero probarlo de nuevo:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(200, 200);
 }
 
 function draw() {
   background(204);
   fill(165, 57, 57);
-  //(144, 39, 39);
-  ellipse(100, 100, 80, 80);
+</code></pre></div></div><div class="pair"><div class="comment"><p>(144, 39, 39);</p></div><div class="code">
+
+<pre><code>  ellipse(100, 100, 80, 80);
 }
-</pre>
+
+</code></pre></div></div></div></div>
 
 <p>Mientras trabajas con bosquejos de p5.js, te encontrar&#xE1;s a ti mismo creando docenas de iteraciones de ideas; usar comentarios para hacer notas o para deshabilitar l&#xED;neas de c&#xF3;digos puede ayudarte a mantener registro de tus m&#xFA;ltiples opciones.</p>
 
@@ -537,8 +598,9 @@ function draw() {
 
 <p>El primer programa de robot usa las funciones de dibujo introducidas anteriormente en este cap&#xED;tulo. Los par&#xE1;metros de las funciones fill() y stroke() definen los valores de la escala de grises. Las funciones line(), ellipse() y rect() definen las formas que crean el cuello, las antenas, el cuerpo y la cabeza de la robot. Para familiarizarze mejor con las funciones, corre el programa y cambia los valores para redise&#xF1;ar el robot:</p>
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(720, 480);
   strokeWeight(2);
   ellipseMode(RADIUS);
@@ -547,28 +609,38 @@ function setup() {
 function draw() {
   background(204);
 
-  // Neck
-  stroke(102);                // Set stroke to gray
+</code></pre></div></div><div class="pair"><div class="comment"><p>Neck</p></div><div class="code">
+
+<pre><code>  stroke(102);                // Set stroke to gray
   line(266, 257, 266, 162);   // Left
   line(276, 257, 276, 162);   // Middle
   line(286, 257, 286, 162);   // Right
+</code></pre></div></div><div class="pair no-comment"><div class="code">
 
-  // Antennae
-  line(276, 155, 246, 112);   // Small
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Antennae</p></div><div class="code">
+
+<pre><code>  line(276, 155, 246, 112);   // Small
   line(276, 155, 306,  56);   // Tall
   line(276, 155, 342, 170);   // Medium
+</code></pre></div></div><div class="pair no-comment"><div class="code">
 
-  // Body
-  noStroke();                 // Disable stroke
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Body</p></div><div class="code">
+
+<pre><code>  noStroke();                 // Disable stroke
   fill(102);                  // Set fill to gray
   ellipse(264, 377, 33, 33);  // Antigravity orb
   fill(0);                    // Set fill to black
   rect(219, 257, 90, 120);    // Main body
   fill(102);                  // Set fill to gray
   rect(219, 274, 90, 6);      // Gray stripe
+</code></pre></div></div><div class="pair no-comment"><div class="code">
 
-  // Head
-  fill(0);                    // Set fill to black
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Head</p></div><div class="code">
+
+<pre><code>  fill(0);                    // Set fill to black
   ellipse(276, 155, 45, 45);  // Head
   fill(255);                  // Set fill to white
   ellipse(288, 150, 14, 14);  // Large eye
@@ -579,7 +651,8 @@ function draw() {
   ellipse(296, 130, 4, 4);    // Small eye 2
   ellipse(305, 162, 3, 3);    // Small eye 3
 }
-</pre>
+
+</code></pre></div></div></div></div>
 </section>
 <a id="prev-link" href="chapter02.html">Previous: Capítulo 2. Empezando a programar</a>
 

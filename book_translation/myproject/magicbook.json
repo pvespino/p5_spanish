@@ -18,6 +18,13 @@
     "content_html/chapter12.html",
     "content_html/chapter13.html"
   ],
+  "addPlugins" : [
+    "magicbook-codesplit",
+    "./plugins/p5"
+  ],
+  "codesplit" : {
+    "includes" : "examples"
+  },
   "builds" : [
     {
       "format" : "pdf",
@@ -35,7 +42,10 @@
         "files" : ["stylesheets/html.scss"]
       },
       "javascripts" : {
-        "files" : ["javascripts/scripts.js"]
+        "files" : [
+          "javascripts/p5.js",
+          "javascripts/scripts.js"
+        ]
       }
     }
   ]
