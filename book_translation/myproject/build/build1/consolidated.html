@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    
+    <script src="assets/p5.js"></script>
+<script src="assets/scripts.js"></script>
+
     <link rel="stylesheet" href="assets/pdf.css">
 
   </head>
@@ -27,7 +29,7 @@
   <a href="#capitulo_04_variables">Capítulo 4. Variables</a>
 </li>
 <li>
-  <a href="#capitulo_07_medios">Capítulo 5. Respuesta</a>
+  <a href="#capitulo_05_respuesta">Capítulo 5. Respuesta</a>
 </li>
 <li>
   <a href="#capitulo_06_trasladar">Capítulo 6. Trasladar, rotar, escalar</a>
@@ -841,12 +843,6 @@ function draw() {
   ellipse(268, 118, 200, 200);  // Círculo azul
 }
 </script>
-<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
-
-<pre><code>
-
-</code></pre></div></div></div></div>
-
 <p>Los colores en el ejemplo son referidos como color RGB, porque es c&#xF3;mo los computadores definen el color en la pantalla. Los tres n&#xFA;meros definen los valores de rojo, verde y azul, y var&#xED;an entre 0 y 255 de la misma forma que los valores de gris. Estos tres n&#xFA;meros son los par&#xE1;metros para tus funciones de background(), fill() y stroke().</p>
 
 <h2>Ejemplo 3-17: define la transparencia</h2>
@@ -1116,45 +1112,28 @@ function draw() {
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
 <pre><code>function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(204);
-  arc(90, 60, 80, 80, 0, HALF_PI);
-  arc(190, 60, 80, 80, 0, PI + HALF_PI);
-  arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
-  arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
-}
-
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(204);
-  arc(90, 60, 80, 80, 0, HALF_PI);
-  arc(190, 60, 80, 80, 0, PI + HALF_PI);
-  arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
-  arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
-}
-</script>
-<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
-
-<pre><code>function setup() {
   createCanvas(200, 200);
 }
 
 function draw() {
   background(204);
   fill(165, 57, 57);
-</code></pre></div></div><div class="pair"><div class="comment"><p>(144, 39, 39);</p></div><div class="code">
+</code></pre></div></div><div class="pair"><div class="comment"><p>fill(144, 39, 39);</p></div><div class="code">
 
 <pre><code>  ellipse(100, 100, 80, 80);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(200, 200);
+}
 
+function draw() {
+  background(204);
+  fill(165, 57, 57);
+  //fill(144, 39, 39);
+  ellipse(100, 100, 80, 80);
+}
+</script>
 <p>Mientras trabajas con bosquejos de p5.js, te encontrar&#xE1;s a ti mismo creando docenas de iteraciones de ideas; usar comentarios para hacer notas o para deshabilitar l&#xED;neas de c&#xF3;digos puede ayudarte a mantener registro de tus m&#xFA;ltiples opciones.</p>
 
 <h2>Robot 1: dibuja</h2>
@@ -1924,19 +1903,19 @@ function draw() {
 </script>
 </section>
 
-<section data-type="chapter" id="capitulo_07_medios">
+<section data-type="chapter" id="capitulo_05_respuesta">
 
 <h1>Cap&#xED;tulo 5. Respuesta</h1>
 
 <p>El c&#xF3;digo que responde a acciones de entrada del rat&#xF3;n, teclado u otros dispositivos  depende en que el programa corra continuamente. Ya nos enfrentamos a las funciones setup() y draw() en el Cap&#xED;tulo 1. Ahora aprenderemos m&#xE1;s sobre qu&#xE9; hacen y c&#xF3;mo usarlas para reaccionar a entradas al programa.</p>
 
-## Una vez y para siempre
+<h2>Una vez y para siempre</h2>
 
 <p>El c&#xF3;digo dentro del bloque draw() corre desde el principio al final, luego se repite hasta que cierras el programa cuando cierras la ventana. Cada iteraci&#xF3;n a trav&#xE9;s del bloque draw() es llamado un cuadro o frame. (La tasa de cuadros por defecto es de 60 cuadros por segundo, pero esto puede ser modificado).</p>
 
-## Ejemplo 5-1: la funci&#xF3;n draw()
+<h2>Ejemplo 5-1: la funci&#xF3;n draw()</h2>
 
-Para observar como la funci&#xF3;n draw() funciona, corre este ejemplo:
+<p>Para observar como la funci&#xF3;n draw() funciona, corre este ejemplo:</p>
 
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
@@ -1967,20 +1946,28 @@ Estoy dibujando
 
 <p>En el ejemplo anterior, las funciones print() escriben el texto &quot;Estoy dibujando&quot; seguido del contador actual de cuadros, tarea efectuada por la variable especial frameCount. El texto aparece en la consola de tu navegador.</p>
 
-## Ejemplo 5-2: la funci&#xF3;n setup()
+<h2>Ejemplo 5-2: la funci&#xF3;n setup()</h2>
 
 <p>Para complementar la repetitiva funci&#xF3;n draw(), p5.js posee la funci&#xF3;n setup() que solo corre una vez cuando el programa empieza:</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   print(&quot;Estoy empezando&quot;);
 }
 
 function draw() {
   print(&quot;Estoy corriendo&quot;);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  print("Estoy empezando");
+}
+
+function draw() {
+  print("Estoy corriendo");
+}
+</script>
 <p>Cuando corres el c&#xF3;digo, en la consola se escribe lo siguiente:</p>
 
 ```
@@ -1991,28 +1978,29 @@ Estoy corriendo
 ...
 ```
 
-El texto &quot;Estoy corriend&quot; sigue escribi&#xE9;ndose en la consola hasta que el programa es parado.
+<p>El texto &quot;Estoy corriendo&quot; sigue escribi&#xE9;ndose en la consola hasta que el programa es parado.</p>
 
-En algunos navegadores, en vez de escribir una y otra vez &quot;Estoy corriendo&quot;, lo imprimir&#xE1; solo una vez, y despu&#xE9;s para cada subsecuente vez, incrementar&#xE1; un n&#xFA;mero junto a la l&#xED;nea, representando el n&#xFA;mero total de veces que la l&#xED;nea ha sido impresa de corrido.
+<p>En algunos navegadores, en vez de escribir una y otra vez &quot;Estoy corriendo&quot;, lo imprimir&#xE1; solo una vez, y despu&#xE9;s para cada subsecuente vez, incrementar&#xE1; un n&#xFA;mero junto a la l&#xED;nea, representando el n&#xFA;mero total de veces que la l&#xED;nea ha sido impresa de corrido.</p>
 
-En un programa t&#xED;pico, el c&#xF3;digo dentro de setup() es usado para definir las condiciones iniciales. La primera l&#xED;nea es usualmente la funci&#xF3;n createCanvas(), a menudo seguida de c&#xF3;digo para definir los colores de relleno y trazado iniciales. (Si no incluyes la funci&#xF3;n createCanvas(), el lienzo para dibujar tendr&#xE1; una dimensi&#xF3;n de 100x100 pixeles por defecto).
+<p>En un programa t&#xED;pico, el c&#xF3;digo dentro de setup() es usado para definir las condiciones iniciales. La primera l&#xED;nea es usualmente la funci&#xF3;n createCanvas(), a menudo seguida de c&#xF3;digo para definir los colores de relleno y trazado iniciales. (Si no incluyes la funci&#xF3;n createCanvas(), el lienzo para dibujar tendr&#xE1; una dimensi&#xF3;n de 100x100 pixeles por defecto).</p>
 
-Ahora sabes c&#xF3;mo usar setup() y draw() en mayor detalle, pero esto no es todo.
+<p>Ahora sabes c&#xF3;mo usar setup() y draw() en mayor detalle, pero esto no es todo.</p>
 
-Hay una ubicaci&#xF3;n adicional d&#xF3;nde has estado poniendo c&#xF3;digo - tambi&#xE9;n puedes poner variables globales fuera de setup() y draw(). Esto se hace m&#xE1;s claro cuando listamos el orden en que el c&#xF3;digo es ejecutado.
+<p>Hay una ubicaci&#xF3;n adicional d&#xF3;nde has estado poniendo c&#xF3;digo - tambi&#xE9;n puedes poner variables globales fuera de setup() y draw(). Esto se hace m&#xE1;s claro cuando listamos el orden en que el c&#xF3;digo es ejecutado.</p>
 
-1. Las variables declaradas fuera de setup() y draw() son creadas.
+<ol>
+  <li> Las variables declaradas fuera de setup() y draw() son creadas.</li>
+  <li> El c&#xF3;digo dentro de setup() es ejecutado una vez.</li>
+  <li> El c&#xF3;digo dentro de draw() corre continuamente.</li>
+</ol>
 
-2. El c&#xF3;digo dentro de setup() es ejecutado una vez.
-
-3. El c&#xF3;digo dentro de draw() corre continuamente.
-
-## Ejemplo 5-3: setup(), te presento a draw()
+<h2>Ejemplo 5-3: setup(), te presento a draw()</h2>
 
 El siguiente ejemplo pone en pr&#xE1;ctica todos estos conceptos:
 
-```
-var x = 280;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 280;
 var y = -100;
 var diameter = 380;
 
@@ -2025,18 +2013,32 @@ function draw() {
   background(204);
   ellipse(x, y, diameter, diameter);
 }
-```
 
-## Seguir
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 280;
+var y = -100;
+var diameter = 380;
 
-Como el c&#xF3;digo est&#xE1; corriendo continuamente, podemos seguir la posici&#xF3;n del rat&#xF3;n y usar estos n&#xFA;meros para mover elementos en la pantalla.
-
-## Ejemplo 5-4: seguir al rat&#xF3;n
-
-La variable mouseX graba la coordenada x, y la variable mouseY graba la coordenada y:
-
-```
 function setup() {
+  createCanvas(480, 120);
+  fill(102);
+}
+
+function draw() {
+  background(204);
+  ellipse(x, y, diameter, diameter);
+}
+</script>
+<h2>Seguir</h2>
+
+<p>Como el c&#xF3;digo est&#xE1; corriendo continuamente, podemos seguir la posici&#xF3;n del rat&#xF3;n y usar estos n&#xFA;meros para mover elementos en la pantalla.</p>
+
+<h2>Ejemplo 5-4: seguir al rat&#xF3;n</h2>
+
+<p>La variable mouseX graba la coordenada x, y la variable mouseY graba la coordenada y:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   fill(0, 102);
   noStroke();
@@ -2045,15 +2047,26 @@ function setup() {
 function draw() {
   ellipse(mouseX, mouseY, 9, 9);
 }
-```
-En este ejemplo, cada vez que el c&#xF3;digo en el bloque draw() es ejecutado, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo. La imagen fue hecha moviendo el rat&#xF3;n para controlar la posici&#xF3;n del c&#xED;rculo. Como la funci&#xF3;n de relleno est&#xE1; definida para ser parcialmente transparente, las &#xE1;reas negras m&#xE1;s densas muestran d&#xF3;nde el rat&#xF3;n estuvo m&#xE1;s tiempo o se movi&#xF3; m&#xE1;s lento. Los c&#xED;rculos que est&#xE1;n m&#xE1;s separados muestran d&#xF3;nde el rat&#xF3;n estuvo movi&#xE9;ndose m&#xE1;s r&#xE1;pido.
 
-## Ejemplo 5-5: el punto te persigue
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  fill(0, 102);
+  noStroke();
+}
 
-En este ejemplo, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo cada vez que el c&#xF3;digo dentro de draw() es ejecutado. Para refrescar la pantalla y sollo mostrar el c&#xED;rculo m&#xE1;s reciente, escribe la funci&#xF3;n background() al principio del bloque draw() antes que la figura sea dibujada:
+function draw() {
+  ellipse(mouseX, mouseY, 9, 9);
+}
+</script>
+<p>En este ejemplo, cada vez que el c&#xF3;digo en el bloque draw() es ejecutado, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo. La imagen fue hecha moviendo el rat&#xF3;n para controlar la posici&#xF3;n del c&#xED;rculo. Como la funci&#xF3;n de relleno est&#xE1; definida para ser parcialmente transparente, las &#xE1;reas negras m&#xE1;s densas muestran d&#xF3;nde el rat&#xF3;n estuvo m&#xE1;s tiempo o se movi&#xF3; m&#xE1;s lento. Los c&#xED;rculos que est&#xE1;n m&#xE1;s separados muestran d&#xF3;nde el rat&#xF3;n estuvo movi&#xE9;ndose m&#xE1;s r&#xE1;pido.</p>
 
-```
-function setup() {
+<h2>Ejemplo 5-5: el punto te persigue</h2>
+
+<p>En este ejemplo, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo cada vez que el c&#xF3;digo dentro de draw() es ejecutado. Para refrescar la pantalla y sollo mostrar el c&#xED;rculo m&#xE1;s reciente, escribe la funci&#xF3;n background() al principio del bloque draw() antes que la figura sea dibujada:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   fill(0, 102);
   noStroke();
@@ -2063,15 +2076,27 @@ function draw() {
   background(204);
   ellipse(mouseX, mouseY, 9, 9);
 }
-```
-La funci&#xF3;n background() pinta el lienzo completo , as&#xED; que aseg&#xFA;rate de ponerlo antes que las otras funciones dentro de draw(). Si no haces esto, las figuras dibujadas antes ser&#xE1;n borradas.
 
-## Ejemplo 5-6: dibuja de forma continua
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  fill(0, 102);
+  noStroke();
+}
 
-Las variables pmouseX y pmouseY guardan la posici&#xF3;n del rat&#xF3;n en el cuadro anterior. Como mouseX y mouseY, estas variables especiales son actualizadas cada vez que draw() es ejecutado. Cuando las combinas, pueden ser usadas para dibujar l&#xED;neas continuas al conectar las posiciones actual y m&#xE1;s reciente:
+function draw() {
+  background(204);
+  ellipse(mouseX, mouseY, 9, 9);
+}
+</script>
+<p>La funci&#xF3;n background() pinta el lienzo completo , as&#xED; que aseg&#xFA;rate de ponerlo antes que las otras funciones dentro de draw(). Si no haces esto, las figuras dibujadas antes ser&#xE1;n borradas.</p>
 
-```
-function setup() {
+<h2>Ejemplo 5-6: dibuja de forma continua</h2>
+
+<p>Las variables pmouseX y pmouseY guardan la posici&#xF3;n del rat&#xF3;n en el cuadro anterior. Como mouseX y mouseY, estas variables especiales son actualizadas cada vez que draw() es ejecutado. Cuando las combinas, pueden ser usadas para dibujar l&#xED;neas continuas al conectar las posiciones actual y m&#xE1;s reciente:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   strokeWeight(4);
   stroke(0, 102);
@@ -2080,14 +2105,24 @@ function setup() {
 function draw() {
   line(mouseX, mouseY, pmouseX, pmouseY);
 }
-```
 
-## Ejemplo 5-7: define el grosor sobre la marcha
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  strokeWeight(4);
+  stroke(0, 102);
+}
 
-Las variables pmouseX y pmouseY tambi&#xE9;n pueden ser usadas para calcualr la velocidad del rat&#xF3;n. Esto se hace midiendo la distancia entre la posici&#xF3;n actual y la m&#xE1;s reciente del rat&#xF3;n. Si el rat&#xF3;n se est&#xE1; moviendo lentamente, la distancia es peque&#xF1;a, pero si se empieza a mover m&#xE1;s r&#xE1;pido, la distancia se incrementa. Una funci&#xF3;n llamada dist() simplifica este c&#xE1;lculo, como se muestra en el siguiente ejemplo. Aqu&#xED;, la velocidad del rat&#xF3;n es usada para definir el grosor de la l&#xED;nea dibujada
+function draw() {
+  line(mouseX, mouseY, pmouseX, pmouseY);
+}
+</script>
+<h2>Ejemplo 5-7: define el grosor sobre la marcha</h2>
 
-```
-function setup() {
+<p>Las variables pmouseX y pmouseY tambi&#xE9;n pueden ser usadas para calcualr la velocidad del rat&#xF3;n. Esto se hace midiendo la distancia entre la posici&#xF3;n actual y la m&#xE1;s reciente del rat&#xF3;n. Si el rat&#xF3;n se est&#xE1; moviendo lentamente, la distancia es peque&#xF1;a, pero si se empieza a mover m&#xE1;s r&#xE1;pido, la distancia se incrementa. Una funci&#xF3;n llamada dist() simplifica este c&#xE1;lculo, como se muestra en el siguiente ejemplo. Aqu&#xED;, la velocidad del rat&#xF3;n es usada para definir el grosor de la l&#xED;nea dibujada:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   stroke(0, 102);
 }
@@ -2097,13 +2132,25 @@ function draw() {
   strokeWeight(weight);
   line(mouseX, mouseY, pmouseX, pmouseY);
 }
-```
-## Ejemplo 5-8: el suavizado lo hace
 
-En el ejemplo 5-7, los valores del rat&#xF3;n son convertidos directamente a posiciones en la pantalla. Pero a veces queremos que estos valores sigan al rat&#xF3;n m&#xE1;s libremente - que se queden atr&#xE1;s para creen un movimiento m&#xE1;s fluido. Esta t&#xE9;cnica es llamada suavizado. Con el suavizado, hay dos valores: el valor actual y el valor objetivo (ver Figura 5-1). A cada paso en el programa, el valor actual se mueve un poco m&#xE1;s cerca del valor objetivo:
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  stroke(0, 102);
+}
 
-```
-var x = 0;
+function draw() {
+  var weight = dist(mouseX, mouseY, pMouseX, pMouseY);
+  strokeWeight(weight);
+  line(mouseX, mouseY, pmouseX, pmouseY);
+}
+</script>
+<h2>Ejemplo 5-8: el suavizado lo hace</h2>
+
+<p>En el ejemplo 5-7, los valores del rat&#xF3;n son convertidos directamente a posiciones en la pantalla. Pero a veces queremos que estos valores sigan al rat&#xF3;n m&#xE1;s libremente - que se queden atr&#xE1;s para creen un movimiento m&#xE1;s fluido. Esta t&#xE9;cnica es llamada suavizado. Con el suavizado, hay dos valores: el valor actual y el valor objetivo (ver Figura 5-1). A cada paso en el programa, el valor actual se mueve un poco m&#xE1;s cerca del valor objetivo:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 0;
 var easing = 0.01;
 
 function setup() {
@@ -2117,18 +2164,31 @@ function draw() {
   print(targetX + &quot; : &quot; + x);
 }
 
-```
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 0;
+var easing = 0.01;
 
-El valor de la variable x est&#xE1; siempre acerc&#xE1;ndose a targetX. La velocidad con la que lo alcanzo es definida por la variable de easing, un n&#xFA;mero entre 0 y 1. Un valor peque&#xF1;o de easing causa m&#xE1;s retraso que un valor m&#xE1;s grande. Con un valor de easing de 1, no hay retraso. Cuando corres el ejemplo 5-8, los valores actuales son mostrados en la consola a trav&#xE9;s de la funci&#xF3;n print(). Cuando muevas el mouse, observa c&#xF3;mo los n&#xFA;meros est&#xE1;n alejados, pero cuando dejas de moverlo, el valor de x se acerca al valor de targetX.
+function setup() {
+  createCanvas(220, 120);
+}
 
-Todo el trabajo en este ejemplo ocurre en la l&#xED;nea que empieza con x+=. Aqu&#xED;, se calcula la diferencia entre el valor objetivo y el actual, y luego es multiplicada por la variable easing y a&#xF1;adida a x para llevarla m&#xE1;s cerca que el objetivo.
+function draw() {
+  var targetX = mouseX;
+  x += (targetX - x) * easing;
+  ellipse(x, 40, 12, 12);
+  print(targetX + " : " + x);
+}
+</script>
+<p>El valor de la variable x est&#xE1; siempre acerc&#xE1;ndose a targetX. La velocidad con la que lo alcanzo es definida por la variable de easing, un n&#xFA;mero entre 0 y 1. Un valor peque&#xF1;o de easing causa m&#xE1;s retraso que un valor m&#xE1;s grande. Con un valor de easing de 1, no hay retraso. Cuando corres el ejemplo 5-8, los valores actuales son mostrados en la consola a trav&#xE9;s de la funci&#xF3;n print(). Cuando muevas el mouse, observa c&#xF3;mo los n&#xFA;meros est&#xE1;n alejados, pero cuando dejas de moverlo, el valor de x se acerca al valor de targetX.</p>
 
-## Ejemplo 5-9: suaviza las l&#xED;neas
+<p>Todo el trabajo en este ejemplo ocurre en la l&#xED;nea que empieza con x+=. Aqu&#xED;, se calcula la diferencia entre el valor objetivo y el actual, y luego es multiplicada por la variable easing y a&#xF1;adida a x para llevarla m&#xE1;s cerca que el objetivo.</p>
 
-En este ejemplo, la t&#xE9;cnica de suavizado es aplicada al Ejemplo 5-7. En comparaci&#xF3;n, las l&#xED;neas son m&#xE1;s fluidas:
+<h2>Ejemplo 5-9: suaviza las l&#xED;neas</h2>
 
-```
-var x = 0;
+<p>En este ejemplo, la t&#xE9;cnica de suavizado es aplicada al Ejemplo 5-7. En comparaci&#xF3;n, las l&#xED;neas son m&#xE1;s fluidas:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 0;
 var y = 0;
 var px = 0;
 var py = 0;
@@ -2148,17 +2208,39 @@ function draw() {
   py = y;
   px = x;
 }
-```
-## Click
 
-Adem&#xE1;s de la ubicaci&#xF3;n del rat&#xF3;n, p5.js tambi&#xE9;n mantiene registro de si el bot&#xF3;n del rat&#xF3;n ha sido presionado o no. La variable mouseIsPressed tiene un valor diferente cuando el bot&#xF3;n del rat&#xF3;n est&#xE1; presionado. La variable mouseIsPressed es una variable boolean, lo que significa que solo tiene dos posibles valores: verdadero (true) o falso (falso). El valor de mouseIsPressed es verdadero cuando un bot&#xF3;n es presionado.
-
-## Ejemplo 5-10: haz click con el rat&#xF3;n
-
-La variable mouseIsPressed es usada en conjunto con la declaraci&#xF3;n if para determinar si una l&#xED;nea de c&#xF3;digo ser&#xE1; ejecutada o no. Prueba este ejemplo antes de sigamos explicado:
-
-```
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 0;
+var y = 0;
+var px = 0;
+var py = 0;
 function setup() {
+  createCanvas(480, 120);
+  stroke(0, 102);
+}
+
+function draw() {
+  var targetX = mouseX;
+  x += (targetX - x) * easing;
+  var targetY = mouseY;
+  y += (targetY - y) * easing;
+  var weight = dist(x,y,px,py);
+  strokeWeight(weight);
+  line(x,y,px,py);
+  py = y;
+  px = x;
+}
+</script>
+<h2>Click</h2>
+
+<p>Adem&#xE1;s de la ubicaci&#xF3;n del rat&#xF3;n, p5.js tambi&#xE9;n mantiene registro de si el bot&#xF3;n del rat&#xF3;n ha sido presionado o no. La variable mouseIsPressed tiene un valor diferente cuando el bot&#xF3;n del rat&#xF3;n est&#xE1; presionado. La variable mouseIsPressed es una variable boolean, lo que significa que solo tiene dos posibles valores: verdadero (true) o falso (falso). El valor de mouseIsPressed es verdadero cuando un bot&#xF3;n es presionado.</p>
+
+<h2>Ejemplo 5-10: haz click con el rat&#xF3;n</h2>
+
+<p>La variable mouseIsPressed es usada en conjunto con la declaraci&#xF3;n if para determinar si una l&#xED;nea de c&#xF3;digo ser&#xE1; ejecutada o no. Prueba este ejemplo antes de sigamos explicado:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(240, 120);
   strokeWeight(30);
 }
@@ -2172,8 +2254,23 @@ function draw() {
   }
   line(0,70,width,50);
 }
-```
-En este programa, el c&#xF3;digo dentro del blocke if s&#xF3;lo corre cuando el bot&#xF3;n del rat&#xF3;n es presionado. Cuando el bot&#xF3;n no est&#xE1; presionado, el c&#xF3;digo es ignorado. Como el for loop discutido en &quot;Repetition&quot;, el bloque if tiene una prueba (test) que es evaluada a verdadero (true) o falso (false).
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(240, 120);
+  strokeWeight(30);
+}
+
+function draw() {
+  background(204);
+  stroke(102);
+  line(40, 0, 70, height);
+  if (mouseIsPressed == true) {
+    stroke(0);
+  }
+  line(0,70,width,50);
+}
+</script>
+<p>En este programa, el c&#xF3;digo dentro del blocke if s&#xF3;lo corre cuando el bot&#xF3;n del rat&#xF3;n es presionado. Cuando el bot&#xF3;n no est&#xE1; presionado, el c&#xF3;digo es ignorado. Como el for loop discutido en &quot;Repetition&quot;, el bloque if tiene una prueba (test) que es evaluada a verdadero (true) o falso (false).</p>
 
 ```
 if (test) {
@@ -2181,26 +2278,27 @@ if (test) {
 }
 ```
 
-Cuando el test es true, el c&#xF3;digo dentro del bloque es ejecutado y cuando es falso, no es ejecutado. El computador determina si el test es true o false al evaluar la expresi&#xF3;n dentro del par&#xE9;ntesis. (Si quieres refrescar tu memoria, el ejemplo 4-6 discute en mayor detalle expresiones relacionales). El s&#xED;mbolo == compara los valores a la izquierda y la derecha para probar si son equivalentes o no. El s&#xED;mbolo == es diferente del operador de asignaci&#xF3;n, el s&#xED;mbolo unitario =. el s&#xED;mbolo == pregunta, &quot;&#xBF;son estas cosas iguales?&quot;, mientras que el s&#xED;mbolo = define el valor de una variable
+<p>Cuando el test es true, el c&#xF3;digo dentro del bloque es ejecutado y cuando es falso, no es ejecutado. El computador determina si el test es true o false al evaluar la expresi&#xF3;n dentro del par&#xE9;ntesis. (Si quieres refrescar tu memoria, el ejemplo 4-6 discute en mayor detalle expresiones relacionales). El s&#xED;mbolo == compara los valores a la izquierda y la derecha para probar si son equivalentes o no. El s&#xED;mbolo == es diferente del operador de asignaci&#xF3;n, el s&#xED;mbolo unitario =. el s&#xED;mbolo == pregunta, &quot;&#xBF;son estas cosas iguales?&quot;, mientras que el s&#xED;mbolo = define el valor de una variable/</p>
 
-## Nota
+<h2>Nota</h2>
 
-Es un error com&#xFA;n, incluso para programadores avanzados, escribir = en el c&#xF3;digo en vez de ==. p5.js no siempre te advertir&#xE1; cu&#xE1;ndo lo hagas, as&#xED; que s&#xE9; cuidadoso.
+<p>Es un error com&#xFA;n, incluso para programadores avanzados, escribir = en el c&#xF3;digo en vez de ==. p5.js no siempre te advertir&#xE1; cu&#xE1;ndo lo hagas, as&#xED; que s&#xE9; cuidadoso.</p>
 
-Alternativamente, la prueba en draw() puede ser escrita as&#xED;:
+<p>Alternativamente, la prueba en draw() puede ser escrita as&#xED;:</p>
 
 ```
 if (mouseIsPressed) {
 ```
 
-Las variables Boolean, incluyendo a mouseIsPressed, no necesitan la comparaci&#xF3;n expl&#xED;cita con el operador ==, porque su valor es solo o true o false.
+<p>Las variables Boolean, incluyendo a mouseIsPressed, no necesitan la comparaci&#xF3;n expl&#xED;cita con el operador ==, porque su valor es solo o true o false.</p>
 
-## Ejemplo 5-11: detecci&#xF3;n de no clickeado
+<h2>Ejemplo 5-11: detecci&#xF3;n de no clickeado</h2>
 
-Un bloque if te da la oportunidad de correr una porci&#xF3;n de c&#xF3;digo o de ignorarla. Puedes extender la funcionalidad del bloque if con el bloque else, permitiendo que tu programa escoja entre dos opciones. El c&#xF3;digo dentro del bloque else corre cuando el valor de la prueba del bloque if es false. Por ejemplo, el color de trazado de un programa puede ser negro cuando el bot&#xF3;n del rat&#xF3;n no es presionado y puede cambiar a negro cuando s&#xED; es presionado:
+<p>Un bloque if te da la oportunidad de correr una porci&#xF3;n de c&#xF3;digo o de ignorarla. Puedes extender la funcionalidad del bloque if con el bloque else, permitiendo que tu programa escoja entre dos opciones. El c&#xF3;digo dentro del bloque else corre cuando el valor de la prueba del bloque if es false. Por ejemplo, el color de trazado de un programa puede ser negro cuando el bot&#xF3;n del rat&#xF3;n no es presionado y puede cambiar a negro cuando s&#xED; es presionado:</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(240, 120);
   strokeWeight(30);
 }
@@ -2215,13 +2313,30 @@ function draw() {
   }
   line(0, 70, width, 50);
 }
-```
-## Ejemplo 5-12: M&#xFA;ltiples botones del rat&#xF3;n
 
-p5.js tambi&#xE9;n registra cu&#xE1;l bot&#xF3;n del rat&#xF3;n es presionado si es que tienes m&#xE1;s de uno en tu rat&#xF3;n. La variable mouseButton puede tener uno de estos tres valores: LEFT, CENTER o RIGHT. Para probar cu&#xE1;l de los botones es presionado, el operador == es necesario, como se muestra a continuaci&#xF3;n:
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(240, 120);
+  strokeWeight(30);
+}
+function draw() {
+  background(204);
+  stroke(102);
+  line(40, 0, 70, height);
+  if (mouseIsPressed) {
+    stroke(0);
+  } else {
+    stroke(255);
+  }
+  line(0, 70, width, 50);
+}
+</script>
+<h2>Ejemplo 5-12: M&#xFA;ltiples botones del rat&#xF3;n</h2>
 
-```
-function setup() {
+<p>p5.js tambi&#xE9;n registra cu&#xE1;l bot&#xF3;n del rat&#xF3;n es presionado si es que tienes m&#xE1;s de uno en tu rat&#xF3;n. La variable mouseButton puede tener uno de estos tres valores: LEFT, CENTER o RIGHT. Para probar cu&#xE1;l de los botones es presionado, el operador == es necesario, como se muestra a continuaci&#xF3;n:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   strokeWeight(30);
 }
@@ -2239,20 +2354,39 @@ function draw() {
     line(0,70,width,50);
   }
 }
-```
 
-Un programa puede tener muchas m&#xE1;s estructuras if y else (ver Figura 5-2) que las encontradas en estos ejemplos cortos. Pueden ser concatenadas en una larga serie con distintas pruebas, y los bloques if pueden estar anidados dentro de otros bloques if para hacer decisiones m&#xE1;s complejas.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  strokeWeight(30);
+}
 
-## Ubicaci&#xF3;n
+function draw() {
+  background(204);
+  stroke(102);
+  line(40, 0, 70, height);
+  if (mouseIsPressed) {
+    if (mouseButton == LEFT) {
+      stroke(255);
+    } else {
+      stroke(0);
+    }
+    line(0,70,width,50);
+  }
+}
+</script>
+<p>Un programa puede tener muchas m&#xE1;s estructuras if y else (ver Figura 5-2) que las encontradas en estos ejemplos cortos. Pueden ser concatenadas en una larga serie con distintas pruebas, y los bloques if pueden estar anidados dentro de otros bloques if para hacer decisiones m&#xE1;s complejas.</p>
 
-Una estructura if puede ser usada con los valores de mouseX y mouseY para determinar la ubicaci&#xF3;n del cursos dentro de la ventana.
+<h2>Ubicaci&#xF3;n</h2>
 
-## Ejemplo 5-13: encuentra el cursos
+<p>Una estructura if puede ser usada con los valores de mouseX y mouseY para determinar la ubicaci&#xF3;n del cursos dentro de la ventana.</p>
 
-En este ejemplo, buscamos el cursor para ver si est&#xE1; a la izquierda o hacia la derecha de la l&#xED;nea y luego movemos la l&#xED;nea hacia el cursor:
+<h2>Ejemplo 5-13: encuentra el cursor</h2>
 
-```
-var x;
+<p>En este ejemplo, buscamos el cursor para ver si est&#xE1; a la izquierda o hacia la derecha de la l&#xED;nea y luego movemos la l&#xED;nea hacia el cursor:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x;
 var offset = 10;
 
 function setup() {
@@ -2270,22 +2404,48 @@ function draw() {
     x -= 0.5;
     offset = 10;
   }
-  //dibuja una flecha izquierda o derecha seg&#xFA;n el valor del &quot;offset&quot;
+</code></pre></div></div><div class="pair"><div class="comment"><p>dibuja una flecha izquierda o derecha seg&#xFA;n el valor del &quot;offset&quot;</p></div><div class="code">
+
+<pre><code>  line(x, 0, x, height);
+  line(mouseX, mouseY, mouseX + offset    , mouseY - 10);
+  line(mouseX, mouseY, mouseX + offset    , mouseY + 10);
+  line(mouseX, mouseY, mouseX + offset * 3, mouseY);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x;
+var offset = 10;
+
+function setup() {
+  createCanvas(240, 120);
+  x = width/2;
+}
+
+function draw() {
+  background(204);
+  if (mouseX > x) {
+    x += 0.5;
+    offset = -10;
+  }
+  if (mouseX < x) {
+    x -= 0.5;
+    offset = 10;
+  }
+  //dibuja una flecha izquierda o derecha según el valor del "offset"
   line(x, 0, x, height);
   line(mouseX, mouseY, mouseX + offset    , mouseY - 10);
   line(mouseX, mouseY, mouseX + offset    , mouseY + 10);
   line(mouseX, mouseY, mouseX + offset * 3, mouseY);
 }
-```
+</script>
+<p>Para escribir programas que tengan interfaces gr&#xE1;ficas de usuario (botones, casillas, barras deslizadoras, etc.) necesitamos escribir c&#xF3;digo que sepa cuando el curso est&#xE1; dentro de un &#xE1;rea de la pantalla. Los siguientes dos ejemplos introducen c&#xF3;mo verificar si el cursor est&#xE1; dentro de un c&#xED;rculo y de un rect&#xE1;ngulo. El c&#xF3;digo est&#xE1; escrito en una forma modular variables, para que pueda ser usado para comprobar con cualquier c&#xED;rculo o rect&#xE1;ngulo mediante la modificaci&#xF3;n de los valores.</p>
 
-Para escribir programas que tengan interfaces gr&#xE1;ficas de usuario (botones, casillas, barras deslizadoras, etc.) necesitamos escribir c&#xF3;digo que sepa cuando el curso est&#xE1; dentro de un &#xE1;rea de la pantalla. Los siguientes dos ejemplos introducen c&#xF3;mo verificar si el cursor est&#xE1; dentro de un c&#xED;rculo y de un rect&#xE1;ngulo. El c&#xF3;digo est&#xE1; escrito en una forma modular variables, para que pueda ser usado para comprobar con cualquier c&#xED;rculo o rect&#xE1;ngulo mediante la modificaci&#xF3;n de los valores.
+<h2>Ejemplo 5-14: los bordes de un c&#xED;rculo</h2>
 
-## Ejemplo 5-14: los bordes de un c&#xED;rculo
+<p>Para la prueba con el c&#xED;rculo, usamos la funci&#xF3;n dist() para obtener la distancia desde el centro del c&#xED;rculo al cursor, luego probamos si este valor es menor que el radio del c&#xED;rculo (ver Figura 5-3). Si lo es, sabemos que estamos dentro del c&#xED;rculo. En este ejemplo, cuando el cursos est&#xE1; denrro del &#xE1;rea del c&#xED;rcuo, su tama&#xF1;o aumenta:</p>
 
-Para la prueba con el c&#xED;rculo, usamos la funci&#xF3;n dist() para obtener la distancia desde el centro del c&#xED;rculo al cursor, luego probamos si este valor es menor que el radio del c&#xED;rculo (ver Figura 5-3). Si lo es, sabemos que estamos dentro del c&#xED;rculo. En este ejemplo, cuando el cursos est&#xE1; denrro del &#xE1;rea del c&#xED;rcuo, su tama&#xF1;o aumenta:
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
-```
-var x = 120;
+<pre><code>var x = 120;
 var y = 60;
 var radius = 12;
 
@@ -2305,14 +2465,35 @@ function draw() {
   }
   ellipse(x, y, radius, radius);
 }
-```
 
-## Ejemplo 5-15: Los bordes de un rect&#xE1;ngulo
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 120;
+var y = 60;
+var radius = 12;
 
-Usaremos otro enfoque para probar si el curso est&#xE1; dentro de un rect&#xE1;ngulo. Hacemos cuatro pruebas separadas para comprobar si el cursor est&#xE1; en el lado correcto de cada uno de los lados del rect&#xE1;ngulo, luego comparamos cada resultado de las pruebas y si todas son true, entonces sabemos que el cursor est&#xE1; dentro. Esto es ilustrado en la Figura 5-4. Cada paso es simple, pero lucen complicados al combinarse entre s&#xED;:
+function setup() {
+  createCanvas(240, 120);
+  ellipseMode(RADIUS);
+}
 
-```
-var x = 80;
+function draw() {
+  background(204);
+  var d = dist(mouseX, mouseY, x, y);
+  if (d < radius) {
+    radius++;
+    fill(0);
+  } else {
+    fill(255);
+  }
+  ellipse(x, y, radius, radius);
+}
+</script>
+<h2>Ejemplo 5-15: Los bordes de un rect&#xE1;ngulo</h2>
+
+<p>Usaremos otro enfoque para probar si el curso est&#xE1; dentro de un rect&#xE1;ngulo. Hacemos cuatro pruebas separadas para comprobar si el cursor est&#xE1; en el lado correcto de cada uno de los lados del rect&#xE1;ngulo, luego comparamos cada resultado de las pruebas y si todas son true, entonces sabemos que el cursor est&#xE1; dentro. Esto es ilustrado en la Figura 5-4. Cada paso es simple, pero lucen complicados al combinarse entre s&#xED;:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 80;
 var y = 30;
 var w = 80;
 var h = 60;
@@ -2331,20 +2512,40 @@ function draw() {
       }
       rect(x, y, w, h);
 }
-```
 
-La prueba en la declaraci&#xF3;n if es un poco m&#xE1;s complicada que lo que hemos visto hasta el momento. Cuatro pruebas individuales (como mouseX &gt; x) son combinadas con el operador l&#xF3;gico AND, el s&#xED;mbolo &amp;&amp;, para asegurarse que cada expresi&#xF3;n relacional en la secuencia sea true. Si alguna de ellas es false, el test entero es false y el color de relleno no ser&#xE1; negro.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 80;
+var y = 30;
+var w = 80;
+var h = 60;
 
-## Tipo
-
-p5.js mantiene registro de cualquier tecla que sea presionada en el teclado, adem&#xE1;s de la &#xFA;ltima tecla presionada. Tal como la variable mouseIsPressed, la variable keyIsPressed is true cuando cualquier tecla es presionada, y false cuando no hay teclas presionadas.
-
-## Ejemplo 5-16: presiona una tecla
-
-En este ejemplo, la segunda l&#xED;nea es dibujada solo cuando hay una tecla presionada:
-
-```
 function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(204);
+  if ((mouseX > x) && (mouseX < x+w) &&
+      (mouseY > y) && (mouseY < y+h)) {
+        fill(0);
+      } else {
+        fill(255);
+      }
+      rect(x, y, w, h);
+}
+</script>
+<p>La prueba en la declaraci&#xF3;n if es un poco m&#xE1;s complicada que lo que hemos visto hasta el momento. Cuatro pruebas individuales (como mouseX &gt; x) son combinadas con el operador l&#xF3;gico AND, el s&#xED;mbolo &amp;&amp;, para asegurarse que cada expresi&#xF3;n relacional en la secuencia sea true. Si alguna de ellas es false, el test entero es false y el color de relleno no ser&#xE1; negro.</p>
+
+<h2>Tipo</h2>
+
+<p>p5.js mantiene registro de cualquier tecla que sea presionada en el teclado, adem&#xE1;s de la &#xFA;ltima tecla presionada. Tal como la variable mouseIsPressed, la variable keyIsPressed is true cuando cualquier tecla es presionada, y false cuando no hay teclas presionadas.</p>
+
+<h2>Ejemplo 5-16: presiona una tecla</h2>
+
+<p>En este ejemplo, la segunda l&#xED;nea es dibujada solo cuando hay una tecla presionada:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(240, 120);
 }
 
@@ -2355,16 +2556,28 @@ function draw() {
     line(220, 20, 20, 100);
   }
 }
-```
 
-La variable key guarda la tecla presionada m&#xE1;s recientemente. A diferencia de la variable boolean keyIsPressed, que se revierte a false cada vez que la tecla es soltada, la variable key mantiene su valor hasta que la siguiente tecla es presionada. El siguiente ejemplo usa el valor de key para dibujar el caracter en la pantalla. Cada vez qeu una nueva tecla es presionada, el valor se actualiza y un nuevo caracter es dibujado. Algunas teclas, como Shift y Alt, no tienen un caracter visible, as&#xED; que si las presionas, nada ser&#xE1; dibujado.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(240, 120);
+}
 
-## Ejemplo 5-17: dibuja algunas letras
+function draw() {
+  background(204);
+  line(20, 20, 220, 100);
+  if (keyIsPressed) {
+    line(220, 20, 20, 100);
+  }
+}
+</script>
+<p>La variable key guarda la tecla presionada m&#xE1;s recientemente. A diferencia de la variable boolean keyIsPressed, que se revierte a false cada vez que la tecla es soltada, la variable key mantiene su valor hasta que la siguiente tecla es presionada. El siguiente ejemplo usa el valor de key para dibujar el caracter en la pantalla. Cada vez qeu una nueva tecla es presionada, el valor se actualiza y un nuevo caracter es dibujado. Algunas teclas, como Shift y Alt, no tienen un caracter visible, as&#xED; que si las presionas, nada ser&#xE1; dibujado.</p>
 
-Este ejemplo introduce la funci&#xF3;n textSize() para definir el tama&#xF1;o de las letras, la funci&#xF3;n textAlign() para centrar el texto en su coordenada x y la funci&#xF3;n text() para dibujar la letra. Estas funciones ser&#xE1;n discutidas en mayor detalle en &quot;Fonts&quot;.
+<h2>Ejemplo 5-17: dibuja algunas letras</h2>
 
-```
-function setup{
+<p>Este ejemplo introduce la funci&#xF3;n textSize() para definir el tama&#xF1;o de las letras, la funci&#xF3;n textAlign() para centrar el texto en su coordenada x y la funci&#xF3;n text() para dibujar la letra. Estas funciones ser&#xE1;n discutidas en mayor detalle en &quot;Fonts&quot;.</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup{
   createCanvas(120,120);
   textSize(64);
   textAlign(CENTER);
@@ -2375,15 +2588,28 @@ function draw() {
   background(0);
   text(key, 60, 80);
 }
-```
-Usando una estructura if, podemos probar si una tecla espec&#xED;fica es presionad y escoger dibujar algo distinto en la pantalla a modo de respuesta.
 
-## Ejemplo 5-18: revisar diferentes teclas
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup{
+  createCanvas(120,120);
+  textSize(64);
+  textAlign(CENTER);
+  fill(255);
+}
 
-En este ejemplo, revisamos si las teclas N o H son presionadas. Usamos el comparador de comparaci&#xF3;n, el s&#xED;mbolo ==, para revisar si el valor de la variable key es igual a los caracteres que estamos buscando:
+function draw() {
+  background(0);
+  text(key, 60, 80);
+}
+</script>
+<p>Usando una estructura if, podemos probar si una tecla espec&#xED;fica es presionad y escoger dibujar algo distinto en la pantalla a modo de respuesta.</p>
 
-```
-function setup() {
+<h2>Ejemplo 5-18: revisar diferentes teclas</h2>
+
+<p>En este ejemplo, revisamos si las teclas N o H son presionadas. Usamos el comparador de comparaci&#xF3;n, el s&#xED;mbolo ==, para revisar si el valor de la variable key es igual a los caracteres que estamos buscando:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
 }
 
@@ -2400,17 +2626,37 @@ function draw() {
   line(30, 20, 30, 100);
   line(90, 20, 90, 100);
 }
-```
-Cuando revisamos si est&#xE1; siendo presionada la tecla H o la N, necesitamos revisar tanto para las letras en may&#xFA;scula como en min&#xFA;scula, en caso de que alguien presione la tecla Shift o tenga la funci&#xF3;n Caps Lock activada. Combinamos ambas pruebas con el operador l&#xF3;gico OR, el s&#xED;mbolo ||. Si traducimos la segunda declaraci&#xF3;n if en este ejemplo a lenguaje plano, dice &quot;Si la tecla &apos;h&apos; es presionada OR la tecla &apos;H&apos; es presionada&quot;. A diferencia del operador l&#xF3;gico AND (el s&#xED;mbolo &amp;&amp;), solo una de estas expresiones necesita ser true para que la prueba entera sea evaluada a true.
 
-Algunas teclas son m&#xE1;s dif&#xED;ciles de detectar, porque no est&#xE1;n asociadas a una letra en particular. Teclas como Shift, Alt, y las flechas est&#xE1;n codificadas. Tenemos que revisar el c&#xF3;digo con la variable keyCode para revisar qu&#xE9; tecla es. Los valores m&#xE1;s frecuentes de keyCode son ALT, CONTROL y SHIFT, adem&#xE1;s de las teclas con flechas UP_ARROW, DOWN_ARROW, LEFT_ARROW Y RIGHT_ARROW.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+}
 
-## Ejemplo 5-19: mover con las flechas
+function draw() {
+  background(204);
+  if (keyIsPressed) {
+    if ((key == 'h') || (key == 'H')) {
+      line(30, 60, 90, 60);
+    }
+    if ((key == 'n') || (key == 'N')) {
+      line(30, 20, 90, 100);
+    }
+  }
+  line(30, 20, 30, 100);
+  line(90, 20, 90, 100);
+}
+</script>
+<p>Cuando revisamos si est&#xE1; siendo presionada la tecla H o la N, necesitamos revisar tanto para las letras en may&#xFA;scula como en min&#xFA;scula, en caso de que alguien presione la tecla Shift o tenga la funci&#xF3;n Caps Lock activada. Combinamos ambas pruebas con el operador l&#xF3;gico OR, el s&#xED;mbolo ||. Si traducimos la segunda declaraci&#xF3;n if en este ejemplo a lenguaje plano, dice &quot;Si la tecla &apos;h&apos; es presionada OR la tecla &apos;H&apos; es presionada&quot;. A diferencia del operador l&#xF3;gico AND (el s&#xED;mbolo &amp;&amp;), solo una de estas expresiones necesita ser true para que la prueba entera sea evaluada a true.</p>
 
-El siguiente ejemplo muestra c&#xF3;mo usar las flechas izquierda y derecha para mover un rect&#xE1;ngulo.
+<p>Algunas teclas son m&#xE1;s dif&#xED;ciles de detectar, porque no est&#xE1;n asociadas a una letra en particular. Teclas como Shift, Alt, y las flechas est&#xE1;n codificadas. Tenemos que revisar el c&#xF3;digo con la variable keyCode para revisar qu&#xE9; tecla es. Los valores m&#xE1;s frecuentes de keyCode son ALT, CONTROL y SHIFT, adem&#xE1;s de las teclas con flechas UP_ARROW, DOWN_ARROW, LEFT_ARROW Y RIGHT_ARROW.</p>
 
-```
-var x = 215;
+<h2>Ejemplo 5-19: mover con las flechas</h2>
+
+<p>El siguiente ejemplo muestra c&#xF3;mo usar las flechas izquierda y derecha para mover un rect&#xE1;ngulo.</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 215;
+
 function setup() {
   createCanvas(480, 120);
 }
@@ -2425,17 +2671,35 @@ function draw() {
   }
   rect(x, 45, 50, 50);
 }
-```
-## Toque
 
-Para dispositivos que lo soportan, p5.js mantiene registr de si la pantalla es tocada y su ubicaci&#xF3;n. Como la variable mouseIsPressed, la variable touchIsdown es true cuando la pantalla es tocada, y false cuando no.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 215;
 
-## Ejemplo 5-20: toca la pantalla
-
-En este ejemplo, la segunda l&#xED;nea es dibujada solo si la pantalla es tocada
-
-```
 function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  if (keyIsPressed) {
+    if (keyCode == LEFT_ARROW) {
+      x--;
+    } else if (keyCode == RIGHT_ARROW) {
+      x++;
+    }
+  }
+  rect(x, 45, 50, 50);
+}
+</script>
+<h2>Toque</h2>
+
+<p>Para dispositivos que lo soportan, p5.js mantiene registr de si la pantalla es tocada y su ubicaci&#xF3;n. Como la variable mouseIsPressed, la variable touchIsdown es true cuando la pantalla es tocada, y false cuando no.</p>
+
+<h2>Ejemplo 5-20: toca la pantalla</h2>
+
+<p>En este ejemplo, la segunda l&#xED;nea es dibujada solo si la pantalla es tocada:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(240, 120);
 }
 
@@ -2446,15 +2710,28 @@ function draw() {
     line(220, 20, 20, 100);
   }
 }
-```
-Como las variables mouseX y mouseY, las variables touchX y touchY almacenan las coordenadas x e y del punto donde la pantalla est&#xE1; siendo tocada.
 
-## Ejemplo 5-21: rastrea el dedo
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(240, 120);
+}
 
-En este ejemplo, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo cada vez que el c&#xF3;digo en draw() es ejecutado. Para refrescar la pantalla y solo mostrar el c&#xED;rculo m&#xE1;s nuevo, escribe la funci&#xF3;n background() al inicio de draw() antes de dibujar la figura:
+function draw() {
+  background(204);
+  line(220, 20, 220, 100);
+  if (touchIsdown) {
+    line(220, 20, 20, 100);
+  }
+}
+</script>
+<p>Como las variables mouseX y mouseY, las variables touchX y touchY almacenan las coordenadas x e y del punto donde la pantalla est&#xE1; siendo tocada.</p>
 
-```
-function setup() {
+<h2>Ejemplo 5-21: rastrea el dedo</h2>
+
+<p>En este ejemplo, un nuevo c&#xED;rculo es a&#xF1;adido al lienzo cada vez que el c&#xF3;digo en draw() es ejecutado. Para refrescar la pantalla y solo mostrar el c&#xED;rculo m&#xE1;s nuevo, escribe la funci&#xF3;n background() al inicio de draw() antes de dibujar la figura:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   fill(0, 102);
   noStroke();
@@ -2463,18 +2740,28 @@ function setup() {
 function draw() {
   ellipse(touchX, touchY, 15, 15);
 }
-```
 
-## Mapeo
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  fill(0, 102);
+  noStroke();
+}
 
-Los n&#xFA;meros que son creados por el rat&#xF3;n y por el teclado muchas veces necesitan ser modificados para ser &#xFA;tiles dentro del programa. Por ejemplo, si un bosquejo tiene un ancho de 1920 pixeles y los valores de mouseX son usados para definir el color del fondo, el rango de 0 a 1920 de mouseX necesitar&#xE1; ser escalado para moverse en un rango de 0 a 255 para controlar mejor el color. Esta transformaci&#xF3;n puede ser hecha con una ecuaci&#xF3;n o con una funci&#xF3;n llamada map().
+function draw() {
+  ellipse(touchX, touchY, 15, 15);
+}
+</script>
+<h2>Mapeo</h2>
 
-## Ejemplo 5-22: mapeo de valores a un rango
+<p>Los n&#xFA;meros que son creados por el rat&#xF3;n y por el teclado muchas veces necesitan ser modificados para ser &#xFA;tiles dentro del programa. Por ejemplo, si un bosquejo tiene un ancho de 1920 pixeles y los valores de mouseX son usados para definir el color del fondo, el rango de 0 a 1920 de mouseX necesitar&#xE1; ser escalado para moverse en un rango de 0 a 255 para controlar mejor el color. Esta transformaci&#xF3;n puede ser hecha con una ecuaci&#xF3;n o con una funci&#xF3;n llamada map().</p>
 
-En este ejemplo, la ubicaci&#xF3;n de dos l&#xED;neas es controlada por la variable mouseX. La l&#xED;nea gris est&#xE1; sincronizada con la posici&#xF3;n del cursor, pero la l&#xED;nea negra se mantiene m&#xE1;s cerca del centro de la pantalla y se aleja de la l&#xED;nea blanca en los bordes izquierdos y derechos.
+<h2>Ejemplo 5-22: mapeo de valores a un rango</h2>
 
-```
-function setup() {
+<p>En este ejemplo, la ubicaci&#xF3;n de dos l&#xED;neas es controlada por la variable mouseX. La l&#xED;nea gris est&#xE1; sincronizada con la posici&#xF3;n del cursor, pero la l&#xED;nea negra se mantiene m&#xE1;s cerca del centro de la pantalla y se aleja de la l&#xED;nea blanca en los bordes izquierdos y derechos.</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(240, 120);
   strokeWeight(12);
 }
@@ -2487,16 +2774,30 @@ function draw() {
   var mx = mouseX/2 + 60;
   line(mx, 0, mx, height);          // L&#xED;nea negra
 }
-```
 
-La funci&#xF3;n map() es una manera m&#xE1;s general de hacer este tipo de cambio. Convierte una variable desde un rango de valores a otro. El primer par&#xE1;metro es la variable a ser convertida, el segundo y tercer valor son los valores m&#xED;nimo y m&#xE1;ximo de esa variable, y el cuarto y quinto son los valores m&#xED;nimo y m&#xE1;ximo deseados. La funci&#xF3;n map() esconde la matem&#xE1;tica detr&#xE1;s de esta conversi&#xF3;n.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(240, 120);
+  strokeWeight(12);
+}
 
-## Ejemplo 5-23: Mapeo con la funci&#xF3;n map()
+function draw() {
+  background(204);
+  stroke(102);
+  line(mouseX, 0, mouseX, height);  // Línea gris
+  stroke(0);
+  var mx = mouseX/2 + 60;
+  line(mx, 0, mx, height);          // Línea negra
+}
+</script>
+<p>La funci&#xF3;n map() es una manera m&#xE1;s general de hacer este tipo de cambio. Convierte una variable desde un rango de valores a otro. El primer par&#xE1;metro es la variable a ser convertida, el segundo y tercer valor son los valores m&#xED;nimo y m&#xE1;ximo de esa variable, y el cuarto y quinto son los valores m&#xED;nimo y m&#xE1;ximo deseados. La funci&#xF3;n map() esconde la matem&#xE1;tica detr&#xE1;s de esta conversi&#xF3;n.</p>
 
-Este ejemplpo reescribe el Ejemplo 5-22 usando map():
+<h2>Ejemplo 5-23: Mapeo con la funci&#xF3;n map()</h2>
 
-```
-function setup() {
+<p>Este ejemplo reescribe el Ejemplo 5-22 usando map():</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(240, 120);
   strokeWeight(12);
 }
@@ -2509,18 +2810,96 @@ function draw() {
   var mx = map(mouseX, 0, width, 60, 180);
   line(120, 60, mx, mouseY);      // L&#xED;nea negra
 }
-```
 
-La funci&#xF3;n map() hace que el c&#xF3;digo sea f&#xE1;cil de leer, porque los valores m&#xE1;ximo y m&#xED;nimo est&#xE1;n claramente escritos como par&#xE1;metros. En este ejemplo, los valores de mouseX entre 0 y width son convertidos a n&#xFA;meros entre 60 (cuando mouseX es 0) y 180 (cuando mouseX es width). Encontrar&#xE1;s esta &#xFA;til funci&#xF3;n map() en muchos ejemplos a lo largo de este libro.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(240, 120);
+  strokeWeight(12);
+}
 
-## Robot 3: respuesta
+function draw() {
+  background(204);
+  stroke(255);
+  line(120, 60, mouseX, mouseY);  // Línea blanca
+  stroke(0);
+  var mx = map(mouseX, 0, width, 60, 180);
+  line(120, 60, mx, mouseY);      // Línea negra
+}
+</script>
+<p>La funci&#xF3;n map() hace que el c&#xF3;digo sea f&#xE1;cil de leer, porque los valores m&#xE1;ximo y m&#xED;nimo est&#xE1;n claramente escritos como par&#xE1;metros. En este ejemplo, los valores de mouseX entre 0 y width son convertidos a n&#xFA;meros entre 60 (cuando mouseX es 0) y 180 (cuando mouseX es width). Encontrar&#xE1;s esta &#xFA;til funci&#xF3;n map() en muchos ejemplos a lo largo de este libro.</p>
 
-Este programa usa las variables introducidas en Robot 2 (ver &quot;Robot 2: variables&quot;) y hace posible cambiarlas mientras el programa corre de manera que las figuras respondan al rat&#xF3;n. El c&#xF3;digo dentro del bloque draw() es ejecutado muchas veces por segundo. En cada cuadro, las variables definidas en el programa cambian en respuesta a las variables mouseX y mouseIsPressed.
+<h2>Robot 3: respuesta</h2>
 
-La variable mouseX controla la posici&#xF3;n del robot con la t&#xE9;cnica de suavizado para que los movimientos sean menos instant&#xE1;neos y se vean m&#xE1;s naturales. Cuando un bot&#xF3;n del rat&#xF3;n es presionado, los valores de neckHeight y bodyHeight cambian para hacer al robot m&#xE1;s corto:
+<p>Este programa usa las variables introducidas en Robot 2 (ver &quot;Robot 2: variables&quot;) y hace posible cambiarlas mientras el programa corre de manera que las figuras respondan al rat&#xF3;n. El c&#xF3;digo dentro del bloque draw() es ejecutado muchas veces por segundo. En cada cuadro, las variables definidas en el programa cambian en respuesta a las variables mouseX y mouseIsPressed.</p>
 
-```
-var x = 60;           // Coordenada x
+<p>La variable mouseX controla la posici&#xF3;n del robot con la t&#xE9;cnica de suavizado para que los movimientos sean menos instant&#xE1;neos y se vean m&#xE1;s naturales. Cuando un bot&#xF3;n del rat&#xF3;n es presionado, los valores de neckHeight y bodyHeight cambian para hacer al robot m&#xE1;s corto:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 60;           // Coordenada x
+var y = 440;          // Coordenada y
+var radius = 45;      // Radio de la cabeza
+var bodyHeight = 160; // Altura del cuerpo
+var neckHeight = 70;  // Altura del cuello
+
+var easing = 0.04;
+
+function setup() {
+  createCanvas(360, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  var targetX = mouseX;
+  x += (targetX - x) * easing;
+  if (mouseIsPressed) {
+    neckHeight = 16;
+    bodyHeight = 90;
+  } else {
+    neckHeight = 70;
+    bodyHeight = 160;
+  }
+
+  var neckY = y - bodyHeight - neckHeight - radius;
+
+  background(204);
+
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuello</p></div><div class="code">
+
+<pre><code>  stroke(102);
+  line(x + 12, y - bodyHeight, x + 12, neckY);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Antenas</p></div><div class="code">
+
+<pre><code>  line(x + 12, neckY, x - 18, neckY - 43);
+  line(x + 12, neckY, x + 42, neckY - 99);
+  line(x + 12, neckY, x + 78, neckY + 15);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuello</p></div><div class="code">
+
+<pre><code>  noStroke();
+  fill(102);
+  ellipse(x, y - 33, 33, 33);
+  fill(0);
+  rect(x - 45, y - bodyHeight, 90, bodyHeight - 33);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cabeza</p></div><div class="code">
+
+<pre><code>  fill(0);
+  ellipse(x + 12, neckY, radius, radius);
+  fill(255);
+  ellipse(x + 24, neckY - 6, 14, 14);
+  fill(0);
+  ellipse(x + 24, neckY - 6, 3, 3);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 60;           // Coordenada x
 var y = 440;          // Coordenada y
 var radius = 45;      // Radio de la cabeza
 var bodyHeight = 160; // Altura del cuerpo
@@ -2573,27 +2952,28 @@ function draw() {
   fill(0);
   ellipse(x + 24, neckY - 6, 3, 3);
 }
-```
+</script>
 </section>
 
 <section data-type="chapter" id="capitulo_06_trasladar">
 
 <h1>Cap&#xED;tulo 6. Trasladar, rotar, escalar</h1>
 
-Una t&#xE9;cnica alternativa para posicionar y mover objetos en la pantalla es cambiar el sistema de coordenadas de la pantalla. Por ejemplo, puedes mover una figura 50 pixeles a la derecha, o puedes mover la ubicaci&#xF3;n de la coordenada (0,0) 50 pixeles a la derecha - el resultado visual en la pantalla es el mismo.
+<p>Una t&#xE9;cnica alternativa para posicionar y mover objetos en la pantalla es cambiar el sistema de coordenadas de la pantalla. Por ejemplo, puedes mover una figura 50 pixeles a la derecha, o puedes mover la ubicaci&#xF3;n de la coordenada (0,0) 50 pixeles a la derecha - el resultado visual en la pantalla es el mismo.</p>
 
-Al modificar el sistema de coordenadas por defecto, podemos crear diferentes transformaciones incluyendo traslaci&#xF3;n, rotaci&#xF3;n y escalamiento.
+<p>Al modificar el sistema de coordenadas por defecto, podemos crear diferentes transformaciones incluyendo traslaci&#xF3;n, rotaci&#xF3;n y escalamiento.</p>
 
-## Traslaci&#xF3;n
+<h2>Traslaci&#xF3;n</h2>
 
-Trabajar con transformaciones puede ser dif&#xED;cil, pero la funci&#xF3;n translate() es la m&#xE1;s sencilla, as&#xED; que empezaremos con esta. Como muestra la Figura 6-1, esta funci&#xF3;n puede cambiar el sistema de coordenadas hacia la izquierda, derecha, arriba y abajo.
+<p>Trabajar con transformaciones puede ser dif&#xED;cil, pero la funci&#xF3;n translate() es la m&#xE1;s sencilla, as&#xED; que empezaremos con esta. Como muestra la Figura 6-1, esta funci&#xF3;n puede cambiar el sistema de coordenadas hacia la izquierda, derecha, arriba y abajo.</p>
 
-## Ejemplo 6-1: trasladando la ubicaci&#xF3;n
+<h2>Ejemplo 6-1: trasladando la ubicaci&#xF3;n</h2>
 
-En este ejemplo, observa que el rect&#xE1;ngulo est&#xE1; dibujado en la coordenada (0,0), pero est&#xE1; en otra posici&#xF3;n en el lienzo, porque es afectado por la funci&#xF3;n translate():
+<p>En este ejemplo, observa que el rect&#xE1;ngulo est&#xE1; dibujado en la coordenada (0,0), pero est&#xE1; en otra posici&#xF3;n en el lienzo, porque es afectado por la funci&#xF3;n translate():</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -2602,16 +2982,26 @@ function draw() {
   translate(mouseX, mouseY);
   rect(0, 0, 30, 30);
 }
-```
 
-La funci&#xF3;n translate() define la coordenada (0,0) de la pantalla a la ubicaci&#xF3;n del rat&#xF3;n (mouseX y mouseY). Cada vez que el bloque draw() se repite, el rect&#xE1;ngulo es dibujado en el nuevo origen, derivado de la posici&#xF3;n actual del rat&#xF3;n.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-## Ejemplo 6-2: m&#xFA;ltiples traslados
+function draw() {
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+}
+</script>
+<p>La funci&#xF3;n translate() define la coordenada (0,0) de la pantalla a la ubicaci&#xF3;n del rat&#xF3;n (mouseX y mouseY). Cada vez que el bloque draw() se repite, el rect&#xE1;ngulo es dibujado en el nuevo origen, derivado de la posici&#xF3;n actual del rat&#xF3;n.</p>
 
-Despu&#xE9;s de que la transformaci&#xF3;n es realizada, es aplicada a todas las veces que la funci&#xF3;n draw() es ejecutada. Observa lo que pasa cuando una segunda funci&#xF3;n translate() es a&#xF1;adida para controlar un segundo rect&#xE1;ngulo:
+<h2>Ejemplo 6-2: m&#xFA;ltiples traslados</h2>
 
-```
-function setup() {
+<p>Despu&#xE9;s de que la transformaci&#xF3;n es realizada, es aplicada a todas las veces que la funci&#xF3;n draw() es ejecutada. Observa lo que pasa cuando una segunda funci&#xF3;n translate() es a&#xF1;adida para controlar un segundo rect&#xE1;ngulo:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -2622,19 +3012,34 @@ function draw() {
   translate(35, 10);
   rect(0, 0, 15, 15);
 }
-```
-Los valores para la funci&#xF3;n translate() son acumulados. El peque&#xF1;o rect&#xE1;ngulo es trasladado seg&#xFA;n mouseX + 35 0,0y mouseY + 10. Las coordenadas x e y para ambos rect&#xE1;ngulos son (0,0), pero las funciones translate() los mueven a otras posiciones en el lienzo.
-Sin embargo, incluso cuando las transformaciones se acumulan dentro del bloque draw(), se reinician cada vez que la funci&#xF3;n draw() empieza de nuevo.
 
-## Rotaci&#xF3;n
-La funci&#xF3;n rotate() rota el sistema de coordenadas. Tiene un par&#xE1;metro, que es el &#xE1;ngulo (en radianes) a rotar. Siempre rota relativo a (0,0), lo que se conoce como rotar en torno al origen. La Figura 3-2 muestra los valores de &#xE1;ngulo en radianes. La figura 6-2 muestra la diferencia entre rotar con n&#xFA;meros positivos y negativos.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-## Ejemplo 6-3: rotaci&#xF3;n de la esquina
+function draw() {
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+  translate(35, 10);
+  rect(0, 0, 15, 15);
+}
+</script>
+<p>Los valores para la funci&#xF3;n translate() son acumulados. El peque&#xF1;o rect&#xE1;ngulo es trasladado seg&#xFA;n mouseX + 35 0,0y mouseY + 10. Las coordenadas x e y para ambos rect&#xE1;ngulos son (0,0), pero las funciones translate() los mueven a otras posiciones en el lienzo.</p>
 
-Para rotar una figura, primero define el &#xE1;ngulo de rotaci&#xF3;n con rotate(), luego dibuja la figura. En este bosquejo, el par&#xE1;metro para rotar (mouseX / 100.0) tendr&#xE1; un valor entre 0 y 1.2 para definir el &#xE1;ngulo de rotaci&#xF3;n porque mouseX tendr&#xE1; un valor entre 0 y 120, el ancho del lienzo seg&#xFA;n lo definido en createCanvas():
+<p>Sin embargo, incluso cuando las transformaciones se acumulan dentro del bloque draw(), se reinician cada vez que la funci&#xF3;n draw() empieza de nuevo.</p>
 
-```
-function setup() {
+<h2>Rotaci&#xF3;n</h2>
+
+<p>La funci&#xF3;n rotate() rota el sistema de coordenadas. Tiene un par&#xE1;metro, que es el &#xE1;ngulo (en radianes) a rotar. Siempre rota relativo a (0,0), lo que se conoce como rotar en torno al origen. La Figura 3-2 muestra los valores de &#xE1;ngulo en radianes. La figura 6-2 muestra la diferencia entre rotar con n&#xFA;meros positivos y negativos.</p>
+
+<h2>Ejemplo 6-3: rotaci&#xF3;n de la esquina</h2>
+
+<p>Para rotar una figura, primero define el &#xE1;ngulo de rotaci&#xF3;n con rotate(), luego dibuja la figura. En este bosquejo, el par&#xE1;metro para rotar (mouseX / 100.0) tendr&#xE1; un valor entre 0 y 1.2 para definir el &#xE1;ngulo de rotaci&#xF3;n porque mouseX tendr&#xE1; un valor entre 0 y 120, el ancho del lienzo seg&#xFA;n lo definido en createCanvas():</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -2643,14 +3048,24 @@ function draw() {
   rotate(mouseX / 100.0);
   rect(40, 30, 160, 20);
 }
-```
 
-## Ejemplo 6-4: rotaci&#xF3;n del centro
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-Para rotar una figura en torno a su propio centro, deben ser dibujada con la coordenada (0,0) en su centro. En este ejemplo, como la figura tiene un ancho de 160 y una altura de 20 seg&#xFA;n lo definido en la funci&#xF3;n rect(), es dibujada en la coordenada (-80, -10) para poner la coordenada (0,0) al centro de la figura:
+function draw() {
+  rotate(mouseX / 100.0);
+  rect(40, 30, 160, 20);
+}
+</script>
+<h2>Ejemplo 6-4: rotaci&#xF3;n del centro</h2>
 
-```
-function setup() {
+<p>Para rotar una figura en torno a su propio centro, deben ser dibujada con la coordenada (0,0) en su centro. En este ejemplo, como la figura tiene un ancho de 160 y una altura de 20 seg&#xFA;n lo definido en la funci&#xF3;n rect(), es dibujada en la coordenada (-80, -10) para poner la coordenada (0,0) al centro de la figura:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -2659,16 +3074,26 @@ function draw() {
   rotate(mouseX / 100.0);
   rect(-80, -10, 160, 20);
 }
-```
 
-El par anterior de ejemplos muestra c&#xF3;mo rotar alrededor de un sistema de coordenadas (0,0), &#xBF;pero qu&#xE9; otras posibilidades hay? Puedes usar las funciones translate() y rotate() para mayor control. Cuando son combinadas, el orden en que aparecen afecta el resultado. Si el sistema de coordenadas es trasladado y despu&#xE9;s rotado, es diferente que primero rotar y despu&#xE9;s mover el sistema de coordenadas.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-## Ejemplo 6-5: traslaci&#xF3;n, despu&#xE9;s rotaci&#xF3;n
+function draw() {
+  rotate(mouseX / 100.0);
+  rect(-80, -10, 160, 20);
+}
+</script>
+<p>El par anterior de ejemplos muestra c&#xF3;mo rotar alrededor de un sistema de coordenadas (0,0), &#xBF;pero qu&#xE9; otras posibilidades hay? Puedes usar las funciones translate() y rotate() para mayor control. Cuando son combinadas, el orden en que aparecen afecta el resultado. Si el sistema de coordenadas es trasladado y despu&#xE9;s rotado, es diferente que primero rotar y despu&#xE9;s mover el sistema de coordenadas.</p>
 
-Para girar una figura en torno a su centro a un lugar en la pantalla lejos del orgien, primero usa la funci&#xF3;n traslate() para mover la figura a la ubicaci&#xF3;n donde quieres la figura, luego usa rotate(), y luego dibuja la figura con su centro en la coordenada (0,0):
+<h2>Ejemplo 6-5: traslaci&#xF3;n, despu&#xE9;s rotaci&#xF3;n</h2>
 
-```
-var angle = 0.0;
+<p>Para girar una figura en torno a su centro a un lugar en la pantalla lejos del orgien, primero usa la funci&#xF3;n traslate() para mover la figura a la ubicaci&#xF3;n donde quieres la figura, luego usa rotate(), y luego dibuja la figura con su centro en la coordenada (0,0):</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 
 function setup() {
   createCanvas(120, 120);
@@ -2681,14 +3106,28 @@ function draw() {
   rect(-15, -15, 30, 30);
   angle += 0.1;
 }
-```
 
-## Ejemplo 6-6: rotaci&#xF3;n, despu&#xE9;s traslaci&#xF3;n
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
 
-El siguiente ejemplo es id&#xE9;ntico al Ejemplo 6-5, excepto que translate() y rotate() ocurren en el orden inverso. La figura ahora rota alrededor de la esquina superior izquierda, con la distancia desde la esquina definida por translate():
+function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-```
-var angle = 0.0;
+function draw() {
+  translate(mouseX, mouseY);
+  rotate(angle);
+  rect(-15, -15, 30, 30);
+  angle += 0.1;
+}
+</script>
+<h2>Ejemplo 6-6: rotaci&#xF3;n, despu&#xE9;s traslaci&#xF3;n</h2>
+
+<p>El siguiente ejemplo es id&#xE9;ntico al Ejemplo 6-5, excepto que translate() y rotate() ocurren en el orden inverso. La figura ahora rota alrededor de la esquina superior izquierda, con la distancia desde la esquina definida por translate():</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 
 function setup() {
   createCanvas(120, 120);
@@ -2701,18 +3140,32 @@ function draw() {
   rect(-15, -15, 30, 30);
   angle += 0.1;
 }
-```
 
-## Nota
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
 
-Puedes usar tambi&#xE9;n las funciones rectMode(), ellipseMode() y imageMode() hacen m&#xE1;s simple dibujar figuras desde su centro. Puedes leer sobre estas funciones en la Referencia de p5.js.
+function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-## Ejemplo 6-7: un brazo articulado
+function draw() {
+  rotate(angle);
+  translate(mouseX, mouseY);
+  rect(-15, -15, 30, 30);
+  angle += 0.1;
+}
+</script>
+<h2>Nota</h2>
 
-En este ejemplo, hemos puesto juntas una serie de funciones translate() y rotate() para crear un brazo articulado. Cada funci&#xF3;n translate() mueve la posici&#xF3;n de las l&#xED;neas, y cada funci&#xF3;n rotate() a&#xF1;ade a la rotaci&#xF3;n previa para doblar m&#xE1;s:
+<p>Puedes usar tambi&#xE9;n las funciones rectMode(), ellipseMode() y imageMode() hacen m&#xE1;s simple dibujar figuras desde su centro. Puedes leer sobre estas funciones en la Referencia de p5.js.</p>
 
-```
-var angle = 0.0;
+<h2>Ejemplo 6-7: un brazo articulado</h2>
+
+<p>En este ejemplo, hemos puesto juntas una serie de funciones translate() y rotate() para crear un brazo articulado. Cada funci&#xF3;n translate() mueve la posici&#xF3;n de las l&#xED;neas, y cada funci&#xF3;n rotate() a&#xF1;ade a la rotaci&#xF3;n previa para doblar m&#xE1;s:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 var angleDirection = 1;
 var speed = 0.005;
 
@@ -2740,20 +3193,49 @@ function draw() {
     angleDirection *= -1;
   }
 }
-```
 
-La variable angle crece desde 0 hasta QUARTER_PI (un cuarto del valor de pi), luego decae hasta que es menor que cero, luego el ciclo se repite. El valor de la variable angleDirection est&#xE1; siempre entre 1 y -1 para hacer que el valor de angle correspondiente crezca o decrezca.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
+var angleDirection = 1;
+var speed = 0.005;
 
-## Escalar
-
-La funci&#xF3;n scale() estira las coordenadas del lienzo. Como las coordenadas se expanden o se contraen cuando cambia la escala, todo lo que est&#xE1; dibujado en el lienzo aumenta o disminuye sus dimensiones. El monto de escalamiento est&#xE1; escrito en porcentajes decimales. Entonces, el par&#xE1;metro 1.5 en la funci&#xF3;n scale() resulta en un 150% y 3 es 300% (Figura 6-3).
-
-## Ejemplo 6-8: escalamiento
-
-Como rotate(), la funci&#xF3;n scale() transforma desde el origen. Entonces, tal como rotate(), para escalar una figura desde su centro, debemos trasladar su ubicaci&#xF3;n, escalar y luego dibujar con el centro en la coordenada (0,0):
-
-```
 function setup() {
+  createCanvas(120, 120);
+}
+
+function draw() {
+  background(204);
+  translate(20, 25);  // Mover a la posición inicial
+  rotate(angle);
+  strokeWeight(12);
+  line(0, 0, 40, 0);
+  translate(40, 0);   // Mover la siguiente articulación
+  rotate(angle * 2.0);
+  strokeWeight(6);
+  line(0, 0, 30, 0);
+  translate(30, 0);
+  rotate(angle * 2.5);
+  strokeWeight(3);
+  line(0, 0, 20, 0);
+
+  angle += speed * angleDirection;
+  if ((angle > QUARTER_PI) || (angle < 0)) {
+    angleDirection *= -1;
+  }
+}
+</script>
+<p>La variable angle crece desde 0 hasta QUARTER_PI (un cuarto del valor de pi), luego decae hasta que es menor que cero, luego el ciclo se repite. El valor de la variable angleDirection est&#xE1; siempre entre 1 y -1 para hacer que el valor de angle correspondiente crezca o decrezca.</p>
+
+<h2>Escalar</h2>
+
+<p>La funci&#xF3;n scale() estira las coordenadas del lienzo. Como las coordenadas se expanden o se contraen cuando cambia la escala, todo lo que est&#xE1; dibujado en el lienzo aumenta o disminuye sus dimensiones. El monto de escalamiento est&#xE1; escrito en porcentajes decimales. Entonces, el par&#xE1;metro 1.5 en la funci&#xF3;n scale() resulta en un 150% y 3 es 300% (Figura 6-3).</p>
+
+<h2>Ejemplo 6-8: escalamiento</h2>
+
+<p>Como rotate(), la funci&#xF3;n scale() transforma desde el origen. Entonces, tal como rotate(), para escalar una figura desde su centro, debemos trasladar su ubicaci&#xF3;n, escalar y luego dibujar con el centro en la coordenada (0,0):</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -2763,14 +3245,25 @@ function draw() {
   scale(mouseYX / 60.0);
   rect(-15, -15, 30, 30);
 }
-```
 
-## Ejemplo 6-9: manteniendo los trazos constantes
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-De las l&#xED;neas gruesas del Ejemplo 6-8, puedes ver c&#xF3;mo la funci&#xF3;n scale() afecta el grosor del trazado. Para mantener un grosor de trazado consistente a medida que la figura se escala, divide el trazado deeseado por el valor escalar:
+function draw() {
+  translate(mouseX, mouseY);
+  scale(mouseYX / 60.0);
+  rect(-15, -15, 30, 30);
+}
+</script>
+<h2>Ejemplo 6-9: manteniendo los trazos constantes</h2>
 
-```
-function setup() {
+<p>De las l&#xED;neas gruesas del Ejemplo 6-8, puedes ver c&#xF3;mo la funci&#xF3;n scale() afecta el grosor del trazado. Para mantener un grosor de trazado consistente a medida que la figura se escala, divide el trazado deeseado por el valor escalar:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -2782,18 +3275,31 @@ function draw() {
   strokeWeight(1.0 / scalar);
   rect(-15, -15, 30, 30);
 }
-```
 
-## Push y pop
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-Para aislar los efectos de la transformaci&#xF3;n para que no afecten otras funciones, usa las funciones push() y pop(). When ejecutas push(), graba una copia del sistema de coordenadas actual y luego restaura ese sistema cuando ejecutas pop(). Esto es &#xFA;til cuando las transformaciones son necesarias para una figura, pero no son deseadas para otras.
+function draw() {
+  translate(mouseX, mouseY);
+  var scalar = mouseX / 60.0;
+  scale(scalar);
+  strokeWeight(1.0 / scalar);
+  rect(-15, -15, 30, 30);
+}
+</script>
+<h2>Push y pop</h2>
 
-## Ejemplo 6-10: aislando transformaciones
+<p>Para aislar los efectos de la transformaci&#xF3;n para que no afecten otras funciones, usa las funciones push() y pop(). When ejecutas push(), graba una copia del sistema de coordenadas actual y luego restaura ese sistema cuando ejecutas pop(). Esto es &#xFA;til cuando las transformaciones son necesarias para una figura, pero no son deseadas para otras.</p>
 
-En este ejemplo, el rect&#xE1;ngulo peque&#xF1;o siempre dibuja en la misma pop():
+<h2>Ejemplo 6-10: aislando transformaciones</h2>
 
-```
-function setup() {
+<p>En este ejemplo, el rect&#xE1;ngulo peque&#xF1;o siempre dibuja en la misma pop():</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -2806,18 +3312,32 @@ function draw() {
   translate(35, 10);
   rect(0, 0, 15, 15);
 }
-```
 
-## Nota
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-Las funciones push() y pop() siempre se usan en pares. Por cada push(), tiene que haber un correspondiente pop().
+function draw() {
+  push();
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+  pop();
+  translate(35, 10);
+  rect(0, 0, 15, 15);
+}
+</script>
+<h2>Nota</h2>
 
-## Robot 4: trasladar, rotar, escalar
+<p>Las funciones push() y pop() siempre se usan en pares. Por cada push(), tiene que haber un correspondiente pop().</p>
 
-Las funciones translate(), rotate() y scale() son utilizadas para modificar el bosquejo del robot. En relaci&#xF3;n al ejemplo Robot 3: respuesta, translate() es usado para hacer el c&#xF3;digo m&#xE1;s f&#xE1;cil de leer. Aqu&#xED;, observa c&#xF3;mo ya no es necesario el valor de x a cada funci&#xF3;n de dibujo porque la funci&#xF3;n translate() mueve todo. Similarmente, la funci&#xF3;n scale() es usada para definir las dimensiones para todo el robot. Cuando el rat&#xF3;n no est&#xE1; presionado, el tama&#xF1;o es de un 60% y cuando s&#xED; est&#xE1; presionado, es de un 100% en relaci&#xF3;n a las coordenadas originales. La funci&#xF3;n rotate() es usada dentro del loop para dibujar una l&#xED;nea, rotarla un poco, luego dibujar una segunda l&#xED;nea, luego rotarla un poco m&#xE1;s, y as&#xED; hasta que el loop ha dibujado 30 l&#xED;neas en forma de c&#xED;rculo para estilizar el pelo de la cabeza del robot:
+<h2>Robot 4: trasladar, rotar, escalar</h2>
 
-```
-var x = 60;           // Coordenada x
+<p>Las funciones translate(), rotate() y scale() son utilizadas para modificar el bosquejo del robot. En relaci&#xF3;n al ejemplo Robot 3: respuesta, translate() es usado para hacer el c&#xF3;digo m&#xE1;s f&#xE1;cil de leer. Aqu&#xED;, observa c&#xF3;mo ya no es necesario el valor de x a cada funci&#xF3;n de dibujo porque la funci&#xF3;n translate() mueve todo. Similarmente, la funci&#xF3;n scale() es usada para definir las dimensiones para todo el robot. Cuando el rat&#xF3;n no est&#xE1; presionado, el tama&#xF1;o es de un 60% y cuando s&#xED; est&#xE1; presionado, es de un 100% en relaci&#xF3;n a las coordenadas originales. La funci&#xF3;n rotate() es usada dentro del loop para dibujar una l&#xED;nea, rotarla un poco, luego dibujar una segunda l&#xED;nea, luego rotarla un poco m&#xE1;s, y as&#xED; hasta que el loop ha dibujado 30 l&#xED;neas en forma de c&#xED;rculo para estilizar el pelo de la cabeza del robot:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 60;           // Coordenada x
 var y = 440;          // Coordenada y
 var radius = 45;      // Radio de la cabeza
 var bodyHeight = 180; // Altura del cuerpo
@@ -2844,6 +3364,70 @@ function draw() {
     scale(0.6);       // 60% de tama&#xF1;o si el rat&#xF3;n est&#xE1; presionado
   }
 
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuerpo</p></div><div class="code">
+
+<pre><code>
+  noStroke();
+  fill(102);
+  ellipse(0, -33, 33, 33);
+  fill(0);
+  rect(-45, -bodyHeight, 90, bodyHeight - 33);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuello</p></div><div class="code">
+
+<pre><code>  stroke(102);
+  line(12, -bodyHeight, 12, neckY);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Pelo</p></div><div class="code">
+
+<pre><code>  push();
+  translate(12, neckY);
+  var angle = -PI/30.0;
+  for (var i = 0l i <= 30;="" i++)="" {="" line(80,="" 0,="" 0);="" rotate(angle);="" }="" pop();="" <="" code=""></=></code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cabeza</p></div><div class="code">
+
+<pre><code>  noStroke();
+  fill(0);
+  ellipse(12, neckY, radius, radius);
+  fill(255);
+  ellipse(24, neckY - 6, 14, 14);
+  fill(0);
+  ellipse(24, neckY - 6, 3, 3);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 60;           // Coordenada x
+var y = 440;          // Coordenada y
+var radius = 45;      // Radio de la cabeza
+var bodyHeight = 180; // Altura del cuerpo
+var neckHeight = 40;  // Altura del cuello
+
+var easing = 0.04;
+
+function setup() {
+  createCanvas(360, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  var neckY = -1 * (bodyHeight + neckHeight + radius);
+
+  background(204);
+
+  translate(mouseX, y); // Mueve todo a (mouseX, y)
+
+  if (mouseIsPressed) {
+    scale(1.0);
+  } else {
+    scale(0.6);       // 60% de tamaño si el ratón está presionado
+  }
+
   // Cuerpo
 
   noStroke();
@@ -2860,8 +3444,24 @@ function draw() {
   push();
   translate(12, neckY);
   var angle = -PI/30.0;
-  for (var i = 0l i <= 30;="" i++)="" {="" line(80,="" 0,="" 0);="" rotate(angle);="" }="" pop();="" cabeza="" nostroke();="" fill(0);="" ellipse(12,="" necky,="" radius,="" radius);="" fill(255);="" ellipse(24,="" necky="" -="" 6,="" 14,="" 14);="" 3,="" 3);="" ```="" <="" section="">
-</=></section>
+  for (var i = 0l i <= 30; i++) {
+    line(80, 0, 0, 0);
+    rotate(angle);
+  }
+  pop();
+
+  // Cabeza
+  noStroke();
+  fill(0);
+  ellipse(12, neckY, radius, radius);
+  fill(255);
+  ellipse(24, neckY - 6, 14, 14);
+  fill(0);
+  ellipse(24, neckY - 6, 3, 3);
+}
+</script>
+</section>
+
 <section data-type="chapter" id="capitulo_07_medios">
 
 <h1>Cap&#xED;tulo 7. Medios</h1>

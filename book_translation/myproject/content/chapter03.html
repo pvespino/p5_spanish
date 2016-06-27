@@ -164,10 +164,6 @@ Las coordenadas x e y para un rectángulo son la esquina superior izquierda, per
 {% codesplit ch03/03_16.js %}
 {% p5 ch03/03_16.js class:'whatever' %}
 
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-
-</pre>
-
 <p>Los colores en el ejemplo son referidos como color RGB, porque es cómo los computadores definen el color en la pantalla. Los tres números definen los valores de rojo, verde y azul, y varían entre 0 y 255 de la misma forma que los valores de gris. Estos tres números son los parámetros para tus funciones de background(), fill() y stroke().</p>
 
 <h2>Ejemplo 3-17: define la transparencia</h2>
@@ -219,21 +215,8 @@ Las coordenadas x e y para un rectángulo son la esquina superior izquierda, per
 
 <p>Poner // al principio de una línea temporalmente la anula. O puedo remover // y escribirlo al inicio de otra línea si quiero probarlo de nuevo:</p>
 
-{% codesplit ch03/03_07.js %}
-{% p5 ch03/03_07.js class:'whatever' %}
-
-<pre data-code-language="java" data-type="programlisting" class="codesplit">
-function setup() {
-  createCanvas(200, 200);
-}
-
-function draw() {
-  background(204);
-  fill(165, 57, 57);
-  //(144, 39, 39);
-  ellipse(100, 100, 80, 80);
-}
-</pre>
+{% codesplit ch03/comments_03.js %}
+{% p5 ch03/comments_03.js class:'whatever' %}
 
 <p>Mientras trabajas con bosquejos de p5.js, te encontrarás a ti mismo creando docenas de iteraciones de ideas; usar comentarios para hacer notas o para deshabilitar líneas de códigos puede ayudarte a mantener registro de tus múltiples opciones.</p>
 

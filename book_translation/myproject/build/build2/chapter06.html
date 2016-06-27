@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/p5.js"></script>
-<script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/html.css">
 
   </head>
@@ -15,20 +13,21 @@
 
 <h1>Cap&#xED;tulo 6. Trasladar, rotar, escalar</h1>
 
-Una t&#xE9;cnica alternativa para posicionar y mover objetos en la pantalla es cambiar el sistema de coordenadas de la pantalla. Por ejemplo, puedes mover una figura 50 pixeles a la derecha, o puedes mover la ubicaci&#xF3;n de la coordenada (0,0) 50 pixeles a la derecha - el resultado visual en la pantalla es el mismo.
+<p>Una t&#xE9;cnica alternativa para posicionar y mover objetos en la pantalla es cambiar el sistema de coordenadas de la pantalla. Por ejemplo, puedes mover una figura 50 pixeles a la derecha, o puedes mover la ubicaci&#xF3;n de la coordenada (0,0) 50 pixeles a la derecha - el resultado visual en la pantalla es el mismo.</p>
 
-Al modificar el sistema de coordenadas por defecto, podemos crear diferentes transformaciones incluyendo traslaci&#xF3;n, rotaci&#xF3;n y escalamiento.
+<p>Al modificar el sistema de coordenadas por defecto, podemos crear diferentes transformaciones incluyendo traslaci&#xF3;n, rotaci&#xF3;n y escalamiento.</p>
 
-## Traslaci&#xF3;n
+<h2>Traslaci&#xF3;n</h2>
 
-Trabajar con transformaciones puede ser dif&#xED;cil, pero la funci&#xF3;n translate() es la m&#xE1;s sencilla, as&#xED; que empezaremos con esta. Como muestra la Figura 6-1, esta funci&#xF3;n puede cambiar el sistema de coordenadas hacia la izquierda, derecha, arriba y abajo.
+<p>Trabajar con transformaciones puede ser dif&#xED;cil, pero la funci&#xF3;n translate() es la m&#xE1;s sencilla, as&#xED; que empezaremos con esta. Como muestra la Figura 6-1, esta funci&#xF3;n puede cambiar el sistema de coordenadas hacia la izquierda, derecha, arriba y abajo.</p>
 
-## Ejemplo 6-1: trasladando la ubicaci&#xF3;n
+<h2>Ejemplo 6-1: trasladando la ubicaci&#xF3;n</h2>
 
-En este ejemplo, observa que el rect&#xE1;ngulo est&#xE1; dibujado en la coordenada (0,0), pero est&#xE1; en otra posici&#xF3;n en el lienzo, porque es afectado por la funci&#xF3;n translate():
+<p>En este ejemplo, observa que el rect&#xE1;ngulo est&#xE1; dibujado en la coordenada (0,0), pero est&#xE1; en otra posici&#xF3;n en el lienzo, porque es afectado por la funci&#xF3;n translate():</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -37,16 +36,26 @@ function draw() {
   translate(mouseX, mouseY);
   rect(0, 0, 30, 30);
 }
-```
 
-La funci&#xF3;n translate() define la coordenada (0,0) de la pantalla a la ubicaci&#xF3;n del rat&#xF3;n (mouseX y mouseY). Cada vez que el bloque draw() se repite, el rect&#xE1;ngulo es dibujado en el nuevo origen, derivado de la posici&#xF3;n actual del rat&#xF3;n.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-## Ejemplo 6-2: m&#xFA;ltiples traslados
+function draw() {
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+}
+</script>
+<p>La funci&#xF3;n translate() define la coordenada (0,0) de la pantalla a la ubicaci&#xF3;n del rat&#xF3;n (mouseX y mouseY). Cada vez que el bloque draw() se repite, el rect&#xE1;ngulo es dibujado en el nuevo origen, derivado de la posici&#xF3;n actual del rat&#xF3;n.</p>
 
-Despu&#xE9;s de que la transformaci&#xF3;n es realizada, es aplicada a todas las veces que la funci&#xF3;n draw() es ejecutada. Observa lo que pasa cuando una segunda funci&#xF3;n translate() es a&#xF1;adida para controlar un segundo rect&#xE1;ngulo:
+<h2>Ejemplo 6-2: m&#xFA;ltiples traslados</h2>
 
-```
-function setup() {
+<p>Despu&#xE9;s de que la transformaci&#xF3;n es realizada, es aplicada a todas las veces que la funci&#xF3;n draw() es ejecutada. Observa lo que pasa cuando una segunda funci&#xF3;n translate() es a&#xF1;adida para controlar un segundo rect&#xE1;ngulo:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -57,19 +66,34 @@ function draw() {
   translate(35, 10);
   rect(0, 0, 15, 15);
 }
-```
-Los valores para la funci&#xF3;n translate() son acumulados. El peque&#xF1;o rect&#xE1;ngulo es trasladado seg&#xFA;n mouseX + 35 0,0y mouseY + 10. Las coordenadas x e y para ambos rect&#xE1;ngulos son (0,0), pero las funciones translate() los mueven a otras posiciones en el lienzo.
-Sin embargo, incluso cuando las transformaciones se acumulan dentro del bloque draw(), se reinician cada vez que la funci&#xF3;n draw() empieza de nuevo.
 
-## Rotaci&#xF3;n
-La funci&#xF3;n rotate() rota el sistema de coordenadas. Tiene un par&#xE1;metro, que es el &#xE1;ngulo (en radianes) a rotar. Siempre rota relativo a (0,0), lo que se conoce como rotar en torno al origen. La Figura 3-2 muestra los valores de &#xE1;ngulo en radianes. La figura 6-2 muestra la diferencia entre rotar con n&#xFA;meros positivos y negativos.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-## Ejemplo 6-3: rotaci&#xF3;n de la esquina
+function draw() {
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+  translate(35, 10);
+  rect(0, 0, 15, 15);
+}
+</script>
+<p>Los valores para la funci&#xF3;n translate() son acumulados. El peque&#xF1;o rect&#xE1;ngulo es trasladado seg&#xFA;n mouseX + 35 0,0y mouseY + 10. Las coordenadas x e y para ambos rect&#xE1;ngulos son (0,0), pero las funciones translate() los mueven a otras posiciones en el lienzo.</p>
 
-Para rotar una figura, primero define el &#xE1;ngulo de rotaci&#xF3;n con rotate(), luego dibuja la figura. En este bosquejo, el par&#xE1;metro para rotar (mouseX / 100.0) tendr&#xE1; un valor entre 0 y 1.2 para definir el &#xE1;ngulo de rotaci&#xF3;n porque mouseX tendr&#xE1; un valor entre 0 y 120, el ancho del lienzo seg&#xFA;n lo definido en createCanvas():
+<p>Sin embargo, incluso cuando las transformaciones se acumulan dentro del bloque draw(), se reinician cada vez que la funci&#xF3;n draw() empieza de nuevo.</p>
 
-```
-function setup() {
+<h2>Rotaci&#xF3;n</h2>
+
+<p>La funci&#xF3;n rotate() rota el sistema de coordenadas. Tiene un par&#xE1;metro, que es el &#xE1;ngulo (en radianes) a rotar. Siempre rota relativo a (0,0), lo que se conoce como rotar en torno al origen. La Figura 3-2 muestra los valores de &#xE1;ngulo en radianes. La figura 6-2 muestra la diferencia entre rotar con n&#xFA;meros positivos y negativos.</p>
+
+<h2>Ejemplo 6-3: rotaci&#xF3;n de la esquina</h2>
+
+<p>Para rotar una figura, primero define el &#xE1;ngulo de rotaci&#xF3;n con rotate(), luego dibuja la figura. En este bosquejo, el par&#xE1;metro para rotar (mouseX / 100.0) tendr&#xE1; un valor entre 0 y 1.2 para definir el &#xE1;ngulo de rotaci&#xF3;n porque mouseX tendr&#xE1; un valor entre 0 y 120, el ancho del lienzo seg&#xFA;n lo definido en createCanvas():</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -78,14 +102,24 @@ function draw() {
   rotate(mouseX / 100.0);
   rect(40, 30, 160, 20);
 }
-```
 
-## Ejemplo 6-4: rotaci&#xF3;n del centro
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-Para rotar una figura en torno a su propio centro, deben ser dibujada con la coordenada (0,0) en su centro. En este ejemplo, como la figura tiene un ancho de 160 y una altura de 20 seg&#xFA;n lo definido en la funci&#xF3;n rect(), es dibujada en la coordenada (-80, -10) para poner la coordenada (0,0) al centro de la figura:
+function draw() {
+  rotate(mouseX / 100.0);
+  rect(40, 30, 160, 20);
+}
+</script>
+<h2>Ejemplo 6-4: rotaci&#xF3;n del centro</h2>
 
-```
-function setup() {
+<p>Para rotar una figura en torno a su propio centro, deben ser dibujada con la coordenada (0,0) en su centro. En este ejemplo, como la figura tiene un ancho de 160 y una altura de 20 seg&#xFA;n lo definido en la funci&#xF3;n rect(), es dibujada en la coordenada (-80, -10) para poner la coordenada (0,0) al centro de la figura:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -94,16 +128,26 @@ function draw() {
   rotate(mouseX / 100.0);
   rect(-80, -10, 160, 20);
 }
-```
 
-El par anterior de ejemplos muestra c&#xF3;mo rotar alrededor de un sistema de coordenadas (0,0), &#xBF;pero qu&#xE9; otras posibilidades hay? Puedes usar las funciones translate() y rotate() para mayor control. Cuando son combinadas, el orden en que aparecen afecta el resultado. Si el sistema de coordenadas es trasladado y despu&#xE9;s rotado, es diferente que primero rotar y despu&#xE9;s mover el sistema de coordenadas.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-## Ejemplo 6-5: traslaci&#xF3;n, despu&#xE9;s rotaci&#xF3;n
+function draw() {
+  rotate(mouseX / 100.0);
+  rect(-80, -10, 160, 20);
+}
+</script>
+<p>El par anterior de ejemplos muestra c&#xF3;mo rotar alrededor de un sistema de coordenadas (0,0), &#xBF;pero qu&#xE9; otras posibilidades hay? Puedes usar las funciones translate() y rotate() para mayor control. Cuando son combinadas, el orden en que aparecen afecta el resultado. Si el sistema de coordenadas es trasladado y despu&#xE9;s rotado, es diferente que primero rotar y despu&#xE9;s mover el sistema de coordenadas.</p>
 
-Para girar una figura en torno a su centro a un lugar en la pantalla lejos del orgien, primero usa la funci&#xF3;n traslate() para mover la figura a la ubicaci&#xF3;n donde quieres la figura, luego usa rotate(), y luego dibuja la figura con su centro en la coordenada (0,0):
+<h2>Ejemplo 6-5: traslaci&#xF3;n, despu&#xE9;s rotaci&#xF3;n</h2>
 
-```
-var angle = 0.0;
+<p>Para girar una figura en torno a su centro a un lugar en la pantalla lejos del orgien, primero usa la funci&#xF3;n traslate() para mover la figura a la ubicaci&#xF3;n donde quieres la figura, luego usa rotate(), y luego dibuja la figura con su centro en la coordenada (0,0):</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 
 function setup() {
   createCanvas(120, 120);
@@ -116,14 +160,28 @@ function draw() {
   rect(-15, -15, 30, 30);
   angle += 0.1;
 }
-```
 
-## Ejemplo 6-6: rotaci&#xF3;n, despu&#xE9;s traslaci&#xF3;n
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
 
-El siguiente ejemplo es id&#xE9;ntico al Ejemplo 6-5, excepto que translate() y rotate() ocurren en el orden inverso. La figura ahora rota alrededor de la esquina superior izquierda, con la distancia desde la esquina definida por translate():
+function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-```
-var angle = 0.0;
+function draw() {
+  translate(mouseX, mouseY);
+  rotate(angle);
+  rect(-15, -15, 30, 30);
+  angle += 0.1;
+}
+</script>
+<h2>Ejemplo 6-6: rotaci&#xF3;n, despu&#xE9;s traslaci&#xF3;n</h2>
+
+<p>El siguiente ejemplo es id&#xE9;ntico al Ejemplo 6-5, excepto que translate() y rotate() ocurren en el orden inverso. La figura ahora rota alrededor de la esquina superior izquierda, con la distancia desde la esquina definida por translate():</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 
 function setup() {
   createCanvas(120, 120);
@@ -136,18 +194,32 @@ function draw() {
   rect(-15, -15, 30, 30);
   angle += 0.1;
 }
-```
 
-## Nota
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
 
-Puedes usar tambi&#xE9;n las funciones rectMode(), ellipseMode() y imageMode() hacen m&#xE1;s simple dibujar figuras desde su centro. Puedes leer sobre estas funciones en la Referencia de p5.js.
+function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-## Ejemplo 6-7: un brazo articulado
+function draw() {
+  rotate(angle);
+  translate(mouseX, mouseY);
+  rect(-15, -15, 30, 30);
+  angle += 0.1;
+}
+</script>
+<h2>Nota</h2>
 
-En este ejemplo, hemos puesto juntas una serie de funciones translate() y rotate() para crear un brazo articulado. Cada funci&#xF3;n translate() mueve la posici&#xF3;n de las l&#xED;neas, y cada funci&#xF3;n rotate() a&#xF1;ade a la rotaci&#xF3;n previa para doblar m&#xE1;s:
+<p>Puedes usar tambi&#xE9;n las funciones rectMode(), ellipseMode() y imageMode() hacen m&#xE1;s simple dibujar figuras desde su centro. Puedes leer sobre estas funciones en la Referencia de p5.js.</p>
 
-```
-var angle = 0.0;
+<h2>Ejemplo 6-7: un brazo articulado</h2>
+
+<p>En este ejemplo, hemos puesto juntas una serie de funciones translate() y rotate() para crear un brazo articulado. Cada funci&#xF3;n translate() mueve la posici&#xF3;n de las l&#xED;neas, y cada funci&#xF3;n rotate() a&#xF1;ade a la rotaci&#xF3;n previa para doblar m&#xE1;s:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 var angleDirection = 1;
 var speed = 0.005;
 
@@ -175,20 +247,49 @@ function draw() {
     angleDirection *= -1;
   }
 }
-```
 
-La variable angle crece desde 0 hasta QUARTER_PI (un cuarto del valor de pi), luego decae hasta que es menor que cero, luego el ciclo se repite. El valor de la variable angleDirection est&#xE1; siempre entre 1 y -1 para hacer que el valor de angle correspondiente crezca o decrezca.
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
+var angleDirection = 1;
+var speed = 0.005;
 
-## Escalar
-
-La funci&#xF3;n scale() estira las coordenadas del lienzo. Como las coordenadas se expanden o se contraen cuando cambia la escala, todo lo que est&#xE1; dibujado en el lienzo aumenta o disminuye sus dimensiones. El monto de escalamiento est&#xE1; escrito en porcentajes decimales. Entonces, el par&#xE1;metro 1.5 en la funci&#xF3;n scale() resulta en un 150% y 3 es 300% (Figura 6-3).
-
-## Ejemplo 6-8: escalamiento
-
-Como rotate(), la funci&#xF3;n scale() transforma desde el origen. Entonces, tal como rotate(), para escalar una figura desde su centro, debemos trasladar su ubicaci&#xF3;n, escalar y luego dibujar con el centro en la coordenada (0,0):
-
-```
 function setup() {
+  createCanvas(120, 120);
+}
+
+function draw() {
+  background(204);
+  translate(20, 25);  // Mover a la posición inicial
+  rotate(angle);
+  strokeWeight(12);
+  line(0, 0, 40, 0);
+  translate(40, 0);   // Mover la siguiente articulación
+  rotate(angle * 2.0);
+  strokeWeight(6);
+  line(0, 0, 30, 0);
+  translate(30, 0);
+  rotate(angle * 2.5);
+  strokeWeight(3);
+  line(0, 0, 20, 0);
+
+  angle += speed * angleDirection;
+  if ((angle > QUARTER_PI) || (angle < 0)) {
+    angleDirection *= -1;
+  }
+}
+</script>
+<p>La variable angle crece desde 0 hasta QUARTER_PI (un cuarto del valor de pi), luego decae hasta que es menor que cero, luego el ciclo se repite. El valor de la variable angleDirection est&#xE1; siempre entre 1 y -1 para hacer que el valor de angle correspondiente crezca o decrezca.</p>
+
+<h2>Escalar</h2>
+
+<p>La funci&#xF3;n scale() estira las coordenadas del lienzo. Como las coordenadas se expanden o se contraen cuando cambia la escala, todo lo que est&#xE1; dibujado en el lienzo aumenta o disminuye sus dimensiones. El monto de escalamiento est&#xE1; escrito en porcentajes decimales. Entonces, el par&#xE1;metro 1.5 en la funci&#xF3;n scale() resulta en un 150% y 3 es 300% (Figura 6-3).</p>
+
+<h2>Ejemplo 6-8: escalamiento</h2>
+
+<p>Como rotate(), la funci&#xF3;n scale() transforma desde el origen. Entonces, tal como rotate(), para escalar una figura desde su centro, debemos trasladar su ubicaci&#xF3;n, escalar y luego dibujar con el centro en la coordenada (0,0):</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -198,14 +299,25 @@ function draw() {
   scale(mouseYX / 60.0);
   rect(-15, -15, 30, 30);
 }
-```
 
-## Ejemplo 6-9: manteniendo los trazos constantes
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-De las l&#xED;neas gruesas del Ejemplo 6-8, puedes ver c&#xF3;mo la funci&#xF3;n scale() afecta el grosor del trazado. Para mantener un grosor de trazado consistente a medida que la figura se escala, divide el trazado deeseado por el valor escalar:
+function draw() {
+  translate(mouseX, mouseY);
+  scale(mouseYX / 60.0);
+  rect(-15, -15, 30, 30);
+}
+</script>
+<h2>Ejemplo 6-9: manteniendo los trazos constantes</h2>
 
-```
-function setup() {
+<p>De las l&#xED;neas gruesas del Ejemplo 6-8, puedes ver c&#xF3;mo la funci&#xF3;n scale() afecta el grosor del trazado. Para mantener un grosor de trazado consistente a medida que la figura se escala, divide el trazado deeseado por el valor escalar:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -217,18 +329,31 @@ function draw() {
   strokeWeight(1.0 / scalar);
   rect(-15, -15, 30, 30);
 }
-```
 
-## Push y pop
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-Para aislar los efectos de la transformaci&#xF3;n para que no afecten otras funciones, usa las funciones push() y pop(). When ejecutas push(), graba una copia del sistema de coordenadas actual y luego restaura ese sistema cuando ejecutas pop(). Esto es &#xFA;til cuando las transformaciones son necesarias para una figura, pero no son deseadas para otras.
+function draw() {
+  translate(mouseX, mouseY);
+  var scalar = mouseX / 60.0;
+  scale(scalar);
+  strokeWeight(1.0 / scalar);
+  rect(-15, -15, 30, 30);
+}
+</script>
+<h2>Push y pop</h2>
 
-## Ejemplo 6-10: aislando transformaciones
+<p>Para aislar los efectos de la transformaci&#xF3;n para que no afecten otras funciones, usa las funciones push() y pop(). When ejecutas push(), graba una copia del sistema de coordenadas actual y luego restaura ese sistema cuando ejecutas pop(). Esto es &#xFA;til cuando las transformaciones son necesarias para una figura, pero no son deseadas para otras.</p>
 
-En este ejemplo, el rect&#xE1;ngulo peque&#xF1;o siempre dibuja en la misma pop():
+<h2>Ejemplo 6-10: aislando transformaciones</h2>
 
-```
-function setup() {
+<p>En este ejemplo, el rect&#xE1;ngulo peque&#xF1;o siempre dibuja en la misma pop():</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -241,18 +366,32 @@ function draw() {
   translate(35, 10);
   rect(0, 0, 15, 15);
 }
-```
 
-## Nota
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
 
-Las funciones push() y pop() siempre se usan en pares. Por cada push(), tiene que haber un correspondiente pop().
+function draw() {
+  push();
+  translate(mouseX, mouseY);
+  rect(0, 0, 30, 30);
+  pop();
+  translate(35, 10);
+  rect(0, 0, 15, 15);
+}
+</script>
+<h2>Nota</h2>
 
-## Robot 4: trasladar, rotar, escalar
+<p>Las funciones push() y pop() siempre se usan en pares. Por cada push(), tiene que haber un correspondiente pop().</p>
 
-Las funciones translate(), rotate() y scale() son utilizadas para modificar el bosquejo del robot. En relaci&#xF3;n al ejemplo Robot 3: respuesta, translate() es usado para hacer el c&#xF3;digo m&#xE1;s f&#xE1;cil de leer. Aqu&#xED;, observa c&#xF3;mo ya no es necesario el valor de x a cada funci&#xF3;n de dibujo porque la funci&#xF3;n translate() mueve todo. Similarmente, la funci&#xF3;n scale() es usada para definir las dimensiones para todo el robot. Cuando el rat&#xF3;n no est&#xE1; presionado, el tama&#xF1;o es de un 60% y cuando s&#xED; est&#xE1; presionado, es de un 100% en relaci&#xF3;n a las coordenadas originales. La funci&#xF3;n rotate() es usada dentro del loop para dibujar una l&#xED;nea, rotarla un poco, luego dibujar una segunda l&#xED;nea, luego rotarla un poco m&#xE1;s, y as&#xED; hasta que el loop ha dibujado 30 l&#xED;neas en forma de c&#xED;rculo para estilizar el pelo de la cabeza del robot:
+<h2>Robot 4: trasladar, rotar, escalar</h2>
 
-```
-var x = 60;           // Coordenada x
+<p>Las funciones translate(), rotate() y scale() son utilizadas para modificar el bosquejo del robot. En relaci&#xF3;n al ejemplo Robot 3: respuesta, translate() es usado para hacer el c&#xF3;digo m&#xE1;s f&#xE1;cil de leer. Aqu&#xED;, observa c&#xF3;mo ya no es necesario el valor de x a cada funci&#xF3;n de dibujo porque la funci&#xF3;n translate() mueve todo. Similarmente, la funci&#xF3;n scale() es usada para definir las dimensiones para todo el robot. Cuando el rat&#xF3;n no est&#xE1; presionado, el tama&#xF1;o es de un 60% y cuando s&#xED; est&#xE1; presionado, es de un 100% en relaci&#xF3;n a las coordenadas originales. La funci&#xF3;n rotate() es usada dentro del loop para dibujar una l&#xED;nea, rotarla un poco, luego dibujar una segunda l&#xED;nea, luego rotarla un poco m&#xE1;s, y as&#xED; hasta que el loop ha dibujado 30 l&#xED;neas en forma de c&#xED;rculo para estilizar el pelo de la cabeza del robot:</p>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 60;           // Coordenada x
 var y = 440;          // Coordenada y
 var radius = 45;      // Radio de la cabeza
 var bodyHeight = 180; // Altura del cuerpo
@@ -279,6 +418,70 @@ function draw() {
     scale(0.6);       // 60% de tama&#xF1;o si el rat&#xF3;n est&#xE1; presionado
   }
 
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuerpo</p></div><div class="code">
+
+<pre><code>
+  noStroke();
+  fill(102);
+  ellipse(0, -33, 33, 33);
+  fill(0);
+  rect(-45, -bodyHeight, 90, bodyHeight - 33);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuello</p></div><div class="code">
+
+<pre><code>  stroke(102);
+  line(12, -bodyHeight, 12, neckY);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Pelo</p></div><div class="code">
+
+<pre><code>  push();
+  translate(12, neckY);
+  var angle = -PI/30.0;
+  for (var i = 0l i <= 30;="" i++)="" {="" line(80,="" 0,="" 0);="" rotate(angle);="" }="" pop();="" <="" code=""></=></code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cabeza</p></div><div class="code">
+
+<pre><code>  noStroke();
+  fill(0);
+  ellipse(12, neckY, radius, radius);
+  fill(255);
+  ellipse(24, neckY - 6, 14, 14);
+  fill(0);
+  ellipse(24, neckY - 6, 3, 3);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 60;           // Coordenada x
+var y = 440;          // Coordenada y
+var radius = 45;      // Radio de la cabeza
+var bodyHeight = 180; // Altura del cuerpo
+var neckHeight = 40;  // Altura del cuello
+
+var easing = 0.04;
+
+function setup() {
+  createCanvas(360, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  var neckY = -1 * (bodyHeight + neckHeight + radius);
+
+  background(204);
+
+  translate(mouseX, y); // Mueve todo a (mouseX, y)
+
+  if (mouseIsPressed) {
+    scale(1.0);
+  } else {
+    scale(0.6);       // 60% de tamaño si el ratón está presionado
+  }
+
   // Cuerpo
 
   noStroke();
@@ -295,8 +498,24 @@ function draw() {
   push();
   translate(12, neckY);
   var angle = -PI/30.0;
-  for (var i = 0l i <= 30;="" i++)="" {="" line(80,="" 0,="" 0);="" rotate(angle);="" }="" pop();="" cabeza="" nostroke();="" fill(0);="" ellipse(12,="" necky,="" radius,="" radius);="" fill(255);="" ellipse(24,="" necky="" -="" 6,="" 14,="" 14);="" 3,="" 3);="" ```="" <="" section="">
-</=></section>
+  for (var i = 0l i <= 30; i++) {
+    line(80, 0, 0, 0);
+    rotate(angle);
+  }
+  pop();
+
+  // Cabeza
+  noStroke();
+  fill(0);
+  ellipse(12, neckY, radius, radius);
+  fill(255);
+  ellipse(24, neckY - 6, 14, 14);
+  fill(0);
+  ellipse(24, neckY - 6, 3, 3);
+}
+</script>
+</section>
+
 <a id="prev-link" href="chapter05.html">Previous: Capítulo 5. Respuesta</a>
 
 <a id="next-link" href="chapter07.html">Next: Capítulo 7. Medios</a>

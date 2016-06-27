@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/p5.js"></script>
-<script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/html.css">
 
   </head>
@@ -533,12 +531,6 @@ function draw() {
   ellipse(268, 118, 200, 200);  // Círculo azul
 }
 </script>
-<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
-
-<pre><code>
-
-</code></pre></div></div></div></div>
-
 <p>Los colores en el ejemplo son referidos como color RGB, porque es c&#xF3;mo los computadores definen el color en la pantalla. Los tres n&#xFA;meros definen los valores de rojo, verde y azul, y var&#xED;an entre 0 y 255 de la misma forma que los valores de gris. Estos tres n&#xFA;meros son los par&#xE1;metros para tus funciones de background(), fill() y stroke().</p>
 
 <h2>Ejemplo 3-17: define la transparencia</h2>
@@ -808,45 +800,28 @@ function draw() {
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
 <pre><code>function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(204);
-  arc(90, 60, 80, 80, 0, HALF_PI);
-  arc(190, 60, 80, 80, 0, PI + HALF_PI);
-  arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
-  arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
-}
-
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(204);
-  arc(90, 60, 80, 80, 0, HALF_PI);
-  arc(190, 60, 80, 80, 0, PI + HALF_PI);
-  arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
-  arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
-}
-</script>
-<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
-
-<pre><code>function setup() {
   createCanvas(200, 200);
 }
 
 function draw() {
   background(204);
   fill(165, 57, 57);
-</code></pre></div></div><div class="pair"><div class="comment"><p>(144, 39, 39);</p></div><div class="code">
+</code></pre></div></div><div class="pair"><div class="comment"><p>fill(144, 39, 39);</p></div><div class="code">
 
 <pre><code>  ellipse(100, 100, 80, 80);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(200, 200);
+}
 
+function draw() {
+  background(204);
+  fill(165, 57, 57);
+  //fill(144, 39, 39);
+  ellipse(100, 100, 80, 80);
+}
+</script>
 <p>Mientras trabajas con bosquejos de p5.js, te encontrar&#xE1;s a ti mismo creando docenas de iteraciones de ideas; usar comentarios para hacer notas o para deshabilitar l&#xED;neas de c&#xF3;digos puede ayudarte a mantener registro de tus m&#xFA;ltiples opciones.</p>
 
 <h2>Robot 1: dibuja</h2>
