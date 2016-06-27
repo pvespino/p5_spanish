@@ -33,7 +33,7 @@ function P5toFig(el) {
   window.onload = function() {
     console.log('yiah')
     // Convert P5 to figures with iframes
-    var imgs = document.getElementsByClassName('p5 whatever');
+    var imgs = document.getElementsByClassName('fig');
     console.log(imgs)
     for(var i = 0; i < imgs.length; i++) { P5toFig(imgs[i]); }
 

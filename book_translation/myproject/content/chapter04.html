@@ -13,14 +13,14 @@
 <p>Por ejemplo, cuando haces variables la coordenada y y el diámetro para los tres círculos en este ejemplo, los mismos valores son usados para cada elipse:</p>
 
 {% codesplit ch04/04_01.js %}
-{% p5 ch04/04_01.js class:'whatever' %}
+{% p5 ch04/04_01.js class:'fig' %}
 
 <h2>Ejemplo 4-2: cambiar los valores</h2>
 
 <p>Simplemente cambiar las variables y y d entonces altera las tres elipses:</p>
 
 {% codesplit ch04/04_02.js %}
-{% p5 ch04/04_02.js class:'whatever' %}
+{% p5 ch04/04_02.js class:'fig' %}
 
 <p>Sin las variables, necesitarías cambiar la coordenada y usada en el código tres veces y la del diámetro seis veces. Cuando comparas los ejemplos 4-1 y 4-2, revisa cómo todas las líneas son iguales, excepto las dos primeras líneas con variables que son diferentes. Las variables te permiten separar las líneas de código que cambian de las que no cambian, lo que hace que los programas sean fáciles de modificar. Por ejemplo, si pones las variables que controlan colores y tamaños en un lugar, entonces puedes explorar diferentes opciones visuales enfocándote en sólo unas pocas líneas de código.</p>
 
@@ -59,7 +59,7 @@ Puedes situar tus variables afuera de setup() y draw(). Si creas una variable de
 <p>En este ejemplo, cambia los parámetros de createCanvas() para observar cómo funciona:</p>
 
 {% codesplit ch04/04_03.js %}
-{% p5 ch04/04_03.js class:'whatever' %}
+{% p5 ch04/04_03.js class:'fig' %}
 
 <p>Existen también variables epsciales que mantienen registro del estado del ratón y de los valores del teclado, entre otras. Serán discutidas en el Capítulo 5.</p>
 
@@ -70,7 +70,7 @@ Puedes situar tus variables afuera de setup() y draw(). Si creas una variable de
 <h2>Ejemplo 4-4: aritmética básica</h2>
 
 {% codesplit ch04/04_04.js %}
-{% p5 ch04/04_04.js class:'whatever' %}
+{% p5 ch04/04_04.js class:'fig' %}
 
 <p>En el código, símbolos como +, - y * son llamados operadores. Cuando se encuentran entre dos valores, crean una expresión. Por ejemplo, 5 + 9 y 1024 - 512 son expresiones. Los operadores para operaciones matemáticas básicas son:</p>
 
@@ -117,14 +117,14 @@ x --;  // Es equivalente a x = x - 1;
 <p>Este ejemplo tiene el tipo de patrón que puede ser simplificado con un "for loop":</p>
 
 {% codesplit ch04/04_05.js %}
-{% p5 ch04/04_05.js class:'whatever' %}
+{% p5 ch04/04_05.js class:'fig' %}
 
 <h2>Ejemplo 4-6: usa un for loop</h2>
 
 <p>Lo mismo puede ser logrado con un for loop, y con mucho menos código:</p>
 
 {% codesplit ch04/04_06.js %}
-{% p5 ch04/04_06.js class:'whatever' %}
+{% p5 ch04/04_06.js class:'fig' %}
 
 <p>El for loop es diferente en muchas maneras del código que hemos escrito hasta ahora. Fíjate en las llaves, los caracteres { y }. El código repetido entre las llaves es llamado bloque. Este es el código que será repetido en cada iteración del for loop.</p>
 
@@ -147,31 +147,31 @@ for (init; test; update) {
 <p>El poder definitivo que entregan los for loop es la habilidad para hacer cambios rápidos a tu código. Como el código dentro del bloque es ejecutado típicamente múltiples veces, un cambio al bloque es magnificado cuando el código es ejecutado. Al modificar el ejemplo 4-6 un poco, podemos crear una variedad de distintos patrones:</p>
 
 {% codesplit ch04/04_07.js %}
-{% p5 ch04/04_07.js class:'whatever' %}
+{% p5 ch04/04_07.js class:'fig' %}
 
 <h2>Ejemplo 4-8: desplegando las líneas</h2>
 
 {% codesplit ch04/04_08.js %}
-{% p5 ch04/04_08.js class:'whatever' %}
+{% p5 ch04/04_08.js class:'fig' %}
 
 <h2>Ejemplo 4-9: modificando las líneas</h2>
 
 {% codesplit ch04/04_09.js %}
-{% p5 ch04/04_09.js class:'whatever' %}
+{% p5 ch04/04_09.js class:'fig' %}
 
 <h2>Ejemplo 4-10: anidando un for loop dentro de otro</h2>
 
 <p>Cuando un for loop es anidado dentro de otro, el número de repeticiones se multiplica. Primero veamos un ejemplo corto y luego lo veremos por partes en el ejemplo 4-11.</p>
 
 {% codesplit ch04/04_10.js %}
-{% p5 ch04/04_10.js class:'whatever' %}
+{% p5 ch04/04_10.js class:'fig' %}
 
 <h2>Ejemplo 4-11: filas y columnas</h2>
 
 <p>En este ejemplo, los for loops están adyacentes, en vez de estar uno dentro de otro. El resultado muestra que un for loop está dibujando una columna de 4 círculos y el otro está dibujando una fila de 13 círculos.</p>
 
 {% codesplit ch04/04_11.js %}
-{% p5 ch04/04_11.js class:'whatever' %}
+{% p5 ch04/04_11.js class:'fig' %}
 
 <p>Cuando uno de estos for loop es puesto dentro del otro, como en el ejemplo 4-10, las 4 repeticiones del primer loop son compuestas con las 13 del segundo, para así ejecutar el código dentro del bloque compuesta 52 veces (4 x 13 = 52).</p>
 
@@ -182,14 +182,14 @@ for (init; test; update) {
 <p>En este ejemplo, el código dibuja una línea desde cada punto de la matriz hasta el centro de la pantalla:</p>
 
 {% codesplit ch04/04_12.js %}
-{% p5 ch04/04_12.js class:'whatever' %}
+{% p5 ch04/04_12.js class:'fig' %}
 
 <h2>Ejemplo 4-13: Puntos semitono</h2>
 
 <p>En este ejemplo, las elipses se reducen en tamaño con cada nueva fila y son movidas hacia la derecha, por medio de añadir la coordenada y a la coordenada x:</p>
 
 {% codesplit ch04/04_13.js %}
-{% p5 ch04/04_13.js class:'whatever' %}
+{% p5 ch04/04_13.js class:'fig' %}
 
 <h2>Robot 2: variables</h2>
 
@@ -198,6 +198,6 @@ for (init; test; update) {
 <p>Cuando alteras tu propio código para usar variables en vez de números, planea los cambios cuidadosamente y después haz las modificaciones en pasos cortos. Por ejemplo, cuando este programa fue escrito, cada variable fue creada de a una a la vez para minimizar la complejidad de la transición. Solo después de que una variable era creada y el código era ejecutado para asegurarse de que funcionara correctamente, se añadía una siguiente variable:</p>
 
 {% codesplit ch04/robot_02.js %}
-{% p5 ch04/robot_02.js class:'whatever' %}
+{% p5 ch04/robot_02.js class:'fig' %}
 
 </section>
