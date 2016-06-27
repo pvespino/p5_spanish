@@ -15,23 +15,31 @@
 
 <h1>Cap&#xED;tulo 5. Respuesta</h1>
 
-El c&#xF3;digo que responde a acciones de entrada del rat&#xF3;n, teclado u otros dispositivos  depende en que el programa corra continuamente. Ya nos enfrentamos a las funciones setup() y draw() en el Cap&#xED;tulo 1. Ahora aprenderemos m&#xE1;s sobre qu&#xE9; hacen y c&#xF3;mo usarlas para reaccionar a entradas al programa.
+<p>El c&#xF3;digo que responde a acciones de entrada del rat&#xF3;n, teclado u otros dispositivos  depende en que el programa corra continuamente. Ya nos enfrentamos a las funciones setup() y draw() en el Cap&#xED;tulo 1. Ahora aprenderemos m&#xE1;s sobre qu&#xE9; hacen y c&#xF3;mo usarlas para reaccionar a entradas al programa.</p>
 
 ## Una vez y para siempre
 
-El c&#xF3;digo dentro del bloque draw() corre desde el principio al final, luego se repite hasta que cierras el programa cuando cierras la ventana. Cada iteraci&#xF3;n a trav&#xE9;s del bloque draw() es llamado un cuadro o frame. (La tasa de cuadros por defecto es de 60 cuadros por segundo, pero esto puede ser modificado).
+<p>El c&#xF3;digo dentro del bloque draw() corre desde el principio al final, luego se repite hasta que cierras el programa cuando cierras la ventana. Cada iteraci&#xF3;n a trav&#xE9;s del bloque draw() es llamado un cuadro o frame. (La tasa de cuadros por defecto es de 60 cuadros por segundo, pero esto puede ser modificado).</p>
 
 ## Ejemplo 5-1: la funci&#xF3;n draw()
 
 Para observar como la funci&#xF3;n draw() funciona, corre este ejemplo:
 
-```
-function draw() {
-  //Muestra en la consola el contador de cuadros
-  print(&quot;Estoy dibujando&quot;);
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function draw() {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Muestra en la consola el contador de cuadros</p></div><div class="code">
+
+<pre><code>  print(&quot;Estoy dibujando&quot;);
   print(frameCount);
 }
-```
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function draw() {
+  //Muestra en la consola el contador de cuadros
+  print("Estoy dibujando");
+  print(frameCount);
+}
+</script>
 Ver&#xE1;s lo siguiente:
 
 ```
@@ -44,11 +52,11 @@ Estoy dibujando
 ...
 ```
 
-En el ejemplo anterior, las funciones print() escriben el texto &quot;Estoy dibujando&quot; seguido del contador actual de cuadros, tarea efectuada por la variable especial frameCount. El texto aparece en la consola de tu navegador.
+<p>En el ejemplo anterior, las funciones print() escriben el texto &quot;Estoy dibujando&quot; seguido del contador actual de cuadros, tarea efectuada por la variable especial frameCount. El texto aparece en la consola de tu navegador.</p>
 
 ## Ejemplo 5-2: la funci&#xF3;n setup()
 
-Para complementar la repetitiva funci&#xF3;n draw(), p5.js posee la funci&#xF3;n setup() que solo corre una vez cuando el programa empieza:
+<p>Para complementar la repetitiva funci&#xF3;n draw(), p5.js posee la funci&#xF3;n setup() que solo corre una vez cuando el programa empieza:</p>
 
 ```
 function setup() {
@@ -60,7 +68,7 @@ function draw() {
 }
 ```
 
-Cuando corres el c&#xF3;digo, en la consola se escribe lo siguiente:
+<p>Cuando corres el c&#xF3;digo, en la consola se escribe lo siguiente:</p>
 
 ```
 Estoy empezando

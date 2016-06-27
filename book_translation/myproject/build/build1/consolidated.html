@@ -230,7 +230,6 @@ Si revisas el archivo index.html, te dar&#xE1;s cuenta que contiene un poco de c
 
 No necesitas hacer nada en el c&#xF3;digo HTML en este momento - ya est&#xE1; configurado para ti. Luego, haz click en sketch.js y revisa el c&#xF3;digo:
 
-
 <script type="text/p5" data-autoplay="" data-preview-width="400">
 function setup() {
   // put setup code here
@@ -240,7 +239,6 @@ function draw() {
   // put drawing code here
 }
 </script>
-
 
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
@@ -261,8 +259,7 @@ Entre las llaves del bloque draw(), borra el texto //put drawing code here y ree
 
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
-<pre><code>background(204);
-ellipse(50, 50, 80, 80);
+<pre><code>
 
 </code></pre></div></div></div></div>
 
@@ -324,32 +321,21 @@ La Referencia fue escrita con el principiante en mente, esperamos que sea clara 
 
 <section data-type="chapter" id="capitulo_03_dibuja">
 
-
 <h1>Cap&#xED;tulo 3. Dibuja</h1>
 
-<p>
-Al principio, dibujar en una pantalla de computador es como trabajar en papel cuadriculado. Parte como un procedimiento t&#xE9;cnico cuidadoso, pero a medida que se introducen nuevos conceptos, dibujar formas simples con software se transforma en trabajar con animaci&#xF3;n e interacci&#xF3;n. Antes de que hagamos este salto, tenemos que empezar por el principio.
-</p>
+<p>Al principio, dibujar en una pantalla de computador es como trabajar en papel cuadriculado. Parte como un procedimiento t&#xE9;cnico cuidadoso, pero a medida que se introducen nuevos conceptos, dibujar formas simples con software se transforma en trabajar con animaci&#xF3;n e interacci&#xF3;n. Antes de que hagamos este salto, tenemos que empezar por el principio.</p>
 
-<p>
-Una pantalla de computador es una matriz de elementos de luz llamados pixeles. Cada pixel tiene una posici&#xF3;n dentro de la matriz definida por coordenadas. Cuando creas un bosquejo en p5.js, lo puedes visualizar con un navegador web. Dentro de la ventana del navegador, p5.js create un lienzo para dibujar, un &#xE1;rea en la que se dibujan las gr&#xE1;ficas. El lienzo puede ser del mismo tama&#xF1;o que la ventana, o puede tener dimensiones distintas. El lienzo est&#xE1; usualmente posicionado en la esquina superior izquierda de tu ventana, pero lo puedes posicionar en otros lugares.
-</p>
+<p>Una pantalla de computador es una matriz de elementos de luz llamados pixeles. Cada pixel tiene una posici&#xF3;n dentro de la matriz definida por coordenadas. Cuando creas un bosquejo en p5.js, lo puedes visualizar con un navegador web. Dentro de la ventana del navegador, p5.js create un lienzo para dibujar, un &#xE1;rea en la que se dibujan las gr&#xE1;ficas. El lienzo puede ser del mismo tama&#xF1;o que la ventana, o puede tener dimensiones distintas. El lienzo est&#xE1; usualmente posicionado en la esquina superior izquierda de tu ventana, pero lo puedes posicionar en otros lugares.</p>
 
-<p>
-Cuando dibujas en el lienzo, la coordenada x es la distancia desde el borde izquierdo del lienzo y la coordenada y es la distancia desde el borde superior. Escribimos las coordenadas de un pixel as&#xED; (x,y). As&#xED; que, si el lienzo es de 200 x 200 pixeles, la esquina superior izquierda es (0,0), el centro est&#xE1; en (100, 100) y la esquina inferior derecha es (199, 199). Estos n&#xFA;meros pueden parecer confusos, &#xBF;por qu&#xE9; contamos de 0 a 199 en vez de 1 a 200? La respuesta es que en programaci&#xF3;n, usualmente contamos partiendo en 0 por qu&#xE9; es m&#xE1;s f&#xE1;cil as&#xED; hacer c&#xE1;lculos que veremos m&#xE1;s adelante.
-</p>
+<p>Cuando dibujas en el lienzo, la coordenada x es la distancia desde el borde izquierdo del lienzo y la coordenada y es la distancia desde el borde superior. Escribimos las coordenadas de un pixel as&#xED; (x,y). As&#xED; que, si el lienzo es de 200 x 200 pixeles, la esquina superior izquierda es (0,0), el centro est&#xE1; en (100, 100) y la esquina inferior derecha es (199, 199). Estos n&#xFA;meros pueden parecer confusos, &#xBF;por qu&#xE9; contamos de 0 a 199 en vez de 1 a 200? La respuesta es que en programaci&#xF3;n, usualmente contamos partiendo en 0 por qu&#xE9; es m&#xE1;s f&#xE1;cil as&#xED; hacer c&#xE1;lculos que veremos m&#xE1;s adelante.</p>
 
 <h2>El lienzo</h2>
 
-<p>
-El lienzo es creato y las im&#xE1;genes son dibujadas dentro de &#xE9;l a trav&#xE9;s de elementos de c&#xF3;digo llamados funciones. Las funciones son el bloque fundamental de un programa en p5.js. El comportamiento de una funci&#xF3;n est&#xE1; definido por sus par&#xE1;metros. Por ejemplo, casi todos los programas en p5.js tienen una funci&#xF3;n createCanvas() que crea un lienzo para dibujar con un ancho y una altura espec&#xED;ficos. Si tu programa no tiene una funci&#xF3;n createCanvas(), el lienzo creado por defecto tiene dimensiones de 100x100 pixeles.
-</p>
+<p>El lienzo es creado y las im&#xE1;genes son dibujadas dentro de &#xE9;l a trav&#xE9;s de elementos de c&#xF3;digo llamados funciones. Las funciones son el bloque fundamental de un programa en p5.js. El comportamiento de una funci&#xF3;n est&#xE1; definido por sus par&#xE1;metros. Por ejemplo, casi todos los programas en p5.js tienen una funci&#xF3;n createCanvas() que crea un lienzo para dibujar con un ancho y una altura espec&#xED;ficos. Si tu programa no tiene una funci&#xF3;n createCanvas(), el lienzo creado por defecto tiene dimensiones de 100x100 pixeles.</p>
 
 <h2>Ejemplo 3-1: crea un lienzo</h2>
 
-<p>
-La funci&#xF3;n createCanvas() tiene dos par&#xE1;metros, el primero define el ancho del lienzo para dibujar, el segundo define la altura. Para dibujar un lienzo que es de 800 pixeles de ancho y 600 pixeles de altura, escribe:
-</p>
+<p>La funci&#xF3;n createCanvas() tiene dos par&#xE1;metros, el primero define el ancho del lienzo para dibujar, el segundo define la altura. Para dibujar un lienzo que es de 800 pixeles de ancho y 600 pixeles de altura, escribe:</p>
 
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
@@ -357,17 +343,15 @@ La funci&#xF3;n createCanvas() tiene dos par&#xE1;metros, el primero define el a
   createCanvas(800, 600);
 }
 
-</code></pre></div></div></div></div>
-
-<p>
-Corre esta l&#xED;nea de c&#xF3;digo para ver el resultado. Escribe diferentes valores para explorar las posibilidades. Trata con n&#xFA;meros muy peque&#xF1;os y con n&#xFA;meros m&#xE1;s grandes que las dimensiones de tu pantalla.
-</p>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(800, 600);
+}
+</script>
+<p>Corre esta l&#xED;nea de c&#xF3;digo para ver el resultado. Escribe diferentes valores para explorar las posibilidades. Trata con n&#xFA;meros muy peque&#xF1;os y con n&#xFA;meros m&#xE1;s grandes que las dimensiones de tu pantalla.</p>
 
 <h2>Ejemplo 3-2: dibuja un punto</h2>
 
-<p>
-Para definir el color de un solo pixel dentro del lienzo, usamos la funci&#xF3;n point(). Tiene dos par&#xE1;metros que definen la posici&#xF3;n: la coordenada x, seguida de la coordenada y. Para crear un peque&#xF1;o lienzo y un punto en el centro de &#xE9;l, coordenada (240, 60), escribe:
-</p>
+<p>Para definir el color de un solo pixel dentro del lienzo, usamos la funci&#xF3;n point(). Tiene dos par&#xE1;metros que definen la posici&#xF3;n: la coordenada x, seguida de la coordenada y. Para crear un peque&#xF1;o lienzo y un punto en el centro de &#xE9;l, coordenada (240, 60), escribe:</p>
 
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
@@ -380,17 +364,20 @@ function draw() {
   point(240, 60);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
-<p>
-Escribe un programa que pone un punto en cada esquina del lienzo para dibujar y uno en el centro. Luego trata de poner puntos consecutivos de manera vertical, horizontal y en l&#xED;neas diagonales.
-</p>
+function draw() {
+  background(204);
+  point(240, 60);
+}
+</script>
+<p>Escribe un programa que pone un punto en cada esquina del lienzo para dibujar y uno en el centro. Luego trata de poner puntos consecutivos de manera vertical, horizontal y en l&#xED;neas diagonales.</p>
 
 <h2>Formas b&#xE1;sicas</h2>
 
-<p>
-p5.js incluye un grupo de funciones para dibujar formas b&#xE1;sicas (ver la figura 3-1). Formas simples, como l&#xED;neas, pueden ser combinadas para crear formas m&#xE1;s complicadas como una hoja o una cara.
-</p>
+<p>p5.js incluye un grupo de funciones para dibujar formas b&#xE1;sicas (ver la figura 3-1). Formas simples, como l&#xED;neas, pueden ser combinadas para crear formas m&#xE1;s complicadas como una hoja o una cara.</p>
 
 <p>Para dibujar solo una l&#xED;nea, necesitamos cuatro par&#xE1;metros: dos para el punto de inicio y dos para el final.</p>
 
@@ -409,8 +396,15 @@ function draw() {
   line(20, 50, 420, 110);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  line(20, 50, 420, 110);
+}
+</script>
 <h2>Ejemplo 3-4: dibuja formas b&#xE1;sicas</h2>
 
 <p>Siguiendo este patr&#xF3;n, un tri&#xE1;ngulo necesita seis par&#xE1;metros y un cuadril&#xE1;tero necesita ocho (un par para cada punto):</p>
@@ -454,8 +448,15 @@ function draw() {
   rect(180, 60, 220, 40);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  rect(180, 60, 220, 40);
+}
+</script>
 <h2>Ejemplo 3-6: dibuja una elipse</h2>
 
 Las coordenadas x e y para un rect&#xE1;ngulo son la esquina superior izquierda, pero para una elipse son el centro de la figura. En este ejemplo, date cuenta que la coordenada y para la primera elipse est&#xE1; fuera del lienzo. Los objetos pueden ser dibujados parcialmente (o enteramente) fuera del lienzo sin arrojar errores:
@@ -473,8 +474,17 @@ function draw() {
   ellipse(412, 60, 18, 18);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  ellipse(278, -100, 400, 400);
+  ellipse(120, 100, 110, 110);
+  ellipse(412, 60, 18, 18);
+}
+</script>
 <p>p5.js no tiene funciones distintas para hacer cuadrados y c&#xED;rculos. Para hacer estas figuras, usa el mismo valor para los par&#xE1;metros de ancho y altura en las funciones ellipse() y rect().</p>
 
 <h2>Ejemplo 3-7: dibuja una parte de una elipse</h2>
@@ -495,8 +505,18 @@ function draw() {
   arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  arc(90, 60, 80, 80, 0, HALF_PI);
+  arc(190, 60, 80, 80, 0, PI + HALF_PI);
+  arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
+  arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
+}
+</script>
 <p>El primer y segundo par&#xE1;metro definen la ubicaci&#xF3;n, mientras que el tercero y el cuarto definen el ancho y la altura. El quinto par&#xE1;metro define el &#xE1;ngulo de inicio y el sexto el &#xE1;ngulo de parada. Los &#xE1;ngulos est&#xE1;n definidos en radianes, en vez de grados. Los radianes son medidas de &#xE1;ngulo basadas en el valor de pi (3.14159). La figura 3-2 muestra c&#xF3;mo ambos est&#xE1;n relacionados. Como se ve en este ejemplo, cuatro valores de radianes son usados tan frecuentemente que fueron agregados con nombres especiales como parte de p5.js. Los valores PI, QUARTER_PI, HALF_PI y TWO_PI pueden ser usados para reemplazar los valores en radianes de 180, 45, 90 y 360 grados.</p>
 
 <h2>Ejemplo 3-8: dibuja con grados</h2>
@@ -517,8 +537,18 @@ function draw() {
   arc(390, 60, 80, 80, radians(45), radians(225));
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  arc(90, 60, 80, 80, 0, radians(90));
+  arc(190, 60, 80, 80, 0, radians(270));
+  arc(290, 60, 80, 80, radians(180), radians(450));
+  arc(390, 60, 80, 80, radians(45), radians(225));
+}
+</script>
 <h2>Ejemplo 3-9: usa angleMode</h2>
 
 <p>Alternativamente, puedes convertir tu bosquejo para que use grados en vez de radianes usando la funci&#xF3;n angleMode(). Esta funci&#xF3;n cambia todas las funciones que aceptan o retornan &#xE1;ngulos para que usen &#xE1;ngulos o radianes, basado en el par&#xE1;metro de al funci&#xF3;n, en vez de que t&#xFA; tengas que convertirlo. El siguiente ejemplo es el mismo que el 3-8, pero usa la funci&#xF3;n angleMode(DEGREES) para definir los valores en grados de inicio y final:</p>
@@ -538,8 +568,19 @@ function draw() {
   arc(390, 60, 80, 80, 45, 225);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  angleMode(DEGREES);
+}
 
+function draw() {
+  background(204);
+  arc(90, 60, 80, 80, 0, 90);
+  arc(190, 60, 80, 80, 0, 270);
+  arc(290, 60, 80, 80, 180, 450);
+  arc(390, 60, 80, 80, 45, 225);
+}
+</script>
 <h2>Orden de dibujo</h2>
 
 <p>Cuando un programa corre, el computador empieza por el principio y lee cada l&#xED;nea de c&#xF3;digo hasta que llega a la &#xFA;ltima l&#xED;nea y luego se detiene.
@@ -561,13 +602,23 @@ function draw() {
 function draw() {
   background(204);
   ellipse(140, 0, 190, 190);
-</code></pre></div></div><div class="pair"><div class="comment"><p>The rectangle draws on top of the ellipse because it comes after in the code</p></div><div class="code">
+</code></pre></div></div><div class="pair"><div class="comment"><p>El rect&#xE1;ngulo es dibujado sobre la elipse porque est&#xE1; despu&#xE9;s en el c&#xF3;digo</p></div><div class="code">
 
 <pre><code>  rect(160, 30, 260, 20);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  ellipse(140, 0, 190, 190);
+  // El rectángulo es dibujado sobre la elipse
+  // porque está después en el código
+  rect(160, 30, 260, 20);
+}
+</script>
 <h2>Ejemplo 3-11: ponlo en reversa</h2>
 
 <p>Modifica el bosquejo invirtiendo el orden de rect() y ellipse() para ver el c&#xED;rculo encima del rect&#xE1;ngulo:</p>
@@ -581,13 +632,23 @@ function draw() {
 function draw() {
   background(204);
   rect(160, 30, 260, 20);
-</code></pre></div></div><div class="pair"><div class="comment"><p>The ellipse draws on top of the rectangle because it comes after in the code</p></div><div class="code">
+</code></pre></div></div><div class="pair"><div class="comment"><p>La elipse es dibujada sobre el rect&#xE1;ngulo porque est&#xE1; despu&#xE9;s en el c&#xF3;digo</p></div><div class="code">
 
 <pre><code>  ellipse(140, 0, 190, 190);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  rect(160, 30, 260, 20);
+  // La elipse es dibujada sobre el rectángulo
+  // porque está después en el código
+  ellipse(140, 0, 190, 190);
+}
+</script>
 <p>Puedes pensar esto como pintar con brocha o hacer un collage. El &#xFA;ltimo elemento que a&#xF1;ades es el que est&#xE1; visible encima.</p>
 
 <h2>Propiedades de las figuras</h2>
@@ -614,8 +675,20 @@ function draw() {
   ellipse(389, 60, 90, 90);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  ellipse(75, 60, 90, 90);
+  strokeWeight(8); //stroke weight to 8 pixels
+  ellipse(175, 60, 90, 90);
+  ellipse(279, 60, 90, 90);
+  strokeWeight(20); //stroke weight to 20 pixels
+  ellipse(389, 60, 90, 90);
+}
+</script>
 <h2>Ejemplo 3-13: define los atributos del trazado</h2>
 
 <p>La funci&#xF3;n strokeJoin() cambia la forma en que las l&#xED;neas se unen (y c&#xF3;mo se ven las esquinas), y la funci&#xF3;n strokeCap() cambia c&#xF3;mo las l&#xED;neas son dibujadas en su inicio y su final:</p>
@@ -638,8 +711,22 @@ function draw() {
   line(350, 25, 420, 95);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  strokeJoin(ROUND); // Round the stroke corners
+  rect(40, 25, 70, 70);
+  strokeJoin(BEVEL); // Bevel the stroke corners
+  rect(140, 25, 70, 70);
+  strokeCap(SQUARE); // Square the line endings
+  line(270, 25, 340, 95);
+  strokeCap(ROUND); // Round the line endings
+  line(350, 25, 420, 95);
+}
+</script>
 <p>La posici&#xF3;n de las figuras como rect() y ellipse() son controladas por las funciones rectMode() y ellipseMode(). Revisa la referencia de p5.js para ver ejemplos de c&#xF3;mo posicionar rect&#xE1;ngulos seg&#xFA;n su centro (en vez de su esquina superior izquierda), o de c&#xF3;mo dibujar elipses desde su esquina superior izquierda como los rect&#xE1;ngulos.</p>
 
 <p>Cuando cualquiera de estos atributos es definido, todas las figuras dibujadas posteriormente son afectadas. Como se ve en el ejemplo 3-12, pon atenci&#xF3;n en c&#xF3;mo el segundo y tercer c&#xED;rculo tienen el mismo grosor de trazado, incluso cuando el grosor es definido solo una vez antes de que ambos sean dibujados.</p>
@@ -670,8 +757,20 @@ function draw() {
   ellipse(268, 118, 200, 200);  // Dark gray circle
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(0);                // Black
+  fill(204);                    // Light gray
+  ellipse(132, 82, 200, 200);   // Light gray circle
+  fill(153);                    // Medium gray
+  ellipse(228, -16, 200, 200);  // Medium gray circle
+  fill(102);                    // Dark gray
+  ellipse(268, 118, 200, 200);  // Dark gray circle
+}
+</script>
 <h2>Ejemplo 3-15: controla el relleno y el color del trazado</h2>
 
 <p>Puedes usar la funci&#xF3;n noStroke() para deshabilitar el trazado para que no se dibuje el borde, y puedes deshabilitar el relleno de una figura con noFill():</p>
@@ -692,8 +791,20 @@ function draw() {
   ellipse(268, 118, 200, 200);  // Doesn&apos;t draw
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  fill(153);                    // Medium gray
+  ellipse(132, 82, 200, 200);   // Gray circle
+  noFill();                     // Turn off fill
+  ellipse(228, -16, 200, 200);  // Outline circle
+  noStroke();                   // Turn off stroke
+  ellipse(268, 118, 200, 200);  // Doesn't draw
+}
+</script>
 <p>Ten cuidado de no deshabilitar el relleno y el trazado al mismo tiempo, como lo hicimos en el ejemplo anterior, porque nada ser&#xE1; dibujada en la pantalla.</p>
 
 <h2>Ejemplo 3-16: dibuja con color</h2>
@@ -707,14 +818,32 @@ function draw() {
 }
 
 function draw() {
-  background(0, 25, 51);        // Dark blue color
-  fill(255, 0, 0);              // Red color
-  ellipse(132, 82, 200, 200);   // Red circle
-  fill(0, 255, 0);              // Green color
-  ellipse(228, -16, 200, 200);  // Green circle
-  fill(0, 0, 255);              // Blue color
-  ellipse(268, 118, 200, 200);  // Blue circle
+  background(0, 25, 51);        // Color azul oscuro
+  fill(255, 0, 0);              // Color rojo
+  ellipse(132, 82, 200, 200);   // C&#xED;rculo rojo
+  fill(0, 255, 0);              // Color verde
+  ellipse(228, -16, 200, 200);  // C&#xED;rculo verde
+  fill(0, 0, 255);              // Color azul
+  ellipse(268, 118, 200, 200);  // C&#xED;rculo azul
 }
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(0, 25, 51);        // Color azul oscuro
+  fill(255, 0, 0);              // Color rojo
+  ellipse(132, 82, 200, 200);   // Círculo rojo
+  fill(0, 255, 0);              // Color verde
+  ellipse(228, -16, 200, 200);  // Círculo verde
+  fill(0, 0, 255);              // Color azul
+  ellipse(268, 118, 200, 200);  // Círculo azul
+}
+</script>
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>
 
 </code></pre></div></div></div></div>
 
@@ -731,17 +860,29 @@ function draw() {
 }
 
 function draw() {
-  background(204, 226, 225);    // Light blue color
-  fill(255, 0, 0, 160);         // Red color
-  ellipse(132, 82, 200, 200);   // Red circle
-  fill(0, 255, 0, 160);         // Green color
-  ellipse(228, -16, 200, 200);  // Green circle
-  fill(0, 0, 255, 160);         // Blue color
-  ellipse(268, 118, 200, 200);  // Blue circle
+  background(204, 226, 225);    // Color azul claro
+  fill(255, 0, 0, 160);         // Color rojo
+  ellipse(132, 82, 200, 200);   // C&#xED;rculo rojo
+  fill(0, 255, 0, 160);         // Color verde
+  ellipse(228, -16, 200, 200);  // C&#xED;rculo verde
+  fill(0, 0, 255, 160);         // Color azul
+  ellipse(268, 118, 200, 200);  // C&#xED;rculo azul
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204, 226, 225);    // Color azul claro
+  fill(255, 0, 0, 160);         // Color rojo
+  ellipse(132, 82, 200, 200);   // Círculo rojo
+  fill(0, 255, 0, 160);         // Color verde
+  ellipse(228, -16, 200, 200);  // Círculo verde
+  fill(0, 0, 255, 160);         // Color azul
+  ellipse(268, 118, 200, 200);  // Círculo azul
+}
+</script>
 <h2>Formas personalizadas</h2>
 
 <p>No est&#xE1;s limitado a usar estas formas geom&#xE9;tricas b&#xE1;sicas - puedes dibujar nuevas formas conectando una serie de puntos.</p>
@@ -769,8 +910,23 @@ function draw() {
   endShape();
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  beginShape();
+  vertex(180, 82);
+  vertex(207, 36);
+  vertex(214, 63);
+  vertex(407, 11);
+  vertex(412, 30);
+  vertex(219, 82);
+  vertex(226, 109);
+  endShape();
+}
+</script>
 <h2>Ejemplo 3-19: cierra la brecha</h2>
 
 <p>Cuando corres el ejemplo 3-18, ver&#xE1;s que el primer y el &#xFA;ltimo punto no est&#xE1;n conectados. Para hacer esto, a&#xF1;ade la palabra CLOSE como par&#xE1;metro a la funci&#xF3;n endShape, as&#xED;:</p>
@@ -794,8 +950,23 @@ function draw() {
   endShape(CLOSE);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+  beginShape();
+  vertex(180, 82);
+  vertex(207, 36);
+  vertex(214, 63);
+  vertex(407, 11);
+  vertex(412, 30);
+  vertex(219, 82);
+  vertex(226, 109);
+  endShape(CLOSE);
+}
+</script>
 <h2>Ejemplo 3-20: crea algunas criaturas</h2>
 
 <p>El poder de definir figuras con vertex() es la habilidad de hacer figuras con bordes complejos. p5.js puede dibujar miles y miles de l&#xED;neas al mismo tiempo para llenar la pantalla con figuras fant&#xE1;sticas que emanan de tu imaginaci&#xF3;n. Un ejemplo modesto pero m&#xE1;s complejo es presentado a continuaci&#xF3;n:</p>
@@ -845,8 +1016,45 @@ function draw() {
   ellipse(345, 50, 10, 10);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
 
+function draw() {
+  background(204);
+
+  // Left creature
+  beginShape();
+  vertex(50, 120);
+  vertex(100, 90);
+  vertex(110, 60);
+  vertex(80, 20);
+  vertex(210, 60);
+  vertex(160, 80);
+  vertex(200, 90);
+  vertex(140, 100);
+  vertex(130, 120);
+  endShape();
+  fill(0);
+  ellipse(155, 60, 8, 8);
+
+  // Right creature
+  fill(255);
+  beginShape();
+  vertex(370, 120);
+  vertex(360, 90);
+  vertex(290, 80);
+  vertex(340, 70);
+  vertex(280, 50);
+  vertex(420, 10);
+  vertex(390, 50);
+  vertex(410, 90);
+  vertex(460, 120);
+  endShape();
+  fill(0);
+  ellipse(345, 50, 10, 10);
+}
+</script>
 <h2>Comentarios</h2>
 
 <p>Los ejemplos en este cap&#xED;tulo usan doble barra (//) al final de una l&#xED;nea para a&#xF1;adir comentarios al c&#xF3;digo. Los comentarios son una parte de los programas que son ignorados cuando el programa corre. Son &#xFA;tiles para hacer notas para ti mismo que expliquen lo que est&#xE1; pasando en el c&#xF3;digo. Si otras personas est&#xE1;n leyendo tu c&#xF3;digo, los comentarios son especialmente importantes para ayudarles a entender tu proceso.</p>
@@ -865,8 +1073,16 @@ function draw() {
   ellipse(100, 100, 80, 80);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(200, 200);
+}
 
+function draw() {
+  background(204);
+  fill(165, 57, 57);
+  ellipse(100, 100, 80, 80);
+}
+</script>
 <p>Ahora sup&#xF3;n que quieres probar un rojo distinto, pero no quieres perder el antiguo. Puedo copiar y pegar la l&#xED;nea, hacer un cambio y luego comentar la l&#xED;nea de c&#xF3;digo antigua:</p>
 
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
@@ -883,10 +1099,46 @@ function draw() {
   ellipse(100, 100, 80, 80);
 }
 
-</code></pre></div></div></div></div>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(200, 200);
+}
+
+function draw() {
+  background(204);
+  //fill(165, 57, 57);
+  fill(144, 39, 39);
+  ellipse(100, 100, 80, 80);
+}
+</script>
 
 <p>Poner // al principio de una l&#xED;nea temporalmente la anula. O puedo remover // y escribirlo al inicio de otra l&#xED;nea si quiero probarlo de nuevo:</p>
 
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  arc(90, 60, 80, 80, 0, HALF_PI);
+  arc(190, 60, 80, 80, 0, PI + HALF_PI);
+  arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
+  arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  arc(90, 60, 80, 80, 0, HALF_PI);
+  arc(190, 60, 80, 80, 0, PI + HALF_PI);
+  arc(290, 60, 80, 80, PI, TWO_PI+HALF_PI);
+  arc(390, 60, 80, 80, QUARTER_PI, PI+QUARTER_PI);
+}
+</script>
 <div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
 <pre><code>function setup() {
@@ -965,8 +1217,48 @@ function draw() {
   ellipse(305, 162, 3, 3);    // Small eye 3
 }
 
-</code></pre></div></div></div></div>
-</section>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(720, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(204);
+
+  // Neck
+  stroke(102);                // Set stroke to gray
+  line(266, 257, 266, 162);   // Left
+  line(276, 257, 276, 162);   // Middle
+  line(286, 257, 286, 162);   // Right
+
+  // Antennae
+  line(276, 155, 246, 112);   // Small
+  line(276, 155, 306,  56);   // Tall
+  line(276, 155, 342, 170);   // Medium
+
+  // Body
+  noStroke();                 // Disable stroke
+  fill(102);                  // Set fill to gray
+  ellipse(264, 377, 33, 33);  // Antigravity orb
+  fill(0);                    // Set fill to black
+  rect(219, 257, 90, 120);    // Main body
+  fill(102);                  // Set fill to gray
+  rect(219, 274, 90, 6);      // Gray stripe
+
+  // Head
+  fill(0);                    // Set fill to black
+  ellipse(276, 155, 45, 45);  // Head
+  fill(255);                  // Set fill to white
+  ellipse(288, 150, 14, 14);  // Large eye
+  fill(0);                    // Set fill to black
+  ellipse(288, 150, 3, 3);    // Pupil
+  fill(153);                  // Set fill to light gray
+  ellipse(263, 148, 5, 5);    // Small eye 1
+  ellipse(296, 130, 4, 4);    // Small eye 2
+  ellipse(305, 162, 3, 3);    // Small eye 3
+}
+</script></section>
 <section data-type="chapter" id="capitulo_04_variables">
 
 <h1>Cap&#xED;tulo 4. Variables</h1>
@@ -981,8 +1273,29 @@ function draw() {
 
 <p>Por ejemplo, cuando haces variables la coordenada y y el di&#xE1;metro para los tres c&#xED;rculos en este ejemplo, los mismos valores son usados para cada elipse:</p>
 
-```
-var y = 60;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var y = 60;
+var d = 80;
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+</code></pre></div></div><div class="pair"><div class="comment"><p>izquierda</p></div><div class="code">
+
+<pre><code>  ellipse(75, y, d, d);
+</code></pre></div></div><div class="pair"><div class="comment"><p>centro</p></div><div class="code">
+
+<pre><code>  ellipse(175, y, d, d);
+</code></pre></div></div><div class="pair"><div class="comment"><p>derecha</p></div><div class="code">
+
+<pre><code>  ellipse(275, y, d, d);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var y = 60;
 var d = 80;
 
 function setup() {
@@ -998,14 +1311,34 @@ function draw() {
   //derecha
   ellipse(275, y, d, d);
 }
-```
-
+</script>
 <h2>Ejemplo 4-2: cambiar los valores</h2>
 
 <p>Simplemente cambiar las variables y y d entonces altera las tres elipses:</p>
 
-```
-var y = 100;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var y = 100;
+var d = 130;
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+</code></pre></div></div><div class="pair"><div class="comment"><p>izquierda</p></div><div class="code">
+
+<pre><code>  ellipse(75, y, d, d);
+</code></pre></div></div><div class="pair"><div class="comment"><p>centro</p></div><div class="code">
+
+<pre><code>  ellipse(175, y, d, d);
+</code></pre></div></div><div class="pair"><div class="comment"><p>derecha</p></div><div class="code">
+
+<pre><code>  ellipse(275, y, d, d);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var y = 100;
 var d = 130;
 
 function setup() {
@@ -1021,9 +1354,8 @@ function draw() {
   //derecha
   ellipse(275, y, d, d);
 }
-```
-
-Sin las variables, necesitar&#xED;as cambiar la coordenada y usada en el c&#xF3;digo tres veces y la del di&#xE1;metro seis veces. Cuando comparas los ejemplos 4-1 y 4-2, revisa c&#xF3;mo todas las l&#xED;neas son iguales, excepto las dos primeras l&#xED;neas con variables que son diferentes. Las variables te permiten separar las l&#xED;neas de c&#xF3;digo que cambian de las que no cambian, lo que hace que los programas sean f&#xE1;ciles de modificar. Por ejemplo, si pones las variables que controlan colores y tama&#xF1;os en un lugar, entonces puedes explorar diferentes opciones visuales enfoc&#xE1;ndote en s&#xF3;lo unas pocas l&#xED;neas de c&#xF3;digo.
+</script>
+<p>Sin las variables, necesitar&#xED;as cambiar la coordenada y usada en el c&#xF3;digo tres veces y la del di&#xE1;metro seis veces. Cuando comparas los ejemplos 4-1 y 4-2, revisa c&#xF3;mo todas las l&#xED;neas son iguales, excepto las dos primeras l&#xED;neas con variables que son diferentes. Las variables te permiten separar las l&#xED;neas de c&#xF3;digo que cambian de las que no cambian, lo que hace que los programas sean f&#xE1;ciles de modificar. Por ejemplo, si pones las variables que controlan colores y tama&#xF1;os en un lugar, entonces puedes explorar diferentes opciones visuales enfoc&#xE1;ndote en s&#xF3;lo unas pocas l&#xED;neas de c&#xF3;digo.</p>
 
 <h2>Haciendo variables</h2>
 
@@ -1048,6 +1380,7 @@ var x = 12;  // Declara la variable x y le asigna un valor
 var x;      // Declara la variable x
 var x = 12; // ERROR! No pueden haber dos variables x
 ```
+
 Puedes situar tus variables afuera de setup() y draw(). Si creas una variable dentro de setup(), no puedes usarla dentro de draw(), as&#xED; que necesitas situar estas variables en otro lugar. Estas variables reciben el nombre de variables globales, porque pueden ser usadas en cualquier lugar (&quot;globalmente&quot;) del programa.
 
 <h2>Variables de p5.js</h2>
@@ -1058,8 +1391,9 @@ Puedes situar tus variables afuera de setup() y draw(). Si creas una variable de
 
 <p>En este ejemplo, cambia los par&#xE1;metros de createCanvas() para observar c&#xF3;mo funciona:</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -1069,8 +1403,18 @@ function draw() {
   line(width, 0, 0, height); // L&#xED;nea desde (480,0) a (0, 120)
   ellipse(width/2, height/2, 60, 60);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  line(0, 0, width, height); // Línea desde (0,0) a (480, 120)
+  line(width, 0, 0, height); // Línea desde (480,0) a (0, 120)
+  ellipse(width/2, height/2, 60, 60);
+}
+</script>
 <p>Existen tambi&#xE9;n variables epsciales que mantienen registro del estado del rat&#xF3;n y de los valores del teclado, entre otras. Ser&#xE1;n discutidas en el Cap&#xED;tulo 5.</p>
 
 <h2>Un poco de matem&#xE1;ticas</h2>
@@ -1079,9 +1423,9 @@ function draw() {
 
 <h2>Ejemplo 4-4: aritm&#xE9;tica b&#xE1;sica</h2>
 
-```
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
-var x = 25;
+<pre><code>var x = 25;
 var h = 20;
 var y = 25;
 
@@ -1098,7 +1442,25 @@ function draw() {
   x = x - 250;
   rect(x, y + h*2, 300, h); // Inferior
 }
-```
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 25;
+var h = 20;
+var y = 25;
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  x = 20;
+  rect(x,y,300,h);          // Superior
+  x = x + 100;
+  rect(x, y + h, 300, h);   // Centro
+  x = x - 250;
+  rect(x, y + h*2, 300, h); // Inferior
+}
+</script>
 <p>En el c&#xF3;digo, s&#xED;mbolos como +, - y * son llamados operadores. Cuando se encuentran entre dos valores, crean una expresi&#xF3;n. Por ejemplo, 5 + 9 y 1024 - 512 son expresiones. Los operadores para operaciones matem&#xE1;ticas b&#xE1;sicas son:</p>
 
 <p>Javascript tiene un conjunto de reglas para definir el orden de precedencia que los operadores tienen entre s&#xED;, lo que significa, cu&#xE1;les c&#xE1;lculos son efectuados en primer, segundo y tercer lugar, etc. Estas reglas definen el orden en el que el c&#xF3;digo se ejecuta. Un poco de conocimiento sobre esto es un gran paso hacia el entendimiendo de c&#xF3;mo funciona una corta l&#xED;nea de c&#xF3;digo como esta:</p>
@@ -1143,8 +1505,9 @@ x --;  // Es equivalente a x = x - 1;
 
 <p>Este ejemplo tiene el tipo de patr&#xF3;n que puede ser simplificado con un &quot;for loop&quot;:</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   strokeWeight(8);
 }
@@ -1159,14 +1522,30 @@ function draw() {
   line(320, 40, 380, 80);
   line(380, 40, 440, 80);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  strokeWeight(8);
+}
+
+function draw() {
+  background(204);
+  line( 20, 40,  80, 80);
+  line( 80, 40, 140, 80);
+  line(140, 40, 200, 80);
+  line(200, 40, 260, 80);
+  line(260, 40, 320, 80);
+  line(320, 40, 380, 80);
+  line(380, 40, 440, 80);
+}
+</script>
 <h2>Ejemplo 4-6: usa un for loop</h2>
 
 <p>Lo mismo puede ser logrado con un for loop, y con mucho menos c&#xF3;digo:</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   strokeWeight(8);
 }
@@ -1177,8 +1556,19 @@ function draw() {
     line( i, 40,  i + 60, 80);
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  strokeWeight(8);
+}
+
+function draw() {
+  background(204);
+  for (var i = 20; i < 400; i += 60) {
+    line( i, 40,  i + 60, 80);
+  }
+}
+</script>
 <p>El for loop es diferente en muchas maneras del c&#xF3;digo que hemos escrito hasta ahora. F&#xED;jate en las llaves, los caracteres { y }. El c&#xF3;digo repetido entre las llaves es llamado bloque. Este es el c&#xF3;digo que ser&#xE1; repetido en cada iteraci&#xF3;n del for loop.</p>
 
 <p>Adentro del par&#xE9;ntesis hay tres declaraciones, separadas por punto y coma, que funcionan en conjunto para controlar cu&#xE1;ntas veces el c&#xF3;digo dentro del bloque es ejecutado. De izquierda a derecha, estas declaraciones son nombradas as&#xED;: inicializaci&#xF3;n (init), prueba (test), actualizaci&#xF3;n (update):</p>
@@ -1188,6 +1578,7 @@ for (init; test; update) {
   declaraciones
 }
 ```
+
 <p>Init t&#xED;picamente declara una variable nueva a ser usada en el for loop y le asigna un valor. El nombre de variable i es frecuentemente usado, pero esto no tiene nada de especial. El test eval&#xFA;a el valor de esta variable, y update change el valor de la variable. La figura 4-1 muestra el orden en el que el c&#xF3;digo es ejectuado y c&#xF3;mo controlan el c&#xF3;digo dentro del bloque.</p>
 
 <p>La prueba o test requiere m&#xE1;s explicaci&#xF3;n. Siempre es una expresi&#xF3;n de relaci&#xF3;n que compara dos valores con un operador relacional. En este ejemplo, la expresi&#xF3;n es &quot;i &lt; 400&quot; y el operador es el s&#xED;mbolo &lt; (menor que). Los operadores relacionales m&#xE1;s comunes son:</p>
@@ -1198,8 +1589,9 @@ for (init; test; update) {
 
 <p>El poder definitivo que entregan los for loop es la habilidad para hacer cambios r&#xE1;pidos a tu c&#xF3;digo. Como el c&#xF3;digo dentro del bloque es ejecutado t&#xED;picamente m&#xFA;ltiples veces, un cambio al bloque es magnificado cuando el c&#xF3;digo es ejecutado. Al modificar el ejemplo 4-6 un poco, podemos crear una variedad de distintos patrones:</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   strokeWeight(2);
 }
@@ -1210,12 +1602,24 @@ function draw() {
     line( i, 40,  i + 60, 80);
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  strokeWeight(2);
+}
+
+function draw() {
+  background(204);
+  for (var i = 20; i < 400; i += 8) {
+    line( i, 40,  i + 60, 80);
+  }
+}
+</script>
 <h2>Ejemplo 4-8: desplegando las l&#xED;neas</h2>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   strokeWeight(2);
 }
@@ -1226,12 +1630,24 @@ function draw() {
     line( i, 0,  i + i/2, 80);
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  strokeWeight(2);
+}
+
+function draw() {
+  background(204);
+  for (var i = 20; i < 400; i += 20) {
+    line( i, 0,  i + i/2, 80);
+  }
+}
+</script>
 <h2>Ejemplo 4-9: modificando las l&#xED;neas</h2>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   strokeWeight(2);
 }
@@ -1243,26 +1659,57 @@ function draw() {
     line( i + i/2,  80, i * 1.2, 80);
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  strokeWeight(2);
+}
+
+function draw() {
+  background(204);
+  for (var i = 20; i < 400; i += 20) {
+    line( i, 0,  i + i/2, 80);
+    line( i + i/2,  80, i * 1.2, 80);
+  }
+}
+</script>
 <h2>Ejemplo 4-10: anidando un for loop dentro de otro</h2>
 
 <p>Cuando un for loop es anidado dentro de otro, el n&#xFA;mero de repeticiones se multiplica. Primero veamos un ejemplo corto y luego lo veremos por partes en el ejemplo 4-11.</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   noStroke();
 }
 
 function draw() {
   background(0);
-  for (var y = 0; y <= height;="" y="" +="40)" {="" for="" (var="" x="0;" <="width;" fill(255,="" 140);="" ellipse(x,="" y,="" 40,="" 40);="" }="" ```="" <h2="">Ejemplo 4-11: filas y columnas
+  for (var y = 0; y<=height; y+="40)" {="" for="" (var="" x="0;" y="" <="width;" +="40)" fill(255,="" 140);="" ellipse(x,="" y,="" 40,="" 40);="" }="" code=""></=height;></code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  noStroke();
+}
+
+function draw() {
+  background(0);
+  for (var y = 0; y<=height; y+=40)
+  {
+    for (var x = 0; y <= width; y += 40)
+    {
+      fill(255, 140);
+      ellipse(x, y, 40, 40);
+    }
+  }
+}
+</script>
+<h2>Ejemplo 4-11: filas y columnas</h2>
 
 <p>En este ejemplo, los for loops est&#xE1;n adyacentes, en vez de estar uno dentro de otro. El resultado muestra que un for loop est&#xE1; dibujando una columna de 4 c&#xED;rculos y el otro est&#xE1; dibujando una fila de 13 c&#xED;rculos.</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   noStroke();
 }
@@ -1273,7 +1720,24 @@ function draw() {
     fill(255, 140);
     ellipse(0, y, 40, 40);
   }
-  for (var x = 0; x <= width="" +="" 45;="" x="" {="" fill(255,="" 140);="" ellipse(x,="" 0,="" 40,="" 40);="" }="" ```="" <p="">Cuando uno de estos for loop es puesto dentro del otro, como en el ejemplo 4-10, las 4 repeticiones del primer loop son compuestas con las 13 del segundo, para as&#xED; ejecutar el c&#xF3;digo dentro del bloque compuesta 52 veces (4 x 13 = 52).<p></p>
+  for (var x = 0; x <= width="" +="" 45;="" x="" {="" fill(255,="" 140);="" ellipse(x,="" 0,="" 40,="" 40);="" }="" <="" code=""></=></code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  noStroke();
+}
+
+function draw() {
+  background(0);
+  for (var y = 0; y < height + 45; y += 40) {
+    fill(255, 140);
+    ellipse(0, y, 40, 40);
+  }
+  for (var x = 0; x <= width + 45; x += 40) {
+    fill(255, 140);
+    ellipse(x, 0, 40, 40);
+  }
+}
+</script>
+<p>Cuando uno de estos for loop es puesto dentro del otro, como en el ejemplo 4-10, las 4 repeticiones del primer loop son compuestas con las 13 del segundo, para as&#xED; ejecutar el c&#xF3;digo dentro del bloque compuesta 52 veces (4 x 13 = 52).</p>
 
 <p>El ejemplo 4-10 es una buena base para explorar muchos tipos de patrones visuales repetitivos. Los siguientes ejemplos muestran un par de maneras en que esto puede ser extendido, pero esto es solo una peque&#xF1;a muestra de lo que es posible.</p>
 
@@ -1281,8 +1745,9 @@ function draw() {
 
 <p>En este ejemplo, el c&#xF3;digo dibuja una l&#xED;nea desde cada punto de la matriz hasta el centro de la pantalla:</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   fill(255);
   stroke(102);
@@ -1291,26 +1756,124 @@ function setup() {
 function draw() {
   background(0);
   for (var y = 20; y &lt; height - 20; y += 10) {
-    for (var x = 20; x <= width="" -="" 20;="" x="" +="10)" {="" ellipse(x,="" y,="" 4,="" 4);="" dibuja="" una="" línea="" al="" centro="" de="" la="" imagen="" line(x,="" 240,="" 60);="" }="" ```="" <h2="">Ejemplo 4-13: Puntos semitono
+    for (var x = 20; x <= width="" -="" 20;="" x="" +="10)" {="" ellipse(x,="" y,="" 4,="" 4);="" <="" code=""></=></code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja una l&#xED;nea al centro de la imagen</p></div><div class="code">
+
+<pre><code>      line(x, y, 240, 60);
+    }
+  }
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+  fill(255);
+  stroke(102);
+}
+
+function draw() {
+  background(0);
+  for (var y = 20; y < height - 20; y += 10) {
+    for (var x = 20; x <= width - 20; x += 10) {
+      ellipse(x, y, 4, 4);
+      // Dibuja una línea al centro de la imagen
+      line(x, y, 240, 60);
+    }
+  }
+}
+</script>
+<h2>Ejemplo 4-13: Puntos semitono</h2>
 
 <p>En este ejemplo, las elipses se reducen en tama&#xF1;o con cada nueva fila y son movidas hacia la derecha, por medio de a&#xF1;adir la coordenada y a la coordenada x:</p>
 
-```
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
 function draw() {
   background(0);
   for (var y = 32; y &lt; height; y += 8) {
-    for (var x = 12; x <= 16="" width;="" x="" +="15)" {="" ellipse(x="" y,="" -="" y="" 10.0,="" 10.0);="" }="" ```="" <h2="">Robot 2: variables
+    for (var x = 12; x <= 16="" width;="" x="" +="15)" {="" ellipse(x="" y,="" -="" y="" 10.0,="" 10.0);="" }="" <="" code=""></=></code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(0);
+  for (var y = 32; y < height; y += 8) {
+    for (var x = 12; x <= width; x += 15) {
+      ellipse(x + y, y, 16 - y/10.0, 16 - y/10.0);
+    }
+  }
+}
+</script>
+<h2>Robot 2: variables</h2>
 
 <p>Las variables introducidas en este programa hacen que el c&#xF3;digo se vea m&#xE1;s dif&#xED;cil que el de la Robot 1 (ver &quot;Robot 1: dibuja&quot;), pero ahora es mucho m&#xE1;s simple hacer modificaciones, porque los n&#xFA;meros que dependen uno de otro est&#xE1;n en una misma ubicaci&#xF3;n. Por ejemplo, el dibujo del cuello est&#xE1; basado en la variable neckHeight. El grupo de variables al principio del c&#xF3;digo controla los aspectos del robot que queremos cambiar: ubicaci&#xF3;n, altura del cuerpo y altura del cuello. Puedes observar algunas de las posibles variaciones posibles en la figura; de izquierda a derecha, ac&#xE1; est&#xE1;n los valores correspondientes:</p>
 
 <p>Cuando alteras tu propio c&#xF3;digo para usar variables en vez de n&#xFA;meros, planea los cambios cuidadosamente y despu&#xE9;s haz las modificaciones en pasos cortos. Por ejemplo, cuando este programa fue escrito, cada variable fue creada de a una a la vez para minimizar la complejidad de la transici&#xF3;n. Solo despu&#xE9;s de que una variable era creada y el c&#xF3;digo era ejecutado para asegurarse de que funcionara correctamente, se a&#xF1;ad&#xED;a una siguiente variable:</p>
 
-```
-var x = 60;                                      // Coordenada X
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 60;                                      // Coordenada X
+var y = 420;                                    // Coordenada Y
+var bodyHeight = 110;                           // Altura del cuerpo
+var neckHeight = 140;                           // Altura del cuello
+var radius = 45;
+var ny = y - bodyHeight - neckHeight - radius;  // Y del cuello
+
+function setup(){
+  createCanvas(170, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(204);
+
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuello</p></div><div class="code">
+
+<pre><code>  stroke(102);
+  line(x +  2, y - bodyHeight, x +  2, ny);
+  line(x + 12, y - bodyHeight, x + 12, ny);
+  line(x + 22, y - bodyHeight, x + 22, ny);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Antenas</p></div><div class="code">
+
+<pre><code>  line(x + 12, ny, x - 18, ny - 43);
+  line(x + 12, ny, x + 42, ny - 99);
+  line(x + 12, ny, x + 78, ny + 15);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuerpo</p></div><div class="code">
+
+<pre><code>  noStroke();
+  fill(102);
+  ellipse(x, y - 33, 33, 33);
+  fill(0);
+  rect(x - 45, y - bodyHeight, 90, bodyHeight - 33);
+  fill(102);
+  rect(x - 45, y - bodyHeight + 17, 90, 6);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cabeza</p></div><div class="code">
+
+<pre><code>  fill(0);
+  ellipse(x + 12, ny, radius, radius);
+  fill(255);
+  ellipse(x + 24, ny - 6, 14, 14);
+  fill(0);
+  ellipse(x + 24, ny - 6, 3, 3);
+  fill(153);
+  ellipse(x, ny - 8, 5, 5);
+  ellipse(x + 30, ny - 26, 4, 4);
+  ellipse(x + 41, ny + 6, 3, 3);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 60;                                      // Coordenada X
 var y = 420;                                    // Coordenada Y
 var bodyHeight = 110;                           // Altura del cuerpo
 var neckHeight = 140;                           // Altura del cuello
@@ -1358,32 +1921,38 @@ function draw() {
   ellipse(x + 30, ny - 26, 4, 4);
   ellipse(x + 41, ny + 6, 3, 3);
 }
-
-```
-
-</=></=></=></=></section>
+</script>
+</section>
 
 <section data-type="chapter" id="capitulo_07_medios">
 
 <h1>Cap&#xED;tulo 5. Respuesta</h1>
 
-El c&#xF3;digo que responde a acciones de entrada del rat&#xF3;n, teclado u otros dispositivos  depende en que el programa corra continuamente. Ya nos enfrentamos a las funciones setup() y draw() en el Cap&#xED;tulo 1. Ahora aprenderemos m&#xE1;s sobre qu&#xE9; hacen y c&#xF3;mo usarlas para reaccionar a entradas al programa.
+<p>El c&#xF3;digo que responde a acciones de entrada del rat&#xF3;n, teclado u otros dispositivos  depende en que el programa corra continuamente. Ya nos enfrentamos a las funciones setup() y draw() en el Cap&#xED;tulo 1. Ahora aprenderemos m&#xE1;s sobre qu&#xE9; hacen y c&#xF3;mo usarlas para reaccionar a entradas al programa.</p>
 
 ## Una vez y para siempre
 
-El c&#xF3;digo dentro del bloque draw() corre desde el principio al final, luego se repite hasta que cierras el programa cuando cierras la ventana. Cada iteraci&#xF3;n a trav&#xE9;s del bloque draw() es llamado un cuadro o frame. (La tasa de cuadros por defecto es de 60 cuadros por segundo, pero esto puede ser modificado).
+<p>El c&#xF3;digo dentro del bloque draw() corre desde el principio al final, luego se repite hasta que cierras el programa cuando cierras la ventana. Cada iteraci&#xF3;n a trav&#xE9;s del bloque draw() es llamado un cuadro o frame. (La tasa de cuadros por defecto es de 60 cuadros por segundo, pero esto puede ser modificado).</p>
 
 ## Ejemplo 5-1: la funci&#xF3;n draw()
 
 Para observar como la funci&#xF3;n draw() funciona, corre este ejemplo:
 
-```
-function draw() {
-  //Muestra en la consola el contador de cuadros
-  print(&quot;Estoy dibujando&quot;);
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function draw() {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Muestra en la consola el contador de cuadros</p></div><div class="code">
+
+<pre><code>  print(&quot;Estoy dibujando&quot;);
   print(frameCount);
 }
-```
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function draw() {
+  //Muestra en la consola el contador de cuadros
+  print("Estoy dibujando");
+  print(frameCount);
+}
+</script>
 Ver&#xE1;s lo siguiente:
 
 ```
@@ -1396,11 +1965,11 @@ Estoy dibujando
 ...
 ```
 
-En el ejemplo anterior, las funciones print() escriben el texto &quot;Estoy dibujando&quot; seguido del contador actual de cuadros, tarea efectuada por la variable especial frameCount. El texto aparece en la consola de tu navegador.
+<p>En el ejemplo anterior, las funciones print() escriben el texto &quot;Estoy dibujando&quot; seguido del contador actual de cuadros, tarea efectuada por la variable especial frameCount. El texto aparece en la consola de tu navegador.</p>
 
 ## Ejemplo 5-2: la funci&#xF3;n setup()
 
-Para complementar la repetitiva funci&#xF3;n draw(), p5.js posee la funci&#xF3;n setup() que solo corre una vez cuando el programa empieza:
+<p>Para complementar la repetitiva funci&#xF3;n draw(), p5.js posee la funci&#xF3;n setup() que solo corre una vez cuando el programa empieza:</p>
 
 ```
 function setup() {
@@ -1412,7 +1981,7 @@ function draw() {
 }
 ```
 
-Cuando corres el c&#xF3;digo, en la consola se escribe lo siguiente:
+<p>Cuando corres el c&#xF3;digo, en la consola se escribe lo siguiente:</p>
 
 ```
 Estoy empezando

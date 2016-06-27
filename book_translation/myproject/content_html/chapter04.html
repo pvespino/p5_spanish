@@ -12,49 +12,17 @@
 
 <p>Por ejemplo, cuando haces variables la coordenada y y el diámetro para los tres círculos en este ejemplo, los mismos valores son usados para cada elipse:</p>
 
-```
-var y = 60;
-var d = 80;
-
-function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(204);
-  //izquierda
-  ellipse(75, y, d, d);
-  //centro
-  ellipse(175, y, d, d);
-  //derecha
-  ellipse(275, y, d, d);
-}
-```
+{% codesplit ch04/04_01.js %}
+{% p5 ch04/04_01.js class:'whatever' %}
 
 <h2>Ejemplo 4-2: cambiar los valores</h2>
 
 <p>Simplemente cambiar las variables y y d entonces altera las tres elipses:</p>
 
-```
-var y = 100;
-var d = 130;
+{% codesplit ch04/04_02.js %}
+{% p5 ch04/04_02.js class:'whatever' %}
 
-function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(204);
-  //izquierda
-  ellipse(75, y, d, d);
-  //centro
-  ellipse(175, y, d, d);
-  //derecha
-  ellipse(275, y, d, d);
-}
-```
-
-Sin las variables, necesitarías cambiar la coordenada y usada en el código tres veces y la del diámetro seis veces. Cuando comparas los ejemplos 4-1 y 4-2, revisa cómo todas las líneas son iguales, excepto las dos primeras líneas con variables que son diferentes. Las variables te permiten separar las líneas de código que cambian de las que no cambian, lo que hace que los programas sean fáciles de modificar. Por ejemplo, si pones las variables que controlan colores y tamaños en un lugar, entonces puedes explorar diferentes opciones visuales enfocándote en sólo unas pocas líneas de código.
+<p>Sin las variables, necesitarías cambiar la coordenada y usada en el código tres veces y la del diámetro seis veces. Cuando comparas los ejemplos 4-1 y 4-2, revisa cómo todas las líneas son iguales, excepto las dos primeras líneas con variables que son diferentes. Las variables te permiten separar las líneas de código que cambian de las que no cambian, lo que hace que los programas sean fáciles de modificar. Por ejemplo, si pones las variables que controlan colores y tamaños en un lugar, entonces puedes explorar diferentes opciones visuales enfocándote en sólo unas pocas líneas de código.</p>
 
 <h2>Haciendo variables</h2>
 
@@ -79,6 +47,7 @@ var x = 12;  // Declara la variable x y le asigna un valor
 var x;      // Declara la variable x
 var x = 12; // ERROR! No pueden haber dos variables x
 ```
+
 Puedes situar tus variables afuera de setup() y draw(). Si creas una variable dentro de setup(), no puedes usarla dentro de draw(), así que necesitas situar estas variables en otro lugar. Estas variables reciben el nombre de variables globales, porque pueden ser usadas en cualquier lugar ("globalmente") del programa.
 
 <h2>Variables de p5.js</h2>
@@ -89,18 +58,8 @@ Puedes situar tus variables afuera de setup() y draw(). Si creas una variable de
 
 <p>En este ejemplo, cambia los parámetros de createCanvas() para observar cómo funciona:</p>
 
-```
-function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(204);
-  line(0, 0, width, height); // Línea desde (0,0) a (480, 120)
-  line(width, 0, 0, height); // Línea desde (480,0) a (0, 120)
-  ellipse(width/2, height/2, 60, 60);
-}
-```
+{% codesplit ch04/04_03.js %}
+{% p5 ch04/04_03.js class:'whatever' %}
 
 <p>Existen también variables epsciales que mantienen registro del estado del ratón y de los valores del teclado, entre otras. Serán discutidas en el Capítulo 5.</p>
 
@@ -110,26 +69,9 @@ function draw() {
 
 <h2>Ejemplo 4-4: aritmética básica</h2>
 
-```
+{% codesplit ch04/04_04.js %}
+{% p5 ch04/04_04.js class:'whatever' %}
 
-var x = 25;
-var h = 20;
-var y = 25;
-
-function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(204);
-  x = 20;
-  rect(x,y,300,h);          // Superior
-  x = x + 100;
-  rect(x, y + h, 300, h);   // Centro
-  x = x - 250;
-  rect(x, y + h*2, 300, h); // Inferior
-}
-```
 <p>En el código, símbolos como +, - y * son llamados operadores. Cuando se encuentran entre dos valores, crean una expresión. Por ejemplo, 5 + 9 y 1024 - 512 son expresiones. Los operadores para operaciones matemáticas básicas son:</p>
 
 <p>Javascript tiene un conjunto de reglas para definir el orden de precedencia que los operadores tienen entre sí, lo que significa, cuáles cálculos son efectuados en primer, segundo y tercer lugar, etc. Estas reglas definen el orden en el que el código se ejecuta. Un poco de conocimiento sobre esto es un gran paso hacia el entendimiendo de cómo funciona una corta línea de código como esta:</p>
@@ -174,41 +116,15 @@ x --;  // Es equivalente a x = x - 1;
 
 <p>Este ejemplo tiene el tipo de patrón que puede ser simplificado con un "for loop":</p>
 
-```
-function setup() {
-  createCanvas(480, 120);
-  strokeWeight(8);
-}
-
-function draw() {
-  background(204);
-  line( 20, 40,  80, 80);
-  line( 80, 40, 140, 80);
-  line(140, 40, 200, 80);
-  line(200, 40, 260, 80);
-  line(260, 40, 320, 80);
-  line(320, 40, 380, 80);
-  line(380, 40, 440, 80);
-}
-```
+{% codesplit ch04/04_05.js %}
+{% p5 ch04/04_05.js class:'whatever' %}
 
 <h2>Ejemplo 4-6: usa un for loop</h2>
 
 <p>Lo mismo puede ser logrado con un for loop, y con mucho menos código:</p>
 
-```
-function setup() {
-  createCanvas(480, 120);
-  strokeWeight(8);
-}
-
-function draw() {
-  background(204);
-  for (var i = 20; i < 400; i += 60) {
-    line( i, 40,  i + 60, 80);
-  }
-}
-```
+{% codesplit ch04/04_06.js %}
+{% p5 ch04/04_06.js class:'whatever' %}
 
 <p>El for loop es diferente en muchas maneras del código que hemos escrito hasta ahora. Fíjate en las llaves, los caracteres { y }. El código repetido entre las llaves es llamado bloque. Este es el código que será repetido en cada iteración del for loop.</p>
 
@@ -219,6 +135,7 @@ for (init; test; update) {
   declaraciones
 }
 ```
+
 <p>Init típicamente declara una variable nueva a ser usada en el for loop y le asigna un valor. El nombre de variable i es frecuentemente usado, pero esto no tiene nada de especial. El test evalúa el valor de esta variable, y update change el valor de la variable. La figura 4-1 muestra el orden en el que el código es ejectuado y cómo controlan el código dentro del bloque.</p>
 
 <p>La prueba o test requiere más explicación. Siempre es una expresión de relación que compara dos valores con un operador relacional. En este ejemplo, la expresión es "i < 400" y el operador es el símbolo < (menor que). Los operadores relacionales más comunes son:</p>
@@ -229,95 +146,33 @@ for (init; test; update) {
 
 <p>El poder definitivo que entregan los for loop es la habilidad para hacer cambios rápidos a tu código. Como el código dentro del bloque es ejecutado típicamente múltiples veces, un cambio al bloque es magnificado cuando el código es ejecutado. Al modificar el ejemplo 4-6 un poco, podemos crear una variedad de distintos patrones:</p>
 
-```
-function setup() {
-  createCanvas(480, 120);
-  strokeWeight(2);
-}
-
-function draw() {
-  background(204);
-  for (var i = 20; i < 400; i += 8) {
-    line( i, 40,  i + 60, 80);
-  }
-}
-```
+{% codesplit ch04/04_07.js %}
+{% p5 ch04/04_07.js class:'whatever' %}
 
 <h2>Ejemplo 4-8: desplegando las líneas</h2>
 
-```
-function setup() {
-  createCanvas(480, 120);
-  strokeWeight(2);
-}
-
-function draw() {
-  background(204);
-  for (var i = 20; i < 400; i += 20) {
-    line( i, 0,  i + i/2, 80);
-  }
-}
-```
+{% codesplit ch04/04_08.js %}
+{% p5 ch04/04_08.js class:'whatever' %}
 
 <h2>Ejemplo 4-9: modificando las líneas</h2>
 
-```
-function setup() {
-  createCanvas(480, 120);
-  strokeWeight(2);
-}
-
-function draw() {
-  background(204);
-  for (var i = 20; i < 400; i += 20) {
-    line( i, 0,  i + i/2, 80);
-    line( i + i/2,  80, i * 1.2, 80);
-  }
-}
-```
+{% codesplit ch04/04_09.js %}
+{% p5 ch04/04_09.js class:'whatever' %}
 
 <h2>Ejemplo 4-10: anidando un for loop dentro de otro</h2>
 
 <p>Cuando un for loop es anidado dentro de otro, el número de repeticiones se multiplica. Primero veamos un ejemplo corto y luego lo veremos por partes en el ejemplo 4-11.</p>
 
-```
-function setup() {
-  createCanvas(480, 120);
-  noStroke();
-}
+{% codesplit ch04/04_10.js %}
+{% p5 ch04/04_10.js class:'whatever' %}
 
-function draw() {
-  background(0);
-  for (var y = 0; y <= height; y += 40) {
-    for (var x = 0; y <= width; y += 40) {
-      fill(255, 140);
-      ellipse(x, y, 40, 40);
-    }
-  }
-}
-```
 <h2>Ejemplo 4-11: filas y columnas</h2>
 
 <p>En este ejemplo, los for loops están adyacentes, en vez de estar uno dentro de otro. El resultado muestra que un for loop está dibujando una columna de 4 círculos y el otro está dibujando una fila de 13 círculos.</p>
 
-```
-function setup() {
-  createCanvas(480, 120);
-  noStroke();
-}
+{% codesplit ch04/04_11.js %}
+{% p5 ch04/04_11.js class:'whatever' %}
 
-function draw() {
-  background(0);
-  for (var y = 0; y < height + 45; y += 40) {
-    fill(255, 140);
-    ellipse(0, y, 40, 40);
-  }
-  for (var x = 0; x <= width + 45; x += 40) {
-    fill(255, 140);
-    ellipse(x, 0, 40, 40);
-  }
-}
-```
 <p>Cuando uno de estos for loop es puesto dentro del otro, como en el ejemplo 4-10, las 4 repeticiones del primer loop son compuestas con las 13 del segundo, para así ejecutar el código dentro del bloque compuesta 52 veces (4 x 13 = 52).</p>
 
 <p>El ejemplo 4-10 es una buena base para explorar muchos tipos de patrones visuales repetitivos. Los siguientes ejemplos muestran un par de maneras en que esto puede ser extendido, pero esto es solo una pequeña muestra de lo que es posible.</p>
@@ -326,43 +181,15 @@ function draw() {
 
 <p>En este ejemplo, el código dibuja una línea desde cada punto de la matriz hasta el centro de la pantalla:</p>
 
-```
-function setup() {
-  createCanvas(480, 120);
-  fill(255);
-  stroke(102);
-}
-
-function draw() {
-  background(0);
-  for (var y = 20; y < height - 20; y += 10) {
-    for (var x = 20; x <= width - 20; x += 10) {
-      ellipse(x, y, 4, 4);
-      // Dibuja una línea al centro de la imagen
-      line(x, y, 240, 60);
-    }
-  }
-}
-```
+{% codesplit ch04/04_12.js %}
+{% p5 ch04/04_12.js class:'whatever' %}
 
 <h2>Ejemplo 4-13: Puntos semitono</h2>
 
 <p>En este ejemplo, las elipses se reducen en tamaño con cada nueva fila y son movidas hacia la derecha, por medio de añadir la coordenada y a la coordenada x:</p>
 
-```
-function setup() {
-  createCanvas(480, 120);
-}
-
-function draw() {
-  background(0);
-  for (var y = 32; y < height; y += 8) {
-    for (var x = 12; x <= width; x += 15) {
-      ellipse(x + y, y, 16 - y/10.0, 16 - y/10.0);
-    }
-  }
-}
-```
+{% codesplit ch04/04_13.js %}
+{% p5 ch04/04_13.js class:'whatever' %}
 
 <h2>Robot 2: variables</h2>
 
@@ -370,56 +197,7 @@ function draw() {
 
 <p>Cuando alteras tu propio código para usar variables en vez de números, planea los cambios cuidadosamente y después haz las modificaciones en pasos cortos. Por ejemplo, cuando este programa fue escrito, cada variable fue creada de a una a la vez para minimizar la complejidad de la transición. Solo después de que una variable era creada y el código era ejecutado para asegurarse de que funcionara correctamente, se añadía una siguiente variable:</p>
 
-```
-var x = 60;                                      // Coordenada X
-var y = 420;                                    // Coordenada Y
-var bodyHeight = 110;                           // Altura del cuerpo
-var neckHeight = 140;                           // Altura del cuello
-var radius = 45;
-var ny = y - bodyHeight - neckHeight - radius;  // Y del cuello
-
-function setup(){
-  createCanvas(170, 480);
-  strokeWeight(2);
-  ellipseMode(RADIUS);
-}
-
-function draw() {
-  background(204);
-
-  // Cuello
-  stroke(102);
-  line(x +  2, y - bodyHeight, x +  2, ny);
-  line(x + 12, y - bodyHeight, x + 12, ny);
-  line(x + 22, y - bodyHeight, x + 22, ny);
-
-  // Antenas
-  line(x + 12, ny, x - 18, ny - 43);
-  line(x + 12, ny, x + 42, ny - 99);
-  line(x + 12, ny, x + 78, ny + 15);
-
-  // Cuerpo
-  noStroke();
-  fill(102);
-  ellipse(x, y - 33, 33, 33);
-  fill(0);
-  rect(x - 45, y - bodyHeight, 90, bodyHeight - 33);
-  fill(102);
-  rect(x - 45, y - bodyHeight + 17, 90, 6);
-
-  // Cabeza
-  fill(0);
-  ellipse(x + 12, ny, radius, radius);
-  fill(255);
-  ellipse(x + 24, ny - 6, 14, 14);
-  fill(0);
-  ellipse(x + 24, ny - 6, 3, 3);
-  fill(153);
-  ellipse(x, ny - 8, 5, 5);
-  ellipse(x + 30, ny - 26, 4, 4);
-  ellipse(x + 41, ny + 6, 3, 3);
-}
-
-```
+{% codesplit ch04/robot_02.js %}
+{% p5 ch04/robot_02.js class:'whatever' %}
 
 </section>

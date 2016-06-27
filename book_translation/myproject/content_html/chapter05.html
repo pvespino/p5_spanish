@@ -2,23 +2,19 @@
 
 <h1>Capítulo 5. Respuesta</h1>
 
-El código que responde a acciones de entrada del ratón, teclado u otros dispositivos  depende en que el programa corra continuamente. Ya nos enfrentamos a las funciones setup() y draw() en el Capítulo 1. Ahora aprenderemos más sobre qué hacen y cómo usarlas para reaccionar a entradas al programa.
+<p>El código que responde a acciones de entrada del ratón, teclado u otros dispositivos  depende en que el programa corra continuamente. Ya nos enfrentamos a las funciones setup() y draw() en el Capítulo 1. Ahora aprenderemos más sobre qué hacen y cómo usarlas para reaccionar a entradas al programa.</p>
 
 ## Una vez y para siempre
 
-El código dentro del bloque draw() corre desde el principio al final, luego se repite hasta que cierras el programa cuando cierras la ventana. Cada iteración a través del bloque draw() es llamado un cuadro o frame. (La tasa de cuadros por defecto es de 60 cuadros por segundo, pero esto puede ser modificado).
+<p>El código dentro del bloque draw() corre desde el principio al final, luego se repite hasta que cierras el programa cuando cierras la ventana. Cada iteración a través del bloque draw() es llamado un cuadro o frame. (La tasa de cuadros por defecto es de 60 cuadros por segundo, pero esto puede ser modificado).</p>
 
 ## Ejemplo 5-1: la función draw()
 
 Para observar como la función draw() funciona, corre este ejemplo:
 
-```
-function draw() {
-  //Muestra en la consola el contador de cuadros
-  print("Estoy dibujando");
-  print(frameCount);
-}
-```
+{% codesplit ch05/05_01.js %}
+{% p5 ch05/05_01.js class:'whatever' %}
+
 Verás lo siguiente:
 
 ```
@@ -31,11 +27,11 @@ Estoy dibujando
 ...
 ```
 
-En el ejemplo anterior, las funciones print() escriben el texto "Estoy dibujando" seguido del contador actual de cuadros, tarea efectuada por la variable especial frameCount. El texto aparece en la consola de tu navegador.
+<p>En el ejemplo anterior, las funciones print() escriben el texto "Estoy dibujando" seguido del contador actual de cuadros, tarea efectuada por la variable especial frameCount. El texto aparece en la consola de tu navegador.</p>
 
 ## Ejemplo 5-2: la función setup()
 
-Para complementar la repetitiva función draw(), p5.js posee la función setup() que solo corre una vez cuando el programa empieza:
+<p>Para complementar la repetitiva función draw(), p5.js posee la función setup() que solo corre una vez cuando el programa empieza:</p>
 
 ```
 function setup() {
@@ -47,7 +43,7 @@ function draw() {
 }
 ```
 
-Cuando corres el código, en la consola se escribe lo siguiente:
+<p>Cuando corres el código, en la consola se escribe lo siguiente:</p>
 
 ```
 Estoy empezando
