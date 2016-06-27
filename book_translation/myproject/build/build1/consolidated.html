@@ -2969,7 +2969,7 @@ function draw() {
   rect(0, 0, 30, 30);
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -2999,7 +2999,7 @@ function draw() {
   rect(0, 0, 15, 15);
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -3035,7 +3035,7 @@ function draw() {
   rect(40, 30, 160, 20);
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -3061,7 +3061,7 @@ function draw() {
   rect(-80, -10, 160, 20);
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -3093,7 +3093,7 @@ function draw() {
   angle += 0.1;
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var angle = 0.0;
 
 function setup() {
   createCanvas(120, 120);
@@ -3127,7 +3127,7 @@ function draw() {
   angle += 0.1;
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var angle = 0.0;
 
 function setup() {
   createCanvas(120, 120);
@@ -3180,7 +3180,7 @@ function draw() {
   }
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var angle = 0.0;
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var angle = 0.0;
 var angleDirection = 1;
 var speed = 0.005;
 
@@ -3232,7 +3232,7 @@ function draw() {
   rect(-15, -15, 30, 30);
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -3262,7 +3262,7 @@ function draw() {
   rect(-15, -15, 30, 30);
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -3299,7 +3299,7 @@ function draw() {
   rect(0, 0, 15, 15);
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">function setup() {
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(120, 120);
   background(204);
 }
@@ -3387,7 +3387,7 @@ function draw() {
   ellipse(24, neckY - 6, 3, 3);
 }
 
-</code></pre></div></div></div></div><script type="text/p5" class="p5 whatever">var x = 60;           // Coordenada x
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x = 60;           // Coordenada x
 var y = 440;          // Coordenada y
 var radius = 45;      // Radio de la cabeza
 var bodyHeight = 180; // Altura del cuerpo
@@ -3468,29 +3468,29 @@ function draw() {
 
 <p>Crea un nuevo bosquejo, y copia el archivo lunar.jpg desde el directorio media que acabas de descomprimir al directorio de tu bosquejo.</p>
 
-## Nota
+<h2>Nota</h2>
 
 <p>En Windows y Mac OS X, las extensiones de los archivos est&#xE1;n escondidas por defecto. Es una buena idea cambiar esta opci&#xF3;n para que siempre veas el nombre completo de tus archivos. En Mac OS X, selecciona Preferencias desde el men&#xFA; principal, y luego aseg&#xFA;rate que &quot;Mostrar la extensi&#xF3;n completa&quot; est&#xE9; seleccionado en la pesta&#xF1;a de opciones avanzadas. En Windows, busca las Opciones de Directorio, y selecciona la opci&#xF3;n ah&#xED;.</p>
 
-
-## Im&#xE1;genes
+<h2>Im&#xE1;genes</h2>
 
 <p>Estos son los tres pasos que tienes que seguir antes de que puedas dibujar una imagen en la pantalla:</p>
 
-1. A&#xF1;ade la imagen al directorio del bosquejo
+<ol>
+  <li>A&#xF1;ade la imagen al directorio del bosquejo.</li>
+  <li>Crea una variable para almacenar la imagen.</li>
+  <li>Carga la imagen a la variable con la funci&#xF3;n loadImage().</li>
+</ol>
 
-2. Crea una variable para almacenar la imagen.
-
-3. Carga la imagen a la variable con la funci&#xF3;n loadImage().
-
-## Ejemplo 7-1: carga una imagen
+<h2>Ejemplo 7-1: carga una imagen</h2>
 
 <p>Para cargar una imagen, introduciremos una nueva funci&#xF3;n llamada preload(). La funci&#xF3;n preload() corre una vez y antes de que la funci&#xF3;n setup() corra. Generalmente deber&#xED;as cargar tus imagenes y otros archivos dentro de preload() para asegurarte que est&#xE9;n completamente cargadas antes de que tu programa empiece a correr. Discutiremos esto en mayor profundidad m&#xE1;s adelante en el cap&#xED;tulo.</p>
 
 <p>Despu&#xE9;s de que los tres pasos son completados, puedes dibujar la imagen en la pantalla con la funci&#xF3;n image(). El primer par&#xE1;metro de image() especifica la imagen a dibujar, el segundo y tercero son las coordenadas x e y:</p>
 
-```
-var img;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var img;
 
 function preload() {
   img = loadImage(&quot;lunar.jpg&quot;);
@@ -3503,18 +3503,32 @@ function setup() {
 function draw() {
   image(img, 0, 0);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var img;
+
+function preload() {
+  img = loadImage("lunar.jpg");
+}
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  image(img, 0, 0);
+}
+</script>
 <p>Los par&#xE1;metros opcionales cuarto y quinto determinan el ancho y altura de la imagen a dibujar. Si no se usan los par&#xE1;metros cuarto y quinto, la imagen es dibujada al tama&#xF1;o original que fue creada.</p>
 
 <p>Los siguientes ejemplos muestran c&#xF3;mo trabajar con m&#xE1;s de una imagen en el mismo programa y c&#xF3;mo escalar la imagen.</p>
 
-## Ejemplo 7-2: carga m&#xE1;s im&#xE1;genes
+<h2>Ejemplo 7-2: carga m&#xE1;s im&#xE1;genes</h2>
 
 <p>Para este ejemplo, necesitar&#xE1;s agregar el archivo capsule.jpg (que est&#xE1; dentro del directorio media que descargaste) al directorio de tu bosquejo.</p>
 
-```
-var img1;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var img1;
 var img2;
 
 function preload() {
@@ -3531,13 +3545,32 @@ function draw() {
   image(img1, 130, 0, 240, 120);
   image(img2, 300, 0, 240, 120);
 }
-```
-## Ejemplo 7-3: mover las im&#xE1;genes con el rat&#xF3;n
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var img1;
+var img2;
+
+function preload() {
+  img1 = loadImage("lunar.jpg");
+  img2 = loadImage("capsule.jpg");
+}
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  image(img1, -120, 0);
+  image(img1, 130, 0, 240, 120);
+  image(img2, 300, 0, 240, 120);
+}
+</script>
+<h2>Ejemplo 7-3: mover las im&#xE1;genes con el rat&#xF3;n</h2>
 
 <p>Cuando las variables mouseX y mouseY son usadas como los par&#xE1;metros cuarto y quinto de la funci&#xF3;n image(), el tama&#xF1;o de la imagen cambia con el movimiento del rat&#xF3;n:</p>
 
-```javascript
-var img;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var img;
 
 function preload() {
   img = loadImage(&quot;lunar.jpg&quot;);
@@ -3551,9 +3584,23 @@ function draw() {
   background(0);
   image(img, 0, 0, mouseX * 2, mouseY * 2);
 }
-```
 
-## Nota
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var img;
+
+function preload() {
+  img = loadImage("lunar.jpg");
+}
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(0);
+  image(img, 0, 0, mouseX * 2, mouseY * 2);
+}
+</script>
+<h2>Nota</h2>
 
 <p>Cuando una imagen es mostrada m&#xE1;s grande o peque&#xF1;a que su tama&#xF1;o original, puede aparecer distorsionada. Ten cuidado en preparar tus im&#xE1;genes a los tama&#xF1;os en que ser&#xE1;n usadas. Cuando el tama&#xF1;o de la imagen es cambiado con la funci&#xF3;n image(), el archivo original en tu directorio del bosquejo no cambia.</p>
 
@@ -3561,10 +3608,11 @@ function draw() {
 
 <p>Las im&#xE1;genes GIF, PNG y SVG soportan transparencia, lo que significa que los pixeles pueden ser invisibles o parcialmente visibles (recuerda la discusi&#xF3;n de color() y valores alpha en el Ejemplo 3-17). Las im&#xE1;genes GIF tienen transparencia de 1 bit, lo que significa que los pixeles son totalmente opacos o totalmente transparentes. Las im&#xE1;genes PNG soportan transparencia de 8 bits, lo que significa que cada pixel tiene una variable de opacidad. Los siguientes ejemplos usan los archivos clouds.gif y clouds.png para mostrar las diferencias entre los formatos. Las im&#xE1;genes est&#xE1;n dentro del directorio media que has descargado anteriormente. Aseg&#xFA;rate de incluirlas al directorio de tu bosquejo antes de probar cada ejemplo.</p>
 
-## Ejemplo 7-4: transparencia con GIF
+<h2>Ejemplo 7-4: transparencia con GIF</h2>
 
-```javascript
-var img;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var img;
 
 function preload() {
   img = loadImage(&quot;clouds.gif&quot;);
@@ -3579,12 +3627,28 @@ function draw() {
   image(img, 0, 0);
   image(img, 0, mouseY * -1);
 }
-```
 
-## Ejemplo 7-5: transparencia con PNG
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var img;
 
-```javascript
-var img;
+function preload() {
+  img = loadImage("clouds.gif");
+}
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  image(img, 0, 0);
+  image(img, 0, mouseY * -1);
+}
+</script>
+<h2>Ejemplo 7-5: transparencia con PNG</h2>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var img;
 
 function preload() {
   img = loadImage(&quot;clouds.png&quot;);
@@ -3599,12 +3663,28 @@ function draw() {
   image(img, 0, 0);
   image(img, 0, mouseY * -1);
 }
-```
 
-## Ejemplo 7-6: mostrar una imagen SVG
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var img;
 
-```javascript
-var img;
+function preload() {
+  img = loadImage("clouds.png");
+}
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  image(img, 0, 0);
+  image(img, 0, mouseY * -1);
+}
+</script>
+<h2>Ejemplo 7-6: mostrar una imagen SVG</h2>
+
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var img;
 
 function preload() {
   img = loadImage(&quot;network.svg&quot;);
@@ -3619,22 +3699,38 @@ function draw() {
   image(img, 0, 0);
   image(img, mouseX, 0);
 }
-```
 
-## Nota
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var img;
+
+function preload() {
+  img = loadImage("network.svg");
+}
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  image(img, 0, 0);
+  image(img, mouseX, 0);
+}
+</script>
+<h2>Nota</h2>
 
 <p>Recuerda incluir la extensi&#xF3;n apropiada del archivo (.gif, .jpg, .png o .svg) cuando cargas la imagen. Tambi&#xE9;n aseg&#xFA;rate que el nombre de la imagen est&#xE9; escrito exactamente como aparece en el archivo, incluyendo may&#xFA;sculas y min&#xFA;sculas.</p>
 
-## Asincronicidad
+<h2>Asincronicidad</h2>
 
 <p>&#xBF;Por qu&#xE9; necesitamos cargar las im&#xE1;genes en preload()? &#xBF;Por qu&#xE9; no usamos setup()? Hasta este punto, hemos estado asumiendo que nuestros programas corren desde la parte superior a la finerior, con cada l&#xED;nea de c&#xF3;digo siendo ejecutada completamente antes de avanzar a la siguiente. Aunque esto es generalmente cierto, en el caso de algunas funciones  como cargar im&#xE1;genes, tu navegador empezar&#xE1; el proceso de cargar la imagen, pero se saltar&#xE1; a la siguiente l&#xED;nea antes de que la imagen haya terminado de cargarase. Esto recibe el nombre de asincronicidad, o de funci&#xF3;n as&#xED;ncrona. Es un poco inesperado al principio, pero esto permite que las p&#xE1;ginas carguen y corran m&#xE1;s r&#xE1;pido en la web.</p>
 
 <p>Para ver esto con mayor claridad, considera el siguiente ejemplo. Es id&#xE9;ntico al ejemplo 7-1, excepto que usamos loadImage() dentro de setup() en vez de preload().</p>
 
-## Ejemplo 7-7: demonstrando la Asincronicidad
+<h2>Ejemplo 7-7: demonstrando la asincronicidad</h2>
 
-```javascript
-var img;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var img;
 
 function setup() {
   createCanvas(480, 120);
@@ -3646,18 +3742,31 @@ function draw() {
   background(204);
   image(img, 0, 0);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var img;
+
+function setup() {
+  createCanvas(480, 120);
+  img = loadImage("lunar.jpg");
+  noLoop();
+}
+
+function draw() {
+  background(204);
+  image(img, 0, 0);
+}
+</script>
 <p>Cuando corras este programa, te dar&#xE1;s cuenta que el lienzo para pintar est&#xE1; gris y que la imagen no est&#xE1; sinedo mostrada. El bosquejo corre la funci&#xF3;n setup() primero y luego corre la funci&#xF3;n draw(). En la l&#xED;nea de loadImage(), empieza a cargar la imagen, pero contin&#xFA;a con el resto de setup() y con draw() antes de que la imagen est&#xE9; cargada. La funci&#xF3;n image() no es capaz de cargar una imagen que todav&#xED;a no est&#xE9; cargada.</p>
 
 <p>Para ayudar con este problema, p5.js tiene la funci&#xF3;n preload(). A diferencia de setup(), la funci&#xF3;n preload() forza al programa a esperar hasta que todo est&#xE9; cargado. Es mejor hacer las llamadas para cargar archivos dentro de preload(), y hacer toda la configuraci&#xF3;n en setup().</p>
 
 <p>Alternativamente, en vez de usar preload(), puedes usar algo llamado funci&#xF3;n de retrollamada (callback).</p>
 
-## Ejemplo 7-8: cargando con un callback
+<h2>Ejemplo 7-8: cargando con un callback</h2>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   loadImage(&quot;lunar.jpg&quot;, drawImage);
   noLoop();
@@ -3670,22 +3779,36 @@ function draw() {
 function drawImage(img) {
   image(img, 0, 0);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+  loadImage("lunar.jpg", drawImage);
+  noLoop();
+}
+
+function draw() {
+  background(200);
+}
+
+function drawImage(img) {
+  image(img, 0, 0);
+}
+</script>
 <p>En este ejemplo, a&#xF1;adimos un segundo argumento a loadImage(), que es la funci&#xF3;n que queremos que corra despu&#xE9;s de que la carga es completada. Una vez que la imagen ha cargado, la funci&#xF3;n callback drawImage() es autom&#xE1;ticamente llamada, con un argumento, la imagen que ha sido cargada.</p>
 
 <p>No hay necesidad de crear una variable global para guardar la imagen. La imagen es pasada directamente a la funci&#xF3;n callback, con el nombre del par&#xE1;metro escogido en la definici&#xF3;n de la funci&#xF3;n.</p>
 
-## Fuentes de letras
+<h2>Fuentes de letras</h2>
 
 <p>p5.js puede mostrar texto en fuentes distintas que la por defecto. Puedes usar cualquier fuente que est&#xE9; en tu computador (son llamadas fuentes del sistema). Ten en cuenta que si est&#xE1;s compartiendo esto en la web, otra gente necesitar&#xE1; a&#xF1;adir la fuente de sistema para poder ver el texto en la fuente que escogiste. Hay un n&#xFA;mero de fuentes que la mayor parte de los computadores y dispositivos tienen: estas incluyen &quot;Arial&quot;, &quot;Courier&quot;, &quot;Courier New&quot;, &quot;Georgia&quot;, &quot;Helvetica&quot;, &quot;Palatino&quot;, &quot;Times New Roman&quot;, &quot;Trebuchet MS&quot; y &quot;Verdana&quot;.</p>
 
-## Ejemplo 7-9: dibujando con fuentes
+<h2>Ejemplo 7-9: dibujando con fuentes</h2>
 
 <p>Puedes usar la funci&#xF3;n textFont() para configurar la fuente actual. Puedes dibujar letras en la pantalla con la funci&#xF3;n text() y puedes cambiar el tama&#xF1;o con la funci&#xF3;n textSize():</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   textFont(&quot;Arial&quot;);
 }
@@ -3697,11 +3820,23 @@ function draw() {
   textSize(16);
   text(&quot;one small step for man...&quot;, 27, 90);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+  textFont("Arial");
+}
+
+function draw() {
+  background(102);
+  textSize(32);
+  text("one small step for man...", 25, 60);
+  textSize(16);
+  text("one small step for man...", 27, 90);
+}
+</script>
 <p>El primer par&#xE1;metro de text() son los caracteres a ser dibujados en la pantalla. (Date cuenta que los caracteres est&#xE1;n entre comillas). Los segundo y tercer par&#xE1;metros definen la ubicaci&#xF3;n horizontal y vertical. La ubicaci&#xF3;n est&#xE1; basada en la base del texto (ver Figura 7-1).</p>
 
-## Ejemplo 7-10: usar una fuente de la web
+<h2>Ejemplo 7-10: usar una fuente de la web</h2>
 
 <p>Si no quieres estar limitado a esta peque&#xF1;a lista de fuentes, puedes usar una de la web. Dos sitios web que son buenos recursos para encontrar fuentes web con licencias abiertas para usar con p5.js son GoogleFonts y la Open Font Library.</p>
 
@@ -3721,8 +3856,9 @@ function draw() {
 
 <p>Una vez que hayas referenciado la fuente, puedes usarla con textFont() tal como las fuentes de sistema:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   textFont(&quot;Source Code Pro&quot;);
 }
@@ -3734,14 +3870,27 @@ function draw() {
   textSize(16);
   text(&quot;one small step for man...&quot;, 27, 90);
 }
-```
 
-## Ejemplo 7-11: define el trazado del texto y el relleno
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+  textFont("Source Code Pro");
+}
+
+function draw() {
+  background(102);
+  textSize(28);
+  text("one small step for man...", 25, 60);
+  textSize(16);
+  text("one small step for man...", 27, 90);
+}
+</script>
+<h2>Ejemplo 7-11: define el trazado del texto y el relleno</h2>
 
 <p>Tal como las figuras, el texto es afectado por las funciones stroke() y fill(). El siguiente ejemplo resulta en texto negro con borde blanco:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   textFont(&quot;Source Code Pro&quot;);
   fill(0);
@@ -3755,14 +3904,29 @@ function draw() {
   textSize(16);
   text(&quot;one small step for man...&quot;, 27, 90);
 }
-```
 
-## Ejemplo 7-12: dibuja el texto en un recuadro
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+  textFont("Source Code Pro");
+  fill(0);
+  stroke(255);
+}
+
+function draw() {
+  background(102);
+  textSize(28);
+  text("one small step for man...", 25, 60);
+  textSize(16);
+  text("one small step for man...", 27, 90);
+}
+</script>
+<h2>Ejemplo 7-12: dibuja el texto en un recuadro</h2>
 
 <p>Puedes tambi&#xE9;n definir que el texto se dibuje dentro de un recuadro a&#xF1;adiendo los par&#xE1;metros cuarto y quinto para especificar el ancho y altura del recuadro:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
   textFont(&quot;Source Code Pro&quot;);
   textSize(24);
@@ -3772,14 +3936,25 @@ function draw() {
   background(102);
   text(&quot;one small step for man...&quot;, 26, 24, 240, 100);
 }
-```
 
-## Ejemplo 7-13: guardar el texto en una variable
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+  textFont("Source Code Pro");
+  textSize(24);
+}
+
+function draw() {
+  background(102);
+  text("one small step for man...", 26, 24, 240, 100);
+}
+</script>
+<h2>Ejemplo 7-13: guardar el texto en una variable</h2>
 
 <p>En el ejemplo anterior, las palabras dentro de la funci&#xF3;n text() hacen que el c&#xF3;digo sea dif&#xED;cil de leer. Podemos guardar estas palabras en una variable para asegurar que el c&#xF3;digo sea m&#xE1;s modular. Aqu&#xED; est&#xE1; una nueva versi&#xF3;n del ejemplo anterior que usa una variable:</p>
 
-```javascript
-var quote = &quot;one small step for man...&quot;;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var quote = &quot;one small step for man...&quot;;
 
 function setup() {
   createCanvas(480, 120);
@@ -3791,11 +3966,23 @@ function draw() {
   background(102);
   text(quote, 26, 24, 240, 100);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var quote = "one small step for man...";
+
+function setup() {
+  createCanvas(480, 120);
+  textFont("Source Code Pro");
+  textSize(24);
+}
+
+function draw() {
+  background(102);
+  text(quote, 26, 24, 240, 100);
+}
+</script>
 <p>Hay un conjunto de funciones adicionales que afectan c&#xF3;mo las letras son mostradas en la pantalla. Son explicadas, con ejemplos, en la categor&#xED;a de Tipograf&#xED;a en la Referencia de p5.js.</p>
 
-## Robot 5: media
+<h2>Robot 5: media</h2>
 
 <p>A diferencia de los robots creados con l&#xED;neas y rect&#xE1;ngulos dibujados en p5.js durante los cap&#xED;tulos anteriores, estos robots fueron creados con un programa de dibujo vectorial. Para algunas figuras, es m&#xE1;s f&#xE1;cil apuntar y hacer click con un software como Inkscape o Illustrator que definir las figuras con coordenadas en c&#xF3;digo.</p>
 
@@ -3805,8 +3992,9 @@ function draw() {
 
 <p>Los archivos SVG y PNG usados en este ejemplo pueden ser descargados desde http://p5js.org/learn/books/media.zip:</p>
 
-```javascript
-var bot1;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var bot1;
 var bot2;
 var bot3;
 var landscape;
@@ -3814,8 +4002,9 @@ var landscape;
 var easing = 0.05;
 var offset = 0;
 
-// Precarga las im&#xE1;genes
-function preload() {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Precarga las im&#xE1;genes</p></div><div class="code">
+
+<pre><code>function preload() {
   bot1 = loadImage(&quot;robot1.svg&quot;);
   bot2 = loadImage(&quot;robot2.svg&quot;);
   bot2 = loadImage(&quot;robot3.svg&quot;);
@@ -3827,29 +4016,81 @@ function setup() {
 }
 
 function draw() {
-  // Definir la imagen &quot;landscape&quot; como funci&#xF3;n
+</code></pre></div></div><div class="pair"><div class="comment"><p>Definir la imagen &quot;landscape&quot; como funci&#xF3;n Esta imagen debe tener el mismo ancho y altura que el programa</p></div><div class="code">
+
+<pre><code>  background(landscape);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Definir el offset izquierdo y derecho y aplicar el suavizado para hacer la transici&#xF3;n m&#xE1;s suave</p></div><div class="code">
+
+<pre><code>  var targetOffset = map(mouseY, 0, height, -40, 40);
+  offset += (targetOffset - offset) * easing;
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja el robot izquierdo</p></div><div class="code">
+
+<pre><code>  image(bot1, 85 + offset, 65);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja el robot derecho m&#xE1;s peque&#xF1;o y haz que tenga un menor offset</p></div><div class="code">
+
+<pre><code>  var smallerOffset = offset * 0.7;
+  image(bot2, 510 + smallerOffset, 140, 78, 248);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja el robot m&#xE1;s peque&#xF1;o, dale un offset menor</p></div><div class="code">
+
+<pre><code>  smallerOffset *= -0.5;
+  image(bot3, 410 + smallerOffset, 225, 39, 124);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var bot1;
+var bot2;
+var bot3;
+var landscape;
+
+var easing = 0.05;
+var offset = 0;
+
+// Precarga las imágenes
+function preload() {
+  bot1 = loadImage("robot1.svg");
+  bot2 = loadImage("robot2.svg");
+  bot2 = loadImage("robot3.svg");
+  landscape = loadImage("alpine.svg");
+}
+
+function setup() {
+  createCanvas(720, 480);
+}
+
+function draw() {
+  // Definir la imagen "landscape" como función
   // Esta imagen debe tener el mismo ancho y altura que el programa
   background(landscape);
 
   // Definir el offset izquierdo y derecho y aplicar
-  // el suavizado para hacer la transici&#xF3;n m&#xE1;s suave
+  // el suavizado para hacer la transición más suave
   var targetOffset = map(mouseY, 0, height, -40, 40);
   offset += (targetOffset - offset) * easing;
 
   // Dibuja el robot izquierdo
   image(bot1, 85 + offset, 65);
 
-  // Dibuja el robot derecho m&#xE1;s peque&#xF1;o y
+  // Dibuja el robot derecho más pequeño y
   // haz que tenga un menor offset
   var smallerOffset = offset * 0.7;
   image(bot2, 510 + smallerOffset, 140, 78, 248);
 
-  // Dibuja el robot m&#xE1;s peque&#xF1;o, dale un offset menor
+  // Dibuja el robot más pequeño, dale un offset menor
   smallerOffset *= -0.5;
   image(bot3, 410 + smallerOffset, 225, 39, 124);
 }
-```
-
+</script>
 </section>
 
 <section data-type="chapter" id="capitulo_08_movimiento">
@@ -3858,53 +4099,54 @@ function draw() {
 
 <p>Tal como un folioscopio, la animaci&#xF3;n en la pantalla es creada para dibujar una imagen, luego otra, y as&#xED;. La ilusi&#xF3;n de movimiento fluido es creada por persistencia de visi&#xF3;n. Cuando un conjunto de im&#xE1;genes similares es presentado a una tasa suficiente, nuestros cerebros traducen estas im&#xE1;genes en movimiento.</p>
 
-## Cuadros
+<h2>Cuadros</h2>
 
 <p>Para crear movimiento fluido, p5.js trata de correr el c&#xF3;digo dentro de draw() a una tasa de 60 cuadros por segundo. Un cuadro es una ejecuci&#xF3;n de la funci&#xF3;n draw() y la tasa de cuadros equivale a cu&#xE1;ntos cuadros son dibujados cada segundo. Entonces, un programa que dibuja 60 cuadros cpor segundo corre todo el c&#xF3;digo dentro de la funci&#xF3;n draw() 60 veces por segundo.</p>
 
-## Ejemplo 8-1: ve la tasa de cuadros
+<h2>Ejemplo 8-1: ve la tasa de cuadros</h2>
 
 <p>Para confirmar la tasa de cuadros, podemos usar la consola del navegador que aprendimos a usar en el Cap&#xED;tulo 1. La funci&#xF3;n frameRate() te arroja la velocidad actual de tu programa. Abre la consola, corre este programa y revisa los valores impresos:</p>
 
-```javascript
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
-function draw() {
+<pre><code>function draw() {
   var fr = frameRate();
   print(fr);
 }
-```
 
-## Ejemplo 8-2: define la tasa de cuadros
+</code></pre></div></div></div></div>
+<h2>Ejemplo 8-2: define la tasa de cuadros</h2>
 
 <p>La funci&#xF3;n frameRate() puede tambi&#xE9;n cambiar la velocidad a la que el programa corre. Cuando es ejecutada sin par&#xE1;metro (como en el Ejemplo 8-1), arroja la actual tasa de cuadros. Sin embargo, cuando la funci&#xF3;n frameRate() es llamada con un par&#xE1;metro, define la tasa de cuadros a ese valor. Para ver el resultado, ejecuta las distintas versiones de frameRate() de este ejemplo, descoment&#xE1;ndolas:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   frameRate(30);    // Treinta cuadros por segundo
-  //frameRate(12);  // Doce cuadros por segundo
-  //frameRate(2);   // Dos cuadros por segundo
-  //frameRate(0.5); // Un cuadro cada dos segundos
-}
+</code></pre></div></div><div class="pair"><div class="comment"><p>frameRate(12);  // Doce cuadros por segundo frameRate(2);   // Dos cuadros por segundo frameRate(0.5); // Un cuadro cada dos segundos</p></div><div class="code">
+
+<pre><code>}
 function draw() {
   var fr = frameRate();
   print(fr);
 }
-```
 
-## Nota:
+</code></pre></div></div></div></div>
+<h2>Nota:</h2>
 
 <p>p5.js trata de correr el c&#xF3;digo a una tasa de 60 cuadros por segundo, pero si tarda m&#xE1;s de de 1/60 segundos en correr el m&#xE9;todo draw(), entonces la tasa decrecer&#xE1;. La funci&#xF3;n frameRate() especifica solo la tasa m&#xE1;xima, y la tasa real para cualquier programa depende en el computador corriendo el c&#xF3;digo.</p>
 
-## Velocidad y direcci&#xF3;n
+<h2>Velocidad y direcci&#xF3;n</h2>
 
 <p>Para crear exemplos de movimiento fluido, creamos variables que guardan n&#xFA;meros y los modifican un poco cada cuadro.</p>
 
-## Ejemplo 8-3: mueve una figura.
+<h2>Ejemplo 8-3: mueve una figura</h2>
 
 <p>El siguiente ejemplo mueve una figura de izquierda a derecha, actualizando la variable x:</p>
 
-```javascript
-var radius = 40;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var radius = 40;
 var x = -radius;
 var speed = 0.5;
 
@@ -3918,16 +4160,31 @@ function draw() {
   x += speed;   // Aumenta el valor de x
   arc(x, 60, radius, radius, 0.52, 5.76);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var radius = 40;
+var x = -radius;
+var speed = 0.5;
+
+function setup() {
+  createCanvas(240, 120);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(0);
+  x += speed;   // Aumenta el valor de x
+  arc(x, 60, radius, radius, 0.52, 5.76);
+}
+</script>
 <p>Cuando corres este c&#xF3;digo, observar&#xE1;s que la figura se mueve m&#xE1;s all&#xE1; del borde derecho de la pantalla cuando el valor de la variable x es mayor que el ancho de la ventana. El valor de x sigue aumentando, pero la figura ya no es visible.</p>
 
-## Ejemplo 8-4: dar la vuelta
+<h2>Ejemplo 8-4: dar la vuelta</h2>
 
 <p>Existen muchas alternativas a este comportamiento, que puedes escoger de acuerdo a tu preferencia. Primero, extenderemos el c&#xF3;digo para mostrar c&#xF3;mo mover la figura de vuelta al borde izquierdo de la pantalla despu&#xE9;s de que desaparece del borde derecho. En este caso, imagina la pantalla como un cilindro aplanado, con la figura movi&#xE9;ndose por fuera para volver al borde izquierdo:</p>
 
-```javascript
-var radius = 40;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var radius = 40;
 var x = -radius;
 var speed = 0.5;
 
@@ -3944,16 +4201,34 @@ function draw() {
   }
   arc(x, 60, radius, radius, 0.52, 5.76);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var radius = 40;
+var x = -radius;
+var speed = 0.5;
+
+function setup() {
+  createCanvas(240, 120);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(0);
+  x += speed;     // Aumenta el valor de x
+  if (x > width + radius) { // Si la figura está fuera de la pantalla
+    x = - radius; // Mueve la figura al borde izquierdo
+  }
+  arc(x, 60, radius, radius, 0.52, 5.76);
+}
+</script>
 <p>En cada viaje alrededor de draw(), el c&#xF3;digo prueba si el valor de x ha aumentado m&#xE1;s all&#xE1; del ancho de la pantalla (sumado al radio de la figura). Si lo ha hecho, hacemos que el valor de x sea negativo nuevamente, para que cuando siga aumentando, entre a la pantalla por la izquierda. Mira la Figura 8-1 para ver un diagrama de c&#xF3;mo funciona.</p>
 
-## Ejemplo 8-5: rebota contra la pared
+<h2>Ejemplo 8-5: rebota contra la pared</h2>
 
 <p>En este ejemplo, extenderemos el Ejemplo 8-3 para que la figura cambie de direcci&#xF3;n cuando llegue a un borde, en vez de volver a aparecer por la izquierda. Para hacer que esto pase, a&#xF1;adimos una nueva variable para almacenar la direcci&#xF3;n de la figura. Un valor de direcci&#xF3;n de 1 mueve la figura hacia la derecha, mientras que un valor de -1 la mueve hacia la izquierda:</p>
 
-```javascript
-var radius = 40;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var radius = 40;
 var x = 110;
 var speed = 0.5;
 var direction = 1;
@@ -3975,20 +4250,43 @@ function draw() {
     arc(x, 60, radius, radius, 3.67, 8.9);  // Hacia la izquierda
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var radius = 40;
+var x = 110;
+var speed = 0.5;
+var direction = 1;
+
+function setup() {
+  createCanvas(240, 120);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(0);
+  x += speed * direction;
+  if ((x > width-radius) || (x < radius)) {
+    direction = -direction;   // Cambiar dirección
+  }
+  if (direction == 1) {
+    arc(x, 60, radius, radius, 0.52, 5.76); // Hacia la derecha
+  } else {
+    arc(x, 60, radius, radius, 3.67, 8.9);  // Hacia la izquierda
+  }
+}
+</script>
 <p>Cuando la figura llega a un borde, este c&#xF3;digo invierte la direcci&#xF3;n de la figura, cambiando el signo de la variable direcci&#xF3;n. Por ejemplo, si la variable direcci&#xF3;n es positiva cuando la figura llega a un borde, el c&#xF3;digo la invierte a negativa.</p>
 
-## Posiciones intermedias (tweening)
+<h2>Posiciones intermedias (tweening)</h2>
 
 <p>A veces quieres animar una figura para ir de un punto de la pantalla a otro. Con unas pocas l&#xED;neas de c&#xF3;digo, puedes configurar la posici&#xF3;n inicial y final, y luego calcular las posiciones entremedio (tween) en cada cuadro.</p>
 
-## Ejemplo 8-6: calcula las posiciones intermedias
+<h2>Ejemplo 8-6: calcula las posiciones intermedias</h2>
 
 <p>Para hacer que el ejemplo de este c&#xF3;digo sea modular, hemos creado un grupo de variables en la parte superior. Corre el c&#xF3;digo unas cuantas veces y cambia los valores para ver c&#xF3;mo este c&#xF3;digo puede mover a la figura desde cualquier ubicaci&#xF3;n a cualquier otra en cualquier rango de velocidades. Cambia la variable step para alterar la velocidad:</p>
 
-```javascript
-var startX = 20;  // Coordenada x inicial
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var startX = 20;  // Coordenada x inicial
 var stopX = 160;  // Coordenada x final
 var startY = 30;  // Coordenada y inicial
 var stopY = 80;   // Coordenada y final
@@ -4010,29 +4308,53 @@ function draw() {
   }
   ellipse(x, y, 20, 20);
 }
-```
 
-## Aleatorio
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var startX = 20;  // Coordenada x inicial
+var stopX = 160;  // Coordenada x final
+var startY = 30;  // Coordenada y inicial
+var stopY = 80;   // Coordenada y final
+var x = startX;   // Coordenada x actual
+var y = startY;   // Coordenada y actual
+var step = 0.005; // createCanvas para cada paso (0.0 a 1.0)
+var pct = 0.0;    // Porcentaje avanzado (0.0 a 1.0)
+
+function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(0);
+  if (pct < 1.0) {
+    x = startX + ((stopX - startX) * pct);
+    y = startY + ((stopY - startY) * pct);
+    pct += step;
+  }
+  ellipse(x, y, 20, 20);
+}
+</script>
+<h2>Aleatorio</h2>
 
 <p></p>A diferencia del movimiento linear y suave t&#xED;pico en las gr&#xE1;ficas por computadora, el movimiento en el mundo f&#xED;sico es usualmente idiosincr&#xE1;tico. Por ejemplo, si pensamos en una hoja flotando hacia la tierra, o una hormiga caminando por un terreno rugoso. Podemos simular las cualidades impredecibles del mundo generando n&#xFA;meros aleatorios. La funci&#xF3;n random() calcula estos valores, podemos definir un rango para afinar la cantidad de desorden en un programa.<p></p>
 
-## Ejemplo 8-7: genera valores aleatorios
+<h2>Ejemplo 8-7: genera valores aleatorios</h2>
 
 <p>El siguiente ejemplo corto imprime valores aleatorios en la consola, con el rango limitado por la posici&#xF3;n del rat&#xF3;n:</p>
 
-```javascript
-function draw() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function draw() {
   var r = random(0, mouseX);
   print(r);
 }
-```
 
-## Ejemplo 8-8: dibuja aleatoriamente
+</code></pre></div></div></div></div>
+<h2>Ejemplo 8-8: dibuja aleatoriamente</h2>
 
 <p>Construyendo sobre el Ejemplo 8-7, este ejemplo usa valores de la funci&#xF3;n random() para cambiar la posici&#xF3;n de l&#xED;neas en el lienzo. Cuando el rat&#xF3;n est&#xE1; a la izquierda del lienzo, el cambio es peque&#xF1;o; si se mueve a la derecha, los valores de random() aumentan y el movimiento se torna m&#xE1;s exagerado. Como la funci&#xF3;n random() est&#xE1; dentro de un for loop, un nuevo valor aleatorio es calculado para cada punto de cada l&#xED;nea:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(240, 120);
 }
 
@@ -4045,14 +4367,28 @@ function draw() {
     line(x + offsetA, 20, x - offsetB, 100);
   }
 }
-```
 
-## Ejemplo 8-9: mueve figuras aleatoriamente
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(204);
+  for (var x = 20; x < width; x += 20) {
+    var mx = mouseX / 10;
+    var offsetA = random(-mx, mx);
+    var offsetB = random(-mx, mx);
+    line(x + offsetA, 20, x - offsetB, 100);
+  }
+}
+</script>
+<h2>Ejemplo 8-9: mueve figuras aleatoriamente</h2>
 
 <p>Cuando se usa para  mover figuras alrededor de la pantalla, los valores aleatorios pueden generar im&#xE1;genes que son m&#xE1;s naturales en apariencia. En el siguiente ejemplo, la posici&#xF3;n del c&#xED;rculo es modificada por valores aleatorios en cada ejecuci&#xF3;n de draw(). Como la funci&#xF3;n background() no es usad, las posiciones anteriores permanecen dibujadas:</p>
 
-```javascript
-var speed = 2.5;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var speed = 2.5;
 var diameter = 20;
 var x;
 var y;
@@ -4069,46 +4405,74 @@ function draw() {
   y += random(-speed, speed);
   ellipse(x, y, diameter, diameter);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var speed = 2.5;
+var diameter = 20;
+var x;
+var y;
+
+function setup() {
+  createCanvas(240, 120);
+  x = width/2;
+  y = height/2;
+  background(204);
+}
+
+function draw() {
+  x += random(-speed, speed);
+  y += random(-speed, speed);
+  ellipse(x, y, diameter, diameter);
+}
+</script>
 <p>Si observas este ejemplo el tiempo suficiente, el c&#xED;rculo podr&#xED;a dejar la pantalla y volver. Esto depende del azar, pero podr&#xED;amos a&#xF1;adir unas estructuras if o usar la funci&#xF3;n constrain() para hacer que el c&#xED;rculo no deje la pantalla.</p>
 
 <p>La funci&#xF3;n constrain() limita el valor a un rango espec&#xED;fico, el que puede ser usado para mantener x e y dentro de los l&#xED;mites del lienzo. Al reemplazar la funci&#xF3;n draw con el siguiente c&#xF3;digo, te asegurar&#xE1;s que la elipse permanezca en la pantalla:</p>
 
-```javascript
-function draw() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function draw() {
   x += random(-speed, speed);
   y += random(-speed, speed);
   x = constrain(x, 0, width);
   y = constrain(y, 0, height);
   ellipse(x, y, diameter, diameter);
 }
-```
-## Nota
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function draw() {
+  x += random(-speed, speed);
+  y += random(-speed, speed);
+  x = constrain(x, 0, width);
+  y = constrain(y, 0, height);
+  ellipse(x, y, diameter, diameter);
+}
+</script>
+<h2>Nota</h2>
 
 <p>La funci&#xF3;n randomSeed() puede ser usada para forzar a randon() para producir la misma secuencia de n&#xFA;meros cada vez que un programa es ejecutado. Esto es descrito con mayor detalle en la Referencia de p5.js.</p>
 
-## Temporizadores
+<h2>Temporizadores</h2>
 
 <p>Cada programa de p5.js cuenta el monto de tiempo que ha pasado desde que empez&#xF3;. Cuenta en milisegundos (mil&#xE9;simas de segundo), as&#xED; que despu&#xE9;s de 1 segundo el contador est&#xE1; en 1.000, despu&#xE9;s de 5 segundos est&#xE1; en 5.000 y despu&#xE9;s de un minuto en 60.000. Podemos usar este contador para gatillar animaciones en momentos espec&#xED;ficos. La funci&#xF3;n millis() arroja el valor del contador.</p>
 
-## Ejemplo 8-10: el tiempo pasa
+<h2>Ejemplo 8-10: el tiempo pasa</h2>
 
 <p>Puedes ver c&#xF3;mo el tiempo pasa cuando corres este programa:</p>
 
- ```javascript
- function draw() {
-   var timer = millis();
-   print(timer);
- }
- ```
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
-## Ejemplo 8-11: gatillando eventos temporizados
+<pre><code>function draw() {
+  var timer = millis();
+  print(timer);
+}
+
+</code></pre></div></div></div></div>
+<h2>Ejemplo 8-11: gatillando eventos temporizados</h2>
 
 <p>Cuando se combina con un bloque if, los valores de millis() pueden ser usados para secuenciar tanto animaciones como eventos del programa. Por ejemplo, despu&#xE9;s de que han pasado dos segundos, el c&#xF3;digo dentro del bloque if puede gatillar un cambio. En este ejemplo, las variables llamadas time1 y time2 deerminan cu&#xE1;ndo cambiar el valor de la variable x:</p>
 
- ```javascript
-var time1 = 2000;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var time1 = 2000;
 var time2 = 4000;
 var x = 0;
 
@@ -4126,9 +4490,27 @@ function draw() {
   }
   ellipse(x, 60, 90, 90);
 }
-```
 
-## Circular
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var time1 = 2000;
+var time2 = 4000;
+var x = 0;
+
+function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  var currentTime = millis();
+  background(204);
+  if (currentTime > time2) {
+    x -= 0.5;
+  } else if (currentTime > time1) {
+    x += 2;
+  }
+  ellipse(x, 60, 90, 90);
+}
+</script>
+<h2>Circular</h2>
 
 <p>Si eres un as de la trigonometr&#xED;a, ya sabes cu&#xE1;n incre&#xED;bles son las funciones seno y coseno. Si no lo eres, esperamos que los siguientes ejemplos pueden gatillar tu inter&#xE9;s. no discutiremos la matem&#xE1;tica en detalle aqu&#xED;, pero aqu&#xED; mostraremos unas pocas aplicaciones para generar movimiento fluido.</p>
 
@@ -4136,12 +4518,13 @@ function draw() {
 
 <p>Las funciones sin() y cos() en p5.js arrojan valores entre -1 y 1 para la funci&#xF3;n seno y coseno del &#xE1;ngulo especificado. Tal como arc(), los &#xE1;ngulos deben ser escritos en radianes (ver Ejemplo 3-7 y Ejemplo 3-8 para un recordatorio de c&#xF3;mo funcionan los radianes). Para ser &#xFA;til para dibujar, los valores float arrojados por sin() y cos() son usualmente multiplicados por un valor m&#xE1;s grande.</p>
 
-## Ejemplo 8-12: valores de la onda sinusoidal
+<h2>Ejemplo 8-12: valores de la onda sinusoidal</h2>
 
 <p>Este ejemplo muestra c&#xF3;mo los valores de sin() oscilan entre -1 y 1 a medida que el &#xE1;ngulo aumenta. Con la funci&#xF3;n map(), la variable sinval es convertida desde este rango a valores de 0 a 255. Este nuevo valor es usado para definir el color del fondo del lienzo:</p>
 
-```javascript
-var angle = 0.0;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 
 function draw() {
   var sinval = sin(angle);
@@ -4150,14 +4533,24 @@ function draw() {
   background(gray);
   angle += 0.1;
 }
-```
 
-## Ejemplo 8-13: movimiento de una onda sinusoidal
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var angle = 0.0;
+
+function draw() {
+  var sinval = sin(angle);
+  print(sinval);
+  var gray = map(sinval, -1, 1, 0, 255);
+  background(gray);
+  angle += 0.1;
+}
+</script>
+<h2>Ejemplo 8-13: movimiento de una onda sinusoidal</h2>
 
 <p>Este ejemplo muestra c&#xF3;mo estos valores son convertidos a movimiento:</p>
 
-```javascript
-var angle = 0.0;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 var offset = 60;
 var scalar = 40;
 var speed = 0.05;
@@ -4176,14 +4569,34 @@ function draw() {
   ellipse(160, y3, 40, 40);
   angle += speed;
 }
-```
 
-## Ejemplo 8-14: movimiento circular
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var angle = 0.0;
+var offset = 60;
+var scalar = 40;
+var speed = 0.05;
+
+function setup() {
+  createCanvas(240, 120);
+}
+
+function draw() {
+  background(0);
+  var y1 = offset + sin(angle) * scalar;
+  var y2 = offset + sin(angle + 0.4) * scalar;
+  var y3 = offset + sin(angle + 0.8) * scalar;
+  ellipse( 80, y1, 40, 40);
+  ellipse(120, y2, 40, 40);
+  ellipse(160, y3, 40, 40);
+  angle += speed;
+}
+</script>
+<h2>Ejemplo 8-14: movimiento circular</h2>
 
 <p>Cuando las funcioens sin() y cos() son usadas en conjunto, pueden producir movimiento circular. Los valores de la funci&#xF3;n cos() proveen los valores de la coordenada x, y los valores de la funci&#xF3;n sin() proveen la coordenada y. Ambos son multiplicados por una variable llamada scalar para cambiar el radio del movimiento y son sumados con un valor offset para situar el centro de un movimiento circular:</p>
 
-```javascript
-var angle = 0.0;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 var offset = 60;
 var scalar = 30;
 var speed = 0.05;
@@ -4199,14 +4612,31 @@ function draw() {
   ellipse(x, y, 40, 40);
   angle += speed;
 }
-```
 
-## Ejemplo 8-15: espirales
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var angle = 0.0;
+var offset = 60;
+var scalar = 30;
+var speed = 0.05;
+
+function setup() {
+  createCanvas(120, 120);
+  background(204);
+}
+
+function draw() {
+  var x = offset + cos(angle) * scalar;
+  var y = offset + sin(angle) * scalar;
+  ellipse(x, y, 40, 40);
+  angle += speed;
+}
+</script>
+<h2>Ejemplo 8-15: espirales</h2>
 
 <p>Un peque&#xF1;o cambio hecho para aumentar el valor scalar en cada cuadro produce una espiral en vez de un c&#xED;rculo:</p>
 
-```javascript
-var angle = 0.0;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var angle = 0.0;
 var offset = 60;
 var scalar = 2;
 var speed = 0.05;
@@ -4224,16 +4654,35 @@ function draw() {
   angle += speed;
   scalar += speed;
 }
-```
 
-Robot 6: movimiento
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var angle = 0.0;
+var offset = 60;
+var scalar = 2;
+var speed = 0.05;
+
+function setup() {
+  createCanvas(120, 120);
+  fill(0);
+  background(204);
+}
+
+function draw() {
+  var x = offset + cos(angle) * scalar;
+  var y = offset + sin(angle) * scalar;
+  ellipse(x, y, 2, 2);
+  angle += speed;
+  scalar += speed;
+}
+</script>
+<h2>Robot 6: movimiento</h2>
 
 <p>En este ejemplo, las t&#xE9;cnicas para movimiento aleatorio y circular son aplicadas al robot. La funci&#xF3;n background() fue removida para ver m&#xE1;s claramente c&#xF3;mo la posici&#xF3;n del robot y su cuerpo cambian.</p>
 
 <p>En cada cuadro, un n&#xFA;mero aleatorio entre -4 y 4 es a&#xF1;adido a la coordenada x, y un n&#xFA;mero aleatorio entre -1 y 1 es a&#xF1;adido a la coordenada y. Esto causa que el robot se mueva m&#xE1;s de izquierda a derecha que de arriba a abajo. Los n&#xFA;meros calculados por la funci&#xF3;n sin() cambian la altura del cuello para que oscile entre 50 y 100 pixeles de altura:</p>
 
-```javascript
-var x = 180;          // Coordenada x
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = 180;          // Coordenada x
 var y = 400;          // Coordenada y
 var bodyHeight = 153; // Altura del cuerpo
 var neckHeight = 56;  // Altura del cuello
@@ -4247,7 +4696,80 @@ function setup() {
 }
 
 function draw() {
-  // Cambia la posici&#xF3;n en un monto aleatorio peque&#xF1;o
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cambia la posici&#xF3;n en un monto aleatorio peque&#xF1;o</p></div><div class="code">
+
+<pre><code>  x += random(-4, 4);
+  y += random(-1, 1);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cambia la altura del cuello</p></div><div class="code">
+
+<pre><code>  neckHeight = 80 + sing(angle) * 30;
+  angle += 0.05;
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Ajusta la altura de la cabeza</p></div><div class="code">
+
+<pre><code>  var ny = y - bodyHeight - neckHeight - radius;
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuello</p></div><div class="code">
+
+<pre><code>  stroke(102);
+  line(x +  2, y - bodyHeight, x +  2, ny);
+  line(x + 12, y - bodyHeight, x + 12, ny);
+  line(x + 22, y - bodyHeight, x + 22, ny);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Antenas</p></div><div class="code">
+
+<pre><code>  line(x + 12, ny, x - 18, ny - 43);
+  line(x + 12, ny, x + 42, ny - 99);
+  line(x + 12, ny, x + 78, ny + 15);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuerpo</p></div><div class="code">
+
+<pre><code>  noStroke();
+  fill(102);
+  ellipse(x, y - 33, 33, 33);
+  fill(0);
+  rect(x - 45, y - bodyHeight, 90, bodyHeight - 33);
+  fill(102);
+  rect(x - 45, y - bodyHeight + 17, 90, 6);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cabeza</p></div><div class="code">
+
+<pre><code>  fill(0);
+  ellipse(x + 12, ny, radius, radius);
+  fill(255);
+  ellipse(x + 24, ny - 6, 14, 14);
+  fill(0);
+  ellipse(x + 24, ny - 6, 3, 3);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x = 180;          // Coordenada x
+var y = 400;          // Coordenada y
+var bodyHeight = 153; // Altura del cuerpo
+var neckHeight = 56;  // Altura del cuello
+var radius = 45;      // Radio de la cabeza
+var angle = 0.0;      // Ángulo de movimiento
+
+function setup() {
+  createCanvas(360, 480);
+  ellipseMode(RADIUS);
+  background(204);
+}
+
+function draw() {
+  // Cambia la posición en un monto aleatorio pequeño
   x += random(-4, 4);
   y += random(-1, 1);
 
@@ -4286,7 +4808,7 @@ function draw() {
   fill(0);
   ellipse(x + 24, ny - 6, 3, 3);
 }
-```
+</script>
 </section>
 
 <section data-type="chapter" id="capitulo_09_funciones">
