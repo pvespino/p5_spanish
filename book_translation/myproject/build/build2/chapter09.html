@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/p5.js"></script>
-<script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/html.css">
 
   </head>
@@ -21,16 +19,17 @@
 
 <p>Las funciones son &#xFA;tiles si quieres dibujar una forma m&#xE1;s compleja como un &#xE1;rbol, una y otra vez. La funci&#xF3;n para dibujar un &#xE1;rbol puede estar compuesta con las funciones incorporadas de p5.js, como line(), para crear la forma. Despu&#xE9;s de que el c&#xF3;digo para dibujar el &#xE1;rbol es escrito, no necesitas pensar sobre los detalles de dibujar un &#xE1;rbol nuevamente - puedes simplemente escribir tree() (o alg&#xFA;n otro nombre que le hayas puesto a la funci&#xF3;n) para dibujar la figura. Las funciones permiten que una secuencia compleja de declaraciones pueda ser abstra&#xED;da, para que te puedas enfocar en una meta de alto nivel (como dibujar un &#xE1;rbol), y no los detalles de la implementaci&#xF3;n (las funciones line() que definen la forma del &#xE1;rbol). Una vez que una funci&#xF3;n es definida, el c&#xF3;digo dentro de la funci&#xF3;n no necesita ser repetido.</p>
 
-## Funciones b&#xE1;sicas
+<h2>Funciones b&#xE1;sicas</h2>
 
 <p>Un computador corre los programas una l&#xED;nea de c&#xF3;digo a la vez. Cuando una funci&#xF3;n es ejecutada, el computador salta a donde la funci&#xF3;n est&#xE1; definida y corre el c&#xF3;digo ah&#xED;, luego vuelve a donde estaba anteriormente.</p>
 
-## Ejemplo 9-1: tira los dados
+<h2>Ejemplo 9-1: tira los dados</h2>
 
 <p>Este comportamiento es ilustrado con la funci&#xF3;n rollDice() escrita para este ejemplo. Cuando el programa empieza, corre el c&#xF3;digo en setup() y luego para. El programa toma un desv&#xED;o y corre el c&#xF3;digo dentro de rollDice() cada vez que aparece.</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   print(&quot;&#xA1;Listo para lanzar los dados!&quot;);
   rollDice(20);
   rollDice(20);
@@ -42,20 +41,21 @@ function rollDice(numSides) {
   var d = 1 + int(random(numSides));
   print(&quot;Lanzando... &quot; + d);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Las dos l&#xED;neas de c&#xF3;digo en rollDice() seleccionan un n&#xFA;mero aleatorio entre 1 y el n&#xFA;mero de caras del dado, e imprime ese n&#xFA;mero a la consola. Como los n&#xFA;meros son aleatorios, ver&#xE1;s diferentes n&#xFA;meros cada vez que el prorgama es ejecutado:</p>
 
 <p>Cada vez que la funci&#xF3;n rollDice() es ejecutada dentro de setup(), el c&#xF3;digo dentro de la funci&#xF3;n corre de arriba a abajo, luego el programa contin&#xFA;a con la siguiente l&#xED;nea dentro de setup().</p>
 
 <p>La funci&#xF3;n random() (descrita en &quot;Aleatorio&quot;) arroja un n&#xFA;mero entre 0 y hasta (pero sin incluir) el n&#xFA;mero especificado. Entonces random(6) entrega un n&#xFA;mero entre 0 y 5.99999... Como random() arroja un n&#xFA;mero con punto decimal, tambi&#xE9;n usamos la funci&#xF3;n int() para convertir el n&#xFA;mero a uno entero.  Entonces int(random(6)) arrojar&#xE1; 0, 1, 2, 3, 4 o 5. Como muchas otros casos en este libro, contar desde 0 hace m&#xE1;s f&#xE1;cil usar los resultados de random() con otros c&#xE1;lculos.</p>
 
-## Ejemplo 9-2: otra manera de tirar los dados
+<h2>Ejemplo 9-2: otra manera de tirar los dados</h2>
 
 <p>Si un programa equivalente hubiera sido hecho sin la funci&#xF3;n rollDice(), hubiera sido as&#xED;:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   print(&quot;&#xA1;Listo para lanzar los dados!&quot;);
   var d1 = 1 + int(random(20));
   print(&quot;Lanzando... &quot; + d1);
@@ -65,20 +65,21 @@ function setup() {
   print(&quot;Lanzando... &quot; + d3);
   print(&quot;Listo.&quot;);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>La funci&#xF3;n rolldice() en el Ejemplo 9-1 hace que el c&#xF3;digo sea m&#xE1;s f&#xE1;cil de leer y mantener. El programa es m&#xE1;s claro, porque el nombre de la funci&#xF3;n claramente determina su prop&#xF3;sito. En este ejemplo, podemos ver la funci&#xF3;n random() en setup(), pero su uso no es tan obvio. El n&#xFA;mero de lados en un dado es m&#xE1;s claro con una funci&#xF3;n: cuando el c&#xF3;digo dice rollDice(6), es obvio que est&#xE1; simulando el lanzamiento de un dado de seis caras. Adem&#xE1;s, el Ejemplo 9-1 es f&#xE1;cil de mantener, porque la informaci&#xF3;n no est&#xE1; repetida. La frase Lanzando... se repite tres veces en este caso. Si quieres cambiar el texto a algo distinto, tienes que actualizar el c&#xF3;digo en tres lugares, en vez de hacer una sola edici&#xF3;n dentro de la funci&#xF3;n rollDice(). Adem&#xE1;s, como ver&#xE1;s en el Ejemplo 9-5, una funci&#xF3;n puede hacer un programa mucho m&#xE1;s corto (y por lo tanto m&#xE1;s f&#xE1;cil de mantener y leer), lo que ayuda a reducir el potencial n&#xFA;mero de errores.</p>
 
-## Hacer una funci&#xF3;n
+<h2>Hacer una funci&#xF3;n</h2>
 
 <p>En esta secci&#xF3;n, dibujaremos una lechuza para explicar los pasos involucrados en hacer una funci&#xF3;n.</p>
 
-## Ejemplo 9-3: dibuja la lechuza
+<h2>Ejemplo 9-3: dibuja la lechuza</h2>
 
 <p>Primero, dibujaremos la lechuza sin usar una funci&#xF3;n:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -98,16 +99,59 @@ function draw() {
   ellipse( 14, -65, 8, 8);  // Ojo derecho
   quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Observa que la funci&#xF3;n translate() es usada para mover el origen (0, 0) 110 pixeles a la derecha y 110 pixeles hacia abajo. Luego la leechuza es dibujada relativamente al (0,0), con sus coordenadas algunas veces positivas y otras negativas, centradas alrededor del nuevo punto (0,0). (Ver Figura 9-1).</p>
 
-## Ejemplo 9-4: Dos son compa&#xF1;&#xED;a
+<h2>Ejemplo 9-4: Dos son compa&#xF1;&#xED;a</h2>
 
 <p>El c&#xF3;digo del Ejemplo 9-3 es razonable si solo hay una lechuza, pero cuando a&#xF1;adimos una segunda, el largo del c&#xF3;digo es casi el doble:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+
+</code></pre></div></div><div class="pair"><div class="comment"><p>Lechuza izquierda</p></div><div class="code">
+
+<pre><code>  translate(110, 110);
+  stroke(0);
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Cuerpo
+  noStroke();
+  fill(204);
+  ellipse(-17.5, -65, 35, 35);  // Pupila izquierda
+  ellipse( 17.5, -65, 35, 35);  // Pupila derecha
+  arc(0, -65, 70, 70, 0, PI);   // Barbilla
+  fill(0);
+  ellipse(-14, -65, 8, 8);  // Ojo izquierdo
+  ellipse( 14, -65, 8, 8);  // Ojo derecho
+  quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Lechuza derecha</p></div><div class="code">
+
+<pre><code>  translate(70, 0);
+  stroke(0);
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Cuerpo
+  noStroke();
+  fill(255);
+  ellipse(-17.5, -65, 35, 35);  // Pupila izquierda
+  ellipse( 17.5, -65, 35, 35);  // Pupila derecha
+  arc(0, -65, 70, 70, 0, PI);   // Barbilla
+  fill(0);
+  ellipse(-14, -65, 8, 8);  // Ojo izquierdo
+  ellipse( 14, -65, 8, 8);  // Ojo derecho
+  quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(480, 120);
 }
 
@@ -144,16 +188,16 @@ function draw() {
   ellipse( 14, -65, 8, 8);  // Ojo derecho
   quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
 }
-```
-
+</script>
 <p>El programa crece de 21 l&#xED;neas de c&#xF3;digo a 34, el c&#xF3;digo para dibujar la primera lechuza fue copiado y pegado en el programa y una funci&#xF3;n translate fue insertada para moverla 70 pixeles a la derecha. Esto es una manera tediosa e ineficiente de dibujar la segunda lechuza, no sin mencionar el dolor de cabeza que ser&#xE1; a&#xF1;adir una tercera lechuza con este m&#xE9;todo. Pero duplicar el c&#xF3;digo es innecesario, porque este es el tipo de situaci&#xF3;n donde una funci&#xF3;n puede llegar al rescate.</p>
 
-## Ejemplo 9-5: una funci&#xF3;n lechuza
+<h2>Ejemplo 9-5: una funci&#xF3;n lechuza</h2>
 
 <p>En este ejemplo, una funci&#xF3;n es introducida para dibujar dos lechuzas con el mismo c&#xF3;digo. Si hacemos que el c&#xF3;digo que dibuja una lechuza en la pantalla sea una nueva funci&#xF3;n, entonces el c&#xF3;digo solo necesita aparecer una vez en el programa:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -180,20 +224,48 @@ function owl(x,y) {
   quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
   pop();
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  owl(110, 110);
+  owl(180, 110);
+}
+
+function owl(x,y) {
+  push();
+  translate(x,y);
+  stroke(0);
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Cuerpo
+  noStroke();
+  fill(255);
+  ellipse(-17.5, -65, 35, 35);  // Pupila izquierda
+  ellipse( 17.5, -65, 35, 35);  // Pupila derecha
+  arc(0, -65, 70, 70, 0, PI);   // Barbilla
+  fill(0);
+  ellipse(-14, -65, 8, 8);  // Ojo izquierdo
+  ellipse( 14, -65, 8, 8);  // Ojo derecho
+  quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
+  pop();
+}
+</script>
 <p>Puedes ver por las ilustraciones de este ejemplo y del Ejemplo 9-4 que tienen el mismo resultado, pero que este es m&#xE1;s corto, porque el c&#xF3;digo para usar la lechuza aparece solo una vez, dentro de la funci&#xF3;n llamada owl(). Este c&#xF3;digo es ejecutado dos veces, porque es llamado dos veces dentro de la funci&#xF3;n draw(). La lechuza es dibujada en dos ubicaciones distintas porque los par&#xE1;metros pasados a la funci&#xF3;n determinan las coordenadas x e y.</p>
 
 <p>Los par&#xE1;metros son una parte importante de las funciones, porque proveen flexibilidad. Vimos otro ejemplo de esto en la funci&#xF3;n rollDice(), el par&#xE1;metro &#xFA;nico numSides hizo posible simular un dado de 6 caras, uno de 20 y cualquier otro n&#xFA;mero de caras.  Esto es como otras funciones de p5.js. Por ejemplo, los par&#xE1;metros de la funci&#xF3;n line() hacen posible dibujar una l&#xED;nea de un pixel a otro en el lienzo. Sin los par&#xE1;metros, la funci&#xF3;n solo ser&#xED;a capaz de dibujar una l&#xED;nea desde un punto fijo a otro fijo.</p>
 
 <p>Cada par&#xE1;metro es una variable que es creada cada vez que la funci&#xF3;n corre. Cuando este ejemplo corre, la primera vez que la funci&#xF3;n owl es llamada, el valor del par&#xE1;metro x es 110 y el par&#xE1;metro y es 110 tambi&#xE9;n. En el segundo uso de la funci&#xF3;n, el valor de x es 180 y y es nuevamente 110. Cada valor es pasado a la funci&#xF3;n y luego cada vez que el nombre de la variable aparece dentro de la funci&#xF3;n, es reemplazado con el valor.</p>
 
-## Ejemplo 9-6: aumentando la poblaci&#xF3;n
+Ejemplo 9-6: aumentando la poblaci&#xF3;n<h2>
 
 <p>Ahora que tenemos una funci&#xF3;n b&#xE1;sica para dibujar la lechuza en cualquier ubicaci&#xF3;n, podemos ahora dibujar muchas lechuzas eficientemente poniendo la funci&#xF3;n dentro de un for loop y cambiando el primer par&#xE1;metro cada vez que corre el loop:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -204,17 +276,31 @@ function draw() {
   }
 }
 
-// Insertar la funci&#xF3;n owl() del Ejemplo 9-5
-```
+</code></pre></div></div><div class="pair"><div class="comment"><p>Insertar la funci&#xF3;n owl() del Ejemplo 9-5</p></div><div class="code">
 
+<pre><code>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  for (var x = 35; x < width + 70; x += 70) {
+    owl(x, 110);
+  }
+}
+
+// Insertar la función owl() del Ejemplo 9-5
+</script>
 <p>Es posible seguir a&#xF1;adiendo m&#xE1;s y m&#xE1;s par&#xE1;metros a la funci&#xF3;n para cambiar diferentes aspectos de c&#xF3;mo la lechuza es dibujada. Los valores son pasados a la funci&#xF3;n para cambiar el color de la lechuza, la rotaci&#xF3;n, la escala o el di&#xE1;metro de los ojos.</p>
 
-## Ejemplo 9-7: lechuzas de diferentes tama&#xF1;os
+<h2>Ejemplo 9-7: lechuzas de diferentes tama&#xF1;os</h2>
 
 <p>En este ejemplo, hemos a&#xF1;adido dos par&#xE1;metros para cambiar el valor de gris y el tama&#xF1;o de cada lechuza:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -246,9 +332,41 @@ function owl(x, y, g, s) {
   quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
   pop();
 }
-```
 
-## Valores de retorno
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  randomSeed(0);
+  for (var i = 35; i < width + 40; i += 40) {
+    var gray = int(random(0, 102));
+    var scalar = random(0.25, 1.0);
+    owl(i, 110, gray, scalar);
+  }
+}
+
+function owl(x, y, g, s) {
+  push();
+  translate(x,y);
+  scale(s);   // Define la escala
+  stroke(g);  // Define el valor de gris
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Cuerpo
+  noStroke();
+  fill(255-g);
+  ellipse(-17.5, -65, 35, 35);  // Pupila izquierda
+  ellipse( 17.5, -65, 35, 35);  // Pupila derecha
+  arc(0, -65, 70, 70, 0, PI);   // Barbilla
+  fill(g);
+  ellipse(-14, -65, 8, 8);  // Ojo izquierdo
+  ellipse( 14, -65, 8, 8);  // Ojo derecho
+  quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
+  pop();
+}
+</script>
+<h2>Valores de retorno</h2>
 
 <p>Las funciones pueden hacer un c&#xE1;lculo y luego retornar un valor al programa principal. Hemos ya usado funciones de este tipo, incluyendo random() y sin(). Observa que cuando esta funci&#xF3;n aparece, el valor de retorno es usualmente asignado a una variable:</p>
 
@@ -266,12 +384,13 @@ point(random(width), random(height));
 
 <p>En este caso, los valores de random() no son asignados a una variable - son pasados como par&#xE1;metros a la funci&#xF3;n point() y usados para posicionar el punto dentro del lienzo.</p>
 
-## Ejemplo 9-8: retorna un valor
+<h2>Ejemplo 9-8: retorna un valor</h2>
 
 <p>Para hacer que una funci&#xF3;n retorne un valor, especifica el dato a ser pasado de vuelta con la palabra clave return. En este ejemplo se incluye una funci&#xF3;n llamada calculateMars() que calcula el peso de una persona u objeto en nuestro planeta vecino:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   var yourWeight = 132;
   var marsWeight = calculateMars(yourWeight);
   print(marsWeight);
@@ -281,18 +400,81 @@ function calculateMars(w) {
   var newWeight = w * 0.38;
   return newWeight;
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Revisa la &#xFA;ltima l&#xED;nea del c&#xF3;digo del bloque, que retorna la variable newWeight. En la segunda l&#xED;nea de setup(), el valor es asignado a la variable marsWeight. (Para ver tu propio peso en Marte, cambia el valor de la variable yourWeight a tu peso).</p>
 
-## Robot 7: funciones
+<h2>Robot 7: funciones</h2>
 
 <p>En contraste con el Robot 2 (ver &quot;Robot 2: variables&quot;), este ejemplo usa una funci&#xF3;n para dibujar cuatro variaciones del robot dentro del mismo programa. Como la funci&#xF3;n drawRobot() aparece cuatro veces dentro de la funci&#xF3;n draw(), el c&#xF3;digo dentro del bloque drawRobot() es ejecutado cuatro veces, cada vez con un diferente conjunto de par&#xE1;metros para cambiar la posici&#xF3;n y la altura del cuerpo del robot.</p>
 
 <p>Observa c&#xF3;mo las variables globales en Robot 2 ahora han sido aisladas dentro de la funci&#xF3;n drawrobot(). Como estas variables aplican solamente a dibujar el robot, ellas tienen que estar dentro de las llaves que definen el bloque de la funci&#xF3;n drawRobot(). Como el valor de la variable radius no cambia, no necesita ser un par&#xE1;metro. En cambio, es definida al principio de drawRobot():</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
+  createCanvas(720, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(204);
+  drawRobot(120, 420, 110, 140);
+  drawRobot(270, 460, 260,  95);
+  drawRobot(420, 310,  80,  10);
+  drawRobot(570, 390, 180,  40);
+}
+
+function drawRobot(x, y, bodyHeight, neckHeight) {
+
+  var radius = 45;
+  var ny = y - bodyHeight - neckHeight - radius;
+
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuello</p></div><div class="code">
+
+<pre><code>  stroke(102);
+  line(x +  2, y - bodyHeight, x +  2, ny);
+  line(x + 12, y - bodyHeight, x + 12, ny);
+  line(x + 22, y - bodyHeight, x + 22, ny);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Antenas</p></div><div class="code">
+
+<pre><code>  line(x + 12, ny, x - 18, ny - 43);
+  line(x + 12, ny, x + 42, ny - 99);
+  line(x + 12, ny, x + 78, ny + 15);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuerpo</p></div><div class="code">
+
+<pre><code>  noStroke(102);
+  fill(102);
+  ellipse(x, y - 33, 33, 33);
+  fill(0);
+  rect(x - 45, y - bodyHeight, 90, bodyHeight - 33);
+  fill(102);
+  rect(x - 45, y - bodyHeight + 17, 90, 6);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cabeza</p></div><div class="code">
+
+<pre><code>  fill(0);
+  ellipse(x + 12, ny    , radius, radius);
+  fill(255);
+  ellipse(x + 24, ny - 6, 14, 14);
+  fill(0);
+  ellipse(x + 24, ny - 6, 3, 3);
+  fill(153);
+  ellipse(x     , ny -  8, 5, 5);
+  ellipse(x + 30, ny - 26, 4, 4);
+  ellipse(x + 41, ny +  6, 3, 3);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(720, 480);
   strokeWeight(2);
   ellipseMode(RADIUS);
@@ -343,8 +525,8 @@ function drawRobot(x, y, bodyHeight, neckHeight) {
   ellipse(x + 30, ny - 26, 4, 4);
   ellipse(x + 41, ny +  6, 3, 3);
 }
-```
-</section>
+</script>
+</h2></section>
 
 <a id="prev-link" href="chapter08.html">Previous: Capítulo 8. Movimiento</a>
 

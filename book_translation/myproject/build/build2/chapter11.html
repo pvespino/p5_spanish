@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/p5.js"></script>
-<script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/html.css">
 
   </head>
@@ -17,16 +15,17 @@
 
 <p>Un arreglo es una lista de variables que comparten un nombre com&#xFA;n. Los arreglos son &#xFA;tiles porque hacen posible trabajar con m&#xE1;s variables sin crear un nombre nuevo para cada uno. Esto hace que el c&#xF3;digo sea m&#xE1;s corto, m&#xE1;s f&#xE1;cil de leer, y m&#xE1;s conveniente de actualizar.</p>
 
-## De variables a arreglos
+<h2>De variables a arreglos</h2>
 
 <p></p>Cuando un programa necesita mantener registro de una o dos cosas, no es necesario crear un arreglo. Sin embargo, cuando un programa posee muchos elementos (por ejemplo, un campo de estrellas en un juego sobre el espacio o m&#xFA;ltiples puntos de datos en una visualizaci&#xF3;n), los arreglos hacen que el c&#xF3;digo sea m&#xE1;s f&#xE1;cil de escribir.<p></p>
 
-## Ejemplo 11-1: muchas variables
+<h2>Ejemplo 11-1: muchas variables</h2>
 
 <p>Para entender lo que significa, revisa el Ejemplo 8-3. Este c&#xF3;digo funciona bien si estamos moviendo una sola figura, &#xBF;pero qu&#xE9; pasa si queremos tener dos? Necesitamos crear una nueva variable x y actualizarla dentro de draw():</p>
 
-```javascript
-var x1 = -20;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x1 = -20;
 var x2 =  20;
 
 function setup() {
@@ -41,14 +40,30 @@ function draw() {
   arc(x1, 30, 40, 40, 0.52, 5.76);
   arc(x2, 90, 40, 40, 0.52, 5.76);
 }
-```
 
-## Ejemplo 11-2: demasiadas variables
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x1 = -20;
+var x2 =  20;
+
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+}
+
+function draw() {
+  background(0);
+  x1 += 0,5;
+  x2 += 0.5;
+  arc(x1, 30, 40, 40, 0.52, 5.76);
+  arc(x2, 90, 40, 40, 0.52, 5.76);
+}
+</script>
+<h2>Ejemplo 11-2: demasiadas variables</h2>
 
 <p>El c&#xF3;digo del ejemplo anterior es todav&#xED;a manejable, &#xBF;pero qu&#xE9; pasa si queremos tener cinco c&#xED;rculos? Necesitamos a&#xF1;adir tres otras variables a las dos que ya tenemos:</p>
 
-```javascript
-var x1 = -10;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x1 = -10;
 var x2 =  10;
 var x3 =  35;
 var x4 =  18;
@@ -72,16 +87,41 @@ function draw() {
   arc(x4,  80, 20, 20, 0.52, 5.76);
   arc(x5, 100, 20, 20, 0.52, 5.76);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x1 = -10;
+var x2 =  10;
+var x3 =  35;
+var x4 =  18;
+var x5 =  30;
+
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+}
+
+function draw() {
+  background(0);
+  x1 += 0,5;
+  x2 += 0.5;
+  x3 += 0.5;
+  x4 += 0.5;
+  x5 += 0.5;
+  arc(x1,  20, 20, 20, 0.52, 5.76);
+  arc(x2,  40, 20, 20, 0.52, 5.76);
+  arc(x3,  60, 20, 20, 0.52, 5.76);
+  arc(x4,  80, 20, 20, 0.52, 5.76);
+  arc(x5, 100, 20, 20, 0.52, 5.76);
+}
+</script>
 <p>&#xA1;Este c&#xF3;digo est&#xE1; empezando a salirse de control!</p>
 
-## Ejemplo 11-3: arreglos, no variables
+<h2>Ejemplo 11-3: arreglos, no variables</h2>
 
 <p>Imagina lo que pasar&#xED;a si quisieras tener 3.000 variables. Esto significar&#xED;a crear 3.000 variables individuale y luego actualizar cada una de ellas de forma separada. &#xBF;Podr&#xED;as mantener registro de esta cantidad de variables? &#xBF;Quisieras hacerlo? En vez de eso, usemos un arreglo:</p>
 
-```javascript
-var x = [];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = [];
 
 function setup() {
   createCanvas(240, 120);
@@ -100,11 +140,30 @@ function draw() {
     arc(x[i], y, 12, 12, 0.52, 5.76);
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x = [];
+
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+  fill(255, 200);
+  for (var i = 0; i < 3000; i++) {
+    x[i] = random(-1000, 200);
+  }
+}
+
+function draw() {
+  background(0);
+  for (var i = 0; i < x.length; i ++) {
+    x[i] += 0.5;
+    var y = i * 0.4;
+    arc(x[i], y, 12, 12, 0.52, 5.76);
+  }
+}
+</script>
 <p>Durante el resto de este cap&#xED;tulo revisaremos los detalles que hacen que este ejemplo sea posible.</p>
 
-## Construir un arreglo
+<h2>Construir un arreglo</h2>
 
 <p>Cada item en el arreglo es llamado un elemento, y cada uno tiene un &#xED;ndice para se&#xF1;alar su posici&#xF3;n dentro del arreglo. Tal como las coordenadas en el lienzo, los valores de &#xED;ndice para un arreglo empiezan su cuenta desde 0. Por ejemplo, el primer elemento en el arreglo tiene un &#xED;ndice con valor 0, el segundo elemento del arreglo tiene un &#xED;ndice con valor 1, y as&#xED;. Si hay 20 valores en el arreglo, el valor del &#xED;ndice del &#xFA;ltimo elemento es 19. La Figura 11-1 muestra la estructura conceptual de un arreglo.</p>
 
@@ -122,54 +181,58 @@ var x = [];
 
 <p>Nota que no es necesario declarar por adelantado la longitud del arreglo, la longitud es determinada por el n&#xFA;mero de elementos que t&#xFA; pones en &#xE9;l.</p>
 
-## Nota
+<h2>Nota</h2>
 
 <p>Un arreglo puede almacenar todos los diferentes tipos de datos (boolean, number, string, etc). Puedes mezclar y combinar diferentes tipos de datos en un mismo arreglo.</p>
 
 <p>Antes de que nos adelantemos, desaceleremos y hablemos del trabajo con arreglos en mayor detalle. Hay dos pasos cuando se trabaja con arreglos:</p>
 
-1. Declara el arreglo
-
-2. Asigna valores a cada elemento.
+<ol>
+  <li>Declara el arreglo.</li>
+  <li>Asigna valores a cada elemento.</li>
+</ol>
 
 <p>Cada paso puede pasar en una l&#xED;nea distinta, o se pueden combinar los dos pasos en uno. Cada uno de los dos siguientes ejemplos muestra una t&#xE9;cnica diferente para crear un arreglo llamado x que almacena dos n&#xFA;meros, 12 y 2. Toma mucha atenci&#xF3;n a lo que pasa antes de setup() y lo que pasa en setup().</p>
 
-## Ejemplo 11-4: declara y asigna un arreglo
+<h2>Ejemplo 11-4: declara y asigna un arreglo</h2>
 
 <p>Primero, declararemos un arreglo fuera de setup() y luego creamos y asignamos valores dentro. La sintaxis x[0] se refiere al primer elemento del arreglo y x[1] es el segundo:</p>
 
-```javascript
-var x = [];   // Declara el arreglo
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = [];   // Declara el arreglo
 
 function setup() {
   createCanvas(200, 200);
   x[0] = 12;  // Asigna el primer valor
   x[1] = 2;   // Asigna el segundo valor
 }
-```
 
-## Ejemplo 11-5: asigna valores en un arreglo en una pasada
+</code></pre></div></div></div></div>
+<h2>Ejemplo 11-5: asigna valores en un arreglo en una pasada</h2>
 
 <p>Tambi&#xE9;n puedes asignar valores a un arreglo cuando es creado, si todo es parte de la misma declaraci&#xF3;n:</p>
 
-```javascript
-var x = [12, 2];   // Declara y asigna valores en el arreglo
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = [12, 2];   // Declara y asigna valores en el arreglo
 
 function setup() {
   createCanvas(200, 200);
 }
-```
 
-## Nota
+</code></pre></div></div></div></div>
+<h2>Nota</h2>
 
 <p>Evita crear arreglos dentro de draw(), porque crear un nuevo arreglo en cada cuadro desacelerar&#xE1; la tasa de cuadros.</p>
 
-## Ejemplo 11-6: revisitando el primer ejemplo
+<h2>Ejemplo 11-6: revisitando el primer ejemplo</h2>
 
 <p>Como un ejemplo completo de c&#xF3;mo usar arreglos, hemos reescrito el Ejemplo 11-1 aqu&#xED;. A pesar de que no vemos todav&#xED;a todos los beneficios revelados en el Ejemplo 11-3, s&#xED; vemos algunos detalles importantes de c&#xF3;mo funcionan los arreglos:</p>
 
-```javascript
-var x = [-20, 20];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = [-20, 20];
 
 function setup() {
   createCanvas(240, 120);
@@ -183,11 +246,25 @@ function draw() {
   arc(x[0], 30, 40, 40, 0.52, 5.76);
   arc(x[1], 90, 40, 40, 0.52, 5.76);
 }
-```
 
-## Repetici&#xF3;n y arreglos
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x = [-20, 20];
 
-<p>El for loop, introducido en &quot;Repetici&#xF3;n&quot;, har&#xE1; m&#xE1;s f&#xE1;cil trabajar con arreglos grandes mientras se mantiene el c&#xF3;digo conciso. La idea es escribir un loop para recorrer cada elemento del arreglo uno a uno. Para hacerlo, necesitar&#xE1;s saber el largo del arreglo. La propiedad length asocidada con cada arreglo almacena el n&#xFA;mero de elementos. Usamos el nombre del arreglo con el operador punto para accedera este valor. Por ejemplo:</p>
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+}
+
+function draw() {
+  background(0);
+  x[0] += 0.5; // Incrementa el primer elemento
+  x[1] += 0.5; // Incrementa el segundo elemento
+  arc(x[0], 30, 40, 40, 0.52, 5.76);
+  arc(x[1], 90, 40, 40, 0.52, 5.76);
+}
+</script>
+<h2>Repetici&#xF3;n y arreglos</h2>
+
+<p>El for loop, introducido en &quot;Repetici&#xF3;n&quot;, har&#xE1; m&#xE1;s f&#xE1;cil trabajar con arreglos grandes mientras se mantiene el c&#xF3;digo conciso. La idea es escribir un loop para recorrer cada elemento del arreglo uno a uno. Para hacerlo, necesitar&#xE1;s saber el largo del arreglo. La propiedad length asocidada con cada arreglo almacena el n&#xFA;mero de elementos. Usamos el nombre del arreglo con el operador punto para acceder a este valor. Por ejemplo:</p>
 
 ```javascript
 var x = [12, 20];     // Declara y asigna valores al arreglo
@@ -204,12 +281,13 @@ z[1] = 4;         // Asigna un elemento al arreglo
 print(z.length);  // Imprime 2 en la consola
 ```
 
-## Ejemplo 11-7: llenando un arreglo con un for loop
+<h2>Ejemplo 11-7: llenando un arreglo con un for loop</h2>
 
 <p>Un for loop puede ser usado para llenar un arreglo con valores, o para leer los valores. En este ejemplo, el arreglo es primero llenado con n&#xFA;meros aleatorios dentro de setup(), y luego esos n&#xFA;meros son usados para definir el valor del trazado dentro de draw(). Cada vez que el programa corre, un nuevo conjunto de valores aleatorios es puesto en el arreglo:</p>
 
-```javascript
-var gray = [];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var gray = [];
 
 function setup() {
   createCanvas(240, 120);
@@ -225,16 +303,33 @@ function draw() {
     line(i, 0, i, height);
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var gray = [];
+
+function setup() {
+  createCanvas(240, 120);
+  for (var i = 0; i < width; i++) {
+    gray[i] = random(0, 255);
+  }
+}
+
+function draw() {
+  background(204);
+  for (var i = 0; i < gray.length; i++) {
+    stroke(gray[i]);
+    line(i, 0, i, height);
+  }
+}
+</script>
 <p>En setup(), insertamos tantos elementos como el ancho del lienzo. Esto es un n&#xFA;mero arbitrario, lo hemos elegido para que al dibujar una l&#xED;nea vertical por cada elemento, se llene el ancho del lienzo. Podr&#xED;as tratar de cambiar width a cualquier n&#xFA;mero. Una vez que los elementos son asignados al arreglo, somos capaces de iterar a trav&#xE9;s de ellos en draw() usando la propiedad length. No podemos iterar a trav&#xE9;s del arreglo en setup() porque antes de que cualquier elemento sea puesto dentro, el largo del arreglo gray es 0.</p>
 
-## Ejemplo 11-8: seguir la trayectoria del rat&#xF3;n
+<h2>Ejemplo 11-8: seguir la trayectoria del rat&#xF3;n</h2>
 
 <p>En este ejemplo, existen dos arreglos para almacenar la posici&#xF3;n del rat&#xF3;n - uno para la coordenada x y uno para la coordenada y. Estos arreglos graban la posici&#xF3;n del rat&#xF3;n durante los &#xFA;ltimos 60 cuadros. Con cada nuevo cuadro, los valores de las coordenadas x e y m&#xE1;s antiguos son removidos y reemplazados con el valor actual de mouseX y mouseY. Los nuevos valores son a&#xF1;adidos a la primera posici&#xF3;n del arreglo, pero antes de que esto pase, cada valor del arreglo es movido una posici&#xF3;n a la derecha (desde el &#xFA;ltimo hasta el primero) para hacer espacio para los nuevos n&#xFA;meros. (La Figura 11-2 es un diagrama que ilustra este proceso). Este ejemplo visualiza esta acci&#xF3;n. Adem&#xE1;s, en cada cuadro, las 60 coordenadas son usadas para dibujar una serie de elipses en la pantalla:</p>
 
-```javascript
-var num = 60;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var num = 60;
 var x = [];
 var y = [];
 
@@ -250,8 +345,9 @@ function setup() {
 
 function draw() {
   background(0);
-  // Copia los valores del arreglo de atr&#xE1;s hacia adelante
-  for (var i = num-1; i &gt; 0; i--) {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Copia los valores del arreglo de atr&#xE1;s hacia adelante</p></div><div class="code">
+
+<pre><code>  for (var i = num-1; i &gt; 0; i--) {
     x[i] = x[i - 1];
     y[i] = y[i - 1];
   }
@@ -262,18 +358,47 @@ function draw() {
     ellipse(x[i], y[i], 40, 40);
   }
 }
-```
 
-## Arreglos de objetos
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var num = 60;
+var x = [];
+var y = [];
+
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+
+  for (var i = 0; i < num; i++) {
+    x[i] = 0;
+    y[i] = 0;
+  }
+}
+
+function draw() {
+  background(0);
+  // Copia los valores del arreglo de atrás hacia adelante
+  for (var i = num-1; i > 0; i--) {
+    x[i] = x[i - 1];
+    y[i] = y[i - 1];
+  }
+  x[0] = mouseX;  // Define el primer elemento
+  y[0] = mouseY;  // Define el primer elemento
+  for (var i = 0; i < num; i++) {
+    fill(i * 4);
+    ellipse(x[i], y[i], 40, 40);
+  }
+}
+</script>
+<h2>Arreglos de objetos</h2>
 
 <p>Los dos ejemplos cortos en esta secci&#xF3;n juntan cada gran concepto de programaci&#xF3;n en este libro: iteraci&#xF3;n, condicionales, funciones, objetos y arreglos. Hacer un arreglo de objetos es casi lo mismo que construir los arreglos que introducimos en las p&#xE1;ginas anteriores, pero existe una consideraci&#xF3;n inicial: porque cada elemento es un objeto, primero debe ser creado con la palabra reservada new (tal como cualquier otro objeto) antes de ser asignado a un arreglo. Con un objeto construido por el usuario como JitterBug (ver Cap&#xED;tulo 10), esto significa que new definir&#xE1; cada elemento antes de ser asignado al arreglo.</p>
 
-## Ejemplo 11-9: administrando varios objetos
+<h2>Ejemplo 11-9: administrando varios objetos</h2>
 
 <p>Este ejemplo crea un arreglo de 33 objetos JitterBug y luego actualiza y muestra cada uno dentro de draw(). Para que este ejemplo funcione, necesitas a&#xF1;adir la funci&#xF3;n constructor JitterBug al c&#xF3;digo:</p>
 
-```javascript
-var bugs = [];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var bugs = [];
 
 function setup() {
   createCanvas(240, 120);
@@ -293,17 +418,40 @@ function draw() {
   }
 }
 
-//Copia aqu&#xED; el c&#xF3;digo de la funci&#xF3;n constructor de Jitterbug
-```
+</code></pre></div></div><div class="pair"><div class="comment"><p>Copia aqu&#xED; el c&#xF3;digo de la funci&#xF3;n constructor de Jitterbug</p></div><div class="code">
 
+<pre><code>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var bugs = [];
+
+function setup() {
+  createCanvas(240, 120);
+  background(204);
+  for (var i = 0; i < 33, i++) {
+    var x = random(width);
+    var y = random(height);
+    var r = i + 2;
+    bugs[i] = new JitterBug(x, y, r);
+  }
+}
+
+function draw() {
+  for (var i = 0; i < bugs.length; i++) {
+    bugs[i].move();
+    bugs[i].display();
+  }
+}
+
+//Copia aquí el código de la función constructor de Jitterbug
+</script>
 <p>El ejemplo final de arreglos carga una secuencia y almacena cada elemento dentro de un arreglo.</p>
 
-## Ejemplo 11-10: secuencias de im&#xE1;genes
+<h2>Ejemplo 11-10: secuencias de im&#xE1;genes</h2>
 
 <p>Para correr este ejemplo, obt&#xE9;n las im&#xE1;genes desde media.zip tal como lo descrito en el Cap&#xED;tulo 7. Las im&#xE1;genes son nombradas secuencialmente (frame-0000.png, frame-0001.png, etc.), lo que hace posile crear el nombre de cada archivo dentro de un for loop, tal como lo vemos en la s&#xE9;ptima l&#xED;nea del programa:</p>
 
-```javascript
-var numFrames = 12;     // El n&#xFA;mero de cuadros
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var numFrames = 12;     // El n&#xFA;mero de cuadros
 var images = [];        // Crear el arreglo
 var currentFrame = 0;
 
@@ -326,18 +474,42 @@ function draw() {
     currentFrame = 0; // Retorna al primer cuadro
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var numFrames = 12;     // El número de cuadros
+var images = [];        // Crear el arreglo
+var currentFrame = 0;
+
+function preload() {
+  for (var i = 0; i < numFrames; i++) {
+    var imageName = "frame-" + nf(i, 4) + ".png";
+    images[i] = loadImage(imageName); //Carga cada imagen
+  }
+}
+
+function setup() {
+  createCanvas(240, 120);
+  frameRate(24);
+}
+
+function draw() {
+  image(images[currentFrame], 0, 0);
+  currentFrame++;  // Siguiente cuadro
+  if (currentFrame == images.length) {
+    currentFrame = 0; // Retorna al primer cuadro
+  }
+}
+</script>
 <p>La funci&#xF3;n nf() define el formato de n&#xFA;meros de modo que nf(1, 4) retorna el string &quot;0001&quot; y nf(11, 4) retorna &quot;0011&quot;. Estos valores est&#xE1;n concatenados con el inicio del nombre del archivo (frame-) y el final (.png) para crear el nombre completo del archivo almacenado en una variable. Los archivos son cargados en un arreglo en la siguiente l&#xED;nea. Las im&#xE1;genes son mostradas en la pantalla una a la vez en draw(). Cuando la &#xFA;ltima imagen en el arreglo es mostrada, el programa vuelve al principio del arreglo y muestra las im&#xE1;genes en secuencia.</p>
 
-## Robot 9: arreglos
+<h2>Robot 9: arreglos</h2>
 
 <p>Los arreglos hacen m&#xE1;s f&#xE1;cil que un programa trabaje con muchos elementos. En este ejemplo, un arreglo de objetos Robot es declarado al principio. El arreglo es luego posicionado dentro de setup(), y cada objeto Robot es creado dentro del for loop. En draw(), otro for loop es usado para actualizar y mostrar cada elemento del arreglo bots.</p>
 
 <p>El for loop y un arreglo hacen una combinaci&#xF3;n poderosa. Observa las diferencias sutiles entre el c&#xF3;digo para este ejemplo y Robot 8 (ver &quot;Robot 8: objetos&quot;) en contraste a los cambios extremos en el resultado visual. Una vez que el arreglo es creado y un for loop es incluido, es igualmente de f&#xE1;cil trabajar con 3 elementos que con 3,000.</p>
 
-```javascript
-var robotImage;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var robotImage;
 var bots = [];    // Declara un arreglo para almacenar objetos Robot
 
 function preload() {
@@ -349,8 +521,70 @@ function setup() {
 
   var numRobots = 20;
 
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea cada objeto</p></div><div class="code">
+
+<pre><code>  for (var i = 0; i &lt; numRobots; i++) {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea una coordenada x aleatoria</p></div><div class="code">
+
+<pre><code>    var x = random(-40, width - 40);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Asigna la coordenada y basada en el orden</p></div><div class="code">
+
+<pre><code>    var y = map(i, 0, numRobots, -100, height - 200);
+    bots[i] = new Robot(robotImage, x, y);
+  }
+}
+
+function draw() {
+  background(204);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Actualiza y muestra cada bot en el arreglo</p></div><div class="code">
+
+<pre><code>  for (var i = 0; i &lt; bots.length; i++) {
+    bots[i].update();
+    bots[i].display();
+  }
+}
+
+function Robot(img, tempX, tempY) {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Define los valores iniciales para las propiedades</p></div><div class="code">
+
+<pre><code>  this.xpos = tempX;
+  this.ypos = tempY;
+  this.angle = random(0, TWO_PI);
+  this.botImage = img;
+  this.yoffset = 0.0;
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Actualiza las propiedades</p></div><div class="code">
+
+<pre><code>  this.update = function() {
+    this.angle += 0.05;
+    this.yoffset = sin(this.angle) * 20;
+  }
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja el robot en la pantalla</p></div><div class="code">
+
+<pre><code>  this.display = function() {
+    image(this.botImage, this.xpos, this.ypos + this.yoffset);
+  }
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var robotImage;
+var bots = [];    // Declara un arreglo para almacenar objetos Robot
+
+function preload() {
+  robotImage = loadImage("robot1.svg");
+}
+
+function setup() {
+  createCanvas(720, 480);
+
+  var numRobots = 20;
+
   // Crea cada objeto
-  for (var i = 0; i &lt; numRobots; i++) {
+  for (var i = 0; i < numRobots; i++) {
     // Crea una coordenada x aleatoria
     var x = random(-40, width - 40);
     // Asigna la coordenada y basada en el orden
@@ -362,7 +596,7 @@ function setup() {
 function draw() {
   background(204);
   // Actualiza y muestra cada bot en el arreglo
-  for (var i = 0; i &lt; bots.length; i++) {
+  for (var i = 0; i < bots.length; i++) {
     bots[i].update();
     bots[i].display();
   }
@@ -387,7 +621,7 @@ function Robot(img, tempX, tempY) {
     image(this.botImage, this.xpos, this.ypos + this.yoffset);
   }
 }
-```
+</script>
 </section>
 
 <a id="prev-link" href="chapter10.html">Previous: Capítulo 10. Objetos</a>

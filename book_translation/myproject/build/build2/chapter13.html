@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    <script src="assets/p5.js"></script>
-<script src="assets/scripts.js"></script>
-
+    
     <link rel="stylesheet" href="assets/html.css">
 
   </head>
@@ -41,39 +39,40 @@
 
  <p>El uso m&#xE1;s com&#xFA;n de la librer&#xED;a p5.sound es para tocar un sonido cuando un evento ocurre en la pantalla o como m&#xFA;sica de fondo. Este ejemplo se basa en el Ejemplo 8-5 para reproducir un sonido cuando la figura llega a los bordes de la pantalla. El archivo blip.wav es incluido en la carpeta media que puede ser descargada siguiendo las instrucciones del cap&#xED;tulo 7. As&#xED; como con otros medios, una variable para almacenar un objeto p5.SoundFile (que es lo que la funci&#xF3;n loadSound() retorna) es definida en la parte superior del bosquejo, es cargada con preload() y despu&#xE9;s de eso, puede ser usada en cualquier parte del prorgrama:</p><p>
 
- ```javascript
- var blip;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
- var radius = 120;
- var x = 0;
- var speed = 1.0;
- var direction = 1;
+<pre><code>var blip;
 
- function preload() {
-   blip = loadSound(&quot;blip.wav&quot;);
- }
+var radius = 120;
+var x = 0;
+var speed = 1.0;
+var direction = 1;
 
- function setup() {
-   createCanvas(440, 440);
-   ellipseMode(RADIUS);
-   x = width/2; // Parte en el centro
- }
+function preload() {
+  blip = loadSound(&quot;blip.wav&quot;);
+}
 
- function draw() {
-   background(0);
-   x += speed * direction;
-   if ((x &gt; width - radius) || (x &lt; radius)) {
-     direction = - direction; // Invierte la direcci&#xF3;n
-     bip,play();
-   }
-   if (direction == 1) {
-     arc(x, 220, radius, radius, 0.52, 5.76);
-   } else {
-     arc(x, 220, radius, radius, 3.67, 8.9);
-   }
- }
- ```
+function setup() {
+  createCanvas(440, 440);
+  ellipseMode(RADIUS);
+  x = width/2; // Parte en el centro
+}
 
+function draw() {
+  background(0);
+  x += speed * direction;
+  if ((x &gt; width - radius) || (x &lt; radius)) {
+    direction = - direction; // Invierte la direcci&#xF3;n
+    bip,play();
+  }
+  if (direction == 1) {
+    arc(x, 220, radius, radius, 0.52, 5.76);
+  } else {
+    arc(x, 220, radius, radius, 3.67, 8.9);
+  }
+}
+
+</code></pre></div></div></div></div>
 </p><p>El sonido es gatillado cada vez que el m&#xE9;todo play() es ejecutado. Este ejemplo funciona bien porque el sonido solo est&#xE1; siendo reproducido cuando el valor de la variable x est&#xE1; en las orillas de la pantalla. Si el sonido fuera tocado en cada ejecuci&#xF3;n de draw(), el sonido se reiniciar&#xED;a 60 veces por segundo y no tendr&#xED;a tiempo de terminar de sonar. El resultado ser&#xED;a un sonido distorsionando r&#xE1;pidamente. Para tocar un sample m&#xE1;s largo mientras un programa corre, llama a los m&#xE9;todos play(), loop() para que suenen dentro de setup() as&#xED; que el sonido as&#xED; se gatilla una sola vez.</p>
 
 ## Nota
@@ -84,8 +83,9 @@
 
 <p>Adem&#xE1;s de reproduicr sonidos, p5.js puede escuchar. Si tu computador tiene un micr&#xF3;fono incorporado o conectado, la librer&#xED;a p5.sound puede leer audio en vivo a trav&#xE9;s de &#xE9;l. Una vez que los datos del micr&#xF3;fono est&#xE1;n conectados al software, los puedes analizar, modificar o reproducir:</p>
 
-```javascript
-var mic;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var mic;
 var amp;
 
 var scale = 1.0;
@@ -93,28 +93,32 @@ var scale = 1.0;
 function setup() {
   createCanvas(440, 440);
   background(0);
-  // Crea una entrada de audio y empieza a escuchar
-  mic = new p5.AudioIn();
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea una entrada de audio y empieza a escuchar</p></div><div class="code">
+
+<pre><code>  mic = new p5.AudioIn();
   mic.start();
-  // Crea un nuevo analizador de amplitud y con&#xE9;ctalo a la entrada
-  amp = new p5.Amplitude();
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea un nuevo analizador de amplitud y con&#xE9;ctalo a la entrada</p></div><div class="code">
+
+<pre><code>  amp = new p5.Amplitude();
   amp.setInput(mic);
 }
 
 function draw() {
-  // Dibuja un fondo que se vaya a negro
-  noStroke(0);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja un fondo que se vaya a negro</p></div><div class="code">
+
+<pre><code>  noStroke(0);
   fill(0, 10);
   rect(0, 0, width, height);
-  // El m&#xE9;todo getLevel() retorna valores entre 0 y 1
-  // as&#xED; que map() es usado para convertir los valores a n&#xFA;meros mayores
-  scale = map(amp.getLevel(), 0, 1.0, 10, width);
-  // Dibuja el c&#xED;rculo basado en el volumen
-  fill(255);
+</code></pre></div></div><div class="pair"><div class="comment"><p>El m&#xE9;todo getLevel() retorna valores entre 0 y 1 as&#xED; que map() es usado para convertir los valores a n&#xFA;meros mayores</p></div><div class="code">
+
+<pre><code>  scale = map(amp.getLevel(), 0, 1.0, 10, width);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja el c&#xED;rculo basado en el volumen</p></div><div class="code">
+
+<pre><code>  fill(255);
   ellipse(width/2, height/2, scale, scale);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Hay dos partes que est&#xE1;n tomando la amplitud (volumen) del micr&#xF3;fono a&#xF1;adido. El objeto p5.AudioIn es usado para obtener la se&#xF1;al del micr&#xF3;fono y el objeto p5.Amplitude es usado para medir la se&#xF1;al.</p>
 
 <p>Las variables para almacenar ambos objetos est&#xE1; definidas en la parte de arriba del c&#xF3;digo y creadas dentro de setup(). Despu&#xE9;s del objeto p5.Amplitude() (en este programa es llamado amp), el objeto p5.AudioIn, nombrado mic, es conectado al objeto amp con el m&#xE9;todo setInput(). Despu&#xE9;s de eso, el m&#xE9;todo getLevel() del objeto amp puede ser ejecutado en cualquier momento para leer la amplitud del micr&#xF3;fono dentro del programa. En este ejemplo, eso es hecho cada vez en draw() y ese valor es usado para definir el tama&#xF1;o del c&#xED;rculo.</p>
@@ -125,34 +129,38 @@ function draw() {
 
 <p>En el siguiente ejemplo, el valor de mouseX determina la frecuencia de la onda sinusoidal. Mientras el rat&#xF3;n se mueve a la izquierda y derecha, la frecuencia audible y la correspondiente visualizaci&#xF3;n de la onda aumenta y decae:</p>
 
-```javascript
-var sine;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var sine;
 
 var freq = 440;
 
 function setup() {
   createCanvas(440, 440);
 
-  // Crea e inicia el oscilador sinusoidal
-  sine = new p5.SinOsc();
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea e inicia el oscilador sinusoidal</p></div><div class="code">
+
+<pre><code>  sine = new p5.SinOsc();
   sine.start;
 }
 
 function draw() {
   background(0);
-  // Mapea el valor de mouseX entre 20 Hz y 440 Hz para la frecuencia
-  var hertz = map(mouseX, 0, width, 20.0, 440.0);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Mapea el valor de mouseX entre 20 Hz y 440 Hz para la frecuencia</p></div><div class="code">
+
+<pre><code>  var hertz = map(mouseX, 0, width, 20.0, 440.0);
   sine.freq(hertz);
-  // Dibuja una onda para visualizar la frecuencia del sonido
-  stroke(204);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja una onda para visualizar la frecuencia del sonido</p></div><div class="code">
+
+<pre><code>  stroke(204);
   for (var x = 0; x &lt; width; x++) {
     var angle = map(x, 0, width, 0, TWO_PI * hertz);
     var sinValue = sin(angle) * 120;
     line(x, 0, x, height/2 + sinValue);
   }
 }
-```
 
+</code></pre></div></div></div></div>
 <p>El objeto sine, creado con el constructor de p5.SinOsc, es definido al principio del c&#xF3;digo y luego creado dentro de setup(). El m&#xE9;todo start() hace que la onda empieza a generar sonido. Dentro de draw(), el m&#xE9;todo freq() define continuamente la frecuencia de la onda, bas&#xE1;ndose en la posici&#xF3;n izquierda y derecha del rat&#xF3;n.</p>
 
 ## p5.dom
@@ -165,8 +173,9 @@ function draw() {
 
 <p>createCapture() accede a la webcam en tu computador y crea un elemento HTML que muestra su audio y video. Una vez que el elemento de captura es creado, puede ser dibujado en el lienzo y ser manipulado:</p>
 
-```javascript
-var capture;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var capture;
 
 function setup() {
   createCanvas(480, 120);
@@ -180,8 +189,8 @@ function draw() {
   image(capture, 0, 0, width, h);
   filter(INVERT);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>El objeto de capture est&#xE1; definido en la parte superior del c&#xF3;digo y luego es creado dentro de setup(). createCapture() de hecho adjunta un nuevo elemento a la p&#xE1;gina, pero como queremos dibujarlo en el lienzo, el m&#xE9;todo hide() es usado para esconder el objeto de captura. Revisa lo que pasa cuando descomentas esta l&#xED;nea de c&#xF3;digo.</p>
 
 &lt;<p></p>p&gt;Deber&#xED;as ver dos copias del video, una invertida y una normal.<p></p>
@@ -192,8 +201,9 @@ function draw() {
 
 <p>La funci&#xF3;n createSlider() crea una barra deslizadora que puede ser usada para manipular aspectos del bosquejo. Acepta tres argumentos - el valor m&#xED;nimo, el valor m&#xE1;ximo y el valor inicial:</p>
 
-```javascript
-var slider;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var slider;
 
 function setup() {
   createCanvas(480, 120);
@@ -205,16 +215,17 @@ function draw() {
   var gray = slider.value();
   background(gray);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>El objeto barra deslizadora es definido en la parte superior del c&#xF3;digo y luego creado dentro de setup(). Por defecto, el elemento ser&#xE1; adjuntado a la p&#xE1;gina, justo despu&#xE9;s del elemento m&#xE1;s recientemente creado en la p&#xE1;gina. El m&#xE9;todo position() permite darle una posici&#xF3;n relativa a la esquina superior izquierda. El m&#xE9;todo value() retorna el valor actual de la barra deslizadora, el cual est&#xE1; siendo usado para definir el color del fondo del lienzo en draw().</p>
 
 ## Ejemplo 13-6: crea un recuadro de entrada
 
 <p>La funci&#xF3;n createInput() a&#xF1;ade un recuardo que puede ser usado para darle entrada de texto a tu programa. createButton() a&#xF1;ade un bot&#xF3;n que puede gatillar cualquier funci&#xF3;n que escojas. En este caso, el bot&#xF3;n es usado para entregar el texto dentro del recuadro de entrada al programa:</p>
 
-```javascript
-var input;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var input;
 var button;
 
 function setup() {
@@ -238,8 +249,8 @@ function drawName() {
     text(name, random(width), random(height));
   }
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Los objetos entrada y bot&#xF3;n son definidos en la parte superior del c&#xF3;digo y creados dentro de setup(). createButton() aceptoa un argumento, la etiqueta a ser mostrada en el bot&#xF3;n. El m&#xE9;todo mousePressed() es usado para asignar una funci&#xF3;n a ejecutar cuando el bot&#xF3;n es presionado. Dentro de drawName(), los contenidos del recuadro de entrada son le&#xED;dos usando el m&#xE9;todo value(), y usados para llenar el fondo con el texto.</p>
 
 </section>

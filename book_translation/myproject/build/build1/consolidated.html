@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Introducción a p5.js</title>
-    
+    <script src="assets/p5.js"></script>
+<script src="assets/scripts.js"></script>
+
     <link rel="stylesheet" href="assets/pdf.css">
 
   </head>
@@ -4821,16 +4823,17 @@ function draw() {
 
 <p>Las funciones son &#xFA;tiles si quieres dibujar una forma m&#xE1;s compleja como un &#xE1;rbol, una y otra vez. La funci&#xF3;n para dibujar un &#xE1;rbol puede estar compuesta con las funciones incorporadas de p5.js, como line(), para crear la forma. Despu&#xE9;s de que el c&#xF3;digo para dibujar el &#xE1;rbol es escrito, no necesitas pensar sobre los detalles de dibujar un &#xE1;rbol nuevamente - puedes simplemente escribir tree() (o alg&#xFA;n otro nombre que le hayas puesto a la funci&#xF3;n) para dibujar la figura. Las funciones permiten que una secuencia compleja de declaraciones pueda ser abstra&#xED;da, para que te puedas enfocar en una meta de alto nivel (como dibujar un &#xE1;rbol), y no los detalles de la implementaci&#xF3;n (las funciones line() que definen la forma del &#xE1;rbol). Una vez que una funci&#xF3;n es definida, el c&#xF3;digo dentro de la funci&#xF3;n no necesita ser repetido.</p>
 
-## Funciones b&#xE1;sicas
+<h2>Funciones b&#xE1;sicas</h2>
 
 <p>Un computador corre los programas una l&#xED;nea de c&#xF3;digo a la vez. Cuando una funci&#xF3;n es ejecutada, el computador salta a donde la funci&#xF3;n est&#xE1; definida y corre el c&#xF3;digo ah&#xED;, luego vuelve a donde estaba anteriormente.</p>
 
-## Ejemplo 9-1: tira los dados
+<h2>Ejemplo 9-1: tira los dados</h2>
 
 <p>Este comportamiento es ilustrado con la funci&#xF3;n rollDice() escrita para este ejemplo. Cuando el programa empieza, corre el c&#xF3;digo en setup() y luego para. El programa toma un desv&#xED;o y corre el c&#xF3;digo dentro de rollDice() cada vez que aparece.</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   print(&quot;&#xA1;Listo para lanzar los dados!&quot;);
   rollDice(20);
   rollDice(20);
@@ -4842,20 +4845,21 @@ function rollDice(numSides) {
   var d = 1 + int(random(numSides));
   print(&quot;Lanzando... &quot; + d);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Las dos l&#xED;neas de c&#xF3;digo en rollDice() seleccionan un n&#xFA;mero aleatorio entre 1 y el n&#xFA;mero de caras del dado, e imprime ese n&#xFA;mero a la consola. Como los n&#xFA;meros son aleatorios, ver&#xE1;s diferentes n&#xFA;meros cada vez que el prorgama es ejecutado:</p>
 
 <p>Cada vez que la funci&#xF3;n rollDice() es ejecutada dentro de setup(), el c&#xF3;digo dentro de la funci&#xF3;n corre de arriba a abajo, luego el programa contin&#xFA;a con la siguiente l&#xED;nea dentro de setup().</p>
 
 <p>La funci&#xF3;n random() (descrita en &quot;Aleatorio&quot;) arroja un n&#xFA;mero entre 0 y hasta (pero sin incluir) el n&#xFA;mero especificado. Entonces random(6) entrega un n&#xFA;mero entre 0 y 5.99999... Como random() arroja un n&#xFA;mero con punto decimal, tambi&#xE9;n usamos la funci&#xF3;n int() para convertir el n&#xFA;mero a uno entero.  Entonces int(random(6)) arrojar&#xE1; 0, 1, 2, 3, 4 o 5. Como muchas otros casos en este libro, contar desde 0 hace m&#xE1;s f&#xE1;cil usar los resultados de random() con otros c&#xE1;lculos.</p>
 
-## Ejemplo 9-2: otra manera de tirar los dados
+<h2>Ejemplo 9-2: otra manera de tirar los dados</h2>
 
 <p>Si un programa equivalente hubiera sido hecho sin la funci&#xF3;n rollDice(), hubiera sido as&#xED;:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   print(&quot;&#xA1;Listo para lanzar los dados!&quot;);
   var d1 = 1 + int(random(20));
   print(&quot;Lanzando... &quot; + d1);
@@ -4865,20 +4869,21 @@ function setup() {
   print(&quot;Lanzando... &quot; + d3);
   print(&quot;Listo.&quot;);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>La funci&#xF3;n rolldice() en el Ejemplo 9-1 hace que el c&#xF3;digo sea m&#xE1;s f&#xE1;cil de leer y mantener. El programa es m&#xE1;s claro, porque el nombre de la funci&#xF3;n claramente determina su prop&#xF3;sito. En este ejemplo, podemos ver la funci&#xF3;n random() en setup(), pero su uso no es tan obvio. El n&#xFA;mero de lados en un dado es m&#xE1;s claro con una funci&#xF3;n: cuando el c&#xF3;digo dice rollDice(6), es obvio que est&#xE1; simulando el lanzamiento de un dado de seis caras. Adem&#xE1;s, el Ejemplo 9-1 es f&#xE1;cil de mantener, porque la informaci&#xF3;n no est&#xE1; repetida. La frase Lanzando... se repite tres veces en este caso. Si quieres cambiar el texto a algo distinto, tienes que actualizar el c&#xF3;digo en tres lugares, en vez de hacer una sola edici&#xF3;n dentro de la funci&#xF3;n rollDice(). Adem&#xE1;s, como ver&#xE1;s en el Ejemplo 9-5, una funci&#xF3;n puede hacer un programa mucho m&#xE1;s corto (y por lo tanto m&#xE1;s f&#xE1;cil de mantener y leer), lo que ayuda a reducir el potencial n&#xFA;mero de errores.</p>
 
-## Hacer una funci&#xF3;n
+<h2>Hacer una funci&#xF3;n</h2>
 
 <p>En esta secci&#xF3;n, dibujaremos una lechuza para explicar los pasos involucrados en hacer una funci&#xF3;n.</p>
 
-## Ejemplo 9-3: dibuja la lechuza
+<h2>Ejemplo 9-3: dibuja la lechuza</h2>
 
 <p>Primero, dibujaremos la lechuza sin usar una funci&#xF3;n:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -4898,16 +4903,59 @@ function draw() {
   ellipse( 14, -65, 8, 8);  // Ojo derecho
   quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Observa que la funci&#xF3;n translate() es usada para mover el origen (0, 0) 110 pixeles a la derecha y 110 pixeles hacia abajo. Luego la leechuza es dibujada relativamente al (0,0), con sus coordenadas algunas veces positivas y otras negativas, centradas alrededor del nuevo punto (0,0). (Ver Figura 9-1).</p>
 
-## Ejemplo 9-4: Dos son compa&#xF1;&#xED;a
+<h2>Ejemplo 9-4: Dos son compa&#xF1;&#xED;a</h2>
 
 <p>El c&#xF3;digo del Ejemplo 9-3 es razonable si solo hay una lechuza, pero cuando a&#xF1;adimos una segunda, el largo del c&#xF3;digo es casi el doble:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+
+</code></pre></div></div><div class="pair"><div class="comment"><p>Lechuza izquierda</p></div><div class="code">
+
+<pre><code>  translate(110, 110);
+  stroke(0);
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Cuerpo
+  noStroke();
+  fill(204);
+  ellipse(-17.5, -65, 35, 35);  // Pupila izquierda
+  ellipse( 17.5, -65, 35, 35);  // Pupila derecha
+  arc(0, -65, 70, 70, 0, PI);   // Barbilla
+  fill(0);
+  ellipse(-14, -65, 8, 8);  // Ojo izquierdo
+  ellipse( 14, -65, 8, 8);  // Ojo derecho
+  quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Lechuza derecha</p></div><div class="code">
+
+<pre><code>  translate(70, 0);
+  stroke(0);
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Cuerpo
+  noStroke();
+  fill(255);
+  ellipse(-17.5, -65, 35, 35);  // Pupila izquierda
+  ellipse( 17.5, -65, 35, 35);  // Pupila derecha
+  arc(0, -65, 70, 70, 0, PI);   // Barbilla
+  fill(0);
+  ellipse(-14, -65, 8, 8);  // Ojo izquierdo
+  ellipse( 14, -65, 8, 8);  // Ojo derecho
+  quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(480, 120);
 }
 
@@ -4944,16 +4992,16 @@ function draw() {
   ellipse( 14, -65, 8, 8);  // Ojo derecho
   quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
 }
-```
-
+</script>
 <p>El programa crece de 21 l&#xED;neas de c&#xF3;digo a 34, el c&#xF3;digo para dibujar la primera lechuza fue copiado y pegado en el programa y una funci&#xF3;n translate fue insertada para moverla 70 pixeles a la derecha. Esto es una manera tediosa e ineficiente de dibujar la segunda lechuza, no sin mencionar el dolor de cabeza que ser&#xE1; a&#xF1;adir una tercera lechuza con este m&#xE9;todo. Pero duplicar el c&#xF3;digo es innecesario, porque este es el tipo de situaci&#xF3;n donde una funci&#xF3;n puede llegar al rescate.</p>
 
-## Ejemplo 9-5: una funci&#xF3;n lechuza
+<h2>Ejemplo 9-5: una funci&#xF3;n lechuza</h2>
 
 <p>En este ejemplo, una funci&#xF3;n es introducida para dibujar dos lechuzas con el mismo c&#xF3;digo. Si hacemos que el c&#xF3;digo que dibuja una lechuza en la pantalla sea una nueva funci&#xF3;n, entonces el c&#xF3;digo solo necesita aparecer una vez en el programa:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -4980,20 +5028,48 @@ function owl(x,y) {
   quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
   pop();
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  owl(110, 110);
+  owl(180, 110);
+}
+
+function owl(x,y) {
+  push();
+  translate(x,y);
+  stroke(0);
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Cuerpo
+  noStroke();
+  fill(255);
+  ellipse(-17.5, -65, 35, 35);  // Pupila izquierda
+  ellipse( 17.5, -65, 35, 35);  // Pupila derecha
+  arc(0, -65, 70, 70, 0, PI);   // Barbilla
+  fill(0);
+  ellipse(-14, -65, 8, 8);  // Ojo izquierdo
+  ellipse( 14, -65, 8, 8);  // Ojo derecho
+  quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
+  pop();
+}
+</script>
 <p>Puedes ver por las ilustraciones de este ejemplo y del Ejemplo 9-4 que tienen el mismo resultado, pero que este es m&#xE1;s corto, porque el c&#xF3;digo para usar la lechuza aparece solo una vez, dentro de la funci&#xF3;n llamada owl(). Este c&#xF3;digo es ejecutado dos veces, porque es llamado dos veces dentro de la funci&#xF3;n draw(). La lechuza es dibujada en dos ubicaciones distintas porque los par&#xE1;metros pasados a la funci&#xF3;n determinan las coordenadas x e y.</p>
 
 <p>Los par&#xE1;metros son una parte importante de las funciones, porque proveen flexibilidad. Vimos otro ejemplo de esto en la funci&#xF3;n rollDice(), el par&#xE1;metro &#xFA;nico numSides hizo posible simular un dado de 6 caras, uno de 20 y cualquier otro n&#xFA;mero de caras.  Esto es como otras funciones de p5.js. Por ejemplo, los par&#xE1;metros de la funci&#xF3;n line() hacen posible dibujar una l&#xED;nea de un pixel a otro en el lienzo. Sin los par&#xE1;metros, la funci&#xF3;n solo ser&#xED;a capaz de dibujar una l&#xED;nea desde un punto fijo a otro fijo.</p>
 
 <p>Cada par&#xE1;metro es una variable que es creada cada vez que la funci&#xF3;n corre. Cuando este ejemplo corre, la primera vez que la funci&#xF3;n owl es llamada, el valor del par&#xE1;metro x es 110 y el par&#xE1;metro y es 110 tambi&#xE9;n. En el segundo uso de la funci&#xF3;n, el valor de x es 180 y y es nuevamente 110. Cada valor es pasado a la funci&#xF3;n y luego cada vez que el nombre de la variable aparece dentro de la funci&#xF3;n, es reemplazado con el valor.</p>
 
-## Ejemplo 9-6: aumentando la poblaci&#xF3;n
+Ejemplo 9-6: aumentando la poblaci&#xF3;n<h2>
 
 <p>Ahora que tenemos una funci&#xF3;n b&#xE1;sica para dibujar la lechuza en cualquier ubicaci&#xF3;n, podemos ahora dibujar muchas lechuzas eficientemente poniendo la funci&#xF3;n dentro de un for loop y cambiando el primer par&#xE1;metro cada vez que corre el loop:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -5004,17 +5080,31 @@ function draw() {
   }
 }
 
-// Insertar la funci&#xF3;n owl() del Ejemplo 9-5
-```
+</code></pre></div></div><div class="pair"><div class="comment"><p>Insertar la funci&#xF3;n owl() del Ejemplo 9-5</p></div><div class="code">
 
+<pre><code>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  for (var x = 35; x < width + 70; x += 70) {
+    owl(x, 110);
+  }
+}
+
+// Insertar la función owl() del Ejemplo 9-5
+</script>
 <p>Es posible seguir a&#xF1;adiendo m&#xE1;s y m&#xE1;s par&#xE1;metros a la funci&#xF3;n para cambiar diferentes aspectos de c&#xF3;mo la lechuza es dibujada. Los valores son pasados a la funci&#xF3;n para cambiar el color de la lechuza, la rotaci&#xF3;n, la escala o el di&#xE1;metro de los ojos.</p>
 
-## Ejemplo 9-7: lechuzas de diferentes tama&#xF1;os
+<h2>Ejemplo 9-7: lechuzas de diferentes tama&#xF1;os</h2>
 
 <p>En este ejemplo, hemos a&#xF1;adido dos par&#xE1;metros para cambiar el valor de gris y el tama&#xF1;o de cada lechuza:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   createCanvas(480, 120);
 }
 
@@ -5046,9 +5136,41 @@ function owl(x, y, g, s) {
   quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
   pop();
 }
-```
 
-## Valores de retorno
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
+  createCanvas(480, 120);
+}
+
+function draw() {
+  background(204);
+  randomSeed(0);
+  for (var i = 35; i < width + 40; i += 40) {
+    var gray = int(random(0, 102));
+    var scalar = random(0.25, 1.0);
+    owl(i, 110, gray, scalar);
+  }
+}
+
+function owl(x, y, g, s) {
+  push();
+  translate(x,y);
+  scale(s);   // Define la escala
+  stroke(g);  // Define el valor de gris
+  strokeWeight(70);
+  line(0, -35, 0, -65); // Cuerpo
+  noStroke();
+  fill(255-g);
+  ellipse(-17.5, -65, 35, 35);  // Pupila izquierda
+  ellipse( 17.5, -65, 35, 35);  // Pupila derecha
+  arc(0, -65, 70, 70, 0, PI);   // Barbilla
+  fill(g);
+  ellipse(-14, -65, 8, 8);  // Ojo izquierdo
+  ellipse( 14, -65, 8, 8);  // Ojo derecho
+  quad(0, -58, 4, -51, 0, -44, -4, -51);  // Pico
+  pop();
+}
+</script>
+<h2>Valores de retorno</h2>
 
 <p>Las funciones pueden hacer un c&#xE1;lculo y luego retornar un valor al programa principal. Hemos ya usado funciones de este tipo, incluyendo random() y sin(). Observa que cuando esta funci&#xF3;n aparece, el valor de retorno es usualmente asignado a una variable:</p>
 
@@ -5066,12 +5188,13 @@ point(random(width), random(height));
 
 <p>En este caso, los valores de random() no son asignados a una variable - son pasados como par&#xE1;metros a la funci&#xF3;n point() y usados para posicionar el punto dentro del lienzo.</p>
 
-## Ejemplo 9-8: retorna un valor
+<h2>Ejemplo 9-8: retorna un valor</h2>
 
 <p>Para hacer que una funci&#xF3;n retorne un valor, especifica el dato a ser pasado de vuelta con la palabra clave return. En este ejemplo se incluye una funci&#xF3;n llamada calculateMars() que calcula el peso de una persona u objeto en nuestro planeta vecino:</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
   var yourWeight = 132;
   var marsWeight = calculateMars(yourWeight);
   print(marsWeight);
@@ -5081,18 +5204,81 @@ function calculateMars(w) {
   var newWeight = w * 0.38;
   return newWeight;
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Revisa la &#xFA;ltima l&#xED;nea del c&#xF3;digo del bloque, que retorna la variable newWeight. En la segunda l&#xED;nea de setup(), el valor es asignado a la variable marsWeight. (Para ver tu propio peso en Marte, cambia el valor de la variable yourWeight a tu peso).</p>
 
-## Robot 7: funciones
+<h2>Robot 7: funciones</h2>
 
 <p>En contraste con el Robot 2 (ver &quot;Robot 2: variables&quot;), este ejemplo usa una funci&#xF3;n para dibujar cuatro variaciones del robot dentro del mismo programa. Como la funci&#xF3;n drawRobot() aparece cuatro veces dentro de la funci&#xF3;n draw(), el c&#xF3;digo dentro del bloque drawRobot() es ejecutado cuatro veces, cada vez con un diferente conjunto de par&#xE1;metros para cambiar la posici&#xF3;n y la altura del cuerpo del robot.</p>
 
 <p>Observa c&#xF3;mo las variables globales en Robot 2 ahora han sido aisladas dentro de la funci&#xF3;n drawrobot(). Como estas variables aplican solamente a dibujar el robot, ellas tienen que estar dentro de las llaves que definen el bloque de la funci&#xF3;n drawRobot(). Como el valor de la variable radius no cambia, no necesita ser un par&#xE1;metro. En cambio, es definida al principio de drawRobot():</p>
 
-```javascript
-function setup() {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function setup() {
+  createCanvas(720, 480);
+  strokeWeight(2);
+  ellipseMode(RADIUS);
+}
+
+function draw() {
+  background(204);
+  drawRobot(120, 420, 110, 140);
+  drawRobot(270, 460, 260,  95);
+  drawRobot(420, 310,  80,  10);
+  drawRobot(570, 390, 180,  40);
+}
+
+function drawRobot(x, y, bodyHeight, neckHeight) {
+
+  var radius = 45;
+  var ny = y - bodyHeight - neckHeight - radius;
+
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuello</p></div><div class="code">
+
+<pre><code>  stroke(102);
+  line(x +  2, y - bodyHeight, x +  2, ny);
+  line(x + 12, y - bodyHeight, x + 12, ny);
+  line(x + 22, y - bodyHeight, x + 22, ny);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Antenas</p></div><div class="code">
+
+<pre><code>  line(x + 12, ny, x - 18, ny - 43);
+  line(x + 12, ny, x + 42, ny - 99);
+  line(x + 12, ny, x + 78, ny + 15);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cuerpo</p></div><div class="code">
+
+<pre><code>  noStroke(102);
+  fill(102);
+  ellipse(x, y - 33, 33, 33);
+  fill(0);
+  rect(x - 45, y - bodyHeight, 90, bodyHeight - 33);
+  fill(102);
+  rect(x - 45, y - bodyHeight + 17, 90, 6);
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Cabeza</p></div><div class="code">
+
+<pre><code>  fill(0);
+  ellipse(x + 12, ny    , radius, radius);
+  fill(255);
+  ellipse(x + 24, ny - 6, 14, 14);
+  fill(0);
+  ellipse(x + 24, ny - 6, 3, 3);
+  fill(153);
+  ellipse(x     , ny -  8, 5, 5);
+  ellipse(x + 30, ny - 26, 4, 4);
+  ellipse(x + 41, ny +  6, 3, 3);
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">function setup() {
   createCanvas(720, 480);
   strokeWeight(2);
   ellipseMode(RADIUS);
@@ -5143,8 +5329,8 @@ function drawRobot(x, y, bodyHeight, neckHeight) {
   ellipse(x + 30, ny - 26, 4, 4);
   ellipse(x + 41, ny +  6, 3, 3);
 }
-```
-</section>
+</script>
+</h2></section>
 
 <section data-type="chapter" id="capitulo_10_objetos">
 
@@ -5154,18 +5340,15 @@ function drawRobot(x, y, bodyHeight, neckHeight) {
 
 <p>Los objetos son importantes, porque permiten dividir las ideas en bloques m&#xE1;s peque&#xF1;os. Esto se parece al mundo real donde, por ejemplo, los &#xF3;rganos est&#xE1;n hechos de tejido, el tejido est&#xE1; hecho de c&#xE9;lulas y as&#xED;. Similarmente, a medida que tu c&#xF3;digo se va volviendo m&#xE1;s complejo, tienes que pensar en t&#xE9;rminos de estructuras m&#xE1;s peque&#xF1;as que forman estructuras m&#xE1;s complicadas. Es m&#xE1;s f&#xE1;cil escribir y mantener pedazos de c&#xF3;digo m&#xE1;s peque&#xF1;os y f&#xE1;ciles de entender, que trabajan en conjunto con otros, que es escribir un gran trozo de c&#xF3;digo que hace todo al mismo tiempo.</p>
 
-## Propiedades y m&#xE9;todos
+<h2>Propiedades y m&#xE9;todos</h2>
 
 <p>Un objeto es un conjunto de variables y funciones relacionadas. En el contexto de los objetos, una variable se llama propiedad (o variable de instancia) y una funci&#xF3;n es llamada m&#xE9;todo. Las propiedades y los m&#xE9;todos funcionan tal como las variables y las funciones vistas en los cap&#xED;tulos anteriores, pero usaremos estos nuevos t&#xE9;rminos para enfatizar que son parte de un objeto. Para decirlo de otra manera, un objeto combina datos relacionados (propiedades) con acciones y comportamientos relacionados (m&#xE9;todos). La idea es agrupar datos y m&#xE9;todos relacionados.</p>
 
 <p>Por ejemplo, para hacer un modelo de una radio, piensa en los par&#xE1;metros que pueden ser ajustados y las acciones que pueden afectar estos par&#xE1;metros:</p>
 
 Propiedades
-
 volume, frequency, band(FM, AM), power (on, off)
-
 M&#xE9;todos
-
 setVolume, setFrequency, setBand
 
 <p>Modelar un dispostivo mec&#xE1;nico simple es f&#xE1;cil comparado a modelar un organismo como una hormiga o una persona. No es posible reducir un organismo complejo a unas pocas propiedades y m&#xE9;todos, pero es posible modelarlo suficientemente bien como para crear una simulaci&#xF3;n interesante. El video juego The Sims es un claro ejemplo. Este juego consiste en administrar las actividades diarias de personas simuladas. Los personajes tienen la suficiente personalidad como para hacer un juego adictivo, pero no m&#xE1;s que eso. De hecho, ellos solo tienen cinco atributos de personalidad: ordenado, extrovertido, activo, juguet&#xF3;n y simp&#xE1;tico. Con el conocimiento de que es posible hacer un modelo altamente simplificado de organismos complejos, podr&#xED;amos empezar a programar una hormiga con unas pocas propiedades y m&#xE9;todos:</p>
@@ -5180,7 +5363,7 @@ caminar, picar, liberarFeromonas, comer
 
 <p>Si hicieras una lista de las propiedades y m&#xE9;todos de una hormiga, podr&#xED;as escoger enfocarte en modelar diferentes aspectos de la hormiga. No existe una manera correcta de hacer un modelo, mientras lo hagas apropiado para el pr&#xF3;posito de las metas de tu programa.</p>
 
-## Define un Constructor
+<h2>Define un constructor</h2>
 
 <p>Para crear un objeto, empieza por definir una funci&#xF3;n constructor. Una funci&#xF3;n constructor es la especificaci&#xF3;n de un objeto. Usando una analog&#xED;a arquitect&#xF3;nica, una funci&#xF3;n constructor es como el plano de una casa, y un objeto es como la casa en s&#xED; misma. Cada casa construida con el mismo plano puede tener variaciones, y el plano es la &#xFA;nica especificaci&#xF3;n, no una estructura fija. Por ejemplo, una casa puede ser azul y otra roja, una casa puede tener una chimenea y la otra no. Tal como los objetos, el constructor define los tipos de datos y comportamientos, pero cada objeto (casa) hecho de la misma funci&#xF3;n constructor (plano) tiene variables (color, chimenea) que tienen distintos valores. Para usar un t&#xE9;rmino m&#xE1;s t&#xE9;cnico, cada objeto es una instancia y cada instancia tiene su propio conjunto de propiedades y m&#xE9;todos.</p><p>
 
@@ -5206,11 +5389,13 @@ function display();
 
 <p>El c&#xF3;digo dentro la funci&#xF3;n constructor es corrido una vez cuando el objeto es creado. Para crear la funci&#xF3;n constructor, seguiremos tres pasos:</p>
 
-1. Crear un bloque de funci&#xF3;n.
+<ol>
 
-2. A&#xF1;adir las propiedades y asignarles valores.
+  <li>Crear un bloque de funci&#xF3;n.</li>
+  <li>A&#xF1;adir las propiedades y asignarles valores.</li>
+  <li>A&#xF1;adir los m&#xE9;todos.</li>
 
-3. A&#xF1;adir los m&#xE9;todos.
+</ol>
 
 Primero, creamos un bloque de funci&#xF3;n para nuestro constructor:
 
@@ -5261,8 +5446,9 @@ this. move = function() {
 
 <p>La primera l&#xED;nea se ve un poco extra&#xF1;a, pero la manera de interpretarla es &quot;crear una variable de instancia (propiedad) llamada move, y luego le asigna como su valor esta funci&#xF3;n&quot;. Luego, cada vez que nos referimos a las propiedades del objeto, podemos nuevamente usar this., tal como lo hacemos cuando est&#xE1;n inicialmente declaradas. Juntando todo en el constructor el resultado es este:</p>
 
-```javascript
-function JitterBug(tempX, tempY, tempDiameter) {
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>function JitterBug(tempX, tempY, tempDiameter) {
   this.x = tempX;
   this.y = tempY;
   this.diameter = tempDiameter;
@@ -5277,29 +5463,51 @@ function JitterBug(tempX, tempY, tempDiameter) {
     ellipse(this.x, this.y, this.diameter, this.diameter);
   };
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Tambi&#xE9;n observa el espaciado en el c&#xF3;digo. Cada l&#xED;nea dentro del constructor est&#xE1; indentada unos pocos espacios para mostrar lo que est&#xE1; dentro del bloque. Dentro de estos m&#xE9;todos, el c&#xF3;digo est&#xE1; espaciado nuevamente para mostrar claramente la jerarqu&#xED;a.</p>
 
-## Crea objetos
+<h2>Crea objetos</h2>
 
 <p>Ahora que has definido una funci&#xF3;n constructor, para usarla en un programa debes crear un instancia de objeto con ese constructor. Hay dos pasos para crear un objeto:</p>
 
-1. Declara la variable objeto.
+<ol>
+  <li>Declara la variable objeto.</li>
+  <li>Crea (inicializa) el objeto con la palabra clave new.</li>
+</ol>
 
-2. Crea (inicializa) el objeto con la palabra clave new.
-
-## Ejemplo 10-1: haz un objeto
+<h2>Ejemplo 10-1: haz un objeto</h2>
 
 <p>Para hacer tu primer objeto, empezaremos mostrando c&#xF3;mo esto funciona dentro un bosquejo de p5.js y luego continuaremos explicando cada parte en profundidad:</p>
 
-```javascript
-var bug;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var bug;
 
 function setup() {
   createCanvas(480, 120);
   background(204);
-  // Crea un objeto y pasa los par&#xE1;metros
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea un objeto y pasa los par&#xE1;metros</p></div><div class="code">
+
+<pre><code>  bug = new JitterBug(width/2, height/2, 20);
+}
+
+function draw() {
+  bug.move();
+  bug.display();
+}
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Copia aqu&#xED; el c&#xF3;digo del constructor de Jitterbug</p></div><div class="code">
+
+<pre><code>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var bug;
+
+function setup() {
+  createCanvas(480, 120);
+  background(204);
+  // Crea un objeto y pasa los parámetros
   bug = new JitterBug(width/2, height/2, 20);
 }
 
@@ -5308,9 +5516,8 @@ function draw() {
   bug.display();
 }
 
-// Copia aqu&#xED; el c&#xF3;digo del constructor de Jitterbug
-```
-
+// Copia aquí el código del constructor de Jitterbug
+</script>
 <p>Declaramos variables de objeto en la misma manera que todas las otras variables - el objeto es declarado escribiendo la palabra reservada var seguida del nombre de la variable:</p>
 
  ```javascript
@@ -5325,14 +5532,15 @@ function draw() {
 
  <p>Los tres n&#xFA;meros dentro de los par&#xE9;ntesis son los par&#xE1;metros pasados dentro de la funci&#xF3;n constructor JitterBug. El n&#xFA;mero y orden de estos par&#xE1;metros deben corresponder con los del constructor.</p>
 
-## Ejemplo 10-2: haz m&#xFA;ltiples objetos
+<h2>Ejemplo 10-2: haz m&#xFA;ltiples objetos</h2>
 
 <p>En el Ejemplo 10-1, vimos algo nuevo: el punto que es usado para acceder a los m&#xE9;todos del objeto dentro de draw(). El operador punto es usado para unir el nombre del objeto con sus propiedades y m&#xE9;todos. Es an&#xE1;logo a la manera en que usamos this. dentro de la funci&#xF3;n constructor, pero cuando nos referimos a esto fuera del constructor, this es reemplazado por el nombre de la variable.</p>
 
 <p>Esto se torna m&#xE1;s claro en este ejemplo, donde dos objetos son hechos con el mismo constructor. La funci&#xF3;n jit.move() se refiere al m&#xE9;todo move() que pertenece al objeto nombrado jit, y bug.move() se refiere al m&#xE9;todo move() y pertenece al objeto llamado bug:</p>
 
-```javascript
-var jit;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var jit;
 var bug;
 
 function setup() {
@@ -5349,9 +5557,28 @@ function draw() {
   bug.display();
 }
 
-// Copia aqu&#xED; el c&#xF3;digo del constructor de JitterBug
-```
+</code></pre></div></div><div class="pair"><div class="comment"><p>Copia aqu&#xED; el c&#xF3;digo del constructor de JitterBug</p></div><div class="code">
 
+<pre><code>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var jit;
+var bug;
+
+function setup() {
+  createCanvas(480, 120);
+  background(204);
+  jit = new JitterBug(width * 0.33, height/2, 50);
+  bug = new JitterBug(width * 0.55, height/2, 10);
+}
+
+function draw() {
+  jit.move();
+  jit.display();
+  bug.move();
+  bug.display();
+}
+
+// Copia aquí el código del constructor de JitterBug
+</script>
 <p>Ahora que la funci&#xF3;n constructor existe como su propio m&#xF3;dulo de c&#xF3;digo, cualquier cambio modificar&#xE1; los objetos hechos con &#xE9;lla. Por ejemplo, podr&#xED;as a&#xF1;adir una propiedad al constructor JitterBug que controla el color, u otra que determina su tama&#xF1;o. Estos valores pueden ser pasados usados el constructor o usando m&#xE9;todos adicionales, como setColor() o setSize(). Y como es una unidad auto-contenida, tambi&#xE9;n puedes usar el constructor JitterBug en otro bosquejo.</p>
 
 <p>Ahora es un buen momento para aprender sobre usar m&#xFA;ltiples archivos en Javascript. Esparcir tu c&#xF3;digo en m&#xE1;s de un archivo hace que el c&#xF3;digo m&#xE1;s largo sea m&#xE1;s f&#xE1;cil de editar y m&#xE1;s manejable en general. Un nuevo archivo es usualmente creado para cada constructor, lo que refuerza la modularidad de trabajar con objetos y hacer el c&#xF3;digo m&#xE1;s f&#xE1;cil de encontrar.</p>
@@ -5363,14 +5590,15 @@ function draw() {
 <script type="text/javascript" src="JitterBug.js"></script>
 ```
 
-## Robot 8: objetos
+<h2>Robot 8: objetos</h2>
 
 <p>Un objeto en software puede combinar m&#xE9;todos (funciones) y propiedades (variables) en una unidad. La funci&#xF3;n constructor Robot en este ejemplo define todos los objetos robot que ser&#xE1;n creados desde &#xE9;l. Cada objeto Robot tiene su propio conjunto de propiedades para almacenar una posic&#xF3;n y la ilustraci&#xF3;n que dibujar&#xE1; en la pantalla. Cada uno tiene m&#xE9;todos para actualizar la posici&#xF3;n y mostrar la ilustraci&#xF3;n.</p>
 
 <p>Los par&#xE1;metros para bot1 y bot2 en setup() definen las coordenadas x e y y el archivo .svg que ser&#xE1; usado para dibujar el robot. Los par&#xE1;metros tempX y tempY son pasados al constructor y asignados a las propiedades xpos y ypos. El par&#xE1;metro imgPath es usado para cargar la ilustraci&#xF3;n relacionada. Los objetos (bot1 y bot2) dibujan en su propia ubicaci&#xF3;n con una ilustraci&#xF3;n difrente porque cada uno tienen valores distintos pasados a los objetos a trav&#xE9;s de sus constructores:</p>
 
-```javascript
-var img1;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var img1;
 var img2;
 
 var bot1;
@@ -5379,6 +5607,66 @@ var bot2;
 function preload() {
   img1 = loadImage(&quot;robot1.svg&quot;);
   img2 = loadImage(&quot;robot2.svg&quot;);
+}
+
+function setup() {
+  createCanvas(720, 480);
+  bot1 = new Robot(img1,  90, 80);
+  bot2 = new Robot(img2, 440, 30);
+}
+
+function draw() {
+  background(204);
+
+</code></pre></div></div><div class="pair"><div class="comment"><p>Actualiza y muestra el primer robot</p></div><div class="code">
+
+<pre><code>  bot1.update();
+  bot2.display();
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Actualiza y muestra el segundo robot</p></div><div class="code">
+
+<pre><code>  bot2.update();
+  bot2.display();
+}
+
+function Robot(img, tempX, tempY) {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Define los valores iniciales para las propiedades</p></div><div class="code">
+
+<pre><code>  this.xpos = tempX;
+  this.ypos = tempY;
+  this.angle = random(0, TWO_PI);
+  this.botImage = img;
+  this.yoffset = 0.0;
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Actualiza las propiedades</p></div><div class="code">
+
+<pre><code>  this.update = function() {
+    this.angle += 0.05;
+    this.yoffset = sin(this.angle) * 20;
+  }
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja el robot en la pantallla</p></div><div class="code">
+
+<pre><code>  this.display = function() {
+    image(this.botImage, this.xpos, this.ypos + this.yoffset);
+  }
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var img1;
+var img2;
+
+var bot1;
+var bot2;
+
+function preload() {
+  img1 = loadImage("robot1.svg");
+  img2 = loadImage("robot2.svg");
 }
 
 function setup() {
@@ -5418,7 +5706,7 @@ function Robot(img, tempX, tempY) {
     image(this.botImage, this.xpos, this.ypos + this.yoffset);
   }
 }
-```
+</script>
 </section>
 
 <section data-type="chapter" id="capitulo_11_arreglos">
@@ -5427,16 +5715,17 @@ function Robot(img, tempX, tempY) {
 
 <p>Un arreglo es una lista de variables que comparten un nombre com&#xFA;n. Los arreglos son &#xFA;tiles porque hacen posible trabajar con m&#xE1;s variables sin crear un nombre nuevo para cada uno. Esto hace que el c&#xF3;digo sea m&#xE1;s corto, m&#xE1;s f&#xE1;cil de leer, y m&#xE1;s conveniente de actualizar.</p>
 
-## De variables a arreglos
+<h2>De variables a arreglos</h2>
 
 <p></p>Cuando un programa necesita mantener registro de una o dos cosas, no es necesario crear un arreglo. Sin embargo, cuando un programa posee muchos elementos (por ejemplo, un campo de estrellas en un juego sobre el espacio o m&#xFA;ltiples puntos de datos en una visualizaci&#xF3;n), los arreglos hacen que el c&#xF3;digo sea m&#xE1;s f&#xE1;cil de escribir.<p></p>
 
-## Ejemplo 11-1: muchas variables
+<h2>Ejemplo 11-1: muchas variables</h2>
 
 <p>Para entender lo que significa, revisa el Ejemplo 8-3. Este c&#xF3;digo funciona bien si estamos moviendo una sola figura, &#xBF;pero qu&#xE9; pasa si queremos tener dos? Necesitamos crear una nueva variable x y actualizarla dentro de draw():</p>
 
-```javascript
-var x1 = -20;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x1 = -20;
 var x2 =  20;
 
 function setup() {
@@ -5451,14 +5740,30 @@ function draw() {
   arc(x1, 30, 40, 40, 0.52, 5.76);
   arc(x2, 90, 40, 40, 0.52, 5.76);
 }
-```
 
-## Ejemplo 11-2: demasiadas variables
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x1 = -20;
+var x2 =  20;
+
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+}
+
+function draw() {
+  background(0);
+  x1 += 0,5;
+  x2 += 0.5;
+  arc(x1, 30, 40, 40, 0.52, 5.76);
+  arc(x2, 90, 40, 40, 0.52, 5.76);
+}
+</script>
+<h2>Ejemplo 11-2: demasiadas variables</h2>
 
 <p>El c&#xF3;digo del ejemplo anterior es todav&#xED;a manejable, &#xBF;pero qu&#xE9; pasa si queremos tener cinco c&#xED;rculos? Necesitamos a&#xF1;adir tres otras variables a las dos que ya tenemos:</p>
 
-```javascript
-var x1 = -10;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x1 = -10;
 var x2 =  10;
 var x3 =  35;
 var x4 =  18;
@@ -5482,16 +5787,41 @@ function draw() {
   arc(x4,  80, 20, 20, 0.52, 5.76);
   arc(x5, 100, 20, 20, 0.52, 5.76);
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x1 = -10;
+var x2 =  10;
+var x3 =  35;
+var x4 =  18;
+var x5 =  30;
+
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+}
+
+function draw() {
+  background(0);
+  x1 += 0,5;
+  x2 += 0.5;
+  x3 += 0.5;
+  x4 += 0.5;
+  x5 += 0.5;
+  arc(x1,  20, 20, 20, 0.52, 5.76);
+  arc(x2,  40, 20, 20, 0.52, 5.76);
+  arc(x3,  60, 20, 20, 0.52, 5.76);
+  arc(x4,  80, 20, 20, 0.52, 5.76);
+  arc(x5, 100, 20, 20, 0.52, 5.76);
+}
+</script>
 <p>&#xA1;Este c&#xF3;digo est&#xE1; empezando a salirse de control!</p>
 
-## Ejemplo 11-3: arreglos, no variables
+<h2>Ejemplo 11-3: arreglos, no variables</h2>
 
 <p>Imagina lo que pasar&#xED;a si quisieras tener 3.000 variables. Esto significar&#xED;a crear 3.000 variables individuale y luego actualizar cada una de ellas de forma separada. &#xBF;Podr&#xED;as mantener registro de esta cantidad de variables? &#xBF;Quisieras hacerlo? En vez de eso, usemos un arreglo:</p>
 
-```javascript
-var x = [];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = [];
 
 function setup() {
   createCanvas(240, 120);
@@ -5510,11 +5840,30 @@ function draw() {
     arc(x[i], y, 12, 12, 0.52, 5.76);
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x = [];
+
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+  fill(255, 200);
+  for (var i = 0; i < 3000; i++) {
+    x[i] = random(-1000, 200);
+  }
+}
+
+function draw() {
+  background(0);
+  for (var i = 0; i < x.length; i ++) {
+    x[i] += 0.5;
+    var y = i * 0.4;
+    arc(x[i], y, 12, 12, 0.52, 5.76);
+  }
+}
+</script>
 <p>Durante el resto de este cap&#xED;tulo revisaremos los detalles que hacen que este ejemplo sea posible.</p>
 
-## Construir un arreglo
+<h2>Construir un arreglo</h2>
 
 <p>Cada item en el arreglo es llamado un elemento, y cada uno tiene un &#xED;ndice para se&#xF1;alar su posici&#xF3;n dentro del arreglo. Tal como las coordenadas en el lienzo, los valores de &#xED;ndice para un arreglo empiezan su cuenta desde 0. Por ejemplo, el primer elemento en el arreglo tiene un &#xED;ndice con valor 0, el segundo elemento del arreglo tiene un &#xED;ndice con valor 1, y as&#xED;. Si hay 20 valores en el arreglo, el valor del &#xED;ndice del &#xFA;ltimo elemento es 19. La Figura 11-1 muestra la estructura conceptual de un arreglo.</p>
 
@@ -5532,54 +5881,58 @@ var x = [];
 
 <p>Nota que no es necesario declarar por adelantado la longitud del arreglo, la longitud es determinada por el n&#xFA;mero de elementos que t&#xFA; pones en &#xE9;l.</p>
 
-## Nota
+<h2>Nota</h2>
 
 <p>Un arreglo puede almacenar todos los diferentes tipos de datos (boolean, number, string, etc). Puedes mezclar y combinar diferentes tipos de datos en un mismo arreglo.</p>
 
 <p>Antes de que nos adelantemos, desaceleremos y hablemos del trabajo con arreglos en mayor detalle. Hay dos pasos cuando se trabaja con arreglos:</p>
 
-1. Declara el arreglo
-
-2. Asigna valores a cada elemento.
+<ol>
+  <li>Declara el arreglo.</li>
+  <li>Asigna valores a cada elemento.</li>
+</ol>
 
 <p>Cada paso puede pasar en una l&#xED;nea distinta, o se pueden combinar los dos pasos en uno. Cada uno de los dos siguientes ejemplos muestra una t&#xE9;cnica diferente para crear un arreglo llamado x que almacena dos n&#xFA;meros, 12 y 2. Toma mucha atenci&#xF3;n a lo que pasa antes de setup() y lo que pasa en setup().</p>
 
-## Ejemplo 11-4: declara y asigna un arreglo
+<h2>Ejemplo 11-4: declara y asigna un arreglo</h2>
 
 <p>Primero, declararemos un arreglo fuera de setup() y luego creamos y asignamos valores dentro. La sintaxis x[0] se refiere al primer elemento del arreglo y x[1] es el segundo:</p>
 
-```javascript
-var x = [];   // Declara el arreglo
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = [];   // Declara el arreglo
 
 function setup() {
   createCanvas(200, 200);
   x[0] = 12;  // Asigna el primer valor
   x[1] = 2;   // Asigna el segundo valor
 }
-```
 
-## Ejemplo 11-5: asigna valores en un arreglo en una pasada
+</code></pre></div></div></div></div>
+<h2>Ejemplo 11-5: asigna valores en un arreglo en una pasada</h2>
 
 <p>Tambi&#xE9;n puedes asignar valores a un arreglo cuando es creado, si todo es parte de la misma declaraci&#xF3;n:</p>
 
-```javascript
-var x = [12, 2];   // Declara y asigna valores en el arreglo
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = [12, 2];   // Declara y asigna valores en el arreglo
 
 function setup() {
   createCanvas(200, 200);
 }
-```
 
-## Nota
+</code></pre></div></div></div></div>
+<h2>Nota</h2>
 
 <p>Evita crear arreglos dentro de draw(), porque crear un nuevo arreglo en cada cuadro desacelerar&#xE1; la tasa de cuadros.</p>
 
-## Ejemplo 11-6: revisitando el primer ejemplo
+<h2>Ejemplo 11-6: revisitando el primer ejemplo</h2>
 
 <p>Como un ejemplo completo de c&#xF3;mo usar arreglos, hemos reescrito el Ejemplo 11-1 aqu&#xED;. A pesar de que no vemos todav&#xED;a todos los beneficios revelados en el Ejemplo 11-3, s&#xED; vemos algunos detalles importantes de c&#xF3;mo funcionan los arreglos:</p>
 
-```javascript
-var x = [-20, 20];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var x = [-20, 20];
 
 function setup() {
   createCanvas(240, 120);
@@ -5593,11 +5946,25 @@ function draw() {
   arc(x[0], 30, 40, 40, 0.52, 5.76);
   arc(x[1], 90, 40, 40, 0.52, 5.76);
 }
-```
 
-## Repetici&#xF3;n y arreglos
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var x = [-20, 20];
 
-<p>El for loop, introducido en &quot;Repetici&#xF3;n&quot;, har&#xE1; m&#xE1;s f&#xE1;cil trabajar con arreglos grandes mientras se mantiene el c&#xF3;digo conciso. La idea es escribir un loop para recorrer cada elemento del arreglo uno a uno. Para hacerlo, necesitar&#xE1;s saber el largo del arreglo. La propiedad length asocidada con cada arreglo almacena el n&#xFA;mero de elementos. Usamos el nombre del arreglo con el operador punto para accedera este valor. Por ejemplo:</p>
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+}
+
+function draw() {
+  background(0);
+  x[0] += 0.5; // Incrementa el primer elemento
+  x[1] += 0.5; // Incrementa el segundo elemento
+  arc(x[0], 30, 40, 40, 0.52, 5.76);
+  arc(x[1], 90, 40, 40, 0.52, 5.76);
+}
+</script>
+<h2>Repetici&#xF3;n y arreglos</h2>
+
+<p>El for loop, introducido en &quot;Repetici&#xF3;n&quot;, har&#xE1; m&#xE1;s f&#xE1;cil trabajar con arreglos grandes mientras se mantiene el c&#xF3;digo conciso. La idea es escribir un loop para recorrer cada elemento del arreglo uno a uno. Para hacerlo, necesitar&#xE1;s saber el largo del arreglo. La propiedad length asocidada con cada arreglo almacena el n&#xFA;mero de elementos. Usamos el nombre del arreglo con el operador punto para acceder a este valor. Por ejemplo:</p>
 
 ```javascript
 var x = [12, 20];     // Declara y asigna valores al arreglo
@@ -5614,12 +5981,13 @@ z[1] = 4;         // Asigna un elemento al arreglo
 print(z.length);  // Imprime 2 en la consola
 ```
 
-## Ejemplo 11-7: llenando un arreglo con un for loop
+<h2>Ejemplo 11-7: llenando un arreglo con un for loop</h2>
 
 <p>Un for loop puede ser usado para llenar un arreglo con valores, o para leer los valores. En este ejemplo, el arreglo es primero llenado con n&#xFA;meros aleatorios dentro de setup(), y luego esos n&#xFA;meros son usados para definir el valor del trazado dentro de draw(). Cada vez que el programa corre, un nuevo conjunto de valores aleatorios es puesto en el arreglo:</p>
 
-```javascript
-var gray = [];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var gray = [];
 
 function setup() {
   createCanvas(240, 120);
@@ -5635,16 +6003,33 @@ function draw() {
     line(i, 0, i, height);
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var gray = [];
+
+function setup() {
+  createCanvas(240, 120);
+  for (var i = 0; i < width; i++) {
+    gray[i] = random(0, 255);
+  }
+}
+
+function draw() {
+  background(204);
+  for (var i = 0; i < gray.length; i++) {
+    stroke(gray[i]);
+    line(i, 0, i, height);
+  }
+}
+</script>
 <p>En setup(), insertamos tantos elementos como el ancho del lienzo. Esto es un n&#xFA;mero arbitrario, lo hemos elegido para que al dibujar una l&#xED;nea vertical por cada elemento, se llene el ancho del lienzo. Podr&#xED;as tratar de cambiar width a cualquier n&#xFA;mero. Una vez que los elementos son asignados al arreglo, somos capaces de iterar a trav&#xE9;s de ellos en draw() usando la propiedad length. No podemos iterar a trav&#xE9;s del arreglo en setup() porque antes de que cualquier elemento sea puesto dentro, el largo del arreglo gray es 0.</p>
 
-## Ejemplo 11-8: seguir la trayectoria del rat&#xF3;n
+<h2>Ejemplo 11-8: seguir la trayectoria del rat&#xF3;n</h2>
 
 <p>En este ejemplo, existen dos arreglos para almacenar la posici&#xF3;n del rat&#xF3;n - uno para la coordenada x y uno para la coordenada y. Estos arreglos graban la posici&#xF3;n del rat&#xF3;n durante los &#xFA;ltimos 60 cuadros. Con cada nuevo cuadro, los valores de las coordenadas x e y m&#xE1;s antiguos son removidos y reemplazados con el valor actual de mouseX y mouseY. Los nuevos valores son a&#xF1;adidos a la primera posici&#xF3;n del arreglo, pero antes de que esto pase, cada valor del arreglo es movido una posici&#xF3;n a la derecha (desde el &#xFA;ltimo hasta el primero) para hacer espacio para los nuevos n&#xFA;meros. (La Figura 11-2 es un diagrama que ilustra este proceso). Este ejemplo visualiza esta acci&#xF3;n. Adem&#xE1;s, en cada cuadro, las 60 coordenadas son usadas para dibujar una serie de elipses en la pantalla:</p>
 
-```javascript
-var num = 60;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var num = 60;
 var x = [];
 var y = [];
 
@@ -5660,8 +6045,9 @@ function setup() {
 
 function draw() {
   background(0);
-  // Copia los valores del arreglo de atr&#xE1;s hacia adelante
-  for (var i = num-1; i &gt; 0; i--) {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Copia los valores del arreglo de atr&#xE1;s hacia adelante</p></div><div class="code">
+
+<pre><code>  for (var i = num-1; i &gt; 0; i--) {
     x[i] = x[i - 1];
     y[i] = y[i - 1];
   }
@@ -5672,18 +6058,47 @@ function draw() {
     ellipse(x[i], y[i], 40, 40);
   }
 }
-```
 
-## Arreglos de objetos
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var num = 60;
+var x = [];
+var y = [];
+
+function setup() {
+  createCanvas(240, 120);
+  noStroke();
+
+  for (var i = 0; i < num; i++) {
+    x[i] = 0;
+    y[i] = 0;
+  }
+}
+
+function draw() {
+  background(0);
+  // Copia los valores del arreglo de atrás hacia adelante
+  for (var i = num-1; i > 0; i--) {
+    x[i] = x[i - 1];
+    y[i] = y[i - 1];
+  }
+  x[0] = mouseX;  // Define el primer elemento
+  y[0] = mouseY;  // Define el primer elemento
+  for (var i = 0; i < num; i++) {
+    fill(i * 4);
+    ellipse(x[i], y[i], 40, 40);
+  }
+}
+</script>
+<h2>Arreglos de objetos</h2>
 
 <p>Los dos ejemplos cortos en esta secci&#xF3;n juntan cada gran concepto de programaci&#xF3;n en este libro: iteraci&#xF3;n, condicionales, funciones, objetos y arreglos. Hacer un arreglo de objetos es casi lo mismo que construir los arreglos que introducimos en las p&#xE1;ginas anteriores, pero existe una consideraci&#xF3;n inicial: porque cada elemento es un objeto, primero debe ser creado con la palabra reservada new (tal como cualquier otro objeto) antes de ser asignado a un arreglo. Con un objeto construido por el usuario como JitterBug (ver Cap&#xED;tulo 10), esto significa que new definir&#xE1; cada elemento antes de ser asignado al arreglo.</p>
 
-## Ejemplo 11-9: administrando varios objetos
+<h2>Ejemplo 11-9: administrando varios objetos</h2>
 
 <p>Este ejemplo crea un arreglo de 33 objetos JitterBug y luego actualiza y muestra cada uno dentro de draw(). Para que este ejemplo funcione, necesitas a&#xF1;adir la funci&#xF3;n constructor JitterBug al c&#xF3;digo:</p>
 
-```javascript
-var bugs = [];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var bugs = [];
 
 function setup() {
   createCanvas(240, 120);
@@ -5703,17 +6118,40 @@ function draw() {
   }
 }
 
-//Copia aqu&#xED; el c&#xF3;digo de la funci&#xF3;n constructor de Jitterbug
-```
+</code></pre></div></div><div class="pair"><div class="comment"><p>Copia aqu&#xED; el c&#xF3;digo de la funci&#xF3;n constructor de Jitterbug</p></div><div class="code">
 
+<pre><code>
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var bugs = [];
+
+function setup() {
+  createCanvas(240, 120);
+  background(204);
+  for (var i = 0; i < 33, i++) {
+    var x = random(width);
+    var y = random(height);
+    var r = i + 2;
+    bugs[i] = new JitterBug(x, y, r);
+  }
+}
+
+function draw() {
+  for (var i = 0; i < bugs.length; i++) {
+    bugs[i].move();
+    bugs[i].display();
+  }
+}
+
+//Copia aquí el código de la función constructor de Jitterbug
+</script>
 <p>El ejemplo final de arreglos carga una secuencia y almacena cada elemento dentro de un arreglo.</p>
 
-## Ejemplo 11-10: secuencias de im&#xE1;genes
+<h2>Ejemplo 11-10: secuencias de im&#xE1;genes</h2>
 
 <p>Para correr este ejemplo, obt&#xE9;n las im&#xE1;genes desde media.zip tal como lo descrito en el Cap&#xED;tulo 7. Las im&#xE1;genes son nombradas secuencialmente (frame-0000.png, frame-0001.png, etc.), lo que hace posile crear el nombre de cada archivo dentro de un for loop, tal como lo vemos en la s&#xE9;ptima l&#xED;nea del programa:</p>
 
-```javascript
-var numFrames = 12;     // El n&#xFA;mero de cuadros
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var numFrames = 12;     // El n&#xFA;mero de cuadros
 var images = [];        // Crear el arreglo
 var currentFrame = 0;
 
@@ -5736,18 +6174,42 @@ function draw() {
     currentFrame = 0; // Retorna al primer cuadro
   }
 }
-```
 
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var numFrames = 12;     // El número de cuadros
+var images = [];        // Crear el arreglo
+var currentFrame = 0;
+
+function preload() {
+  for (var i = 0; i < numFrames; i++) {
+    var imageName = "frame-" + nf(i, 4) + ".png";
+    images[i] = loadImage(imageName); //Carga cada imagen
+  }
+}
+
+function setup() {
+  createCanvas(240, 120);
+  frameRate(24);
+}
+
+function draw() {
+  image(images[currentFrame], 0, 0);
+  currentFrame++;  // Siguiente cuadro
+  if (currentFrame == images.length) {
+    currentFrame = 0; // Retorna al primer cuadro
+  }
+}
+</script>
 <p>La funci&#xF3;n nf() define el formato de n&#xFA;meros de modo que nf(1, 4) retorna el string &quot;0001&quot; y nf(11, 4) retorna &quot;0011&quot;. Estos valores est&#xE1;n concatenados con el inicio del nombre del archivo (frame-) y el final (.png) para crear el nombre completo del archivo almacenado en una variable. Los archivos son cargados en un arreglo en la siguiente l&#xED;nea. Las im&#xE1;genes son mostradas en la pantalla una a la vez en draw(). Cuando la &#xFA;ltima imagen en el arreglo es mostrada, el programa vuelve al principio del arreglo y muestra las im&#xE1;genes en secuencia.</p>
 
-## Robot 9: arreglos
+<h2>Robot 9: arreglos</h2>
 
 <p>Los arreglos hacen m&#xE1;s f&#xE1;cil que un programa trabaje con muchos elementos. En este ejemplo, un arreglo de objetos Robot es declarado al principio. El arreglo es luego posicionado dentro de setup(), y cada objeto Robot es creado dentro del for loop. En draw(), otro for loop es usado para actualizar y mostrar cada elemento del arreglo bots.</p>
 
 <p>El for loop y un arreglo hacen una combinaci&#xF3;n poderosa. Observa las diferencias sutiles entre el c&#xF3;digo para este ejemplo y Robot 8 (ver &quot;Robot 8: objetos&quot;) en contraste a los cambios extremos en el resultado visual. Una vez que el arreglo es creado y un for loop es incluido, es igualmente de f&#xE1;cil trabajar con 3 elementos que con 3,000.</p>
 
-```javascript
-var robotImage;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var robotImage;
 var bots = [];    // Declara un arreglo para almacenar objetos Robot
 
 function preload() {
@@ -5759,8 +6221,70 @@ function setup() {
 
   var numRobots = 20;
 
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea cada objeto</p></div><div class="code">
+
+<pre><code>  for (var i = 0; i &lt; numRobots; i++) {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea una coordenada x aleatoria</p></div><div class="code">
+
+<pre><code>    var x = random(-40, width - 40);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Asigna la coordenada y basada en el orden</p></div><div class="code">
+
+<pre><code>    var y = map(i, 0, numRobots, -100, height - 200);
+    bots[i] = new Robot(robotImage, x, y);
+  }
+}
+
+function draw() {
+  background(204);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Actualiza y muestra cada bot en el arreglo</p></div><div class="code">
+
+<pre><code>  for (var i = 0; i &lt; bots.length; i++) {
+    bots[i].update();
+    bots[i].display();
+  }
+}
+
+function Robot(img, tempX, tempY) {
+</code></pre></div></div><div class="pair"><div class="comment"><p>Define los valores iniciales para las propiedades</p></div><div class="code">
+
+<pre><code>  this.xpos = tempX;
+  this.ypos = tempY;
+  this.angle = random(0, TWO_PI);
+  this.botImage = img;
+  this.yoffset = 0.0;
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Actualiza las propiedades</p></div><div class="code">
+
+<pre><code>  this.update = function() {
+    this.angle += 0.05;
+    this.yoffset = sin(this.angle) * 20;
+  }
+</code></pre></div></div><div class="pair no-comment"><div class="code">
+
+<pre><code>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja el robot en la pantalla</p></div><div class="code">
+
+<pre><code>  this.display = function() {
+    image(this.botImage, this.xpos, this.ypos + this.yoffset);
+  }
+}
+
+</code></pre></div></div></div></div><script type="text/p5" class="p5 fig">var robotImage;
+var bots = [];    // Declara un arreglo para almacenar objetos Robot
+
+function preload() {
+  robotImage = loadImage("robot1.svg");
+}
+
+function setup() {
+  createCanvas(720, 480);
+
+  var numRobots = 20;
+
   // Crea cada objeto
-  for (var i = 0; i &lt; numRobots; i++) {
+  for (var i = 0; i < numRobots; i++) {
     // Crea una coordenada x aleatoria
     var x = random(-40, width - 40);
     // Asigna la coordenada y basada en el orden
@@ -5772,7 +6296,7 @@ function setup() {
 function draw() {
   background(204);
   // Actualiza y muestra cada bot en el arreglo
-  for (var i = 0; i &lt; bots.length; i++) {
+  for (var i = 0; i < bots.length; i++) {
     bots[i].update();
     bots[i].display();
   }
@@ -5797,7 +6321,7 @@ function Robot(img, tempX, tempY) {
     image(this.botImage, this.xpos, this.ypos + this.yoffset);
   }
 }
-```
+</script>
 </section>
 
 <section data-type="chapter" id="capitulo_12_datos">
@@ -5808,7 +6332,7 @@ function Robot(img, tempX, tempY) {
 
 <p>Existe un gran rango de software que puede producir visualizaciones est&#xE1;ndar como gr&#xE1;ficos de barras y gr&#xE1;ficos de dispersi&#xF3;n. Sin embargo, escribir c&#xF3;digo desde cero para crear visualizaci&#xF3;n nos brinda mayor control sobre el resultado y anima a los usuarios a imaginar, explorar y crear representaciones de datos &#xFA;nicos. Para nosotros, este es el objetivo sobre aprender a programar y usar software como p5.js, y encontramos mucho m&#xE1;s interesante que estar limitado por m&#xE9;todos prefabricados o herramientas ya disponibles.</p>
 
-## Resumen de datos
+<h2>Resumen de datos</h2>
 
 <p>Es un buen momento para rebobinar y discutir c&#xF3;mo los datos fueron introducidos a trav&#xE9;s de este libro. Una variable en un bosquejo de p5.js es usado para almacenar datos. Empezamos con variables primitivas. En este caso, la palabra primitiva significa un solo trozo de informaci&#xF3;n. Por ejemplo, una variable puede almacenar un n&#xFA;mero o un string.</p>
 
@@ -5816,7 +6340,7 @@ function Robot(img, tempX, tempY) {
 
 <p>Las variables y los objetos pueden ser definidos dentro del c&#xF3;digo, pero tambi&#xE9;n pueden ser cargados dentro de un archivo en el directorio del bosquejo. Los siguientes ejemplos en este cap&#xED;tulo lo demuestran.</p>
 
-## Tablas
+<h2>Tablas</h2>
 
 <p>Muchos conjuntos de datos son almacenados como filas y columnas (ver Figura 12-1), as&#xED; que p5.js incluye un objeto tabla para hacer m&#xE1;s f&#xE1;cil trabajar con ellos. Si haz trabajado con hojas de c&#xE1;lculo, tienes una ventaja al momento de trabajar con tablas al programar. p5.js puede leer una tabla desde un archivo, o crear una nueva directamente en c&#xF3;digo. Tambi&#xE9;n es posible leer y escribir cualquier fila y columna y modificar celdas individuales dentro de la tabla. En este cap&#xED;tulo, nos enfocaremos en trabajar con datos en tablas.</p>
 
@@ -5824,20 +6348,21 @@ function Robot(img, tempX, tempY) {
 
 <p>Para crear un archivo CSV o TSV, primero ponlo en el directorio del bosquejo tal como descrito en el comienzo del Cap&#xED;tulo 7, y luego usa la funci&#xF3;n loadTable() para obtener los datos y ponerlos en un objeto.</p>
 
-## Nota
+<h2>Nota</h2>
 
 <p>Solo las primeras l&#xED;neas de cada conjunto de datos son mostradas en estos ejemplos. Si est&#xE1;s escribiendo manualmente el c&#xF3;digo, necesitar&#xE1;s el archivo .csv, .json o .tsv completo para replicar las visualizaciones mostradas en las figuras. Puedes encontrarlos en el archivo media.zip.</p>
 
 <p>Los datos para el siguiente ejemplo son una versi&#xF3;n simplificada de las estad&#xED;sticas del jugador David Ortiz del equoipo Red Sox. De izquierda a derecha, est&#xE1; el a&#xF1;o, el n&#xFA;mero de home runs, runs batted in (RBI), y el promedio de bateo. Cuando el archivo es abierto en un editor de texto, las primeras cinco l&#xED;neas del c&#xF3;digo se ven as&#xED;:</p>
 
-## Ejemplo 12-1: lee la tabla
+<h2>Ejemplo 12-1: lee la tabla</h2>
 
 <p>Para cargar los datos a p5.js, un objeto es creado usando el constructor p5.Table. El objeto en este ejemplo es llamado stats. La funci&#xF3;n loadTable() carga el archivo ortiz.csv desde el directorio de tu bosquejo. La funci&#xF3;n se encuentra dentro de preload() para asegurar que est&#xE9; completamente cargada antes de que los datos sean usados en setup().</p>
 
 <p>En setup(), el for loop lee cada fila de la tabla en secuencia. Toma los datos desde la tabla y los graba en variables. El m&#xE9;todo getRowCount() es usado para contar el n&#xFA;mero de filas en cada archivo de datos. Como los datos sobre las estad&#xED;sticas de Ortiz van de 1997 a 2014, hay 18 filas que leer:</p>
 
-```javascript
-var stats;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var stats;
 
 function preload() {
   stats = loadTable(&quot;ortiz.csv&quot;);
@@ -5845,27 +6370,30 @@ function preload() {
 
 function setup() {
   for (var i = 0; i &lt; stats.getRowCount(); i++) {
-    // Recupera el valor de la fila i, columna 0 del archivo
-    var year = stats.get(i, 0);
-    // Recupera el valor de la fila i, columna 1 del archivo
-    var homeRuns = stats.get(i, 1);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Recupera el valor de la fila i, columna 0 del archivo</p></div><div class="code">
+
+<pre><code>    var year = stats.get(i, 0);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Recupera el valor de la fila i, columna 1 del archivo</p></div><div class="code">
+
+<pre><code>    var homeRuns = stats.get(i, 1);
     var rbi = stats.get(i, 2);
     var average = stats.get(i, 3);
     print(year, homeRuns, rbi, average);
   }
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Dentro del for loop, el m&#xE9;todo get() es usado para tomar datos desde la tabla. Este m&#xE9;todo tiene dos par&#xE1;metros: el primero es la fila a leer y el segundo es la columna.</p>
 
-## Ejemplo 12-2: dibuja la tabla
+<h2>Ejemplo 12-2: dibuja la tabla</h2>
 
 <p>El siguiente ejemplo expande el anterior. Crea un arreglo llamado homeRuns para grabar los datos despu&#xE9;s de ser cargados dentro de setup() y los datos del arreglo son usados dentro de draw(). El largo del arreglo es usado dos veces con el c&#xF3;digo homeRuns.length, para contar el n&#xFA;mero de iteraciones de un for loop. Es usado por primera vez para poner una marca vertical por cada item en el arreglo. Luego es usado para leer cada elemento del arreglo uno por uno y parar de leer del arreglo cuando termina. Despu&#xE9;s de que los datos son cargados dentro de preload() y le&#xED;dos desde el arreglo en setup(), el resto de este programa aplica lo que aprendimos en el Cap&#xED;tulo 11. La funci&#xF3;n getNum() es usada en vez de get() para asegurar que el valor es entendido como un n&#xFA;mero a usar en el gr&#xE1;fico.</p>
 
 <p>Este ejemplo es la visualizaci&#xF3;n de una versi&#xF3;n simplificada de las estad&#xED;sticas de bateo entre 1997 y 2014 del jugador David Ortiz de los Boston Red Sox, dibujados con los datos de una tabla:</p>
 
-```javascript
-var stats;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var stats;
 var homeRuns = [];
 
 function preload() {
@@ -5883,16 +6411,18 @@ function setup() {
 
 function draw() {
   background(204);
-  // Dibuja la matriz de fondo para los datos
-  stroke(153);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja la matriz de fondo para los datos</p></div><div class="code">
+
+<pre><code>  stroke(153);
   line(20, 100,  20,  20);
   line(20, 100, 460, 100);
   for (var i = 0; i &lt; homeRuns.length; i++) {
     var x = map(i, 0, homeRuns.length-1, 20, 460);
     line(x, 20, x, 100);
   }
-  // Dibuja l&#xED;neas basadas en los datos sobre home run
-  noFill(0);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja l&#xED;neas basadas en los datos sobre home run</p></div><div class="code">
+
+<pre><code>  noFill(0);
   stroke(0);
   beginShape();
   for (var i = 0; i &lt; homeRuns.length; i++) {
@@ -5902,11 +6432,11 @@ function draw() {
   }
   endShape();
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Este ejemplo es tan minimalista que no es necesario guardar estos datos en un arreglo, pero la idea puede ser aplicada a ejemplos m&#xE1;s complejos que podr&#xED;as querer hacer en el futuro. Adicionalmente, puedes ver c&#xF3;mo este ejemplo puede ser aumentado con m&#xE1;s informaci&#xF3;n - por ejemplo, la informaci&#xF3;n en el eje vertical puede definir el n&#xFA;mero de home runs y en el horizontal definir el a&#xF1;o.</p>
 
-## Ejemplo 12-3: 29.740 ciudades
+<h2>Ejemplo 12-3: 29.740 ciudades</h2>
 
 <p>Para tener una mejor idea del potencial de trabajar con tablas de datos, el siguiente ejemplo usa un conjunto de datos m&#xE1;s grande e introduce una caracter&#xED;stica conveniente. Esta tabla de datos es diferente, porque la primera fila, la primera l&#xED;nea en el archivo, es un encabezado. El encabezado define una etiqueta para cada columna para clarificar el contexto. Estas son las primeras cinco l&#xED;neas de nuestro archivo de datos llamado cities.csv.</p>
 
@@ -5920,8 +6450,9 @@ zip, state, city, lat, lng
 
 <p>El encabezado hace m&#xE1;s f&#xE1;cil leer el c&#xF3;digo - por ejemplo, la segunda l&#xED;nea del archivo establece que el c&#xF3;digo zip de Acmar, Alabama es 35004 y define la latitud de la ciudad como 33.584132 y la longitud como -86.51557. En total, el archivo tiene un largo de 29.741 l&#xED;neas y define la ubicaci&#xF3;n y los c&#xF3;digos zip de 29.740 ciudades en Estados Unidos. El siguiente ejemplo carga estos datos dentro la funci&#xF3;n preload() y luego los dibuja en la pantalla con un for loop dentro de draw(). La funci&#xF3;n setXY() convierte la latitud y la longitud de un archivo en una elipse en la pantalla:</p>
 
-```javascript
-var cities;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var cities;
 
 function preload() {
   cities = loadTable(&quot;cities.csv&quot;, &quot;header&quot;);
@@ -5950,12 +6481,11 @@ function setXY(lat, lng) {
   var y = map(lat,   90, -90, 0, height);
   ellipse(x, y, 0.25, 0.25);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Dentro de la funci&#xF3;n preload(), observa que hay un segundo par&#xE1;metro &quot;header&quot; a&#xF1;adido a la funci&#xF3;n loadTable(). Si esto no es hecho, entonces el c&#xF3;digo tratar&#xE1; la primera l&#xED;nea como datos y no como el t&#xED;tulo de cada columna. p5.Table tiene docenas de m&#xE9;todos para lograr a&#xF1;adir y remover columnas y filas, obtener una lista de entradas &#xFA;nicas en una columna, o ordenar la tabla. Una lista m&#xE1;s completa de m&#xE9;todos y ejemplos cortos son incluidos en la Referencia de p5.js.</p>
 
-
-## JSON
+<h2>JSON</h2>
 
 <p>El formato JSON (JavaScript Object Notation) es otro sistema com&#xFA;n para almacenar datos. Tal como los formatos HTML y XML, los elementos tienen etiquetas asociadas a ellos. Por ejemplo, los datos de una pel&#xED;cula pueden incluir etiquetas para el t&#xED;tulo, director, a&#xF1;o de lanzamiento, calificaci&#xF3;n y m&#xE1;s. Estas etiquetas ser&#xE1;n emparejadas con datos de la siguiente manera:</p>
 
@@ -6008,12 +6538,13 @@ Pierrot le Fou, Jean-Luc Godard, 1965, 7.3
 
 <p>Ahora que se han introducido las nociones b&#xE1;sicos de JSON y su relaci&#xF3;n a tablas, revisemos el c&#xF3;digo necesario para leer un archivo JSON en un bosquejo de p5.js.</p>
 
-## Ejemplo 12-4: leer un archivo JSON
+<h2>Ejemplo 12-4: leer un archivo JSON</h2>
 
 <p>Este bosquejo carga el archivo JSON visto al principio de esta secci&#xF3;n, el archivo que incluye solo los datos de la pel&#xED;cula Alpaville:</p>
 
-```javascript
-var film;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var film;
 
 function preload() {
   film = loadJSON(&quot;film.json&quot;);
@@ -6026,18 +6557,19 @@ function setup() {
   var rating = film.rating;
   print(title + &quot; by &quot; + dir + &quot;, &quot; + year + &quot;. Rating: &quot; + rating);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Los datos del archivo son cargados a la variable. Los valores individuales pueden ser accesados usando el operador punto, de forma similar a como accedemos a las propiedades dentro de un objeto.</p>
 
-## Ejemplo 12-5: visualiza datos desde un archivo JSON
+<h2>Ejemplo 12-5: visualiza datos desde un archivo JSON</h2>
 
 <p>Tambi&#xE9;n podemos trabajar con un archivo JSON que contiene m&#xE1;s de una pel&#xED;cula. Aqu&#xED;, el archivo de datos comenzado en el ejemplo previo ha sido actualizado para incluir todas las pel&#xED;culas del director entre 1960 y 1966. El nombre de cada pel&#xED;cula es posicionado en orden en la pantalla seg&#xFA;n el a&#xF1;o de lanzamiento y es asignado un valor en la escala de grises seg&#xFA;n su calificaci&#xF3;n</p>.
 
 <p>Existen varias diferencias entre este ejemplo y el Ejemplo 12-4. La m&#xE1;s importante es la manera en que el archivo JSON es cargado en los objetos FIlm. El archivo JSON es precargado dentro de preload(), poblando la variable filmData con un arreglo que tiene la misma estructura que los datos en el archivo. En setup(), un for loop es usado para iterar a trav&#xE9;s del arreglo de la informaci&#xF3;n de las pel&#xED;culas y crear un objeto basado en cada elemento en el arreglo, usando el constructor Film deinido aqu&#xED;. El constructor accede a porciones de la informaci&#xF3;n y los asigna a propiedades dentro de cada objeto. El constructor Film tambi&#xE9;n define un m&#xE9;todo para mostrar el nombre de la pel&#xED;cula:</p>
 
-```javascript
-var films = [];
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var films = [];
 var filmData;
 
 function preload() {
@@ -6077,11 +6609,11 @@ function Film(f) {
     pop();
   }
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Este ejemplo es crudo en su visualizaci&#xF3;n de datos sobre pel&#xED;culas, Muestra c&#xF3;mo cargar los datos y c&#xF3;mo dibujar bas&#xE1;ndose en esos valores de los datos, pero es tu desaf&#xED;o encontrar el formato que acent&#xFA;e lo que encuentras interesante sobre los datos. Por ejemplo, &#xBF;es m&#xE1;s interesante mostrar el n&#xFA;mero de pel&#xED;culas que hizo Godard cada a&#xF1;o?, &#xBF;es m&#xE1;s interesante comprar y contrastar estos datos con las pel&#xED;culas de otro director?, &#xBF;ser&#xED;a m&#xE1;s f&#xE1;cil de leer con una fuente, tama&#xF1;o del bosquejo o raz&#xF3;n de aspecto distintos?. Las habilidades introducidas en los cap&#xED;tulos anteriores de este libro pueden ser aplicadas para llevar este bosquejo al siguiente paso de refinamiento.</p>
 
-## Datos de redes y APIs
+<h2>Datos de redes y APIs</h2>
 
 <p>El acceso p&#xFA;blico a cantidades gigantes de datos recolectados por gobiernos, corporaciones, organizaciones e individuos est&#xE1; cambiando nuestra cultura, desde la manera en que socializamos hasta c&#xF3;mo pensamos osbre ideas intangibles como la privacidad. Estos datos son muy frecuentemente accesados a trav&#xE9;s de estructuras de software lllamadas APIs.</p>
 
@@ -6095,11 +6627,11 @@ function Film(f) {
 
 <p>Lee la URL detenidamente para decodificarla:</p>
 
-1. Pide datos al subdominio api del sitio openweathermap.org.
-
-2. Especifica una ciudad a buscar (q es abreviaci&#xF3;n de query, b&#xFA;squeda, lo que frecuentemente es usado en URLs para especificar b&#xFA;squedas).
-
-3. Tambi&#xE9;n indica que los datos deben ser retornados en formato imperial, lo que significa que la temperatura estar&#xE1; en Fahrenheit. Reemplazando imperial con metric se obtendr&#xE1; la temperatura en grados Celsius.
+<ol>
+  <li>Pide datos al subdominio api del sitio openweathermap.org.</li>
+  <li>Especifica una ciudad a buscar (q es abreviaci&#xF3;n de query, b&#xFA;squeda, lo que frecuentemente es usado en URLs para especificar b&#xFA;squedas).</li>
+  <li>Tambi&#xE9;n indica que los datos deben ser retornados en formato imperial, lo que significa que la temperatura estar&#xE1; en Fahrenheit. Reemplazando imperial con metric se obtendr&#xE1; la temperatura en grados Celsius.</li>
+</ol>
 
 <p>Revisar estos datos de OpenWeatherMap es un ejemplo m&#xE1;s real&#xED;stico de trabajar con datos encontrados que los conjuntos de datos simplificados anteriores. Al momento de escribir, el archivo que retornaba la URL era el siguiente:</p>
 
@@ -6145,12 +6677,13 @@ function Film(f) {
 
 <p>Observa que los corchetes en las secciones de &quot;list&quot; y &quot;weather&quot;, indican una secci&#xF3;n de objetos JSON. Aunque el arreglo en este ejemplo solo contiene un solo &#xED;tem, en otros casos, la API podr&#xED;a retornar diversos d&#xED;as o varaciones de m&#xFA;ltiples estaciones metereol&#xF3;igicas.</p>
 
-## Ejemplo 12-6: procesando la informaci&#xF3;n del tiempo
+<h2>Ejemplo 12-6: procesando la informaci&#xF3;n del tiempo</h2>
 
 <p>El primer paso en trabajar con estos datos es estudiarlos y luego escribir un poco de c&#xF3;digo para extraer los datos deseados. En este caso, estamos curiosos sobre la temperatura actual. Podemos ver que nuestro dato de temperatura es de 34.16. Est&#xE1; marcado como temp y est&#xE1; dentro del objeto main y est&#xE1; adentro del arreglo list. Una funci&#xF3;n llamada getTemp() fue escrito espec&#xED;ficamente para que este c&#xF3;digo funcione con el formato de organizaci&#xF3;n de archivos JSON.</p>
 
-```javascript
-var weatherData;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var weatherData;
 
 function preload() {
   var temp = getTemp(weatherData);
@@ -6169,16 +6702,17 @@ function getTemp(data) {
   var t = main.temp;
   return t;
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Los datos del archivo JSON son cargados en preload() y son pasados a la funci&#xF3;n getTemp() dentro de setup(). Luego, por el formato del archivo JSON, una serie de variables es usada para llegar m&#xE1;s y m&#xE1;s profundo en la estructura de los datos para finalmente llegar al n&#xFA;mero que deseamos. Este n&#xFA;mero es almacenado en la variable temperature y luego retornada por la funci&#xF3;n para ser asignada a la variable temp en setup() donde es impresa en la consola.</p>
 
-## Ejemplo 12-7: concatenando m&#xE9;todos
+<h2>Ejemplo 12-7: concatenando m&#xE9;todos</h2>
 
 <p>La secuencia de variables JSON creada en sucesi&#xF3;n en el ejemplo anterior puede ser aproximada de forma distinta usando accesores. Este ejemplo funciona como el Ejemplo 12-6, pero los m&#xE9;todos son conectadas con el operador punto, en vez de ser calculados uno a la vez y asignados a variables entre medio:</p>
 
-```javascript
-var weatherData;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var weatherData;
 
 function preload() {
   weatherData = loadJSON(&quot;cincinnati.json&quot;);
@@ -6192,68 +6726,73 @@ function setup() {
 function getTemp(data) {
   return data.list[0].main.temp;
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Adem&#xE1;s nota c&#xF3;mo la temperatura final es retornada por la funci&#xF3;n getTemp(). En el Ejemplo 12-6, una variable es creada para almacenar el valor, luego ese valor es retornado. Aqu&#xED;, el valor de la temperatura es retornado directamente, sin una variable intermedia.</p>
 
 <p>Este ejemplo puede ser modificado para acceder a m&#xE1;s datos de la organizaci&#xF3;n y para construir un bosquejo que muestre los datos en la pantalla en vez de solo escribirlos en la consola. Tambi&#xE9;n puedes modificarlo para que lea datos de otra API - te encontrar&#xE1;s con que los datos retornados por muchas APIs comparten un formato similar.</p>
 
-
-## Robot 10: datos
+<h2>Robot 10: datos</h2>
 
 <p>El ejemplo final de robot en este libro es diferente del resto porque tiene dos partes. La primera parte genera un archivo usando valores aleatorios y for loops y la segunda parte lee ese archivo de datos para dibujar un ej&#xE9;rcito de robots en la pantalla.</p>
 
 <p>El primer bosquejo usa dos nuevos elementos de c&#xF3;digo, la clase PrintWriter y la funci&#xF3;n createWriter(). Usadas en conjunto, crean y abren un archivo en el directorio del bosquejo para almacenar los datos generados por el bosquejo. En este ejemplo, el objeto creado con PrintWriter es llamado output y el archivo es llamado botArmy.tsv. En los loops, los datos son escritos al archivo corriendo el m&#xE9;todo println() en el objeto de salida. Aqu&#xED;, los valores aleatorios son usados para definir cu&#xE1;l de las tres im&#xE1;genes del robot ser&#xE1;n dibujadas para cada coordenada. Para que el archivo se cree correctamente, el m&#xE9;todo close() debe ser ejecutado antes de que el programa se detenga. El c&#xF3;digo que dibuja una elipse es un adelanto visual para revelar la posici&#xF3;n de la coordenada en la pantalla, pero noten que la elipse no est&#xE1; grabada en el archivo:</p>
 
-```javascript
-var output;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var output;
 
 function setup() {
   createCanvas(720, 480);
-  // Crea el nuevo archivo
-  output = createWriter(&quot;botArmy.tsv&quot;);
-  // Escribe una l&#xED;nea de encabezado con los t&#xED;tulos de las columnas
-  output.println(&quot;type\tx\ty&quot;);
-  for (var y = 0; y <= height;="" y="" +="60);" {="" for="" (var="" x="0;" <="width;" var="" robottype="int(random(1," 4));="" output.println(robottype="" "\t"="" y);="" ellipse(x,="" y,="" 12,="" 12);="" }="" output.close();="" cierra="" el="" archivo="" ```="" <p="">Despu&#xE9;s que el programa es corrido, el archivo botArmy.tsv ser&#xE1; creado en el directorio del bosquejo. &#xC1;brelo para revisar c&#xF3;mo se escriben los datos. Las primeras l&#xED;neas de c&#xF3;digo de este archivo ser&#xE1;n similares a esto:<p></p>
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea el nuevo archivo</p></div><div class="code">
 
-<p>La primera columna es esencial para definir qu&#xE9; imagen de robot se va a usar, la segunda columna es la coordenada x, la tercera coluna es la coordenada y. El siguiente bosquejo carga nuestro archivo botArmy.tsv y usa los datos para estos prop&#xF3;sitos:</p>
+<pre><code>  output = createWriter(&quot;botArmy.tsv&quot;);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Escribe una l&#xED;nea de encabezado con los t&#xED;tulos de las columnas</p></div><div class="code">
 
-```javascript
- var robots;
- var bot1;
- var bot2;
- var bot3;
+<pre><code>  output.println(&quot;type\tx\ty&quot;);
+  for (var y = 0; y <= height;="" y="" +="60);" {="" for="" (var="" x="0;" <="width;" var="" robottype="int(random(1," 4));="" output.println(robottype="" "\t"="" y);="" ellipse(x,="" y,="" 12,="" 12);="" }="" output.close();="" cierra="" el="" archivo="" code=""></=></code></pre></div></div></div></div>
+<p>Despu&#xE9;s que el programa es corrido, el archivo botArmy.tsv ser&#xE1; creado en el directorio del bosquejo. &#xC1;brelo para revisar c&#xF3;mo se escriben los datos. Las primeras l&#xED;neas de c&#xF3;digo de este archivo ser&#xE1;n similares a esto:</p>
 
- function preload() {
-   bot1 = loadImage(&quot;robot1.png&quot;);
-   bot2 = loadImage(&quot;robot2.png&quot;);
-   bot3 = loadImage(&quot;robot3.png&quot;);
-   robots = loadTable(&quot;botArmy.tsv&quot;, &quot;header&quot;);
- }
+<p>La primera columna es esencial para definir qu&#xE9; imagen de robot se va a usar, la segunda columna es la coordenada x, la tercera columna es la coordenada y. El siguiente bosquejo carga nuestro archivo botArmy.tsv y usa los datos para estos prop&#xF3;sitos:</p>
 
- function setup() {
-   createCanvas(720, 480);
-   imageMode(CENTER);
-   for (var i = 0; i &lt; robots.getRowCount(); i++) {
-     var bot = robots.getNum(i, &quot;type&quot;);
-     var x = robots.getNum(i, &quot;x&quot;);
-     var y = robots.getNum(i, &quot;y&quot;);
-     var sc = 0.15;
-     if (bot == 1) {
-       image(bot1, x, y, bot1.width*sc, bot1.height*sc);
-     } else if (bot == 2) {
-       image(bot2, x, y, bot2.width*sc, bot2.height*sc);
-     } else {
-       image(bot3, x, y, bot3.width*sc, bot3.height*sc);
-     }
-   }
- }
-```
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
+<pre><code>var robots;
+var bot1;
+var bot2;
+var bot3;
+
+function preload() {
+  bot1 = loadImage(&quot;robot1.png&quot;);
+  bot2 = loadImage(&quot;robot2.png&quot;);
+  bot3 = loadImage(&quot;robot3.png&quot;);
+  robots = loadTable(&quot;botArmy.tsv&quot;, &quot;header&quot;);
+}
+
+function setup() {
+  createCanvas(720, 480);
+  imageMode(CENTER);
+  for (var i = 0; i &lt; robots.getRowCount(); i++) {
+    var bot = robots.getNum(i, &quot;type&quot;);
+    var x = robots.getNum(i, &quot;x&quot;);
+    var y = robots.getNum(i, &quot;y&quot;);
+    var sc = 0.15;
+    if (bot == 1) {
+      image(bot1, x, y, bot1.width*sc, bot1.height*sc);
+    } else if (bot == 2) {
+      image(bot2, x, y, bot2.width*sc, bot2.height*sc);
+    } else {
+      image(bot3, x, y, bot3.width*sc, bot3.height*sc);
+    }
+  }
+}
+
+</code></pre></div></div></div></div>
 <p>Una variaci&#xF3;n m&#xE1;s concisa (y flexible) de este bosquejo usa arreglos como un enfoque m&#xE1;s avanzado:</p>
 
-```javascript
-var numRobotTypes = 3;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var numRobotTypes = 3;
 var images = [];
 var scaling = 0.15;
 var botArmy;
@@ -6277,8 +6816,9 @@ function setup() {
     image(bot, x, y, width*scaling, bot.height * scaling);
   }
 }
-```
-</=></section>
+
+</code></pre></div></div></div></div>
+</section>
 
 <section data-type="chapter" id="capitulo_13_extension">
 
@@ -6310,39 +6850,40 @@ function setup() {
 
  <p>El uso m&#xE1;s com&#xFA;n de la librer&#xED;a p5.sound es para tocar un sonido cuando un evento ocurre en la pantalla o como m&#xFA;sica de fondo. Este ejemplo se basa en el Ejemplo 8-5 para reproducir un sonido cuando la figura llega a los bordes de la pantalla. El archivo blip.wav es incluido en la carpeta media que puede ser descargada siguiendo las instrucciones del cap&#xED;tulo 7. As&#xED; como con otros medios, una variable para almacenar un objeto p5.SoundFile (que es lo que la funci&#xF3;n loadSound() retorna) es definida en la parte superior del bosquejo, es cargada con preload() y despu&#xE9;s de eso, puede ser usada en cualquier parte del prorgrama:</p><p>
 
- ```javascript
- var blip;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
 
- var radius = 120;
- var x = 0;
- var speed = 1.0;
- var direction = 1;
+<pre><code>var blip;
 
- function preload() {
-   blip = loadSound(&quot;blip.wav&quot;);
- }
+var radius = 120;
+var x = 0;
+var speed = 1.0;
+var direction = 1;
 
- function setup() {
-   createCanvas(440, 440);
-   ellipseMode(RADIUS);
-   x = width/2; // Parte en el centro
- }
+function preload() {
+  blip = loadSound(&quot;blip.wav&quot;);
+}
 
- function draw() {
-   background(0);
-   x += speed * direction;
-   if ((x &gt; width - radius) || (x &lt; radius)) {
-     direction = - direction; // Invierte la direcci&#xF3;n
-     bip,play();
-   }
-   if (direction == 1) {
-     arc(x, 220, radius, radius, 0.52, 5.76);
-   } else {
-     arc(x, 220, radius, radius, 3.67, 8.9);
-   }
- }
- ```
+function setup() {
+  createCanvas(440, 440);
+  ellipseMode(RADIUS);
+  x = width/2; // Parte en el centro
+}
 
+function draw() {
+  background(0);
+  x += speed * direction;
+  if ((x &gt; width - radius) || (x &lt; radius)) {
+    direction = - direction; // Invierte la direcci&#xF3;n
+    bip,play();
+  }
+  if (direction == 1) {
+    arc(x, 220, radius, radius, 0.52, 5.76);
+  } else {
+    arc(x, 220, radius, radius, 3.67, 8.9);
+  }
+}
+
+</code></pre></div></div></div></div>
 </p><p>El sonido es gatillado cada vez que el m&#xE9;todo play() es ejecutado. Este ejemplo funciona bien porque el sonido solo est&#xE1; siendo reproducido cuando el valor de la variable x est&#xE1; en las orillas de la pantalla. Si el sonido fuera tocado en cada ejecuci&#xF3;n de draw(), el sonido se reiniciar&#xED;a 60 veces por segundo y no tendr&#xED;a tiempo de terminar de sonar. El resultado ser&#xED;a un sonido distorsionando r&#xE1;pidamente. Para tocar un sample m&#xE1;s largo mientras un programa corre, llama a los m&#xE9;todos play(), loop() para que suenen dentro de setup() as&#xED; que el sonido as&#xED; se gatilla una sola vez.</p>
 
 ## Nota
@@ -6353,8 +6894,9 @@ function setup() {
 
 <p>Adem&#xE1;s de reproduicr sonidos, p5.js puede escuchar. Si tu computador tiene un micr&#xF3;fono incorporado o conectado, la librer&#xED;a p5.sound puede leer audio en vivo a trav&#xE9;s de &#xE9;l. Una vez que los datos del micr&#xF3;fono est&#xE1;n conectados al software, los puedes analizar, modificar o reproducir:</p>
 
-```javascript
-var mic;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var mic;
 var amp;
 
 var scale = 1.0;
@@ -6362,28 +6904,32 @@ var scale = 1.0;
 function setup() {
   createCanvas(440, 440);
   background(0);
-  // Crea una entrada de audio y empieza a escuchar
-  mic = new p5.AudioIn();
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea una entrada de audio y empieza a escuchar</p></div><div class="code">
+
+<pre><code>  mic = new p5.AudioIn();
   mic.start();
-  // Crea un nuevo analizador de amplitud y con&#xE9;ctalo a la entrada
-  amp = new p5.Amplitude();
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea un nuevo analizador de amplitud y con&#xE9;ctalo a la entrada</p></div><div class="code">
+
+<pre><code>  amp = new p5.Amplitude();
   amp.setInput(mic);
 }
 
 function draw() {
-  // Dibuja un fondo que se vaya a negro
-  noStroke(0);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja un fondo que se vaya a negro</p></div><div class="code">
+
+<pre><code>  noStroke(0);
   fill(0, 10);
   rect(0, 0, width, height);
-  // El m&#xE9;todo getLevel() retorna valores entre 0 y 1
-  // as&#xED; que map() es usado para convertir los valores a n&#xFA;meros mayores
-  scale = map(amp.getLevel(), 0, 1.0, 10, width);
-  // Dibuja el c&#xED;rculo basado en el volumen
-  fill(255);
+</code></pre></div></div><div class="pair"><div class="comment"><p>El m&#xE9;todo getLevel() retorna valores entre 0 y 1 as&#xED; que map() es usado para convertir los valores a n&#xFA;meros mayores</p></div><div class="code">
+
+<pre><code>  scale = map(amp.getLevel(), 0, 1.0, 10, width);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja el c&#xED;rculo basado en el volumen</p></div><div class="code">
+
+<pre><code>  fill(255);
   ellipse(width/2, height/2, scale, scale);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Hay dos partes que est&#xE1;n tomando la amplitud (volumen) del micr&#xF3;fono a&#xF1;adido. El objeto p5.AudioIn es usado para obtener la se&#xF1;al del micr&#xF3;fono y el objeto p5.Amplitude es usado para medir la se&#xF1;al.</p>
 
 <p>Las variables para almacenar ambos objetos est&#xE1; definidas en la parte de arriba del c&#xF3;digo y creadas dentro de setup(). Despu&#xE9;s del objeto p5.Amplitude() (en este programa es llamado amp), el objeto p5.AudioIn, nombrado mic, es conectado al objeto amp con el m&#xE9;todo setInput(). Despu&#xE9;s de eso, el m&#xE9;todo getLevel() del objeto amp puede ser ejecutado en cualquier momento para leer la amplitud del micr&#xF3;fono dentro del programa. En este ejemplo, eso es hecho cada vez en draw() y ese valor es usado para definir el tama&#xF1;o del c&#xED;rculo.</p>
@@ -6394,34 +6940,38 @@ function draw() {
 
 <p>En el siguiente ejemplo, el valor de mouseX determina la frecuencia de la onda sinusoidal. Mientras el rat&#xF3;n se mueve a la izquierda y derecha, la frecuencia audible y la correspondiente visualizaci&#xF3;n de la onda aumenta y decae:</p>
 
-```javascript
-var sine;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var sine;
 
 var freq = 440;
 
 function setup() {
   createCanvas(440, 440);
 
-  // Crea e inicia el oscilador sinusoidal
-  sine = new p5.SinOsc();
+</code></pre></div></div><div class="pair"><div class="comment"><p>Crea e inicia el oscilador sinusoidal</p></div><div class="code">
+
+<pre><code>  sine = new p5.SinOsc();
   sine.start;
 }
 
 function draw() {
   background(0);
-  // Mapea el valor de mouseX entre 20 Hz y 440 Hz para la frecuencia
-  var hertz = map(mouseX, 0, width, 20.0, 440.0);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Mapea el valor de mouseX entre 20 Hz y 440 Hz para la frecuencia</p></div><div class="code">
+
+<pre><code>  var hertz = map(mouseX, 0, width, 20.0, 440.0);
   sine.freq(hertz);
-  // Dibuja una onda para visualizar la frecuencia del sonido
-  stroke(204);
+</code></pre></div></div><div class="pair"><div class="comment"><p>Dibuja una onda para visualizar la frecuencia del sonido</p></div><div class="code">
+
+<pre><code>  stroke(204);
   for (var x = 0; x &lt; width; x++) {
     var angle = map(x, 0, width, 0, TWO_PI * hertz);
     var sinValue = sin(angle) * 120;
     line(x, 0, x, height/2 + sinValue);
   }
 }
-```
 
+</code></pre></div></div></div></div>
 <p>El objeto sine, creado con el constructor de p5.SinOsc, es definido al principio del c&#xF3;digo y luego creado dentro de setup(). El m&#xE9;todo start() hace que la onda empieza a generar sonido. Dentro de draw(), el m&#xE9;todo freq() define continuamente la frecuencia de la onda, bas&#xE1;ndose en la posici&#xF3;n izquierda y derecha del rat&#xF3;n.</p>
 
 ## p5.dom
@@ -6434,8 +6984,9 @@ function draw() {
 
 <p>createCapture() accede a la webcam en tu computador y crea un elemento HTML que muestra su audio y video. Una vez que el elemento de captura es creado, puede ser dibujado en el lienzo y ser manipulado:</p>
 
-```javascript
-var capture;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var capture;
 
 function setup() {
   createCanvas(480, 120);
@@ -6449,8 +7000,8 @@ function draw() {
   image(capture, 0, 0, width, h);
   filter(INVERT);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>El objeto de capture est&#xE1; definido en la parte superior del c&#xF3;digo y luego es creado dentro de setup(). createCapture() de hecho adjunta un nuevo elemento a la p&#xE1;gina, pero como queremos dibujarlo en el lienzo, el m&#xE9;todo hide() es usado para esconder el objeto de captura. Revisa lo que pasa cuando descomentas esta l&#xED;nea de c&#xF3;digo.</p>
 
 &lt;<p></p>p&gt;Deber&#xED;as ver dos copias del video, una invertida y una normal.<p></p>
@@ -6461,8 +7012,9 @@ function draw() {
 
 <p>La funci&#xF3;n createSlider() crea una barra deslizadora que puede ser usada para manipular aspectos del bosquejo. Acepta tres argumentos - el valor m&#xED;nimo, el valor m&#xE1;ximo y el valor inicial:</p>
 
-```javascript
-var slider;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var slider;
 
 function setup() {
   createCanvas(480, 120);
@@ -6474,16 +7026,17 @@ function draw() {
   var gray = slider.value();
   background(gray);
 }
-```
 
+</code></pre></div></div></div></div>
 <p>El objeto barra deslizadora es definido en la parte superior del c&#xF3;digo y luego creado dentro de setup(). Por defecto, el elemento ser&#xE1; adjuntado a la p&#xE1;gina, justo despu&#xE9;s del elemento m&#xE1;s recientemente creado en la p&#xE1;gina. El m&#xE9;todo position() permite darle una posici&#xF3;n relativa a la esquina superior izquierda. El m&#xE9;todo value() retorna el valor actual de la barra deslizadora, el cual est&#xE1; siendo usado para definir el color del fondo del lienzo en draw().</p>
 
 ## Ejemplo 13-6: crea un recuadro de entrada
 
 <p>La funci&#xF3;n createInput() a&#xF1;ade un recuardo que puede ser usado para darle entrada de texto a tu programa. createButton() a&#xF1;ade un bot&#xF3;n que puede gatillar cualquier funci&#xF3;n que escojas. En este caso, el bot&#xF3;n es usado para entregar el texto dentro del recuadro de entrada al programa:</p>
 
-```javascript
-var input;
+<div class="codesplit"><div class="pairs"><div class="pair no-comment"><div class="code">
+
+<pre><code>var input;
 var button;
 
 function setup() {
@@ -6507,8 +7060,8 @@ function drawName() {
     text(name, random(width), random(height));
   }
 }
-```
 
+</code></pre></div></div></div></div>
 <p>Los objetos entrada y bot&#xF3;n son definidos en la parte superior del c&#xF3;digo y creados dentro de setup(). createButton() aceptoa un argumento, la etiqueta a ser mostrada en el bot&#xF3;n. El m&#xE9;todo mousePressed() es usado para asignar una funci&#xF3;n a ejecutar cuando el bot&#xF3;n es presionado. Dentro de drawName(), los contenidos del recuadro de entrada son le&#xED;dos usando el m&#xE9;todo value(), y usados para llenar el fondo con el texto.</p>
 
 </section>
