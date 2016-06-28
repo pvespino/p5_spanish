@@ -6840,13 +6840,13 @@ function setup() {
 <script language="javascript" type="text/javascript" src="../p5.sound.js"> </script>
 ```
 
-## p5.sound
+<h2>p5.sound</h2>
 
 <p> La librer&#xED;a p5.sound tiene la habilidad de reproducir, analizar y generar (sintetizar) sonido. A continuaci&#xF3;n se presentan una s pocas funciones clave; consultar la Referencia de p5.js para muchos m&#xE1;s objetos que pueden ser creados y funciones que pueden ser llamadas: http://p5js.org/reference/#/libtstird/p5.sound.</p>
 
  <p>Como las im&#xE1;genes, archivos JSON, y los archivos de texto introducidos en el Cap&#xED;tulo 7, un archivo de audio es otro tipo de medio para aumentar un bosquejo de p5.js. Sigue las instrucciones en ese cap&#xED;tulo para aprender c&#xF3;mo cargar un archivo de sonido en el directorio de un bosquejo. La librer&#xED;a p5.sound puede cargar un gran rango de formatos de archivos de audio incluyendo WAV, AIFF y MP3. Una vez que un archivo es cargado, puede ser reproducido, pausado y repetido as&#xED; mismo como distorsionado por un grupo de funciones de efecto.</p>
 
- ## Ejemplo 13-1: reproduce un sample
+<h2>Ejemplo 13-1: reproduce un sample</h2>
 
  <p>El uso m&#xE1;s com&#xFA;n de la librer&#xED;a p5.sound es para tocar un sonido cuando un evento ocurre en la pantalla o como m&#xFA;sica de fondo. Este ejemplo se basa en el Ejemplo 8-5 para reproducir un sonido cuando la figura llega a los bordes de la pantalla. El archivo blip.wav es incluido en la carpeta media que puede ser descargada siguiendo las instrucciones del cap&#xED;tulo 7. As&#xED; como con otros medios, una variable para almacenar un objeto p5.SoundFile (que es lo que la funci&#xF3;n loadSound() retorna) es definida en la parte superior del bosquejo, es cargada con preload() y despu&#xE9;s de eso, puede ser usada en cualquier parte del prorgrama:</p><p>
 
@@ -6886,11 +6886,11 @@ function draw() {
 </code></pre></div></div></div></div>
 </p><p>El sonido es gatillado cada vez que el m&#xE9;todo play() es ejecutado. Este ejemplo funciona bien porque el sonido solo est&#xE1; siendo reproducido cuando el valor de la variable x est&#xE1; en las orillas de la pantalla. Si el sonido fuera tocado en cada ejecuci&#xF3;n de draw(), el sonido se reiniciar&#xED;a 60 veces por segundo y no tendr&#xED;a tiempo de terminar de sonar. El resultado ser&#xED;a un sonido distorsionando r&#xE1;pidamente. Para tocar un sample m&#xE1;s largo mientras un programa corre, llama a los m&#xE9;todos play(), loop() para que suenen dentro de setup() as&#xED; que el sonido as&#xED; se gatilla una sola vez.</p>
 
-## Nota
+<h2>Nota<h2>
 
 <p>El objeto p5.soundFile tiene muchos m&#xE9;todos para controlar c&#xF3;mo un sonido es reproducido. Lo m&#xE1;s esenciales son play() para tocar el sample una vez, loop() para tocarlo desde el principio hasta el fin una y otra vez, stop() para parar la reproducci&#xF3;n y jump() para moverse a un momento espec&#xED;fico dentro del archivo.</p>
 
-## Ejemplo 13-2: escucha un micr&#xF3;fono
+<h2>Ejemplo 13-2: escucha un micr&#xF3;fono</h2>
 
 <p>Adem&#xE1;s de reproduicr sonidos, p5.js puede escuchar. Si tu computador tiene un micr&#xF3;fono incorporado o conectado, la librer&#xED;a p5.sound puede leer audio en vivo a trav&#xE9;s de &#xE9;l. Una vez que los datos del micr&#xF3;fono est&#xE1;n conectados al software, los puedes analizar, modificar o reproducir:</p>
 
@@ -6936,7 +6936,7 @@ function draw() {
 
 <p>Adem&#xE1;s de tocar un sonido y analizar un sonido como fue demostrado en los &#xFA;ltimos dos ejemplos, p5.js puede sintetizar sonido directamente. Los fundamentos de la s&#xED;ntesis de sonido son formas de onda, entre las que se incluyen las ondas sinusoidales, triangulares y cuadradas. Una onda sinusoidal suena agradable, una onda cuadrada es m&#xE1;s dura y una onda triangular est&#xE1; entre medio. Cada onda tiene un n&#xFA;mero de propiedades. La frecuencia, medida en Hertz, determina la altura, cu&#xE1;n grave o agudo es el tono. La amplitud de la onda determina el volumen.</p>
 
-## Ejemplo 13-3: crear una onda sinusoidales
+<h2>Ejemplo 13-3: crear una onda sinusoidales</h2>
 
 <p>En el siguiente ejemplo, el valor de mouseX determina la frecuencia de la onda sinusoidal. Mientras el rat&#xF3;n se mueve a la izquierda y derecha, la frecuencia audible y la correspondiente visualizaci&#xF3;n de la onda aumenta y decae:</p>
 
@@ -6974,13 +6974,13 @@ function draw() {
 </code></pre></div></div></div></div>
 <p>El objeto sine, creado con el constructor de p5.SinOsc, es definido al principio del c&#xF3;digo y luego creado dentro de setup(). El m&#xE9;todo start() hace que la onda empieza a generar sonido. Dentro de draw(), el m&#xE9;todo freq() define continuamente la frecuencia de la onda, bas&#xE1;ndose en la posici&#xF3;n izquierda y derecha del rat&#xF3;n.</p>
 
-## p5.dom
+<h2>p5.dom</h2>
 
 <p>La librer&#xED;a p5.dom tiene la habilidad de crear e interactuar con elementos HTML fuera del lienzo gr&#xE1;fico. La sigla DOM viene de Document Object Model, que se refiere a un conjunto de m&#xE9;todos para interactuar program&#xE1;ticamente con la p&#xE1;gina HTML. Los siguientes ejemplos presentan unas pocas funciones clave. Revisa la Referencia de p5.js para muchos m&#xE1;s elementos que pueden ser creados y funciones que pueden ser llamadas: http://p5js.org/reference/#/libraries/p5.dom.</p>
 
 <p>Tal como createCanvas() crea un lienzo gr&#xE1;fico en la p&#xE1;gina, p5.dom incluye un n&#xFA;mero de otros m&#xE9;todos create para a&#xF1;adir otros elementos HTML a la p&#xE1;gina. Ejemplos incluyen video, links URL, cuadros de entrada y barras deslizadoras.</p>
 
-## Ejemplo 3-14: accede a la webcam
+<h2>Ejemplo 3-14: accede a la webcam</h2>
 
 <p>createCapture() accede a la webcam en tu computador y crea un elemento HTML que muestra su audio y video. Una vez que el elemento de captura es creado, puede ser dibujado en el lienzo y ser manipulado:</p>
 
@@ -7004,11 +7004,11 @@ function draw() {
 </code></pre></div></div></div></div>
 <p>El objeto de capture est&#xE1; definido en la parte superior del c&#xF3;digo y luego es creado dentro de setup(). createCapture() de hecho adjunta un nuevo elemento a la p&#xE1;gina, pero como queremos dibujarlo en el lienzo, el m&#xE9;todo hide() es usado para esconder el objeto de captura. Revisa lo que pasa cuando descomentas esta l&#xED;nea de c&#xF3;digo.</p>
 
-&lt;<p></p>p&gt;Deber&#xED;as ver dos copias del video, una invertida y una normal.<p></p>
+<p>Deber&#xED;as ver dos copias del video, una invertida y una normal.</p>
 
 <p>Los datos del objeto de captura son dibujados en el lienzo en la funci&#xF3;n draw() e invertidos usando el m&#xE9;todo filter().</p>
 
-## Ejemplo 13-5: crea una barra deslizadora
+<h2>Ejemplo 13-5: crea una barra deslizadora</h2>
 
 <p>La funci&#xF3;n createSlider() crea una barra deslizadora que puede ser usada para manipular aspectos del bosquejo. Acepta tres argumentos - el valor m&#xED;nimo, el valor m&#xE1;ximo y el valor inicial:</p>
 
@@ -7030,7 +7030,7 @@ function draw() {
 </code></pre></div></div></div></div>
 <p>El objeto barra deslizadora es definido en la parte superior del c&#xF3;digo y luego creado dentro de setup(). Por defecto, el elemento ser&#xE1; adjuntado a la p&#xE1;gina, justo despu&#xE9;s del elemento m&#xE1;s recientemente creado en la p&#xE1;gina. El m&#xE9;todo position() permite darle una posici&#xF3;n relativa a la esquina superior izquierda. El m&#xE9;todo value() retorna el valor actual de la barra deslizadora, el cual est&#xE1; siendo usado para definir el color del fondo del lienzo en draw().</p>
 
-## Ejemplo 13-6: crea un recuadro de entrada
+<h2>Ejemplo 13-6: crea un recuadro de entrada</h2>
 
 <p>La funci&#xF3;n createInput() a&#xF1;ade un recuardo que puede ser usado para darle entrada de texto a tu programa. createButton() a&#xF1;ade un bot&#xF3;n que puede gatillar cualquier funci&#xF3;n que escojas. En este caso, el bot&#xF3;n es usado para entregar el texto dentro del recuadro de entrada al programa:</p>
 
@@ -7064,7 +7064,7 @@ function drawName() {
 </code></pre></div></div></div></div>
 <p>Los objetos entrada y bot&#xF3;n son definidos en la parte superior del c&#xF3;digo y creados dentro de setup(). createButton() aceptoa un argumento, la etiqueta a ser mostrada en el bot&#xF3;n. El m&#xE9;todo mousePressed() es usado para asignar una funci&#xF3;n a ejecutar cuando el bot&#xF3;n es presionado. Dentro de drawName(), los contenidos del recuadro de entrada son le&#xED;dos usando el m&#xE9;todo value(), y usados para llenar el fondo con el texto.</p>
 
-</section>
+</h2></h2></section>
 
   </body>
 </html>
