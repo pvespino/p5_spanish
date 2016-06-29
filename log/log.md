@@ -109,6 +109,34 @@ p5.js book from markdown to html for magicbook formatting
 
 ## wed june 22th 2016
 
+formatting of p5 spanish book
+
 ## thu june 23th 2016
 
+rune madsen helped me to debug the p5 spanish book
+
 ## fri june 24th 2016
+
+formatting of p5 spanish book
+
+## mon june 27th 2016
+
+formatting of p5 spanish book
+
+programming of web for allocating both book and workshop
+
+## tue june 28th 2016
+
+user testing of workshop
+
+contacting organizations in chile for promoting workshop
+
+## wed june 29th 2016
+
+moved book and workshop to their own repos
+
+programmed info web for advertising workshop
+
+## thu june 30th 2016
+
+## fri july 01st 2016
