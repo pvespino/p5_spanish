@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Introducción a p5.js</title>
+    
+    <link rel="stylesheet" href="assets/html.css">
+
+  </head>
+  <body data-type="book">
+    <div class="container">
+      <section data-type="preface" id="preface">
+
+    <script src="//toolness.github.io/p5.js-widget/p5-widget.js"></script>
+
+    <h1>Prefacio</h1>
+
+    <p>p5.js est&#xE1; inspirado y guiado por otro proyecto, que empez&#xF3; hace 15 a&#xF1;os. En el a&#xF1;o 2001, Casey Reas y Ben Fry empezaron a trabajar en una nueva plataforma para hacer m&#xE1;s f&#xE1;cil la programaci&#xF3;n de gr&#xE1;ficas interactiva, la nombraron Processing. Ellos estaban frustrados por lo dif&#xED;cil que era escribir este tipo de software con los lenguajes que normalmente usaban (C++ y Java), y fueron inspirados por lo simple que era escribir programas interesantes con los lenguajes que usaban cuando ni&#xF1;os (Logo y BASIC). Su mayor influencia fue Design by Numbers (DBN), un lenguaje que ellos estaban trabajando en mantenimiento y ense&#xF1;ando en ese tiempo (y que fue creado por su tutor de investigaci&#xF3;n, John Maeda).</p>
+
+    <p>Con Processing, Ben y Casey estaban buscando una mejor manera de probar sus ideas en c&#xF3;digo, en vez de solo conversarlas o pasar demasiado tiempo program&#xE1;ndolas en C++. Su otro objetivo era construir un lenguaje para ense&#xF1;ar c&#xF3;mo programar a estudiantes de dise&#xF1;o y de arte y tambi&#xE9;n brindarles una manera m&#xE1;s f&#xE1;cil de trabajar con gr&#xE1;ficas a estudiantes m&#xE1;s avanzados. Esta combinaci&#xF3;n es una desviaci&#xF3;n positiva de la manera en que com&#xFA;nmente se ense&#xF1;a programaci&#xF3;n. Los nuevos usuarios empiezan concentr&#xE1;ndose en gr&#xE1;ficas e interacci&#xF3;n en vez de estructuras de datos y resultados en forma de texto en la consola.</p>
+
+    <p>A trav&#xE9;s de los a&#xF1;os, Processing se ha transformado en una gran comunidad. Es usado en salas de clases en todo el mundo, en planes de estudios de artes, humanidades y ciencias de la computaci&#xF3;n, adem&#xE1;s de profesionales.</p>
+
+    <p>Hace dos a&#xF1;os, Ben y Casey se me acercaron con una pregunta: &#xBF;c&#xF3;mo se ver&#xED;a Processing si funcionara en la web? p5.js empieza con el objetivo original de Processing, hacer que programar sea accesible para artistas, dise&#xF1;adores, educadores y principiantes, y luego lo reinterpreta para la web actual usando Javascript y HTML.</p>
+
+    <p> El desarrollo de p5.js ha sido como acercar mundos distintos. Para facilitar la transici&#xF3;n a la Web de los usuarios de la existente comunidad de Processing, nos adherimos a la sintaxis y a las convenciones de Processing tanto como fuera posible. Sin embargo, p5.js est&#xE1; construido con Javascript, mientras que Processing est&#xE1; construido con un lenguaje llamado Java. Estos dos lenguajes tienen distintos patrones y funciones, as&#xED; que a en ocasiones nos tuvimos que desviar de la sintaxis de Processing. Tambi&#xE9;n fue importante que p5.js fuera integrado sin problemas a las existentes caracter&#xED;sticas, herramientas y marcos de la web, para atraer usuarios familiarizados con la web pero novatos en programaci&#xF3;n creativa. Sintetizar todos estos factores fue un gran desaf&#xED;o, pero el objetivo de unir estos marcos proporcion&#xF3; un camino claro a seguir en el desarrollo de p5.js.</p>
+
+    <p>Una primera versi&#xF3;n beta fue lanzada en agosto del 2014. Desde ese entonces, ha sido usado e integrado a programas de estudios en todo el mundo. Existe un editor oficial de p5.js que est&#xE1; actualmente en desarrollo, y ya se ha avanzado en muchas nuevas caracter&#xED;sticas y librer&#xED;as. </p>
+
+    <p> p5.js es un esfuerzo comunitario - cientos de personas han contribuido funciones esenciales, soluciones a errores, ejemplos, dise&#xF1;o, reflexiones y discusi&#xF3;n. Pretendemos continuar la visi&#xF3;n y el esp&#xED;ritu de la comunidad de Processing mientras la abrimos a&#xFA;n m&#xE1;s en la Web.</p>
+
+    <h2>C&#xF3;mo este libro est&#xE1; organizado</h2>
+
+    <p>Los cap&#xED;tulos de este libro est&#xE1;n organizados de la siguiente manera:</p>
+
+    <ul>
+        <li> 1/Hola: aprende sobre p5.js</li>
+        <li> 2/Aprendiendo a programar: crea tu primer programa en p5.js</li>
+        <li> 3/Dibujar: define y dibuja figuras simples</li>
+        <li> 4/Variables: almacena, modifica y reusa datos</li>
+        <li> 5/Respuesta: controla e influencia programas con el rat&#xF3;n, teclado y toques.</li>
+        <li> 6/Trasladar, rotar, escalar: transforma las coordenadas</li>
+        <li> 7/Media: carga y muestra medios, incluyendo im&#xE1;genes y tipograf&#xED;as</li>
+        <li> 8/Movimiento: mueve y haz coreograf&#xED;a de figuras</li>
+        <li> 9/Funciones: construye nuevos m&#xF3;dulos de c&#xF3;digo</li>
+        <li> 10/Objetos: crea m&#xF3;dulos de c&#xF3;digo que combinan variables y funciones</li>
+        <li> 11/Arreglos: simplifica el trabajo con listas de variables</li>
+        <li> 12/Datos: carga y visualiza datos</li>
+        <li> 13/Extensi&#xF3;n: aprender sobre sonido y DOM</li>
+    </ul>
+
+    <h2>Para qui&#xE9;n es este libro</h2>
+
+    <p>Este libro fue escrito para personas que quieren crear im&#xE1;genes y programas interactivos simples a trav&#xE9;s de una casual y concisa introducci&#xF3;n a la programaci&#xF3;n de computadores. Es para personas que quieren una ayuda para entender los miles de ejemplos de c&#xF3;digo en p5.js y los manuales de referencia disponibles en la web de manera gratuita. Introducci&#xF3;n a p5.js no es un libro de referencia sobre programaci&#xF3;n. Como el t&#xED;tulo sugiere, te har&#xE1; una introducci&#xF3;n. Es para adolescentes, entusiastas, abuelos, y cualquier persona entremedio.</p>
+
+    <p>Este libro es apropiado tambi&#xE9;n para personas con experiencia en programaci&#xF3;n que quieren aprender los conceptos b&#xE1;sicos sobre gr&#xE1;ficas de computador interactivas. Introducci&#xF3; a p5.js contiene t&#xE9;cnicas que pueden ser aplicadas a crear juegos, animaciones e interfaces.</p>
+
+    <h2>Convenciones usadas en este libro</h2>
+
+    <p>Las siguientes convenciones tipogr&#xE1;ficas son usadas en este libro:</p>
+
+    <h2>Usando los ejemplos de c&#xF3;digo</h2>
+
+    <p>El material complementario (ejemplos de c&#xF3;digo, ejercicios, etc.) est&#xE1; disponble para descarga en http://github.com/lmccart/gswp5.js-code.</p>
+
+    <p>Este libro est&#xE1; aqu&#xED; para ayudarte a que puedas hacer tu trabajo. En general, puedes usar el c&#xF3;digo en este libro en tus programas y documentaci&#xF3;n. No necesitas contactarnos para permiso a menos que est&#xE9;s reproduciendo una porci&#xF3;n significativa del c&#xF3;digo.
+        Por ejemplo, si est&#xE1;s escribiendo un programa que usa m&#xFA;ltiples trozos de c&#xF3;digo de este libro no requiere permiso. Vender o distribuir ejemplos de libros Make: s&#xED; requiere permiso. Responder una pregunta citando este libro y citando ejemplos
+        de c&#xF3;digo no requiere permiso. Incorporar un monto significativo de c&#xF3;digo de ejemplo de este libro en la documentaci&#xF3;n de tu producto s&#xED; requiere permiso.
+    </p>
+
+    <h2>Agradecimientos</h2>
+
+    <p>Le agradecemos a Brian Jepson y Anna Kaziunas France por su gran energ&#xED;a, apoyo y visi&#xF3;n.</p>
+
+    <p>No nos imaginamos este libro sin el ejemplo de Introducci&#xF3;n a Arduino de Massimo Banzi. Este excelente libro de Massimo es el prototipo para el nuestro.</p>
+
+    <p>Un peque&#xF1;o grupo de individuos ha, durante a&#xF1;os, contribuido tiempo y energ&#xED;a esenciales a Processing. Dan Shiffman es nuestro compa&#xF1;ero en la Fundaci&#xF3;n Processing, la organizaci&#xF3;n 501(c)(3) que apoya el software Processing. La mayor parte del c&#xF3;digo principal de Processing 2.0 y Processing 3.0 proviene de las mentes brillantes de Andres Colubri y Manindra Moharana.</p>
+
+    <p>Scott Murray, Jamie Kosoy y Jon Gacnik han construido una maravillosa infraestructura web para el proyecto. James Grady est&#xE1; luci&#xE9;ndose en la interfaz de usuario 3.0. Le agradecemos a Florian Jenett por sus a&#xF1;os de trabajo en diversas &#xE1;reas, incluyendo foros, sitio web y dise&#xF1;o. Elie Zananiri y Andreas Schlegel han creado la infraestructura para construir y documentar librer&#xED;as contribuidas y han pasado innumerables horas curando las listas. Muchos otros han contribuido significativamente al
+        projecto, los datos precisos est&#xE1;n disponibles en https://github.com/processing.
+    </p>
+
+    <p>
+        Este libro surgi&#xF3; del proceso de ense&#xF1;ar con Processing en UCLA. Chandler McWilliams ha sido instrumental en definir estas clases. Casey le agradece a los estudiantes de pregrado en el Departamento de Dise&#xF1;o y Artes Mediales en UCLA por su energ&#xED;a y entusiasmo.
+        Sus ayudantes del curso han sido grandes colaboradores al definir c&#xF3;mo Processing es ense&#xF1;ado. Agradecimientos a Tatsuya Saito, John Houck, Tyler Adams, Aaron Siegel, Casey Alt, Andres Colubri, Michael Kontopoulos, David Elliot, Christo Allegra,
+        Pete Hawkes y Lauren McCarthy.
+    </p>
+
+    <p>p5.js es desarrollado por una gran comunidad de contribuidores a lo largo del mundo. Dan Shiffman, Jason Sigal, Sam Lavigne, K. Adam White, Chandler McWilliams, Evelyn Eastmond, los miembros del grupo de trabajo de p5 en ITP, los asistentes a la primera Conferencia de Contribuidores de p5.js en el Frank-Ratchye STUDIO para la Investigaci&#xF3;n Creativa en la Universidad Carnegie Mellon, y los estudiantes y mentores del Processing Google Summer of Code han sido instrumentales en hacer que p5.js sea lo que es hoy. Apoyo significativo para el proyecto ha sido provisto por la Processing Foundation, NYU ITP, RISD y Bocoup. Puedes ver la lista completa de contribuidores en http://p5js.org/contribute/#contributors. Lauren tambi&#xE9;n le agrade a Kyle McDonald por su perpetuo apoyo e inspiraci&#xF3;n.</p>
+
+    <p> Este libro ha sido transformado por las art&#xED;sticas ilustraciones de Taeyoon Choi. Fueron desarrolladas en parte a trav&#xE9;s de una residencia en el Frank-Ratchye STUDIO para la Investigaci&#xF3;n Creativa en la Carnegie Mellon University, con apoyo del programa Art Works del National Endowment for the Arts. Charlotte Stiles ayud&#xF3; tremendamente con la edici&#xF3;n y los ejemplos e im&#xE1;genes de este libro.</p>
+
+    <p>A trav&#xE9;s del financiamento del Aesthetics and Computation Group (1996-2002) en el MIT Media Lab, John Maeda hizo todo esto posible.</p>
+
+</section>
+
+<a id="prev-link" href="toc.html">Previous: </a>
+
+<a id="next-link" href="chapter01.html">Next: Capítulo 1. Hola </a>
+    </div>
+  </body>
+</html>
