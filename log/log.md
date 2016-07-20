@@ -140,3 +140,53 @@ programmed info web for advertising workshop
 ## thu june 30th 2016
 
 ## fri july 01st 2016
+
+## mon july 04th 2016
+
+## tue july 05th 2016
+
+## wed july 06th 2016
+
+## thu july 07th 2016
+
+## fri july 08th 2016
+
+## mon july 11th 2016
+
+## tue july 12th 2016
+
+## wed july 13th 2016
+
+## thu july 14th 2016
+
+## fri july 15th 2016
+
+
+## mon july 18th 2016
+planning of week, meeting with renzo
+for taller coclea
+
+## tue july 19th 2016
+workshop for 4 people at home
+
+## wed july 20th 2016
+workshop for women who code
+
+## thu july 21th 2016
+workshop
+
+## fri july 22th 2016
+
+## mon july 04th 2016
+
+## tue july 05th 2016
+
+## wed july 06th 2016
+
+## thu july 07th 2016
+
+## sat july 08th 2016
+two workshops
+
+## sun july 08th 2016
+one workshop
